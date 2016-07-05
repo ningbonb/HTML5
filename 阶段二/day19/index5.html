@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>background-origin</title>
+		<style>
+			.div{
+				width: 400px;
+				height: 300px;
+				padding:20px;
+				border: 20px dashed rgba(0,0,0,.5);
+				background: url(img/1.jpg) no-repeat;
+				
+				/* background-origin:
+				 * 规定背景相对什么位置显示
+				 * border-box: 相对于边框
+				 * padding-box: 相对于padding
+				 * content-box: 相对于content
+				 */
+				background-origin: border-box;
+				background-origin: padding-box;
+				background-origin: content-box;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div">111111111</div>
+	</body>
+</html>

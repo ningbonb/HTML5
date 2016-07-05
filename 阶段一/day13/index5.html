@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位相对元素验证</title>
+	<style>
+		/*
+		d.相对于最近具有除了static定位外的定位元素发生偏移（如果没有定位属性的父级，默认相对于文档（document））
+		 */
+		div{ padding: 50px; }
+		.div1{ background-color: red; }
+		.div2{ background-color: yellow; }
+		.div3{ background-color: green; }
+		.div4{ background-color: blue; }
+	
+		.div1{ 
+			position: relative;
+		}
+		.div2{
+			position: relative;
+		}
+		.div3{ 
+			position: relative;
+		}
+		.div4{ 
+			position: absolute;
+			/**/
+			left: 0px;
+			top: 0px;
+			/*bottom: 20px;*/
+			/*right: 30px;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">
+		<div class="div2">
+			<div class="div3">
+				<div class="div4"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

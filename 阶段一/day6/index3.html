@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>背景</title>
+	<style>
+		div{
+			width:1000px;
+			height:1000px;
+			/*背景色*/
+			background-color: red;
+			/*背景图
+			背景图片默认平铺
+			*/
+			background-image: url( img/1.jpg);
+			/*
+				no-repeat:不平铺;
+				repeat:平铺;（默认）
+				repeat-x:水平平铺;
+				repeat-y:竖向平铺;
+			 */
+			background-repeat: no-repeat;
+
+			/*背景是否滚动
+			scroll:跟着页面滚动;（默认）
+			fixed:固定;
+			*/
+			/*background-attachment: fixed;*/
+
+			/*x y
+				x:left center right;
+				y:top center bottom;
+
+				可以只写一个：
+				right == right center
+				center == center center
+			 */
+			/*background-position: center center;*/
+			background-position: top;
+			
+			/*
+			图片左上角到浏览器左上角的距离
+			 */
+			background-position: -50px  -200px;
+			/*
+			0% 0% 元素左上角
+			100% 100% 元素右下角
+			可以为负数
+			 */
+			background-position: 50% 50%;
+			/*简写
+			1.颜色
+			2.路径
+			3.平铺
+			4.固定
+			5.位置
+			*/
+			background: red url(img/1.jpg) no-repeat fixed left center;
+
+			/*background: url(img/html.jpg)*/
+			/*background-color: yellow;*/
+		}
+	</style>
+</head>
+<body>
+	
+	<div>
+		11111111 <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		111111
+	</div>
+
+</body>
+</html>

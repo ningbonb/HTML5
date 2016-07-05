@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位</title>
+	<style>
+		div{ width: 100px; height: 100px; }
+		.div1{ background-color: red; }
+		.div2{ background-color: yellow; }
+		.div3{ background-color: green; }
+		/**/
+		/*.div2{ 
+			margin-left: 100px;
+			margin-top: 100px;
+		}
+		.div3{
+			margin-top: -100px;
+		}*/
+
+		/*相对定位移动div2*/
+		.div2{ 
+			/*设置相对定位
+			(相对于自身位置偏移)
+			*/
+			position: relative;
+			/*右移100px*/
+			left: 10px;
+			/*可以正负数*/
+			/*top: -100px;*/
+			/*底部位置*/
+			/*bottom: 100px;*/
+			bottom: 30px;
+		}
+		.div3{
+			position: relative;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+</body>
+<!-- 
+相对定位：
+a.不影响元素本身特性
+b.不会使元素脱离文档流（元素后移后位置会被保留）
+c.定位后，如果没有位置偏移，没有任何影响
+d.元素相对自身位置定位
+e.提升层级
+ -->
+</html>

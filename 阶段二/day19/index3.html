@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>阴影效果</title>
+		<style>
+			div{
+				height: 100px;
+				width: 100px;
+				border: 2px solid red;
+				margin: 20px auto;	
+			}
+			/* 参数1： x(水平方向)偏移距离，右正左负
+			 * 参数2： y(垂直方向)偏移距离，下正上负
+			 * 参数3： 模糊距离（模糊程度）0代表不模糊，数值越大越模糊
+			 * 参数4： 阴影半径，数值越大，半径越大
+			 * 参数5：阴影颜色
+			 * 参数6：inset内部阴影
+			 */
+			.div1{
+				/*box-shadow: 10px 10px 10px 10px green;*/
+				/*参数1*/
+				/*box-shadow: -5px -5px 10px 10px green;*/
+				/*参数3*/
+				/*box-shadow: 0px 0px 30px 10px green;*/
+				
+				/*box-shadow: 0px 0px 5px 5px green inset;*/
+				
+				/* 单边阴影：
+				 * 模糊距离 = 阴影的大小 小于x，y偏移量
+				 * 
+				 */
+				box-shadow: 5px 0px 3px -3px black;
+				
+				box-shadow: 0px 5px 3px -3px black;
+				
+			}
+			
+			.div2{
+				/*多个阴影，逗号隔开*/
+				box-shadow: 0 0 1px 1px red,
+							0 0 5px 5px blue,
+							0 0 10px 10px green;
+			}
+			
+			.div3{
+				width: 150px;
+				text-align: center;
+				line-height: 100px;
+				font-size: 30px;
+				font-weight: bold;
+				/*四个属性*/
+				text-shadow: 2px 2px 5px red,
+							 4px 4px 10px blue,
+							 8px 8px 15px green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3">文字内容</div>
+		
+	</body>
+</html>

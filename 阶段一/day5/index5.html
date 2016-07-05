@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器优先级</title>
+	<style>
+		/*#idP{ background-color: pink; }*/
+		p{ background-color: red; }
+		/*.cl{ background-color: blue; }*/
+		/*p{ background-color: yellow !important}*/
+		
+		/*属性选择器优先级和伪类优先级相同，代码后面覆盖前面*/
+		p[text]{ background-color: purple; }
+		
+		p:first-child{ background-color: green; }
+		.cl{ background-color: blue; }
+
+		span{ color: red; }
+		div span{ color: blue; }
+		.div1C span{ color: yellow; }
+		.div1C .spanC{ color: black; }
+		#divI span{ color: green; }
+		/*1 + 1 + 1 = 3*/
+		div div span{ color: red; }
+		.spa2{ color: yellow; }
+
+		/*优先级大于伪类*/
+		/*div div .spa2{ color: yellow; }*/
+		span:first-child{ color: blue; }
+
+		div .spa2{ color: yellow; }
+		.text1{
+			height:100px;
+			width:100%;
+			min-width:1080px;
+			background-color:red;
+		}
+	</style>
+</head>
+<body>
+	<div class="text1">ppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp</div>
+	<p text class="cl" id="idP" -style="background-color: orange;">pppppppppppppppppppppqqqqqqqqqqqq</p>
+
+	<div class="div1C" id="divI">
+		<span class="spanC">span------------</span>
+	</div>
+
+	<div>
+		<div>
+			<span class="spa2">span222222</span>
+		</div>	
+	</div>
+
+	<!-- 
+		css优先级：!important>行间样式>ID选择器>属性选择器&&伪类选择器>类选择器>元素选择器
+
+		优先级划分
+		a:行内样式：优先级1000
+		b:ID选择器：优先级100
+		c:类选择器：优先级10 (伪类属性优先级10 div:first-child == 11)
+		d:元素选择器：优先级1
+
+		!important:优先级最大10000（用了后就不能修改 慎用）
+		span 优先级1
+		div span 优先级 1+1
+		.divC span 优先级 10+1
+		#divI span 优先级 100+1
+	-->
+
+</body>
+</html>

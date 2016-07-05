@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父元素浮动问题</title>
+	<style>
+		.box{
+			border: 1px solid black;
+			/*overflow: hidden;*/
+			float: left;
+		}
+		/*.box::after{
+			content: "";
+			display: block;
+			visibility: hidden;
+			clear: both;
+		}*/
+		.box div{
+			height: 100px;
+			width: 100px;
+			/*float: left;*/
+		}
+		.box .div1{
+			background-color: blue;
+			/*float: left;*/
+			height: 150px;
+		}
+		.box .div2{
+			background-color: green;
+			height: 200px;
+		}
+		/*
+		第一：父元素不浮动，子元素也不浮动，子元素内容可以撑起父元素高度
+		第二：父元素不浮动，子元素浮动，不可以撑起父元素高度
+
+		第三：父元素浮动，子元素不浮动，可以撑起父元素高度
+		第四：父元素浮动，子元素也浮动，也可以撑起父元素高度
+		 */
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</div>
+</body>
+</html>

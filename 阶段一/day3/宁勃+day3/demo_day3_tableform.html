@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table+form</title>
+	<style>
+		table>tbody>tr>th{
+			text-align:left;
+			padding-left:5px;
+		}
+		.col2{
+			text-align:left;
+			padding-left:10px;
+		}
+		.col3{
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<table border="1px" 
+	style="border-collapse:collapse; margin:auto; margin-top:20px; border-color:#C7A285">
+		<colgrounp>
+			<col style="width:100px;">
+			<col style="width:160px;">
+			<col style="width:250px;" class="col3">
+		</colgrounp>
+		<caption style="margin-bottom:3px; font-weight:bold; font-size:.8em;">表1 input元素type属性值</caption>
+		<thead>
+			<tr style="border:none; background-color:#F99547;
+				color:#fff;
+				font-size:.9em;
+			">
+				<th>type属性值</th>
+				<th>说明</th>
+				<th>浏览器效果（参考效果）</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>text</th>
+				<td class="col2">单行文本框</td>
+				<td class="col3"><input type="text" name="text" value="admin"></td>
+			</tr>
+			<tr>
+				<th>password</th>
+				<td class="col2" class="col2">密码文本框</td>
+				<td class="col3"><input type="password" value="123456"></td>
+			</tr>
+			<tr>
+				<th>button</th>
+				<td class="col2">按钮</td>
+				<td class="col3"><input type="submit" value="注册"></td>
+			</tr>
+			<tr>
+				<th>reset</th>
+				<td class="col2">重置按钮</td>
+				<td class="col3"><input type="reset"></td>
+			</tr>
+			<tr>
+				<th>image</th>
+				<td class="col2">图形形式的提交按钮</td>
+				<td class="col3"><input type="image" src="img/imgsub.jpg"></td>
+			</tr>
+			<tr>
+				<th>radio</th>
+				<td class="col2">单选按钮</td>
+				<td class="col3">性别：
+				<input type="radio" name="gender" value="0" checked>男
+				<input type="radio" name="gender" value="1">女
+				</td>
+			</tr>
+			<tr>
+				<th>checkbox</th>
+				<td class="col2">复选框</td>
+				<td class="col3">
+					兴趣：
+					<input type="checkbox" name="habby" value="0" checked>旅游
+					<input type="checkbox" name="habby" value="1">摄影
+					<input type="checkbox" name="habby" value="2" checked>运动
+				</td>
+			</tr>
+			<tr>
+				<th>hidden</th>
+				<td class="col2">隐藏字段</td>
+				<td><input type="hidden" name="sname" value="1111"></td>
+			</tr>
+			<tr>
+				<th>file</th>
+				<td class="col2">文件上传</td>
+				<td class="col3">
+					上传个人照片<br>
+					<input type="file" name="upfile" style="margin-left:145px;">
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

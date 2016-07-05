@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>过渡动画</title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				/*动画设置*/
+				
+				/*-webkit-transition-property: all;*/
+				/*动画属性，让哪一个属性有动画(多个属性用逗号隔开)*/
+				/*transition-property: background,width,height;*/
+				/*transition-property: all;*/
+				/*动画持续时间（必要条件）*/
+				/*transition-duration: 1s;*/
+				
+				/*简写: 动画属性省略：默认的所有（all）*/
+				transition: 1s;
+			}
+			div:hover{
+				width: 200px;
+				height: 200px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

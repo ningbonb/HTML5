@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2d变形</title>
+		<style>
+			/* 
+			 * transform:
+			 * translateX
+			 * 效果和positon: relative相似，但是性能会高
+			 */
+			.div1{
+				height: 200px;
+				width: 200px;
+				background: red;
+				/* 正数：右移动
+				 * 负数：左移动
+				 */
+				/*transform: translateX( -100px );*/
+				/* Y: 正数：上移动
+				 * 负数：下移动
+				 * 
+				 */
+				transform: translateY( -50px );
+				/*简写*/
+				transform: translate(50px,50px);
+				/* 百分比:元素宽度高度百分比
+				 * 可以为负数
+				 */
+				transform: translate(100%,50% );
+				transform: translate(20%,50% );
+				
+				/*
+				 * 兄弟元素布局参考的是初始位置
+				 */
+				transform: translate(10px,10px)
+				
+			}
+			.test{
+				width: 100px;
+				height: 50px;
+				background: blue;
+			}
+			
+			/*scale: 缩放
+			 *
+			 */
+			.scale{
+				width: 200px;
+				height: 200px;
+				background: pink;
+				margin: 10px auto;
+				/*扩大两倍*/
+				transform: scaleX(2);
+				transform: scaleY(1.5);
+				transform: scaleY(0.5);
+				/*简写*/
+				transform: scale(2,2);
+				/*
+				 * 兄弟元素布局参考的是初始位置
+				 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="test"></div>
+		<hr />
+		<div class="scale"></div>
+	</body>
+</html>

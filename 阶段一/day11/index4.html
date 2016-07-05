@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动定义</title>
+	<style>
+		.box{
+			border: 2px solid gray;
+		}
+		.box div{
+			width: 100px;
+			height: 100px;
+		}
+		.div1{
+			background-color: red;
+		}
+		.div2{
+			background-color: blue;
+			float: left;
+		}
+		/*
+		浮动：使元素脱离文档流，按照指定方向移动，遇到父元素边界或者相邻元素边界停止
+		 */
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="div1"></div>
+		<div class="div2"></div>
+	</div>
+	
+</body>
+</html>

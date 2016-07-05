@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	html{
+		font-size: 10px;
+	}
+
+	.wrap{
+		max-width: 640px;
+		margin: 0 auto;
+	}
+	header img{
+		width: 100%;
+		vertical-align: top;
+	}
+	/*width:275px*/
+	.main{
+		background: url("images/main_bg.jpg") 0 0 no-repeat;
+		background-size: 100%;
+		/*上边距离/宽度*/
+		padding: 8.4375% 6.5625% 0;
+
+	}
+	.main_txt{
+		text-indent: 2em;
+		font-size: 2.6rem;
+		/*line-height: 3rem;*/
+		/*行高文字倍数*/
+		line-height: 1.5;
+		/*文字距离左右缩进百分比*/
+		padding: 0 1.25%;
+	}
+	.main_txt mark{
+		color: #e85319;
+		background-color: transparent;
+	}
+	/*小图片父元素（main宽度）占的百分比 56/275*/
+	.details{
+		width: 20.36364%;
+		display: inline-block;
+		/*取消继承父元素缩进*/
+		text-indent: 0;
+	}
+	.details img{
+		width: 100%;
+		/*在a标签中居中*/
+		vertical-align: middle;
+	}
+	.download{
+		/*距离上边距 24/275
+		下边距:45/275;
+		*/
+		margin:8.72727% 0 16.36364%;
+		overflow: hidden;
+	}
+	.download a{
+		float: left;
+		/*a占据大小百分比  135/275*/
+		width: 49.09091%;
+
+	}
+	.download a:nth-child(1){
+		/*左右边距*/
+		margin-right: 1.81818%;
+	}
+	.download a img{
+		width: 100%;
+	}
+	.win img{
+		width: 100%;
+	}
+	.main form{
+		/* 上padding ： 10/275
+			下padding：14/275
+			左右46/275
+		*/
+		padding: 3.89105% 16.72727% 5.090909%;
+	}
+	.main form input{
+		width: 100%;
+		border: 1px solid #ced5e8;
+		/*避免边框误差*/
+		box-sizing: border-box;
+		background: #f9fafe url("images/user.jpg") right center no-repeat;
+		/*可以通过媒体查询改*/
+		height: 38px;
+	}
+	.user_phone{
+		/*底部边距/form宽度
+		8/179
+		*/
+		margin-bottom: 4.46927%;
+	}
+	.security{
+		width: 100%;
+		overflow: hidden;
+	}
+	.security input{
+		float: left;
+	}
+	.security input:nth-child(1){
+		/*122/179*/
+		width: 68.15642%;
+	}
+	.security input:nth-child(2){
+		width: 31.8%;
+		background: none;
+		font-size: 1.4rem;
+		color: #fdb32e;
+	}
+	.logon{
+		/*左边：21/179  上下9/179*/
+		padding: 5.02793% 0 5.02793% 11.73184%;
+		overflow: hidden;
+	}
+	.logon span{
+		float: left;
+		width: 59.03875%;
+		font-size: 1.8rem;
+	}
+	.logon mark{
+		background: transparent;
+		color: #fb0a03;
+		padding: 0 2px;
+	}
+	.logon a{
+		float: right;
+		width: 40%;
+	}
+	.logon a img{
+		width: 100%;
+		vertical-align: top;
+	}
+
+	.share img{
+		vertical-align: top;
+		width: 100%;
+	}
+	footer{
+		margin-top: 20px;
+		padding: 24px 0;
+		text-align: center;
+		background-color: #e89316;
+		color: white;
+		font-size: 2.4rem;
+		line-height: 36px;
+	}
+	footer a{
+		color: white;
+		text-decoration: none;
+	}
+	@media screen and (max-width: 480px){
+		html{
+			font-size: 5px;
+		}
+		.wrap{
+			min-width: 320px;
+		}
+		.main form input{
+			height: 20px;
+			background-size: 26px 20px;
+		}
+		footer{
+			padding: 12px 0;
+			line-height: 18px;
+		}
+	}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<header>
+			<img src="images/banner.jpg" alt="">
+		</header>
+		<div class="main">
+			<p class="main_txt">
+				今天天气太好了<mark>哈哈</mark>打打闹闹的说法是看看看对方看看书打打闹闹的说法是看看看对方看看书<a class="details" href="###"><img src="images/details.jpg" alt=""></a>
+				</p>
+			<div class="download">
+				<a href="###"><img src="images/ios.jpg" alt=""></a><a href="###"><img src="images/android.jpg" alt=""></a>
+				</div>
+			<div class="win">
+				<img src="images/win.jpg" alt="">
+				</div>
+			<form action="">
+				<input placeholder="姓名（4字内）" class="user_phone" type="text">
+				<input placeholder="手机号码" class="user_phone" type="text">
+				<div class="security">
+					<input type="text">
+					<input type="button" value="获取验证码">
+				</div>
+				<div class="logon">
+					<span><mark>*</mark>请填写真实信息以便享受会员服务</span>
+					<a href="###">
+						<img src="images/logon.jpg" alt="">
+					</a>
+				</div>
+				<div class="share">
+					<img src="images/share.jpg" alt="">
+				</div>
+			</form>
+		</div>
+		<footer>
+			<p>如家官方微信：homeinns2012</p>
+			<p>全国订房电话：<a href="tel:400-820-3333">400-820-3333</a></p>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>清浮动</title>
+	<style>
+		.box{
+			border: 1px solid red;
+		}
+		.box span{
+			height: 100px;
+			width: 100px;
+		}
+		.box div{
+			height: 100px;
+			width: 100px;
+		}
+		.span1{
+			background-color: gray;
+			/*float: right;*/
+			float: left;
+		}
+		.div2{
+			background-color: blue;
+			/*清除浮动*/
+			/*clear: right;*/
+			clear: both;
+		}
+
+		/*
+		clear:
+		left:清除元素前所有左浮动元素对自己的影响;
+		right：清除元素前面所有右浮动元素对自己的影响
+		both:清除元素前面所有左或右浮动元素对自己的影响;
+		 */
+		.box2{
+			border: 1px solid red;
+		}
+		.box2 div{
+			height: 100px;
+			width: 100px;
+		}
+		.box2_div1{
+			background-color: blue;
+			float: left;
+		}
+		.box2_div2{
+			background-color: green;
+			float: right;
+		}
+		.box2_div3{
+			background-color: yellow;
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" >
+		<span class="span1"></span>
+		<div class="div2"></div>
+	</div>
+	
+
+	<div class="box2">
+		<div class="box2_div1"></div>
+		<div class="box2_div2"></div>
+		<div class="box2_div3"></div>
+	</div>
+</body>
+</html>

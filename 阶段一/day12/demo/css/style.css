@@ -1,0 +1,70 @@
+/**/
+body{ margin: 0; padding: 0; font-weight: 100%; background-color: #E9E9E9; font-family: "黑体"; }
+img{ vertical-align: top; border: 0; }
+p{ margin: 0; padding: 0; }
+.all{ width: 915px; margin: 30px auto; background-color: #fff; }
+/*背景+图片*/
+header{ width: 100%; }
+nav{ width: 100%; height: 105px; background: url(../img/nav.jpg); }
+.relax{ width: 100%; }
+a{ text-decoration: none; }
+
+/*main*/
+main{ width: 100%; margin-top: 10px; }
+main::after{ content:""; display: block; visibility: hidden; height: 0; clear: both; }
+.left{ width: 325px; float: left; }
+.video{ height: 285px; width: 100%; background-color: black; }
+.video video{ height: 285px; width: 100%; }
+.more{ height: 200px; width: 100%; border: 1px solid #D4D4D4; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; margin-top: 10px; background: url(../img/bg1.png); }
+.morebutton{ width: 57px; height: 18px; line-height: 18px; background-color: black; font-size: .8em; text-align: center; margin-top: 10px; margin-left: 15px; }
+.more hr{ margin:10px auto; width: 295px; }
+.morebutton a{ text-decoration: none; color: white; }
+.morebox{ width: 295px; margin: auto; }
+.morebox::after{ content:""; display: block; clear: both; height: 0; visibility: hidden; }
+.minmorebox{ height: 67px; width: 145px;  background-color: #4B4B4D; float: left; margin-bottom: 5px;}
+.minmorebox:first-child{ margin-right: 5px;}
+.minmorebox:last-child{ margin-left: 5px; }
+.minmorebox a{ color: white; text-decoration: none; font-size: .7em; }
+.minmorebox img{ height: 67px; width: 67px; float:left; }
+.minmorebox img:hover{ opacity: .5; }
+.minmorebox p{ float: left; width: 72px; margin-top: 20px; margin-left: 3px; }
+.free{ height: 325px; width: 100%; border: 2px solid #D4D4D4; margin-top: 10px; }
+.freenav{ background-color: #363636; width: 315px; padding-left: 10px; height: 35px; line-height: 35px; font-size: .9em; }
+.freenav a{ text-decoration: none; color: white; }
+.freeimg{ height: 80px; width: 100%; }
+.freeimg img{ width: 100%; }
+.jiang{ width: 100%; margin-left: 10px; margin-top: 17px; }
+.jiang a{ text-decoration: none; color: black; }
+.jleft{ width: 130px; float: left; }
+.jleft p{ font-size: .9em; line-height: 1.3em; }
+.jleftp a,.jpr a{ color: red; }
+.jiangnav{ background: url(../img/jiangbg.png) no-repeat; padding-left: 10px; color: #444A5A; font-size: .9em; }
+.jiangnav:hover{ color: black; }
+.jleft img{ width: 100%; margin-top: 5px; margin-bottom: 5px; }
+.jright{ width: 130px; float: left; margin-left: 25px; }
+.jright p{ font-size: .8em; line-height: 1.4em; }
+.jpr{ margin-top: 3px; }
+.right{ width: 570px; float: right; }
+.hotmore{ height:150px; }
+.hotmorenav{ height: 35px; line-height: 35px; padding-left: 10px; background-color: #363636; color: white; }
+.hotmorenav a{ color: white; font-size: .8em; }
+.hotmore img{ width: 100%; }
+.add{ height:220px; border: 2px solid #D4D4D4; }
+.addleft{ width: 235px; float: left; margin-left: 20px; }
+div.addright{ float: right; margin-right: 20px; }
+.addtop{ height: 68px; padding: 20px 0; border-bottom: 1px dashed black; }
+div.addbottom{ border: none; }
+.addtop img{ border: 2px solid #D3D3D3; float: left; margin-right: 10px; }
+.addtop img:hover,.ad a img:hover{ opacity: .5; }
+.addtop p{ text-indent: 2em; margin: 0;}
+.addtop a{ font-size: .8em; color: black;  }
+.hotp1 a{ color: red; }
+.ad{ height:415px; width: 100%; margin-top: 10px; }
+.ad1{ width:280px; height: 105px; margin-right:10px; float: left; }
+.ad2{ width:280px; height: 105px; float: left; overflow: hidden; }
+.ad1 a,.ad2 a{ width: 100%; height: 100%; text-decoration: none; display: inline-block; }
+.ad1 img,.ad2 img{ width: 100%; vertical-align: top; }
+
+/*页脚*/
+footer{ background-color: #383838; color: white; text-align: center; clear: both; margin-top: 20px; }
+footer p{ font-size: .8em; line-height: 2.2em; }

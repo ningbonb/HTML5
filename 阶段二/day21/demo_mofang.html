@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>立体相册</title>
+		<style>
+			.box{
+				height: 200px;
+				width: 200px;
+				/*background: black;*/
+				/*border: 1px solid black;*/
+				margin: 120px auto;
+				position: relative;
+				perspective: 2000px;
+				transform-style: preserve-3d;
+				transform:rotateX(45deg) rotateY(45deg);
+				/*-webkit-box-reflect: below;*/
+				transition: all 6s;
+			}
+			.box:hover{
+				transform: rotateY(180deg) rotateX(90deg) rotateX(30deg);
+				}
+			.box div{
+				height: 200px;
+				width: 200px;
+				position: absolute;
+				opacity: 0.8;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			div img{
+				width: 200px;
+				height: 200px;
+			}
+			.div1{
+				background-color: red;
+				transform: translateZ(100px);
+			}
+			.div2{
+				background-color: green;
+				transform-origin: left;
+				transform: translateZ(100px) rotateY(90deg);
+			}
+			.div3{
+				background-color: blue;
+				transform-origin: right;
+				transform: translateZ(100px) rotateY(-90deg);
+			}
+			.div4{
+				background-color: yellow;
+				transform-origin: bottom;
+				transform:translateZ(-100px) rotateX(-90deg);
+			}
+			.div5{
+				background-color: silver;
+				transform-origin: top;
+				transform: translateZ(100px) rotateX(-90deg);
+			}
+			.div6{
+				background-color: white;
+				transform: translateZ(-100px) rotateY(180deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">
+				<img src="img/1.jpg" alt="" />
+			</div>
+			<div class="div2">
+				<img src="img/2.jpg" alt="" />
+			</div>
+			<div class="div3">
+				<img src="img/3.jpg" alt="" />
+			</div>
+			<div class="div4">
+				<img src="img/4.jpg" alt="" />
+			</div>
+			<div class="div5">
+				<img src="img/5.jpg" alt="" />
+			</div>
+			<div class="div6">
+				<img src="img/6.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+</html>

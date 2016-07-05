@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*css2*/
+			.testP:after{
+				content: "22";
+				display: block;
+				clear: both;
+				overflow: hidden;
+			}
+			.testP:before{
+				content: "before";
+				/*display: inline-block;*/
+				height: 100%;
+				vertical-align: middle;
+			}
+			.p2::first-letter{
+				color: red;
+				font-size: 20px;
+			}
+			.p2:first-line{
+				color: blue;
+			}
+			
+			/*目标伪类选择器，p标签被跳转后起作用*/
+			#top:target{
+				background: red;
+			}
+			.p2{
+				/*padding-top: 1000px;*/
+			}
+			
+			/*选择禁用状态输入框*/
+			input:disabled{
+				background-color: red;
+			}
+			/*选择正常编辑的输入框，默认enabled*/
+			input:enabled{
+				/*background-color: blanchedalmond;*/
+			}
+			/*处于焦点状态*/
+			input:focus{
+				background-color: blue;
+			}
+			
+			/*css3选中被选中radio*/
+			input:checked:after{
+				content: "被选中";
+				display: inline-block;
+				width: 100px;
+				margin-left: 20px;;
+			}
+			/*数值在范围内*/
+			input:in-range{
+				/*background-color: red;*/
+			}
+			/*数值超出范围*/
+			input: out-of-range{
+				/*background-color: blue;*/
+			}
+			
+			/*选中只读input*/
+			input:read-only{
+				background-color: red;
+			}
+			/*选中读写（默认）*/
+			input:read-write{
+				/*background-color: blue;*/
+			}
+			
+			/*选择必须填写值，否则不能提交*/
+			input:required{
+				background: red;
+			}
+			/*默认，与required相对*/
+			input:optional{
+				/*background: blue;*/
+			}
+			
+			/*合法*/
+			input:valid{
+				background-color: red;
+			}
+			span{
+				display: none;
+			}
+			/*不合法*/
+			input:invalid+span{
+				background: blue;
+				display: inline;
+			}
+			
+			/*两个:: 双击选中状态*/
+			div::selection{
+				background-color: red;
+				/*font-size: 30px;*/
+				color: blue;
+				/*height: 80px;*/
+			}
+			/*选择没有子元素并且没有内容*/
+			div:empty{
+				height: 50px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="top">11</p>
+		<p class="testP">ppp11111</p>
+		<p class="p2">ppppp<br />ppp</p>
+		<a href="#top">回到锚点</a>
+		
+		<form action="">
+			正常：<input type="text" />
+			不可以编辑：<input type="text" disabled />
+			默认选中：<input type="text" autofocus="" />
+			<hr />
+			男：<input type="radio" name="11" checked="" />
+			<br />
+			女：<input type="radio" name="11" />
+			<hr />
+			10~100<input type="number" min="10" max="100" value="20" />
+			<hr />
+			只读：<input type="text" readonly />
+			<br />
+			读写：<input type="text" />
+			<hr />
+			必须有值：<input type="text" required="" />
+			<input type="submit" />
+			<hr />
+			email: <input type="email" /><span>内容不合法</span>
+		</form>
+		<div>
+			<p>22</p>
+		</div>
+		<div>111
+			<p>222</p>
+		</div>
+		<div>222</div>		
+		<div></div>
+	</body>
+</html>

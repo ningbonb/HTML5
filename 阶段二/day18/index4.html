@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>结构选择器</title>
+		<style>
+			/*css2*/
+			.div1 p:first-child{
+				/*color: red;*/
+			}
+			
+			/*css3*/
+			.div1 p:last-child{
+				color: red;
+			}
+			/*div下的p，（父元素下的所有p中的第一个p）
+			 * 对应，first-child：不会被其他非p元素的干扰
+			 * */
+			.div2 p:first-of-type{
+				/*color: red;*/
+			}
+			.div2 p:last-of-type{
+				color: blue;
+			}
+			
+			/*选中div下p，满足是父元素唯一的子元素*/
+			.div3 p:only-child{
+				/*color: red;*/
+			}
+			/*选中div下p，满足是父元素唯一的子元素
+			 * (所有的p，其他元素不会干扰，只要满足p只有一个就可以)*/
+			.div3 p:only-of-type{
+				color: blue;
+			}
+			
+			/*选择div下p,满足是父元素下的第n个*/
+			.div4 p:nth-child(2){
+				/*color: red;*/
+			}
+			/*同上，从后选*/
+			.div4 p:nth-last-child(1){
+				color: red;
+			}
+			
+			/*对比: :nth-child (其他非p元素不会干扰)*/
+			.div5 p:nth-of-type(1){
+				color: yellow;
+			}
+			/*同上*/
+			.div5 p:nth-last-of-type(1){
+				color: green;
+			}
+			
+			/*odd:奇数
+			 * even：偶数
+			 * */
+			.div6 div:nth-child(odd){
+				/*color: red;*/
+			}
+			.div6 div:nth-child(even){
+				/*color: blue;*/
+			}
+			/*只对子元素是div的元素比较，其他元素不会干扰*/
+			.div6 div:nth-of-type(odd){
+				/*color: red;*/
+			}
+			
+			/*从后计算*/
+			.div6 div:nth-last-child(odd){
+				/*color: yellow;*/
+			}
+			.div6 div:nth-last-of-type(odd){
+				/*color: blue;*/
+			}
+			
+			/*n从0递增，+1...*/
+			.div7 div:nth-child(n){
+				color: red;
+			}
+			
+			/*代表偶数*/
+			.div7 div:nth-child(2n){
+				color: blue;
+			}
+			.div7 div:nth-child(2n+1){
+				color: yellow;
+			}
+			
+			/*不选前3（num-1）个*/
+			.div7 div:nth-child(n+3){
+				color: red;
+			}
+			
+			/*选择前num个*/
+			.div7 div:nth-child(-n+4){
+				color: saddlebrown;
+			}
+			
+			/*最常用
+			 * 三列，选择每行的第二个元素
+			 * 3n+2
+			 * */
+			
+			
+			
+			ul{
+				padding: 0;
+				margin: 0;
+				border: 1px solid red;
+				width: 500px;
+				overflow: hidden;
+				padding-bottom: 100px;
+			}
+			li{
+				float: left;
+				list-style: none;
+				width: 20%;
+				height: 80%;
+				color: blue;
+			}
+			ul li:nth-child(5n+2){
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<a href="#">aa</a>
+			<p>111</p>
+			<p>222</p>
+			<div>
+				<p>3333</p>
+			</div>
+		</div>
+		<div class="div2">
+			<h4>h4444444</h4>
+			<p>p11111111</p>
+			<p>p22222222</p>
+			<div>
+				<a href="">111</a>
+				<p>pppp2.5</p>
+				<p>p333333</p>
+			</div>
+		</div>
+		<hr />
+		
+		<div class="div3">
+			<p>p11111111111</p>
+			<a href="">aaaaaa</a>
+			<div>
+				<p>p222</p>
+				<p>p333</p>
+			</div>
+		</div>
+		<div class="div4">
+			<h4>h444</h4>
+			<a href="#">qqq</a>
+			<p>ppppppppp111111111</p>
+			<p>ppppppppp222222222</p>
+			<div>
+				<p>3333333</p>
+				<p>ppp444444444</p>
+			</div>
+		</div>
+		
+		<hr />
+		
+		<div class="div5">
+			<h3>h333333333</h3>
+			<p>pp1111111111</p>
+			<p>p22222222222</p>
+			<div></div>
+			<h6>6666</h6>
+		</div>
+		
+		<hr />
+		<div class="div6">
+			<a href="">111</a>
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<h5>555</h5>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		<hr />
+		<div class="div7">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+			<li>13</li>
+			<li>14</li>
+			<li>15</li>
+			<li>16</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>font-face</title>
+		<!--font-face
+			css3之前，用的字体，必须是计算机安装的字体
+			
+			font-face: 自定义字体
+			
+			常见的字体格式
+			ttf,woff,eot,svg
+			ttf:所有浏览器chrome,Safari,火狐等支持（除了ie）
+			eot:ie独有
+		-->
+		<style>
+			@font-face{
+				font-family: fontName;
+				/*路径*/
+				src:url(p/burnstowndam.ttf);
+			}
+			@font-face{
+				font-family: fontNameZh;
+				/*路径*/
+				src:url(p/Font.ttf);
+			}
+			
+			/*兼容模式写法*/
+			@font-face{
+				font-family: fontNameNew;
+				/*路径*/
+				src:
+					url(p/Font.eot),
+					url(p/Font.svg),
+					url(p/Font.woff),
+					url(p/Font.ttf);
+			}
+			p{
+				/*必须和font-face下名字一致*/
+				font-family:fontNameNew;
+				font-size: 50px;
+			}
+			h1{
+				/*必须和font-face下名字一致*/
+				font-family:fontName;
+				font-size: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>年后。。。。。阿九急啊急sjbkjefisdfhsdhfsidh</p>
+		<h1>sjbkjefisdfhsdhfsidh</h1>
+	</body>
+</html>

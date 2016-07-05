@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>移动设备和桌面屏幕</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style>
+			.container {
+				background: rgba(86, 61, 124, .2);
+				color: white;
+				font-size: 2rem;
+			}
+			
+			.container-fluid {
+				background: rgba(86, 61, 124, .2);
+				color: white;
+				font-size: 2rem;
+			}
+			
+			div[class^='col'] {
+				border: 1px solid rgba(86, 61, 124, .2)
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<!-- Stack the columns on mobile by making one full-width and the other half-width -->
+			<div class="row">
+				<div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>
+				<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+			</div>
+
+			<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+			<div class="row">
+				<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+				<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+				<div class="col-xs-6 col-md-4">.col-xs-6 .col-md-4</div>
+			</div>
+
+			<!-- Columns are always 50% wide, on mobile and desktop -->
+			<div class="row">
+				<div class="col-xs-6">.col-xs-6</div>
+				<div class="col-xs-6">.col-xs-6</div>
+			</div>
+			<div class="row">
+				<!--多余的列（column）将另起一行排列
+如果在一个 .row 内包含的列（column）大于12个，包含多余列（column）的元素将作为一个整体单元被另起一行排列。-->
+				<div class="col-xs-9">.col-xs-9</div>
+				<div class="col-xs-4">.col-xs-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
+				<div class="col-xs-6">.col-xs-6<br>Subsequent columns continue along the new line.</div>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>resize</title>
+		<style>
+			textarea{
+				width: 200px;
+				height: 200px;
+				/*取消放大伸缩模式*/
+				resize: none;
+			}
+			div{
+				width: 20%;
+				height: 200px;
+				background: red;
+				
+				resize: auto;
+				overflow: auto;
+			}
+			div img{
+				width: 100%;
+			}
+			div p{
+				font-size: 20%;
+			}
+			/* 
+			 * resize: 需要结合overflow属性使用
+			 * auto:水平垂直方向都可以该改变大小
+			 * vertical：垂直方向改变大小
+			 * horizontal: 水平方向
+			 */
+		</style>
+	</head>
+	<body>
+		<textarea name="" rows="" cols=""></textarea>
+		<div>
+			<img src="img/1.jpg" alt="" />
+			<p>这是一段话一段话一段话</p>
+		</div>
+	</body>
+</html>

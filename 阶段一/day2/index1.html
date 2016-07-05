@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 
+		div：定义文档中的一个区域部分
+		一般用于组合块级元素，可以方便css来对子元素进行设置
+
+		div：块元素
+		px:像素单位
+	 -->
+	<div style="color:pink;background-color:red;width:200px;">
+		<p style="color:blue; background-color:yellow;width:100px;height:50px;">pppppppppppppp</p>
+		<p>pppppppppppppp</p>
+		<h3>pppppppppppppp</h3>
+		<strong style="background-color:yellow;width:200px;height:100px;">我是一个内线元素</strong><span>111</span>
+		<div style="width:100px;height:100px;background-color:blue;">.............</div>
+	</div>
+
+	<!-- <span>:本身没有任何的格式表现，主要用于对文档行内元素进行组合，给审判标签设置样式
+	属于内嵌元素
+	无法定义宽高		
+	 -->
+	<p style="color:red;">今天是个<span style="color:green;font-size:20px;">好日子</span>，是一个考试的好日子</p>
+
+	<!-- 不能嵌套块元素，浏览器布局改变 -->
+	<p>块元素可以嵌套大部分块元素，<p>我是一个嵌套p</p>可以嵌套行内元素</p>
+	<!-- 不能嵌套块元素，浏览器布局改变 -->
+	<h3>块元素可以嵌套<h2>大部分块元</h2>素，可以嵌套行内元素</h3>
+
+	<br>
+	<span style="">
+		2.（内嵌元素）行<strong>元素</strong>可以嵌套内嵌元素，但是不可以嵌套块元素
+	</span>
+	<br><br>
+
+	<!-- 不可以嵌套块元素 -->
+	<span style="">
+	2.（内嵌元素）行<div>元素</div>可以嵌套内嵌元素，但是不可以嵌套块元素</span>
+
+	<!-- 
+		嵌套：
+		1.块元素可以嵌套大部分块元素，可以嵌套行内元素
+		特殊块元素P h1-h6 dt dl dd:不能嵌套块元素
+
+		2.（内嵌元素）行元素可以嵌套内嵌元素，但是不可以嵌套块元素
+	 -->
+</body>
+</html>

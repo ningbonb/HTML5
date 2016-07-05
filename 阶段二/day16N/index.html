@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			mark{
+				/*tarnsparent 透明色*/
+				/*background-color: transparent;*/
+			}
+			.wbr_c{
+				width: 150px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			h5:新增标签
+			新增标签作用：语义化，更加适合SEO，容易被搜索引擎爬虫识别
+			
+			视频，音频
+			本地存储
+			画布
+			废弃的一些可以用css代替的标签，center标签,form标签等等
+		-->
+		<!--mark：标记，突出显示文本-->
+		<p><mark>今天</mark>是个好天气</p>
+		<!--meter:电池条，度量
+			value:当前的值（默认范围是0-1），小于等于最小值不显示
+			min: 最小值
+			max：最大值
+			high: 最高预警值，value大于high后颜色预警
+			low: 最低预警值，value小于low后颜色预警
+			
+			标签内容： 浏览器不支持会被解析
+		-->
+		<meter value="15" min="10" max="100" high="70" low="20">浏览器不支持</meter>
+		
+		<!--progress:进度条
+			value：当前值（默认0-1）
+			max: 最大值
+			
+			没有最小值属性，最小默认是0
+		-->
+		<progress value="50" max="100" min="50"></progress>
+		
+		<!--wbr:单词间换行，拆分换行
+			
+		-->
+		<p class="wbr_c">
+			I am a loag words hahhahahhahahhhaaahahah.
+		</p>
+		<p class="wbr_c">
+			I am a loag words hahhahahhahahhha<wbr>aahahah</wbr>.
+		</p>
+		
+		<!--ruby: 注释
+			rt: 注释标题
+		-->
+		<ruby>
+			你好<rt>ni hao</rt>
+			&nbsp;
+			阿西吧<rt>叹气</rt>
+		</ruby>
+		
+		<!--datalist:可选列表
+			input list属性值 == datalist 的id值
+		-->
+		<form action="#" method="post" id="top_form">
+			<input type="text" name="key" id="key" value="" list="gender_list" />
+			<datalist id="gender_list">
+				<option -value="1">男</option>
+				<option -value="2">女</option>
+				<option -value="3">其他</option>
+			</datalist>
+			
+			<select name="">
+				<option -value="">男</option>
+				<option -value="">女</option>
+			</select>
+			<input type="submit" name="" id="" value="提交" />
+		</form>
+		<!--details: 折叠信息
+			summary: 标题，内容可见
+			open属性: 显示隐藏内容
+		-->
+		<details open="">
+			<summary>电脑配置</summary>
+			<p>内存：16G</p>
+			<p>双卡双待</p>
+		</details>
+		
+		<!--figure:注释，标记，一般用于图片
+			figcaption：元素标题，显示位置和放置位置有关
+		-->
+		<figure>
+			<figcaption>这是一个图片</figcaption>
+			<img src="img/1.jpg" alt="" />
+		</figure>
+		
+		<!--time: 标记时间，告诉浏览器是一个时间
+			datetime:告诉浏览器是一个时间，时间由datetime决定
+			T: 间隔
+			datetime格式：YYYY-MM-DDThh:mm:ss
+		-->
+		<p>现在<time>8:00</time>整</p>
+		<p><time datetime="2016-06-21T09:30:30">今天</time>是个好日子</p>
+		
+		<!--form: 新类型
+			
+		-->
+		<!--novalidate： 无效，无需验证-->
+		<form action="#" novalidate>
+			<!--自动匹配格式-->
+			电子邮件：<input type="email" />
+			<!--step: 每次加或者减得数值-->
+			数字：<input type="number" name="number" value="10" max="20" min="5" step="5" />
+			网址：<input type="url" name="url" /><br />
+			取值范围： <input type="range" name="range" min="10" max="50" value="10" />
+			
+			<!--时间-->
+			年月日: <input type="date" name="date" />
+			<br />
+			年月: <input type="month" name="month" />
+			<br />
+			年周: <input type="week" name="week" />
+			<br />
+			时分: <input type="time" name="time" />
+			<br />
+			本地时间：<input type="datetime-local" name="loacl" min="2016-11-25T00:00:00" />
+			
+			<br />
+			颜色：<input type="color" name="color" />
+			<br />
+			搜索：<input type="search" />
+			<br />
+
+			<hr />
+			
+			<!--表单新增属性-->
+			<!--
+				autofocus: 自动获取焦点,只允许一个，默认第一个
+			-->
+			焦点: <input type="text" autofocus="" />
+			<hr />
+			<input type="text" autofocus="" />
+			<hr />
+			<!--placeholder: 占位文本，文本框为空时显示内容-->
+			站位文本: <input type="text" placeholder="请输入名字" />
+			<hr />
+			<!--required:验证表单是否为空，为空不允许提交-->
+			<input type="text" -required="" />
+			<hr />
+			<!--
+				autocomplete:记住提示功能；
+				默认：on
+				off：关闭
+			-->
+			<input type="text" name="key_t" autocomplete="off"/>
+			<hr />
+			<!--
+				multiple: 文件多选
+			-->
+			<input type="file" multiple="" />
+			<hr />
+			<input type="email" name="email_2" />
+			<!--novalidate： 不验证输入格式，form属性-->	
+			<hr />
+			提交: <input type="submit" value="提交" />
+		</form>
+			<!--form:属性值==form的id属性值-->
+			<input type="submit" name="outside" form="top_form" />
+	</body>
+</html>

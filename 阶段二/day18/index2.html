@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*子元素选择器*/
+			.div1>p{
+				color: red;
+			}
+			
+			/*相邻兄弟选择器(必须相邻)*/
+			.div1+p{
+				color: blue;
+			}
+			
+			/*css3:后兄弟选择器（同级的当前元素后面元素）*/
+			.div1~p{
+				color: burlywood;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<p>子代</p>
+			<div>
+				<p>后代</p>
+			</div>
+		</div>
+		<p>这是p3</p>
+		<p>这是p4</p>
+		<div>
+			<p>这是p5</p>
+		</div>
+		<p>这是p6</p>
+	</body>
+</html>

@@ -1,0 +1,56 @@
+.div1 {
+  width: 200px;
+  height: 200px;
+  background: #ccc;
+  border: 2px solid blue;
+}
+.p1 {
+  width: 130px;
+  height: 260px;
+  background: #666666;
+}
+.box {
+  border: 2px solid red;
+  overflow: hidden;
+}
+.box div {
+  background: yellow;
+  width: 30.1212212%;
+  height: 100px;
+  float: left;
+  margin-left: 10px;
+  margin-left: 2.409084100000001%;
+}
+@keyframes na {
+  from {
+    width: 200px;
+    height: 200px;
+  }
+  to {
+    height: 300px;
+    width: 200px;
+  }
+}
+.div3 {
+  height: 10px;
+  width: 150px;
+  height: 150px;
+  background: blue;
+  border: 1px solid black;
+  -moz-animation: na 1s;
+  -webkit-animation: na 1s;
+  animation: na 1s;
+}
+.div4 {
+  border: 2px solid red;
+}
+.div4 p {
+  color: brown;
+}
+.div4 p a {
+  font-size: 50px;
+}
+.div4 p a:hover {
+  background: red;
+}
+/*# sourceMappingURL=less1.css.map */

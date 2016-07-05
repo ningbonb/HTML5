@@ -1,0 +1,63 @@
+body{
+            /*width: 600px;*/
+            margin: 0 auto;
+        }
+        h1{
+            text-align: center;
+        }
+        address{
+            font-style: normal;
+            text-align: center;
+            color: gray;
+        }
+        p{
+            text-indent: 2em;
+        }
+        #p1{
+         color: green;   
+        }
+        #p2{
+         color: deeppink;   
+        }
+        #p3{
+         color: blue;   
+        }
+        img{
+            /*设置图片的外边距*/
+            /*当margin是四个值的时候：它是按照上右下左的顺序确定值的；
+            当margin是三个值的时候：第四个值（左外边距）自动匹配第二个值（右外边距）;
+            当margin只有两个值的时候：第三个值自动匹配第一个值，第四个值自动匹配第二个值;
+            */
+            
+            /*margin: 100px 100px 200px;*/
+            /*margin: 100px 100px;*/
+            
+            /*margin: 20px auto;*/
+        }
+        #image_p{
+            text-align: center;
+        }
+        div figure img{
+            
+            margin: 10px auto;
+        }
+        .otherP{
+            color: mediumpurple;
+        }
+        
+        /**{
+            font-size: 60px;
+        }*/
+        figcaption{
+            font-size: 60px;
+        }
+        figure:nth-child(3){
+            background-color: lightseagreen;
+        }
+        p::before{
+            content: "“";
+        }
+        p::after
+        {
+            content: "”";
+        }

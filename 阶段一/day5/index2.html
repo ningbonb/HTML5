@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		/*伪类选择器和类选择器的区别
+			1.类选择器：使用之前，要设置元素的class(属性)
+		*/
+	
+		/*伪类选择器
+			E:link{};
+			作用：匹配所有未被点击的链接元素
+		*/
+		a:link{ color:red; }
+
+		/*E:visited{}
+			匹配点了的超链接，已经被点击过
+		*/
+		a:visited{ color:gray; }
+
+		/*a:hover{}
+			作用：鼠标放到元素上
+		 */
+		a:hover{ color:yellow; }
+
+
+		/*a:active{};
+			鼠标按下时候的状态
+		 */
+		a:active{ color:blue; }
+
+		/*顺序：link-visited-hover-active
+			1.link和visited必须在hover前
+			2.active必须放在hover后面
+		*/
+	
+		/*
+			css2: :first-child伪类;
+		 */
+
+		p{ color:red; }
+		p:hover{ color:blue; }
+
+		div:hover #em1{ color:red; background-color:gray;}
+
+
+
+	</style>
+</head>
+<body>
+	
+	<a href="">点我进入好的页面</a>
+	<p>ppppppppppp</p>
+
+	<div>
+		<em id="em1">p1111111</em>
+		<em>em222222</em>
+		<b>p2222222</b>
+	</div>
+
+	<div>div222222</div>
+
+</body>
+</html>

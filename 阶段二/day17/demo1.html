@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>media</title>
+		<style>
+			*{ padding: 0; margin: 0; }
+			li{ list-style: none; }
+			p{ padding: 3% 0; text-indent: 2em }
+			.box{ width: 80%; margin: 30px auto; border: 1px solid red; }
+			.box:after{ content: ""; height: 0; clear: both; visibility: hidden; display: block; }
+			nav{ border: 1px solid blue; float: left; text-align: center; }
+			nav a{ color: black; text-decoration: none; }
+			nav ul li{ padding: 1% 2%; }
+			article{ float: left; width: 79%; border-left: 1px solid black; }
+			article p:first-child{ border-bottom: 1px dashed blue; }
+			@media only screen and (min-width: 520px) {
+				nav{ width: 20%; }
+				article{ width: 75%; }
+			}
+			@media only screen and (max-width: 520px) {
+				nav{ width: 100%; }
+				li{ float: left; }
+				article{ width: 100%; }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<nav>
+				<ul>
+					<li><a href="#">导航一</a></li>
+					<li><a href="#">导航二</a></li>
+					<li><a href="#">导航三</a></li>
+					<li><a href="#">导航四</a></li>
+				</ul>
+			</nav>
+			<article>
+				<p>这是一个响应式布局的小列子，通过拖放浏览器窗口大小来观察实际大小</p>
+				<p>
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+					这是一段酱油文字。。。。。。。
+				</p>
+			</article>
+		</div>
+	</body>
+</html>

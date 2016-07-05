@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>背景裁切</title>
+		<style>
+			.div1{
+				height: 200px;
+				width: 300px;
+				padding: 20px;
+				border: 20px dashed rgba(0,0,0,.4);
+				background: url(img/1.jpg) no-repeat;
+				/* 背景裁切
+				 * border-box: 去除边框以外的背景
+				 * padding-box: 去除padding以外的背景
+				 * content-box: 裁切content以外的背景
+				 */
+				background-clip: border-box;
+				background-clip: padding-box;
+				background-clip: content-box;
+			}
+			.div2{
+				height: 200px;
+				width: 300px;
+				padding: 20px;
+				border: 20px dashed rgba(0,0,0,.4);
+				background-color: red;
+				background-clip: border-box;
+				background-clip: padding-box;
+				background-clip: content-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<hr />
+		<div class="div2">11111111111</div>
+	</body>
+</html>

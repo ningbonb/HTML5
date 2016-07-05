@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>针织排行榜</title>
+	<style>
+		body{ margin: 0; padding: 0; font-size: 100%; }
+		ul,li,p,h1{ margin: 0; padding: 0; }
+		img{ vertical-align: top; }
+		.all{ width: 210px; border: 1px solid #CFCFCF; margin: 50px auto; }
+		.header{ background-color: #F7F7F7; width: 200px; height: 30px; border-bottom: 1px solid #CFCFCF; line-height: 30px; font-size: .8em; padding-left: 10px; font-weight: bold; }
+		nav{ width: 198px; height: 20px ; border-bottom: 1px solid #DFDFDF ; margin: 10px auto 0; }
+		nav ul{ list-style-type: none; text-align: center; font-size: .8em; }
+		nav ul li{ float: left;border: 1px solid #DFDFDF; height: 20px; width: 60px; line-height: 20px;margin-left: 5px; border-bottom: 0px; display: inline-block; }
+		nav ul li:first-child{ margin-left: 0px; }
+		nav ul li:hover{ background-color: #F7F7F7; color: red; font-weight: bold; }
+		.minbox{ height: 60px; width: 200px; margin: 10px auto 0px; border-bottom: 1px dashed #E4E4E4; }
+		.minbox img{ margin-left: 10px; float:left; }
+		.font{ height: 50px; width: 130px; float:left; font-size: .7em; margin-left: 5px; }
+		.font h1{ font-weight: normal; font-size: .5em; line-height: 1.4em; }
+		.font p{ color: red; font-weight: bold; }
+		.no{ width: 100px; height: 18px; background: url(img/no.jpg) no-repeat; }
+		.no1::after{ content:""; width: 14px; height: 32px; display: block; background: url(img/no1.jpg); margin-left: -5px; }
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="header">针织排行榜</div>
+		<main>
+			<nav>
+				<ul>
+					<li>同价位</li>
+					<li>同品牌</li>
+					<li>同类别</li>
+				</ul>
+			</nav>
+			<div class="box">
+				<div class="minbox no1" >
+				<img src="img/111.jpg" alt="">
+				<div class="font">
+					<h1>玛可威格 秋季韩版时尚修身</h1>
+					<p>￥161.00</p>
+				</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="minbox no1">
+				<img src="img/111.jpg" alt="">
+				<div class="font">
+					<h1>玛可威格 秋季韩版时尚修身</h1>
+					<p class="no"></p>
+				</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="minbox no1">
+				<img src="img/111.jpg" alt="">
+				<div class="font">
+					<h1>玛可威格 秋季韩版时尚修身</h1>
+					<p>￥161.00</p>
+				</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="minbox">
+				<img src="img/111.jpg" alt="">
+				<div class="font">
+					<h1>玛可威格 秋季韩版时尚修身</h1>
+					<p>￥161.00</p>
+				</div>
+				</div>
+			</div>
+			<div class="box">
+				<div class="minbox">
+				<img src="img/111.jpg" alt="">
+				<div class="font">
+					<h1>玛可威格 秋季韩版时尚修身</h1>
+					<p>￥161.00</p>
+				</div>
+				</div>
+			</div>
+		</main>
+	</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+标签
+1.双标签和单标签
+双标签：
+需要嵌套（内容）
+单标签：（不需要嵌套）
+
+标签类型
+1.块标签：
+一排显示，默认宽度是100%，宽高设置
+主要标签：
+p,div,h1-h6,br,hr,ul,ol,li,form,blockquote
+2，行标签（内联标签）inline
+可以一排显示，内容撑开宽高，宽度高度不可以设置，（纵向的margin）
+主要设置：
+a,img(可以设置宽度高度),strong,em,i,sub,sup,var,input...
+
+特殊：
+table tr td
+
+组合标签
+ol>li ul>li dl>dt dd table>tr>td
+
+标签嵌套：
+组合标签必须按照规定
+块标签可以嵌套行标签，内联标签（除了p,h）
+
+行标签只能嵌套行标签（除了a标签）
+<a>
+<img>
+<div class="hidden"></div>
+</a>
+
+
+表格：
+rowspan：合并行
+colspan: 合并列
+
+form表单
+action:提交地址
+method:提交方式
+1.get:安全性低，速度快(默认)
+2.post:安全性高，速度慢
+
+input：类型
+text: 文本输入
+password: 密码框
+redio: 单选框
+checkbox: 复选框
+reset：重置
+submit：提交
+button: 按钮
+file：文件
+
+textarea：多行文本
+
+菜单选择
+select{
+	option
+}
+label+input
+
+盒模型：
+
+margin(外边距)+border(边框)+padding(内边距)+width/height
+
+display:
+none:隐藏
+block:转换为块标签
+inline:内联
+inline-block:内联块（同排显示，设宽高，换行被解析）
+table:转换table
+table-cell:单元格（处理垂直居中 vertical-align:middle）
+
+overflow:
+hidden:解决浮动父元素高度为0
+scroll:滑动
+
+position:定位
+relative:相对定位（主要功能是作为参考对象，结合绝对定位）
+absolute:绝对定位（处理层叠关系，父元素加relative,默认相对文档，document）
+fixed:窗口定位
+opacity:透明度，影响子元素，ie低版本不支 
+兼容IE678 
+background-color: balck;
+opacity: .5;
+filter:(alpha(opacity=50))
+
+background-color: rgba(0,0,0,0.5):ie低版本不支持
+
+z-index:结合定位，(static定位除外）
+
+float:左右排列布局
+脱离文档流，突出半层层级，父元素高度为0
+清除浮动：
+{
+1.overflow:hidden
+2.父元素：float
+3.div --- clear: both
+4.br --- clear: all;
+5.inline-block
+6.after伪元素+zoom:1 (最优解决办法)
+}
+
+html5:
+<!DOCTYPE html>版本声明，这个是必须有的，不写在ie6盒模型变成怪异盒模型

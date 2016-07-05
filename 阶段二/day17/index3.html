@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>响应式布局</title>
+		<!--
+			媒体查询：通过不同的媒介类型，和不同的条件定义css样式
+		-->
+		<link rel="stylesheet" href="css/a.css" />
+		<!--当桌面小于700px的时候的样式：
+			and后面空格不能省略
+		-->
+		<link rel="stylesheet" href="css/b.css" 
+			media="only screen and (max-width:700px)" />
+		<!--宽度小于500样式-->
+		<link rel="stylesheet" href="css/c.css" 
+			media="screen and (max-width:500px)" />
+		<!--大于800px的样式-->
+		<link rel="stylesheet" href="css/c.css" 
+			media="screen and (min-width:800px)" />
+	</head>
+	<body>
+		<!--
+			媒体查询语法：
+			@media only|not 设备类型（screen） and (条件) and (条件)...{
+			css样式				
+			}
+			
+			only screen: 意思仅仅支持电脑，手机，pad
+			其他设备（打印机，阅读器...）（备注：only可以省略）
+			not print: 除了打印机
+			all: 所有设备
+			
+			条件：
+			比如：max-width: 500px; 小于500满足
+			min-width: 500px; 大于500满足
+		-->
+	</body>
+</html>

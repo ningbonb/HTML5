@@ -1,0 +1,30 @@
+/*
+	课堂练习css样式
+*/
+body,p{margin:0px;}
+.system{width:148px;margin:40px auto 0;border:1px solid #adadad;padding:5px;background-color:#f4f4f4}
+.link-bar{line-height:20px;height:20px;color:#000;font-size:12px;}
+
+.line{border-bottom:1px solid #a7a7a7;height:2px;}
+.line span{border-bottom:1px solid #fff;height:1px;display:block;}
+
+.link-bar span{height:20px;display:inline-block;background-position:5px center;background-repeat:no-repeat;padding-left:15px}
+.icon-true span{background-image:url(../img/icon_true.jpg);}
+.icon-dot span{background-image:url(../img/icon_dot.jpg);}
+
+.icon-arrow {background:url(../img/icon_arrow.jpg) 135px center no-repeat;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

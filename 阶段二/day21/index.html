@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3视角</title>
+		<style>
+			.container{
+				width: 400px;
+				height: 400px;
+				margin: 10px auto;
+				background: url(img/bg-grid.jpg) no-repeat;
+				border: 5px dotted #333;
+				background-size: 100% 100% ;
+				position: relative;
+				perspective: 1000px;
+				
+			}
+			.container img{
+				position: absolute;
+				width: 100px;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			.container img:first-child{
+				opacity: .3;
+			}
+			.container img:last-child{
+				/*父元素身上添加透视点：perspective*/
+				/*transform: translateZ(400px);*/				
+				/*transform: translate3d(40px,40px,300px);*/
+				
+				
+				/*scale*/
+				transform: scaleZ(30) rotateY(40deg);
+				transform: scaleZ(30) rotateX(40deg);
+				
+				/*简写效果*/
+				transform: scale3d(2,2,5) rotateX(40deg);
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="img/cardKingClub.png" alt="" />
+			<img src="img/cardKingClub.png" alt="" />
+			
+		</div>
+	</body>
+</html>

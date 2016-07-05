@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+
+	<style>
+		/* *通配选择器，作用所有html元素
+			一般在初始化时候使用（一般不适用）
+		*/
+		/**{
+			color:blue;
+		}*/
+
+
+
+		/*1.元素选择器
+			选择界面上的所有 p元素
+		*/
+		p{color:red;}
+
+
+		/*2.ID选择器
+			写法：#id
+			前提：需要给元素加一个id属性
+			id：唯一标记;页面上的id只能出现一次(js通过id获取元素的时候必须保证一个id对应一个元素，目前同一个id对应多个元素是有样式效果)，id的命名：字母数字或者下划线，不能以数字开头
+		*/
+		#div1,#div2{
+			color:red;
+			font-size:20px;
+			font-weight:800;
+
+		}
+		/*3.类选择器
+			语法：.class（class对应属性值）
+			不同的标签可以设置相同的class，
+		*/
+		.div3{
+			color:red;
+		}
+
+		/*一个标签里面class属性可以有多个值，同时作用一个标签*/
+		.bg{background-color:red;}
+		.cl{color:blue;}
+
+
+		/*4.后代选择器
+			父元素 子元素
+			选择父元素下的所有子元素
+		*/		
+		/*div b{color: red;}*/
+		
+		/*元素class为div5，并且有子元素b*/
+		/*.div5 b{color:red;}*/
+		
+		/*5.子代选择器
+			选择元素下的第一代元素
+		*/
+		.div5>b{color:red;}
+		.div5>div>b{color:red;}
+
+		/*6.相邻兄弟选择器
+			写法 A+B
+			选择 A的兄弟B
+		*/
+		#p1+p{color:purple;}
+
+		/*7.群组选择器
+			和*通用选择器类似，同时给多个选择器设置样式
+		*/
+		h3,h4,h5{color:yellow;}
+	</style>
+</head>
+<body>
+	<!-- 1.元素选择器 -->
+	<p>pppppppppp</p>
+
+	<!-- ID选择器 -->
+	<div id="div1">divdivddiv</div>
+	<!-- div#div2 -->
+	<div id="div2">div2div2div2</div>
+
+	<!-- 属性选择器 -->
+	<div class="div3">div3div3div3</div>
+	<!-- 多个class -->
+	<div class="bg cl">div4div4div4</div>
+
+	<!-- <div class="div5">
+		<b>我是div下的子代</b>
+	</div> -->
+	<b>我是一个正常的b标签，没有父亲（body）</b>
+
+	<div>
+		<b>我也是div下的一个b元素</b>
+	</div>
+
+	<div class="div5">
+		<b>我是div下的子代</b>
+		<div>
+			<b>我是div5的孙子</b>
+		</div>
+	</div>
+
+	<!-- 相邻兄弟选择器 -->
+	<p id="p1">p111</p>
+	<p>p222</p>
+
+	<!-- 族群选择器 -->
+	<h3>h3333333</h3>
+	<h4>h4444444</h4>
+	<h5>h5555555</h5>
+</body>
+</html>

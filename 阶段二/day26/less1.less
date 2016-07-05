@@ -1,0 +1,128 @@
+//变量
+//定义
+@baseSize: 200px;
+
+@baseColor: #ccc;
+
+@shixian: solid;
+
+.div1{
+    width: @baseSize;
+    height: @baseSize;
+    background: @baseColor;
+    border: 2px @shixian blue;
+}
+//变量数值可以运算
+.p1{
+    width: @baseSize/2+30px;//单位随便
+    height: @baseSize*1.3;
+    background: @baseColor/2;
+}
+//@wh: 400px;
+//@hg: @wh/2;
+//.box{
+//  border: 2px @shixian red;
+//}
+//.box div{
+//  background: yellow;
+//  width: @wh;
+//  height: @hg;
+//}
+
+
+//百分比变量
+@wh: 30.1212212%;
+@hg: 100px;
+.box{
+    border: 2px @shixian red;
+    overflow: hidden;
+}
+.box div{
+    background: yellow;
+    width: @wh;
+    height: @hg;
+    float: left;
+    margin-left: 10px;
+    
+    margin-left: ( 100% - @wh*3 )/4;
+}
+
+//函数: 格式.functionName(参数){}
+
+//.setBgColor(){
+//  background: blue;
+//  border: 1px solid black;
+//}
+
+//带参数
+//.setBgColor(@bgc){
+//  background: @bgc;
+//  border: 1px solid black;
+//}
+
+//带参数并且有默认值
+//带参数并且有默认值（如果不传默认值是红色）
+.setBgColor(@bgc:red){
+    background: @bgc;
+    border: 1px solid black;
+}
+
+//传递多个参数(用逗号隔开)
+.initWhHg(@wh: 10px,@hg:10px){
+    width: @wh;
+    height: @hg;
+}
+.animation(@name:na,@duration:1s){
+    -moz-animation: @name @duration;
+    -webkit-animation: @name @duration;
+    animation: @name @duration;
+}
+@keyframes na{
+    from{
+        width: 200px;
+        height: 200px;
+    }
+    to{
+        height: 300px;
+        width: 200px;
+    }
+}
+.div3{
+//  width: @baseSize;
+//  height: @baseSize;
+    //设置宽高(宽度150px,高度默认)
+    .initWhHg(150px);
+    //传递两个值
+    .initWhHg(150px,150px);
+//  background: @baseColor;
+
+    //调用函数
+//  .setBgColor;
+    
+    //传参数调用
+//  .setBgColor(red);
+
+    //不传参数使用默认参数
+//  .setBgColor;
+    
+    //传参数不使用默认值
+    .setBgColor(blue);
+    .animation;
+}
+
+
+//嵌套
+.div4{
+    border: 2px solid red;
+    p{
+        color: brown;
+        a{
+            font-size: 50px;
+            //& 当前元素
+            &:hover{
+//              font-size: 10px;
+                background: red;
+            }
+        }
+    }
+}

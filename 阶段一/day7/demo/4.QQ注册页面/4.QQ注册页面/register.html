@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册邮箱账号</title>
+	<style type="text/css">
+	.top{
+		width: 100%;
+		height: 40px;
+		background: url(images/email-bg.jpg) 0 0 no-repeat;
+	}
+	.title{
+		line-height: 40px;
+		text-indent: 1em;
+	}
+	.middle{
+		width: 700px;
+		display: inline-block;
+	}
+	.option{
+		display: inline-block;
+		height: 60px;
+	}
+	.detials{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.name_text{
+		vertical-align: middle;
+		text-align: right;
+		display: inline-block;
+		width: 150px;
+	}
+	.shuru{
+		width: 300px;
+		height: 30px;
+	}
+	.detials p{
+		font-size: 12px;
+		text-align: left;
+		line-height: 13px;
+	}
+	.yanzheng{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.yanzheng img{
+		width: 300px;
+		height: 50px;
+	}
+	.down{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.footer img{
+		width: 300px;
+		height: 60px;
+	}
+	</style>
+</head>
+<body>
+	<div class="all">
+		<div class="top">
+			<p class="title">
+				注册邮箱账号
+			</p>
+		</div>
+		<hr>
+		<div class="middle">
+			<div class="option">
+				<span class="name_text">邮箱账号</span>
+				<input class="shuru" type="text">
+				<div class="detials">
+					<p>请输入您常用的电子邮箱 <br><a href="javascript:void(0)">创建邮箱</a> 或 <a href="javascript:void(0)">注册普通QQ号</a></p>
+				</div>
+			</div>
+			<div class="option">
+				<span class="name_text">昵称</span>
+				<input class="shuru" type="text">
+			</div>
+			<div class="option">
+				<span class="name_text">密码</span>
+				<input class="shuru" type="text">
+			</div>
+			<div class="option">
+				<span class="name_text">确认密码</span>
+				<input class="shuru" type="text">
+			</div>	
+			<br>
+			<div class="option">
+				<span class="name_text">性别</span>
+				<input type="radio" name="sex" value="0">&nbsp;男 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="sex" value="1">&nbsp;女
+			</div>
+			<br>
+			<div class="option">
+				<span class="name_text">生日</span>
+				<select name="date_type" id="">
+					<option value="0">公历</option>
+					<option value="1">农历</option>
+				</select>
+				<select name="date_year" id="">
+					<option value="0">年</option>
+					<option value="1">2016</option>
+					<option value="2">2015</option>
+					<option value="3">2014</option>
+					<option value="4">2013</option>
+					<option value="5">2012</option>
+				</select>
+				<select name="date_month" id="">
+					<option value="0">月</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select>
+				<select name="date_day" id="">
+					<option value="0">日</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+			</div>
+			<br>
+			<div class="option">
+				<span class="name_text">所在地</span>
+				<select name="loc_country" id="">
+					<option value="0">中国</option>
+					<option value="1">毛里求斯共和国</option>
+				</select>
+				<select name="loc_city" id="">
+					<option value="0">上海</option>
+					<option value="1">呼和浩特</option>
+				</select>
+				<select name="loc_area" id="">
+					<option value="0">黄埔</option>
+					<option value="1">三十里堡</option>
+				</select>
+			</div>
+			<div class="option">
+				<span class="name_text">验证码</span>
+				<a class="yanzheng" href="javascript:void(0)"><img src="images/yz.png" alt=""></a>
+				<div class="detials">请先进行安全验证</div>
+			</div>
+			<div class="option">
+				<span class="name_text"> </span>
+				<input type="checkbox">我已阅读并同意相关服务条款和隐私政策
+				<a class="down" href="javascript:void(0)"><img src="images/down.jpg" alt=""></a>
+			</div>		
+			<div class="option">
+				<span class="name_text"> </span>
+				<a class="footer" href="javascript:void(0)"><img src="images/register.jpg" alt=""></a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

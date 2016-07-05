@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>解决浮动造成父元素高度为0的问题</title>
+	<style>
+		.box{
+			border: 2px solid black;
+			/*1.父元素加高度*/
+			/*height: 100px;*/
+			/*2.自身加浮动*/
+			/*float: left;*/
+
+			/*3.inline-block*/
+			/*display: inline-block;*/
+			/*margin: 10px auto;*/
+			/*width: 200px;*/
+
+			/*4.overflow: hidden*/
+			/*overflow: hidden;*/
+			/*width: 200px;
+			margin: 10px auto;*/
+			/*zoom: 4;*/
+
+			/*5.加br空标签 clear="all"*/
+
+
+		}
+		/*6。加空标签*/
+		.box .clear{
+			clear: both;	
+		}
+		
+
+		.box .div1{
+			height: 100px;
+			width: 100px;
+			background-color: red;
+			float: left;
+		}
+		/*7.通过伪元素 ie 6 7不支持*/
+		.box::after{
+			/*内容*/
+			content: "";
+			/*标签类型*/
+			display: block;
+			/*清除浮动*/
+			clear: both;
+			/*height: 8px;*/
+			/*background-color: blue;*/
+			height: 0;
+			visibility: hidden;
+		}
+		/*解决IE67问题*/
+		.box{ zoom: 1; }
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="div1"></div>
+		<!-- <br clear="all"> -->
+		<!-- <div class="clear"></div> -->
+	</div>
+
+	<!-- 
+	1.加高：（无法自适应，扩展性差）
+	2.父元素浮动：其他元素布局造成影响，margin auto失效
+	3.inline-block: margin auto 失效
+
+	4.overflow:hidden:
+	越界都被隐藏，zoom：1兼容ie67
+
+	5.6 空标签：不符合 行为 样式 结构 分离思想
+
+	7.伪元素：目前用的最多，大型网站一般都是用的这个方法
+	zoom：1 解决ie67兼容
+	 -->
+</body>
+</html>

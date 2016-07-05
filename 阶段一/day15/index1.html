@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>怪异盒模型</title>
+	<style>
+		/*css3*/
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			padding: 20px;
+			margin: 20px;
+			border: 10px solid blue;
+			/*默认标准盒模型*/
+			box-sizing: content-box;
+			/*怪异模型*/
+			box-sizing: border-box;
+		}
+
+		/*怪异盒模型： content + margin （盒子大小 == margin40 + 100）*/
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

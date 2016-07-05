@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>动画函数</title>
+		<style>
+				div{
+					width: 100px;
+					height: 100px;
+					background: #ccc;
+				}
+				.div1{
+					transition-property: all;
+					transition-duration: 2s;
+					/* 动画函数
+					 * ease: 开始慢-中间快-最后慢
+					 */
+					transition-timing-function: ease;					
+				}
+				.div1:hover{
+					width: 300px;
+				}
+				/*定位*/
+				.div2{
+					/*position: absolute;*/
+					left: 0;
+					transition-property: left;
+					transition-duration: 1.5s;
+					transition-timing-function: ease;
+				}
+				.div2:hover{
+						left: 200px;
+				}
+				/**/
+				.div3{
+					/*position: absolute;*/
+					/*left: 0;*/
+					transition-property: all;
+					transition-duration: 3s;
+					transition-timing-function: ease;
+					transform: translateX(0px);
+					/*慢速开始*/
+					transition-timing-function: ease-in;
+					/*慢速结束*/
+					transition-timing-function: ease-out;
+					/*慢速开始，慢速结束*/
+					transition-timing-function: ease-in-out;
+					/*匀速*/
+					/*transition-timing-function: linear;*/
+					/*贝塞尔曲线：四个参数，值（0-1）（x1,y1,x2,y2）*/
+					
+					transition-timing-function: cubic-bezier(.74,-0.69,.25,1.81);
+					transition-timing-function: cubic-bezier(0.43, 1.46, 0, 1.87);
+					/*动画延时*/
+					transition-delay: 2s;
+					/*简写+延时*/
+					transition: all 2s linear 0s;
+				}
+				.div3:hover{
+					transform: translateX(200px);
+				}
+		</style>
+	<body>
+		<div class="div1"></div>
+		<hr />
+		<div class="div2"></div>
+		<!---->
+		<hr />
+		<div class="div3"></div>
+	</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>first-child伪类</title>
+	<style>
+		/*
+			CSS2: :first-child伪类;
+			错误：div下的第一个子元素
+
+			：前是确定元素 ：后是加条件
+		 */
+		div:first-child{ color:red; }
+		p:first-child{ color: blue; }
+
+
+		/*
+		匹配所有<p>下的第一个<i>元素
+		 */
+		p>i:first-child{ color:red; }
+		p>i:last-child{ color:blue; }
+
+		/*匹配所有作为第一个子元素<h3>元素中的所有<i>元素*/
+		h3:first-child i{ color:red; }
+
+
+		/*
+			：focus:选择具有焦点的元素
+			:disabled 禁用;
+			:enabled  启用；
+			:checked  选中状态;
+		 */
+		
+		input:focus{ background-color:red; }
+		input:disabled{ background-color:red; }
+		input:enabled{ background-color:red; }
+		input:checked+span{ /*width: 100px;*/ background-color:red; }
+
+		/*:lang 向带有指定lang属性的元素添加样式;
+			每个<p>元素lang属性等于"zh"
+		 */
+		p:lang(zh){ background-color: red; font-size:20px; }
+		p:lang(en){ background-color: blue; font-size:30px; }
+
+	</style>
+</head>
+<body>
+	<div>div11111111</div>
+	<div>div22222222</div>
+	<div>
+		<div>
+			<p>pppppppppp</p>
+		</div>
+		<p>pppppp2222222222</p>
+	</div>
+	<p>今天<i>天气</i>不太好，因为不<i>考试</i></p>
+	<p>今天<i>天气</i>不太好，因为不<i>考试</i></p>
+
+	<div>
+		<h3>今天<i>天气</i>不太好，因为不<i>考试</i></h3>
+		<h3>今天<i>天气</i>不太好，因为不<i>考试</i></h3>
+	</div>
+
+	<input type="text" name="user">
+	<input type="text" name="in2" disabled="">
+	男：<input type="radio" name="ra" checked="">
+	女：<input type="radio" name="ra"><span>1111</span>
+	
+	<p lang="zh">中文</p>
+	<p lang="en">英文</p>
+
+</body>
+</html>

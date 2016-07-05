@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+		.box{ 
+			background: red; 
+			height: 200px; 
+			width: 200px; 
+			/*padding-top: 20px;*/
+			/*overflow: hidden;*/
+			border:1px solid black;
+		}
+		.inner{ 
+			width: 100px; 
+			height: 100px; 
+			background: blue; 
+			margin-left: 20px; 
+			/*子元素的margin-top会传给父元素*/
+			/*解决办法：
+			1.用父元素的margin-top代替
+			2.给父元素添加overflow: hidden;
+			3.给父元素添加border(除了none以外)
+			*/
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

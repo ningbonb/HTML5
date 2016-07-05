@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习</title>
+	<style>
+		#box{width: 500px;margin: 0 auto;}
+		/*		
+		input:hover+span{
+			color: yellow;*/
+		.cl:hover+span{
+			color: yellow;
+		}
+		.cl1:hover+span{
+			color: orange;
+		}		
+		#bl:checked+span{
+			background-color: blue;
+		}
+		#re:checked+span{
+			background-color: red;
+		}
+		#gr:checked+span{
+			background-color: green;
+		}
+		#re:checked+span::after{
+			content:"红色被选中了";
+		}
+		#gr:checked+span::after{
+			content:"绿色被选中了";
+		}
+		#bl:checked+span::after{
+			content:"蓝色被选中了";
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+	<form action="####">
+		<!-- 控件组 -->
+		<fieldset>
+			<!-- 说明 -->
+			<legend>单选</legend>
+			<div>
+				<label>
+					<input type="radio" name="name" value="0" id="bl" class="cl"><span>蓝色</span>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="radio" name="name" value="1" id="re" class="cl"><span>红色</span>
+				</label>
+			</div>
+			<div>
+				<label>
+					<input type="radio" name="name" value="2" id="gr" class="cl"><span>绿色</span>
+				</label>
+			</div>
+		</fieldset>
+		<!-- 控件组 -->
+		<fieldset>
+			<!-- 说明 -->
+			<legend>多选</legend>
+			<ul>
+			<li>
+			<div>
+				<input type="checkbox" name="name" value="0" id="bl" class="cl1"><span>蓝色</span>
+			</div>
+			</li>
+			<li>
+			<div>
+				<input type="checkbox" name="-name" value="1" id="re" class="cl1"><span>红色</span>
+			</div>
+			</li>
+			<li>
+			<div>
+				<input type="checkbox" name="--name" value="2" id="gr" class="cl1"><span>绿色</span>
+			</div>
+			</li>
+			</ul>
+		</fieldset>
+	</form>
+	</div>
+</body>
+</html>

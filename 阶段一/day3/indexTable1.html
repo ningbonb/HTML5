@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+</head>
+<body>
+	<!--tfoot 表格尾(尾一般在前面) 
+		thead 表格头
+		tbody 表格主体
+		caption 标题
+		
+		表格样式重置
+		table{border-collapse:collapse;} 
+	-->
+	<h3>1.table表格</h3>
+
+	<!-- border:是table的一个属性 
+		他的值或者是“”或者是“1”
+		border-collapse：设置表格边框是否被合并为单一的边框
+		collapse：边框合并
+		separate：边框分开
+	-->
+	<table border="1" style="border-collapse:collapse;">
+		<!-- tr：确定表格行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+	</table>
+
+	<h3>table1 添加表头</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center;">
+		<tr>
+			<th>星期一</th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th>星期四</th>
+			<th>星期五</th>
+		</tr>
+		<!-- tr：确定表格行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+	</table>
+
+	<h3>table2 列合并单元格</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center;">
+		<tr>
+			<th>星期一</th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th>星期四</th>
+			<th>星期五</th>
+		</tr>
+		<!-- tr：确定表格行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<tr>
+			<td colspan="5">课程安排计划总结</td>
+		<!--<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		-->
+		</tr>
+	</table>
+
+	<h3>table3 行合并单元格</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center;">
+		<tr>
+			<th rowspan="4">课程基本信息</th>
+			<th>星期一</th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th>星期四</th>
+			<th>星期五</th>
+		</tr>
+		<!-- tr：确定表格行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<tr>
+			<td colspan="5">课程安排计划总结</td>
+		</tr>
+	</table>
+
+	<h3>table4 合并单元格</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center;">
+		<tr>
+			<th rowspan="3">课程基本信息</th>
+			<th>星期一</th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th>星期四</th>
+			<th>星期五</th>
+		</tr>
+		<!-- tr：确定表格行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<tr>
+			<td colspan="6">课程安排计划总结</td>
+		</tr>
+	</table>
+
+	<h3>table5 合并单元格</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center;">
+		<tr>
+			<th>星期一</th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th>星期四</th>
+			<th>星期五</th>
+		</tr>
+		<!-- tr：确定表格行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td rowspan="2">语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>数学</td>
+			<td>英语</td>
+			<td colspan="2">体育</td>
+			<!-- <td>美术</td> -->
+		</tr>		
+	</table>
+
+	<h3>table6 完整版表格</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center;">
+		
+		<tfoot>
+			<tr>
+				<td colspan="5">课程安排计划总结</td>
+			</tr>
+		</tfoot>
+		<thead>
+			<tr>
+				<th>星期一</th>
+				<th>星期二</th>
+				<th>星期三</th>
+				<th>星期四</th>
+				<th>星期五</th>
+			</tr>
+		</thead>
+		<!-- tr：确定表格行 -->
+		<tbody>
+			<tr>
+				<!-- td：确定表格列 -->
+				<td>语文</td>
+				<td>数学</td>
+				<td>英语</td>
+				<td>体育</td>
+				<td>美术</td>
+			</tr>
+			<!-- 第二行 -->
+			<tr>
+				<!-- td：确定表格列 -->
+				<td>语文</td>
+				<td>数学</td>
+				<td>英语</td>
+				<td>体育</td>
+				<td>美术</td>
+			</tr>	
+		</tbody>			
+	</table>
+
+	<h3>table7 其他设置</h3>
+	<table border="1" style="border-collapse:collapse; width:500px;height:200px; text-align:center; background-color:yellow;">
+		<!-- 标题 -->
+		<caption>课程表</caption>
+		<!-- 设置列 -->
+		<colgroup>
+			<!-- 第一个占位，第二个设置 -->
+			<!-- span:规定占据个数 -->
+			<col span="2">
+			<col style="background-color:red;">
+			<col style="background-color:blue;">
+		</colgroup>
+		<tr>
+			<th rowspan="4">课程基本信息</th>
+			<th>星期一</th>
+			<th>星期二</th>
+			<th>星期三</th>
+			<th>星期四</th>
+			<th>星期五</th>
+		</tr>
+		<!-- tr：确定表格行 -->
+		<tr style="color:pink;">
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<!-- 第二行 -->
+		<tr>
+			<!-- td：确定表格列 -->
+			<td>语文</td>
+			<td>数学</td>
+			<td>英语</td>
+			<td>体育</td>
+			<td>美术</td>
+		</tr>
+		<tr>
+			<td colspan="5">课程安排计划总结</td>
+		</tr>
+	</table>
+
+	<!-- 
+		table:表格；tr:行；td:列；th：标题
+
+		tbody：当表格内容非常多的时候，表格下载一点一点下载，但是加上tbody后，就会等表格body下载完成后显示。（内容多的话会有多个tbody）
+
+		表格优化：将tfoot放到tbody上面，可以让浏览器有限解析加载，显示正常位置显示
+	 -->
+</body>
+</html>

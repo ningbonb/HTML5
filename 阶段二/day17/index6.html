@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{ list-style: none; }
+			section{
+				border: 1px solid red;
+				max-width: 900px;
+				margin: 10px auto;
+				min-width: 320px;
+			}
+			ul{
+				overflow: hidden;
+			}
+			li{
+				float: left;
+				width: 31%;
+				/*31*3=93*/
+			}
+			img{
+				width: 100%;
+				vertical-align: top;
+			}
+			@media only screen and (min-width: 500px) {
+				li{
+					/*7/4=1.75*/
+					/*margin-left: 1.75%;*/ 
+					margin-top: 3.5%;
+				}
+				/*2,5,8  n递增：0，1，2，3*/
+				li:nth-child(3n+2){
+					margin-left: 3.5%;
+					margin-right: 3.5%;
+				}
+				section{
+					padding: 0 8px 8px;
+				}
+			}
+			@media only screen and (max-width: 500px) {
+				li{
+					/*7/4=1.75*/
+					/*margin-left: 1.75%;*/ 
+					/*margin-top: 1.75%;*/
+					width: 47%;
+					margin-top: 6%;
+					/*margin-left: 2%;*/
+				}
+				li:nth-child(2n+1){
+					margin-right: 6%;
+				}
+				section{
+					padding: 0 5px 5px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<ul>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+				<li><img src="img/555.jpg" alt="" /></li>
+			</ul>
+		</section>
+	</body>
+</html>

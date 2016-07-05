@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Form</title>
+</head>
+<body>
+	<!-- 表单：向服务器传输数据，比如登陆，注册等等
+		<form></form>:包含:input标签,不同的type代表不同的功能
+		常见：text,password,复选框，单选框，提交按钮等等；
+	 -->
+
+	<!-- 
+		action:服务器地址（数据提交地址）
+		method:提交方式。默认get
+		get:url里面包含了信息，key=value,可以在地址中看到信息
+		大数据传输：get有长度限制，post一般没有限制
+		post:
+	 -->
+
+	<form action="http://www.baidu.com" method="get">
+		<!-- 
+			type：控件类型
+			text：表示输入框
+			submit：提交表单（按钮）
+			
+			属性name：设置了name的属性，表单元素才能提交表单中的数据，代表了参数的key
+		 -->
+		<input type="text" name="userName">
+		<!-- 
+			value:submit属性value代表了按钮上的文本
+		 -->
+		<input type="submit" value="提交到服务器">
+	</form>
+
+	<h4>网址服务器介绍</h4>
+	<!-- https://www.baidu.com/?key=value1&key2=value 
+	https:网址采用的协议
+	www.baidu.com：服务器地址
+	?：网址部分和参数进行分割，？前面是数据请求的网址？后面是请求的参数，参数形式：key=value 如果是多个参数的话，用&分开
+
+	-->
+
+	<h3>表单-登陆类型界面</h3>
+	<!-- action:可以为空，默认提交到本界面，也可以是#或者### -->
+	<form action="#">
+
+		<h4>1.type = text 输入框，默认20个字符左右</h4>
+		用户名：<input type="text" name="user">
+		密码：<input type="password" name="pass">
+
+		<h4>2.type-submit 数据提交</h4>
+		登陆：<input type="submit" value="登陆">
+		注册：<input type="submit" value="注册">
+
+		<h4>3.type = iamge，图片，</h4>
+		<!-- 定义一张图片作为提交按钮 -->
+		<input type="image" src="img/1.png">
+
+		<h4>4.单选框 type=radio</h4>
+		<!-- 单选框：name属性必须一样，才可以单选（保证提交到服务器的key相同）
+		value:对应提交参数的值
+		checked:默认选项，可以直接checked不加值
+		disabled：禁用input元素
+		 -->
+		学历：
+		<input type="radio" name="education" value="0" checked>小学
+		<input type="radio" name="education" value="1" disabled>初中
+		<input type="radio" name="education" value="2">高中
+		<input type="radio" name="education" value="3">大学
+
+		<h4>5.复选框 type=checkbox</h4>
+		爱好：
+		<input type="checkbox" name="hobby" value="0">吃饭
+		<input type="checkbox" name="hobby" value="1">sleep
+		<input type="checkbox" name="hobby" value="2">打豆豆
+
+		<h4>6.type=button 按钮，不会出发form里面的action,而是单独用js交互处理的</h4>
+		<input type="button" value="我是一个按钮">
+
+		<h4>7.type=file 文件上传，添加附件 value:没有这个属性</h4>
+		<input type="file" value="点击我选择文件">
+
+		<h4>8.type=reset 重置，将输入框中的内容情况（慎用）</h4>
+		<input type="reset" value="重置">
+
+		<h4>9.type=hidden 隐藏input,一般是用来传递一些固定信息，不让用户看到</h4>
+		<input type="hidden" name="order" value="1110000101">
+		<!-- dispaly:隐藏标签，不会保存他的位置，直接隐藏掉 -->
+		<input type="text" style="display:none;">
+		<!-- visibillity:hidden 隐藏标签，占位隐藏，会留下空白的位置 -->
+		<input type="text" style="visibility:hidden;">
+
+		<h4>10.多行输入文本 textarea</h4>
+		留言：<textarea name="message" id="" cols="20" rows="20"></textarea>
+
+		<h4>11.选择下拉：select</h4>
+		<select name="gender" id="">
+			<option value="" checked></option>
+			<option value="0">男</option>
+			<option value="1">女</option>
+			<option value="2">其他</option>
+		</select>
+
+		<h3>HTML5的新增type类型</h3>
+		<!-- color、date、datetime、datetime-local、month、week、time、email、number、range、search、tel 和 url。 -->
+		<input type="color"><br>
+		date
+		<input type="date"><br>
+		datetime
+		<input type="datetime"><br>
+		datetime-local
+		<input type="datetime-local"><br>
+		month
+		<input type="month"><br>
+		week
+		<input type="week"><br>
+		time
+		<input type="time"><br>
+		<!-- email：输入类型应该对于的是包含邮件地址的字段，提交表单的时候，自动的对email进行检查 -->
+		email
+		<input type="email"><br>
+		number
+		<input type="number"><br>
+		range
+		<input type="range"><br>
+		search
+		<input type="search"><br>
+		tel
+		<input type="tel"><br>
+		url
+		<input type="url"><br>
+
+		<!-- for是属性的值=input 下的id的属性值 -->
+		<label for="upfile">文件上传</label>
+		<input type="file" id="upfile">
+	</form> 
+</body>
+</html>

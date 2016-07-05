@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>inline-block</title>
+	<style>
+		div{
+			width: 500px;
+			height: 100px;
+			background-color: red;
+		}
+		/*块元素修改为内联元，同排显示。。。=宽高无效*/
+		#div1{
+			/*行内 内联*/
+			display: inline;
+		}
+		#div2{
+			background-color: blue;
+			display: inline;
+		}
+		a{
+			background-color: gray;
+			text-decoration: none;
+		}
+		#lo{
+			/*内联元素转换为块元素*/
+			display: block;
+			width: 100px;
+		}
+		.div5{
+			display: inline-block;
+			width: 50px;
+		}
+		.div6{
+			display: inline-block;
+			width: 50px;
+		}
+	</style>
+</head>
+<body>
+<!-- 块元素：
+	独占一行
+	支持宽高设置
+	高度自适应
+	支持所有css样式
+
+ -->
+	<div id="div1">1111</div>
+	<div id="div2">2222</div>
+	<!-- 
+	内联
+		不支持宽高
+		同排显示
+		换行被解析（1像素）
+	 -->
+	<div>
+		<a href="#">百度</a>
+		<a href="#" id="lo">蓝欧科技</a>
+		<a href="#">中北大学</a>
+	</div>
+	<!--inline-block 
+		1.让块元素同排显示
+		2.内联支持宽高
+		3.默认内容撑开宽高
+		4.换行被解析
+		5.ie6 7不支持inline-block属性
+	 -->
+	<div class="div5">55</div>
+	<div class="div6">66</div>
+</body>
+</html>

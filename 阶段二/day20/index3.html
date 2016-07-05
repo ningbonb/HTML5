@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>倒影</title>
+		<style>
+			p{
+				width: 600px;
+				height: 400px;
+				line-height: 400px;
+				font-size: 80px;
+				text-align: center;
+				margin: 10px auto;
+				background-image: linear-gradient(to top right,transparent,red);
+				
+				/*
+				 * 参数1：方向
+				 * 参数2： 距离
+				 * 参数3：渐变
+				 * 
+				 * 注意：倒影不占据文档流
+				 */
+				-webkit-box-reflect: below;
+				/*box-reflect: below;*/
+				-webkit-box-reflect: below 10px linear-gradient(to top right,transparent,red);
+						
+			}
+			img{
+				width: 300px;
+				margin-top: 450px;
+				-webkit-box-reflect: right 8px radial-gradient(circle,transparent 20%,blue);
+			}
+		</style>
+	</head>
+	<body>
+		<p>hello world</p>
+		<div>111111</div>
+		<img src="img/dameizi.jpeg" alt="" />
+	</body>
+</html>

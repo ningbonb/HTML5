@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3视角</title>
+		<style>
+			.container{
+				width: 400px;
+				height: 400px;
+				margin: 10px auto;
+				background: url(img/bg-grid.jpg) no-repeat;
+				border: 5px dotted #333;
+				background-size: 100% 100% ;
+				position: relative;
+				perspective: 40px;
+				
+			}
+			.container img{
+				position: absolute;
+				width: 100px;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			.container img:first-child{
+				opacity: .3;
+			}
+			.container img:last-child{
+				/* perspective:视角，透视图
+				 * 美术：视线消失的地方
+				 * perspective: 1000px:眼睛距离电脑屏幕的距离
+				 */
+				/*注意：透视点一般加到父元素身上（舞台）*/
+				/*perspective: 1000px;*/
+				/*transform: rotateX(50deg);*/
+				/*transform: rotateY(-70deg);*/
+				/*transform: rotate3d(1,1,1,-50deg)*/
+				transform: rotateX(45deg) rotateY(0deg) rotateZ( 0deg );
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="img/cardKingClub.png" alt="" />
+			<img src="img/cardKingClub.png" alt="" />
+			
+		</div>
+	</body>
+</html>

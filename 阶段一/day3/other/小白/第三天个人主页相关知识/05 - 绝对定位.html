@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>相对定位</title>
+        <meta charset="utf-8">
+        <style>
+            div{
+                position: relative;
+                /*这里使用 relative 的目的并不是要让标签偏离原来的位置，而只是让其作为下级元素绝对定位的参考点*/
+                /*这是 relative 的另一个重要作用！*/
+                
+                width: 400px;
+                height: 400px;
+                border: solid 1px lightseagreen;
+            }
+            div span:nth-child(1){
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                /*绝对定位也是一种很重要的定位技术*/
+            }
+            div span:nth-child(2){
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            div span:nth-child(3){
+                position: absolute;
+                bottom: 10px;
+                left: 10px;
+            }
+            div span:nth-child(4){
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <span>文字1</span><span>文字2</span><span>文字3</span><span>文字4</span>
+        <div>
+            <span>文字1</span><span>文字2</span><span>文字3</span><span>文字4</span>
+        </div>
+    </body>
+</html>

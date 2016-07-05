@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>隐藏效果</title>
+	<style>
+		.div1{ 
+			width: 100px; 
+			height: 100px; 
+			background: red;
+			/*隐藏，*/
+			/*visibility: hidden;*/
+			display: none;
+		}
+		/* 
+		visibility: hidden;保留原来位置
+		display: none;不保留原来位置，下面div占据了他的位置
+		*/
+
+		.div2{
+			width: 100px;
+			height: 100px;
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1"></div>
+	<div class="div2"></div>
+</body>
+</html>

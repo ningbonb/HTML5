@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绝对定位</title>
+	<style>
+		div{ width: 100px; height: 100px; }
+		.div1{ background-color: red; }
+		.div2{ background-color: yellow; }
+		.div3{ background-color: green; }
+
+
+		.div2{
+			position: absolute;
+			/*opacity: .1;*/
+			/*回到相对位置（开始位置）*/
+			/*left: 0px;*/
+			left: 108px;
+		}
+
+		a{
+			background-color: gray;
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			bottom: 350px;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+	<a href="#">百度</a>
+</body>
+<!-- 
+绝对定位：
+a.使元素脱离了文档流
+b.改变元素性质，块元素内容撑开宽高，内联元素支持宽高设置
+c.提升层级
+d.
+ -->
+</html>
