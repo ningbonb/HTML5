@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="number" name="vl1" id="vl1" placeholder="请输入第一个数字" />
+		<br /> 
+		<input type="number" name="vl2" id="vl2" placeholder="请输入第二个数字" />
+		<br />
+		<input type="text" name="vl3" id="vl3" placeholder="最大值是" />
+		<input type="button" onclick="maxNumber();" value="确定" />
+		<script>
+			/* 程序三大结构
+			 * 1.顺序结构
+			 * 代码从上往下执行
+			 * 
+			 * 2.分支结构
+			 * 根据条件执行相应代码
+			 * 
+			 * 3.循环结构
+			 * 在满足特定条件下，反复执行同一段代码
+			 * 
+			 * 
+			 * 
+			 * 分支结构
+			 * if语句
+			 * 
+			 * 第一种：条件表达式为真，执行大括号代码
+			 * if(条件表达式){
+			 * 	语句；
+			 * }
+			 * 
+			 * 表达式：有常量，变量，运算符组成，表达式必须有一个值：a, a + 10,10, a = 10, a > 10.... 
+			 * 
+			 */
+
+			var a = 50,
+				b = 50;
+			if (a > b) {
+				console.log('最大值是：' + a);
+			}
+			if (a < b) {
+				console.log('最大值是：' + b);
+			}
+			if (a == b) {
+				console.log('a == b');
+			}
+
+			/* 
+			 * 第二种：
+			 * if(条件表达式){
+			 * 	语句1；
+			 * }else{
+			 * 	语句2；
+			 * }
+			 * 
+			 * 如果条件表达式位置，执行语句1，否则执行语句2
+			 * 
+			 */
+
+			var str = '下雨了';
+			if (str == '下雨') {
+				console.log('上课');
+			} else {
+				console.log('还得上课');
+			}
+
+			/* 
+			 * 了解函数：
+			 * 函数定义：
+			 * function name(){
+			 * 	函数体；
+			 * }
+			 * 
+			 * //调用
+			 * name();
+			 */
+
+			//比较两个数的最大值
+			function test() {
+				var a = 10,
+					b = 20;
+				if (a > b) {
+					console.log('最大值是：' + a);
+				} else {
+					console.log('最大值是：' + b);
+				}
+			}
+			//调用
+			test();
+
+			//两个输入框，取到两个数，比较出最大值，放到第三个输入框
+			function maxNumber(){
+				alert('比较最大值');
+				var num1Value = document.getElementById('vl1');
+				var num2Value = document.getElementById('vl2');
+				var result = document.getElementById('vl3');
+				
+//				if(+num1Value.value > +num2Value.value){
+//					result.value = num1Value.value;
+//				}else{
+//					result.value = num2Value.value;
+//				}
+				
+				//三目运算符
+				result.value = +num1Value.value > +num2Value.value ? num1Value.value : num2Value.value;
+			}
+		</script>
+	</body>
+
+</html>

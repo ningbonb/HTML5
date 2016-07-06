@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 200px;
+				height: 200px;
+				margin: 50px auto 0;
+				background-color: yellow;
+			}
+			.inner{
+				height: 50%;
+				width: 50%;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		
+		<script>
+			var oBox = document.getElementById('box');
+//			alert(oBox);
+			//向元素内部添加内容
+			oBox.innerHTML = '<div class="inner">hello world</div>';
+			//向文档写内容
+			document.write('<p>nihao</p>');
+			
+		</script>
+	</body>
+</html>
