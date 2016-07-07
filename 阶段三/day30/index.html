@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script>
+			//随机数
+			//Math.random();值[0,1) 大于等于0，小于1
+			Math.random();
+			console.log(Math.random());
+			
+			for(var i = 0; i < 10; i++){
+				console.log(Math.random());
+			}
+			console.log('~~~~~~~~~~~~~~~~~~`');
+			//产生一个[0,100)的随机数
+			console.log(Math.random() * 100);
+			
+			//Math.floor(): 保留数字整数部分,舍去小数
+			console.log(Math.floor(10.912));//10
+			
+			//产生一个 随机数[0,100)的整数随机数
+			console.log(Math.floor(Math.random()*100));
+			
+			//c产生[0，100]随机数
+			console.log(Math.random()*101);//[0,100.99999999999999]
+			for(var i = 0; i < 20; i++){
+				console.log(Math.floor(Math.random()*101));
+			}
+			
+			//[1,100] 闭区间
+			console.log(Math.floor(Math.random() * 100 + 1));
+			
+			//[10,100]
+			for(var i = 0; i < 20; i++){
+				console.log('[10,100]:' + Math.floor(Math.random() * 91 + 10));
+			}
+			
+			//取[n,m] 闭区间
+			/*
+			 * Math.floor(Math.random() * (m - n + 1) + n)
+			 */
+			
+			console.log('~~~~~~~~~~~~~~~~~~');
+			//产生10个[20，50]随机数
+			for(var i = 0; i < 10; i++){
+				console.log(Math.floor(Math.random() * (50 - 20 + 1) + 20))
+			}
+			
+			//[10,20],产生5个，求最大值，最小值，和
+			function fn(){
+				var sum = 0;
+				var max = 0;
+				var min = 20;//大于等于最大值
+				for( var i = 0; i < 5; i++){
+					var randomNum = Math.floor(Math.random() * 11 + 10);
+					//和
+					sum += randomNum;
+					//最大
+					max = randomNum > max ? randomNum : max;
+					//最小
+					min = randomNum < min ? randomNum : min;
+					console.log('随机数：' + randomNum);	
+				}
+				console.log('和：' + sum);
+				console.log('最大值：' + max);
+				console.log('最小值：' + min);
+			}
+			//调用
+			fn();
+			
+			
+			console.log('~~~~~~~~~~~~~~~~~~');
+			
+			//break关键字，跳出本层循环
+			for(var i = 0; i < 5; i++ ){
+				console.log('i:' + i);
+				if(i == 2){
+					break;
+				}
+			}
+			
+			console.log('~~~~~~~~~~~~~~~~~~');
+			//continue: 跳出 本次 循环
+			for(var i = 0; i < 5; i++ ){
+				if(i == 2){
+					continue;
+				}
+				console.log('i:' + i);
+			}
+			
+			//for嵌套
+			/*
+			 *1 2 3 4 5
+			 *1 2 3 4 5
+			 *1 2 3 4 5
+			 *1 2 3 4 5
+			 *1 2 3 4 5
+			 */
+			
+			for(var i = 1; i <= 5; i++){
+				for(var j = 1; j <= 5; j++){
+					document.write(j + '&nbsp&nbsp&nbsp');
+				}
+				document.write('<br>');
+			}
+			document.write('<hr>')
+			/*
+			 * 1
+			 * 1 2 
+			 * 1 2 3
+			 * 1 2 3 4
+			 * 1 2 3 4 5
+			 */
+			for(var i = 1; i <= 5; i++){
+				for(var j = 1; j <= i; j++){
+					document.write(j + '&nbsp&nbsp&nbsp');
+				}
+				document.write('<br>');
+			}
+			document.write('<hr>')
+			
+			
+			/*
+			 * 5 4 3 2 1
+			 * 5 4 3 2 
+			 * 5 4 3 
+			 * 5 4 
+			 * 5 
+			 */
+			
+			for(var i = 1; i <= 5; i++){
+				for(var j = 1; j <= 6 - i; j++){
+					document.write(j + '&nbsp&nbsp&nbsp');
+				}
+				document.write('<br>');
+			}
+			document.write('<hr>')
+			
+			//方法2
+			for(var i = 5; i >= 1; i--){
+				for(var j = 1; j <= i; j++){
+					document.write(j + '&nbsp&nbsp&nbsp');
+				}
+				document.write('<br>');
+			}
+			document.write('<hr>')
+			
+			//九九乘法表
+			for( var i = 1; i <= 9; i++){
+				for( var j = 1; j <= i; j++ ){
+					if(i*j >= 10){
+						document.write(j + 'x' + i + '=' + j*i + '&nbsp;&nbsp;');
+					}else{
+						document.write(j + 'x' + i + '=' + j*i + '&nbsp;&nbsp;');
+					}
+				}
+				document.write('<br>');
+			}
+		</script>
+		
+	</body>
+</html>
