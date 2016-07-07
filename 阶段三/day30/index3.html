@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>简单数组</title>
+	</head>
+	<body>
+		
+		<script>
+			/*
+			 * Array: 一个包含大量数据的有序集合
+			 * 创建数组方式：
+			 * 第一种：
+			 * new 运算符： new Array()
+			 * 
+			 * 第二种：字面量方式创建
+			 * [1,2,3];
+			 * 
+			 */
+			
+			//数组创建
+			var arr = new Array();
+			
+			console.log('数组值：'+ arr);//空数组
+			console.log('数组类型：'+ typeof arr);//object
+			
+			//创建并赋值
+			arr = new Array(1,2,3,4);
+			console.log('数组值：'+ arr);//1,2,3,4
+			console.log('数组类型：'+ typeof arr);//object
+			
+			//访问数组内容
+			//通过：数组名[下标] 小标是从0开始
+			console.log('arr[0]: ' + arr[0]);
+			console.log('arr[1]: ' + arr[1]);
+			console.log('arr[2]: ' + arr[2]);
+			console.log('arr[3]: ' + arr[3]);
+			
+			console.log('arr[4]: ' + arr[4]);//underfined
+			
+			//new 创建数组2:(创建一个包含10个元素的数组)
+			//条件： 只能是数字，并且只有一个
+			
+			arr = new Array(10);
+			console.log('数组：' + arr);//,,,,,,,,,
+			
+			//赋值
+			arr[0] = 0;
+			arr[3] = 3;
+			arr[5] = 5;
+			arr[9] = 9;
+			
+			console.log('数组：' + arr);//0,,,3,,5,,,,9
+			
+			//new 关键字可以省略
+			arr = Array(1,2);
+			console.log('数组：' + arr);//数组：1,2
+			console.log('数组：' + typeof arr);//数组：object
+			
+			console.log('~~~~~~~~~~~~~~~~~~');
+			//2: 字面量方式创建数组（常用）
+			var arr2 = [];
+			console.log(arr2);//[]
+			console.log('数组：' + typeof arr2);
+			//创建并初始化
+			arr2 = [1,2,3,4];
+			console.log(arr2);//[1, 2, 3, 4]
+			
+			console.log(arr2[2]);//3
+			console.log(typeof arr2[2]);//number
+			
+			//查看数组长度（元素个数）
+			console.log(arr2.length);//4
+			
+			//替换
+			arr2[0] = 10;
+			console.log(arr2);//[10, 2, 3, 4]
+			//添加
+			arr2[4] = 20;
+			console.log(arr2);//[10, 2, 3, 4, 20]
+			
+			//第六个位置没有赋值
+			arr2[7] = 30;
+			console.log(arr2);//[10, 2, 3, 4, 5: 20, 7: 30]
+			
+			//强制元素量  给length赋值(js允许修改length,多余的作为空的存储位置)
+			var arr3 = [1,2,3];
+			console.log(arr3.length);//3
+			arr3.length = 5;
+			console.log(arr3.length);//5
+			console.log(arr3);
+			
+			//循环遍历数组
+			var arr4 = [1,2,3,4,5,6,7];
+			for(var i = 0; i < arr4.length; i++){
+				console.log(arr4[i]);
+			}
+			
+			//数组是可以存放不同类型
+			arr4 = [1,1.2,true,'字符'];
+			console.log(arr4);//[1, 1.2, true, "字符"]
+			
+			console.log(typeof arr4[2]);//boolean
+			console.log(typeof arr4[3]);//string
+			//可以存储表达式
+			var a = 1;
+			arr4 = [a,a + 1, a - 1, a * 2, arr3];
+			console.log(arr4);//[1, 2, 0, 2, Array[5]]
+			
+			//找到arr4下的arr3
+			console.log(arr4[4]);//[1, 2, 3]
+			//访问arr3下数组
+			console.log(arr4[4][0]);//1
+			
+			//随机产出10个数字[50,80]整数，存放到数组
+			var arr5 = [];
+			for (var i = 0; i < 10; i++) {
+				//产生随机数
+				var random = Math.floor(Math.random() * 31 + 50);
+				//存到数组
+				arr5[i] = random;
+			}
+			
+			console.log(arr5);
+			//算出arr5中最大值和最小值
+			var maxNum = arr5[0];
+			var minNum = arr5[0];
+			
+			for (var i = 0; i < arr5.length; i++) {
+				maxNum = maxNum > arr5[i] ? maxNum : arr5[i];
+				maxNin = minNum < arr5[i] ? maxNum : arr5[i];
+			}
+			console.log('最大值为: ' + maxNum);
+			console.log('最小值为: ' + minNum);
+			
+			//arr8[i] = arr6[i] + arr7[i]
+			var arr6 = [1,2,3,4];
+			var arr7 = [1,2,3,4];
+			var arr8 = [];
+			
+			for (var i = 0; i < arr6.length; i++) {
+				arr8[i] = arr6[i] + arr7[i];
+			}
+			console.log(arr8);			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+				border: 2px solid black;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="red"></div>
+		<div class="blue"></div>
+		
+		<div class="red"></div>
+		<div class="blue"></div>
+		
+		<div class="red"></div>
+		<div class="blue"></div>
+		
+		<div class="red"></div>
+		<div class="blue"></div>
+		
+		<script>
+		
+			/*
+			 * getElementsByClassName: 取出class是red的数组集合（数组存储的是元素对象）
+			 * getElementsByTagName: 取出所有div（返回数组集合）
+			 */
+			var redObj = document.getElementsByClassName('red');
+			console.log(redObj);
+			
+			redObj[0].style.backgroundColor = 'red';
+			redObj[1].style.backgroundColor = 'red';
+			
+			for(var i = 0; i < redObj.length; i++){
+				redObj[i].style.backgroundColor = 'red';
+			}
+			
+			var oDivs = document.getElementsByTagName('div')
+			console.log(oDivs);
+			for(var i = 0;i < oDivs.length; i++){
+				oDivs[i].style.backgroundColor = 'deepskyblue';
+			}
+		</script>
+	</body>
+</html>
