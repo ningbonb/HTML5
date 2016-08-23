@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>清定时器</title>
+	</head>
+	<body>
+		
+		
+		<script>
+		var index = 0;
+			for(var i = 0;i < 10; i++){
+//				alert(timer);
+				//先清除
+				clearInterval(timer);//清除了1-9定时器，保留了最后一个
+				//后创建
+				var timer = setInterval(function(){
+					//console.log(++index);
+				},1000);
+			}
+			
+			var timer2;
+			document.onclick = function(){
+				clearInterval(timer2);
+				alert(timer2);//永远都是未定义，不会得到定时器id
+				//原因：函数内局部变量释放销毁是在该函数执行结束
+				timer2 = setInterval(function(){
+					console.log(++index);
+				},1000);
+			};//函数结束位置
+		</script>
+	</body>
+</html>

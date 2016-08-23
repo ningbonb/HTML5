@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>函数</title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+			/*
+			  函数：封装了一段操作代码块
+			  
+			  语法：
+			 1.函数的声明
+			 
+			 function 函数名(参数1，参数2){
+			 	函数体
+			 }
+			 函数声明中的参数叫做形参，没有确切的值，只是一个参数名
+			 
+			 2.函数调用
+			 函数调用传递的参数叫做实参（有实际的值）
+			 
+			 语法：
+			 
+			 函数名字（参数1，参数2，参数3）；
+			 
+			 注意：
+			 函数的参数个数没有限制，函数的参数类型可以是任何类型
+			 
+			 * */
+			
+			//简单函数
+			function hello(){
+				document.write('hello world');
+			}
+			//函数调用
+//			hello();
+			
+			//参数可以比形参多，不会报错
+			hello('1111',20);
+			
+			//函数分类
+			/*
+			 1.没有参数，没有返回值
+			 2.没有参数，有返回值
+			 3.有参数，没有返回值
+			 4.有参数，有返回值
+			 * */
+			
+			//1.没有参数，没有返回值
+			function fn1(){
+				document.write('<hr>没有参数，没有返回值');
+			}
+			fn1();
+			
+			var fnRe = fn1();
+			//undefined:没有返回值的函数，返回类型默认是underfined
+			console.log('没有参数，没有返回值的结果' + fnRe);
+			
+				//变量：分为全局变量和局部变量
+				//1：函数内部声明的变量叫做局部变量，只能在该函数体内使用，函数外部访问不到
+				//2：我们在script声明的变量叫做全局变量，使用范围：函数内部或者外部都可以
+			
+				//从里面可以看到外面，从外面看不到里面
+			
+			//2.没有参数，有返回值
+			function sumFn(){
+				var a = 10, b = 20;
+				var sum = a + b;
+				//return: 返回函数执行结果给外部
+				return sum;
+			}
+			
+			var re = sumFn();
+			document.write('<hr>a与b的和为：' + re);
+			document.write('<hr>a与b的和为：' + sumFn());
+//			alert(a);//a is not defined
+
+			var c = 20;
+			function fn2(){
+				document.write('<hr>访问全局变量：' + c);
+			}
+			fn2();
+			
+			
+			//3.有参数，没有返回值
+			function sumFn2(para1,para2){
+				console.log(para2);
+				var sum = para1 + para2;
+				document.write('<hr>sum:' + sum);
+			}
+			sumFn2(100,200);
+			sumFn2(100,'200');
+			sumFn2(100);//参数少传默认未定义
+			sumFn2(100,200,300,400);//实参和形参按顺序对应
+			
+			//函数调用的时候，形参会拷贝实参的值
+			
+			//变量的拷贝赋值
+			//var val2 = val1;:把val1的值拷贝一份，给val2保存，两者相互独立，不会有影响
+			var val1 = 100;
+			var val2 = val1;
+			val1 = 200;
+			//val2的值100
+			document.write('<hr>val2:' + val2);
+			
+			//引用类型（对象）
+			var obj1 = {
+				value:100,
+			};
+			//obj2指向obj1
+			var obj2 = obj1;
+			//修改
+			obj1.value = 200;
+			
+			//obj2的value属性值？
+			document.write("<hr/>obj2.value:" + obj2.value);
+			
+			//实参给形参赋值的时候，也是拷贝赋值
+			function fn3(name){
+				name = '张三';
+			}
+			var name = '名字';
+			fn3(name);
+			document.write("<hr>name:" + name);
+			
+			//交换两个值
+			function exchangeValue(num1,num2){
+				var temp = num1;
+				num1 = num2;
+				num2 = temp;
+				document.write('<hr>num1:' + num1 + 'num2:' + num2);//200,100
+			}
+			var n1 = 100,n2 = 200;
+			exchangeValue(n1,n2);
+			document.write('<hr>n1:' + n1 + 'n2:' + n2);//100,200
+			
+			//对象类型改值
+			function changeV(obj){
+				obj.name = '李四';
+			}
+			var obj = {
+				name:'张三',
+				age:10
+			};
+			changeV(obj);
+			//obj.name?
+			document.write('<hr>obj的name:' + obj.name);//李四
+			
+			//
+			function exchangeObjVal(obj){
+				var temp = obj.num1;
+				obj.num1 = obj.num2;
+				obj.num2 = temp;
+			}
+			var obj1 = {
+				num1: 10,
+				num2: 20
+			};
+			exchangeObjVal(obj1);
+			document.write('<hr>obj1.num1: ' + obj1.num1 + 'obj1.num2: ' + obj1.num2);
+			
+			//4.有参数，有返回值
+			//两个数相减，返回结果
+			function fn4(a,b){
+				var min = a > b ? b : a;
+				var max = a > b ? a : b;
+				return max - min;
+			}
+			var rel = fn4(100,200);
+			document.write('<hr>rel:' + rel);
+			
+			//函数之间可以互相调用
+			function compare(num1,num2){
+				return num1 > num2 ? num1 : num2;
+			}
+			document.write('<hr>两个数的最大值:' + compare(66,88));
+			
+			//比较三个数的最大值
+			function compare3(num1,num2,num3){
+//				var max2 = compare(num1,num2) > compare(num2,num3) ? compare(num1,num2) : compare(num2,num3);
+				var max2 = compare(num1,num2);
+				var max3 = compare(max2,num3);
+//				return max2;
+				return max3;
+			}
+			document.write('<hr>三个数的最大值:' + compare3(66,88,99));
+			
+			//比较四个数
+			function compare4(num1,num2,num3,num4){
+//				var max4 = compare3(num1,num2,num3);
+//				var max5 = compare(max4,num4);
+//				return max5;
+
+//				return compare(compare(num1,num2),compare(num3,num4));
+
+//				return compare3(compare(num1,num2),num3,num4);
+				
+				return compare(compare3(num1,num2,num3),num4);
+			}
+			document.write('<hr>四个数的最大值:' + compare4(66,88,99,100));
+			
+			//数组作为参数
+			//写一个函数，参数是一个数组，求出数组中的最大值，最小值，和，平均值
+			function computeArr(arr){
+				var sum = 0,max = arr[0],min = arr[0],avg = 0;
+				
+				//遍历数组
+				for(var i = 0; i < arr.length; i++){
+					//最大值
+					sum += arr[i];
+					//最大值
+					max = max > arr[i] ? max : arr[i];
+					//最小值
+					min = min < arr[i] ? min : arr[i];
+				}
+				//平均值
+				avg = sum / arr.length;
+				
+				return [sum,max,min,avg];
+			}
+			document.write('和，最大值，最小值，平均值为：' + computeArr([1,2,3,4,5,5,6,7,99]));
+			
+			//封装随机数[x,y]
+			function randomNumber(min,max){
+				return parseInt(Math.random() * (max - min + 1) + min);
+			}
+			document.write('<hr>[min,max]随机数:' + randomNumber(20,50));
+			
+			//随机颜色
+			function randomColor(){
+				var r = randomNumber(0,255);
+				var g = randomNumber(0,255);
+				var b = randomNumber(0,255);
+				var a = randomNumber(0,1);
+				return "rgba(" + r + "," + g + "," + b + "," + a + ")";
+			}
+			
+			var oDiv = document.getElementById("div1");
+			oDiv.style.backgroundColor = randomColor();
+
+			oDiv.style.height = randomNumber(10,500) + "px";
+			oDiv.style.width = randomNumber(10,500) + "px";
+			oDiv.style.borderRadius = randomNumber(0,100) + "px";
+			console.log(oDiv.style.height);
+
+			//给div添加点击事件
+			oDiv.onclick = function(){
+//				alert(11);
+			oDiv.style.backgroundColor = randomColor();
+			oDiv.style.height = randomNumber(10,500) + "px";
+			oDiv.style.width = randomNumber(10,500) + "px";
+			oDiv.style.borderRadius = randomNumber(0,100) + "px";
+			};
+			
+			//函数指针
+			//函数名就是函数指针(加上（）是调用函数)
+			console.log(randomColor);
+			
+			function fn5(a,b){
+				return a + b;
+			}
+			//fn5
+			var fn6 = fn5;
+//			alert(fn6(10,20));	
+
+			//把函数指针作为参数
+			function fn7(n1,n2,fn){
+				var re = fn(n1,n2);
+				console.log("结果" + re);
+			}
+			
+			fn7(10,20,fn5);
+			
+			//函数回调
+			function cook(afterFn){
+				//结果完成以后
+				afterFn();
+			}
+			function wait(){
+				//alert('OK');
+			}
+			
+			cook(wait);
+			
+			//匿名函数
+			//没有函数名的函数
+			
+			/*
+			 function(){
+			 	函数体
+			 }
+			 
+			 * */
+			//匿名函数会返回函数指针，得到函数指针就可以执行函数
+			var fn = function(){
+				console.log("我是匿名函数");
+			};
+			//通过函数指针变量调用
+			fn();
+			
+			//匿名函数自身调用
+			(function(){
+				console.log("自身调用的函数指针");
+			})();
+			//匿名函数传递参数
+			(function(str){
+				console.log("自身调用的函数指针" + str);
+			})("0000000000");
+			
+			//
+			function fn10(fn){
+				//
+				fn();
+			}
+			
+			//匿名函数作为参数（匿名函数会返回函数指针，可以执行函数）
+			fn10(function(){
+				console.log("嵌套调用");
+			});
+			
+			//递归算法（自身调用）
+			//n * (n - 1) * (n - 2) ......* 2 * 1 n的阶乘
+			//必须有结束条件
+			function mul(n){
+				if(n == 1)return 1;
+				return n * mul(n-1);
+			}
+			mul(10);
+			console.log(mul(3));
+			
+			//arguments: 保存所有参数
+			function sum(){
+				console.log(arguments);
+				var sum = 0;
+				for(var i = 0; i < arguments.length; i++){
+					//alert(arguments[i]);
+					sum += arguments[i];
+				}
+				return sum;
+			}
+			console.log(sum(10,20,30,40));
+			
+			
+			//return:后面的代码不会被执行，函数结束
+			
+			function fn12(){
+				return;//结束条件(return返回一个空，结束函数执行)
+				console.log(11111);
+				alert(1111);
+				return 20000;
+			}
+			fn12();
+			//alert(fn12());
+		</script>
+	</body>
+</html>

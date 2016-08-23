@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>this联系</title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			ul{
+				list-style: none;
+				
+			}
+			ul li{
+				float: left;
+				background: greenyellow;
+				padding: 0 20px;
+				cursor: pointer;
+			}
+			ul li:first-child{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div1"></div>
+		
+		<ul>
+			<li>首页</li>
+			<li>图片</li>
+			<li>新闻</li>
+			<li>视频</li>
+		</ul>
+		
+		<script>
+			console.log(window);
+			console.log(this);
+			//this: 指当前对象，script下this是window
+			console.log(this.document);
+			
+			//函数中的this也是window
+			function fn(){
+				console.log(this);
+			}
+			fn();
+			
+			this.aa = 100;
+			console.log(window.aa);//100
+			//添加点击事件
+			var oDiv = document.querySelector('#div1');
+			oDiv.onclick = function(){
+				//此时的this是绑定该方法的元素对象
+				console.log(this);
+				this.style.backgroundColor = 'blue';
+			};
+			
+			
+			//获取li
+			var navs = document.querySelectorAll("li");
+			var preLi = navs[0];//默认第一个选中
+			//遍历绑定事件
+			for(var i = 0; i < navs.length; i++){
+				//console.log(navs[i]);
+				navs[i].onclick = function(){
+					//alert(111);
+					//navs[i].style.backgroundColor = "red";
+					//alert(this.innerText);
+//					for(var j = 0; j < navs.length; j++){
+//						navs[j].style.backgroundColor = "greenyellow";
+//					}
+					//上次点击的恢复颜色
+					preLi.style.backgroundColor = "greenyellow";
+					//当前
+					this.style.backgroundColor = "red";
+					//保存当前是选中状态的li
+					preLi = this;
+				};
+			}
+		</script>
+	</body>
+</html>

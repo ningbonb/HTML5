@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				
+				background-color: rgba(255,0,0,0.555555);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+		
+		<script>
+			//随机数: [0,1)之间
+			var a = Math.random();
+			console.log(a);
+			
+			//[0,100)
+			var num = Math.random();
+			var re = Math.floor(num * 100);//Math.floor省略小数部分
+			console.log(re);
+			
+			//
+			var re = parseInt('100.111');
+			console.log(re);
+			
+			console.log("~~~~~~~");
+			//[0,100]
+			for(var i = 0; i < 10; i++){
+				var c = parseInt(Math.random()*101);
+				console.log(c);
+			}
+			
+			//[10,100]
+			for(var i = 0; i < 10; i++){
+				var c = parseInt(Math.random()*91+10);
+				console.log(c);
+			}
+			//[n,m]
+			//parseInt(Math.random()*(m-n+1)+n);
+			
+			
+			var oDiv = document.getElementById("div1");
+			//[0,255]
+			var r = parseInt(Math.random() * (255 - 0 + 1) + 0);
+			var g = parseInt(Math.random() * (255 - 0 + 1) + 0);
+			var b = parseInt(Math.random() * (255 - 0 + 1) + 0);
+			var a = Math.random();
+			
+			//赋值类型：字符串
+			oDiv.style.backgroundColor = "rgba("+ r + "," + g + "," + b + "," + a + ")";
+		</script>
+	</body>
+</html>

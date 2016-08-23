@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>延时定时器</title>
+	</head>
+	<body>
+		
+		<script>
+			/*
+			 延时定时器：
+			 参数两个
+			 返回值：计时器id
+			 
+			 延时定时器只执行一次
+			 * */
+			var timer = setTimeout(function(){
+				alert('定时器执行');
+			},3000);
+			
+			//清除定时器
+			clearTimeout(timer);
+		</script>
+	</body>
+</html>

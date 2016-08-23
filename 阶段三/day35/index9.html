@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>碰壁检测</title>
+		
+		<style>
+			.box{
+				width: 800px;
+				height: 500px;
+				border: 2px solid green;
+				position: relative;
+			}
+			#ball{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: red;
+				/*transition: all 4s;*/
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="ball"></div>
+		</div>
+		
+		<script>
+			var ball = document.getElementById("ball");
+			var box = document.querySelector(".box");
+
+			var x = 0;
+			var speedX = 1;
+			setInterval(function(){
+				x += speedX;
+				ball.style.left = x + 'px';
+				
+				//碰到壁
+				if(x >= 750){
+					//回去
+					speedX *= -1;
+				}else if(x <= 0){
+					speedX *= -1;
+				}
+			},5);
+		</script>
+	</body>
+</html>

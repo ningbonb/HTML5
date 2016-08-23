@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+		
+			//if if else
+			var a = 10,b = 20;
+			//最大值
+			if(a > b){
+				console.log('最大值是a'+a);
+			}else{
+				console.log('最大值是b'+b);
+			}
+			
+			
+			//注意判断关系使用比较运算符时 两个==
+			var num = 18;
+			if(num = 25){
+				console.log('条件成立'+num);
+			}
+			
+			var num = 18;
+			if(num == 25){
+				console.log('条件成立'+num);
+			}else{
+				console.log('条件不成立');
+			}
+			
+			//闰年 被400整除/被4整除但是不能被100整除
+			var year = 2000;
+			if(year % 400 == 0||(year % 4 ==0 && year %100 != 0)){
+				console.log(year+'是闰年');
+			}else{
+				console.log(year+'不是闰年');
+			}
+			
+			//三个数的最大值
+			var a = 10,b = 30,c = 20;
+			var max = a;
+			if(max < b){
+				max = b;
+			}
+			if(max < c)max = c;//如果If语句中只有一句话，可以省略（）
+			
+			console.log(max);
+			
+			var max2 = a > b ? a : b;
+			max2 = max2 > c ? max2 : c;
+			console.log(max2);
+			
+			var max3 = (a > b ? a : b) > c ? (a > b ? a : b) : c;
+			console.log(max3);
+			
+			//switch
+			var a = 10;
+			switch (a){//表达式
+				case 1://具体的值
+					console.log('是1');
+					break;//结束判断
+				case 2:
+					console.log('是2');
+					break;
+				case 10:
+					console.log('是10');
+					break;
+				default:
+					break;
+			}
+			
+			//for 循环实现 0~100的和
+			var sum = 0;
+			for(var i = 0;i <= 100;i++){
+				sum += i;
+			}
+			console.log('0~100的和为'+sum);
+			
+			var sum1 = 0,sum2 = 0;
+			for(var i = 0;i <= 100;i++){
+				if(i % 2 == 0){
+					sum1 += i;
+				}else{
+					sum2 += i;
+				}
+			}
+			console.log('0~100的偶数和为：'+ sum1);
+			console.log('0~100的奇数和为：'+ sum2);
+			
+			/*
+			 ****
+			 ****
+			 ****
+			 ****
+			 */
+			//for循环的嵌套
+			for(var i = 0; i < 4; i++){
+				for(var j = 0; j < 4; j++){
+					document.write("*\t");
+				}
+				document.write("<br/>");
+			}
+			
+			/*
+			*
+			* *
+			* * *
+			* * * *
+			*/
+			for(var i = 0; i < 4; i++){
+				for(var j = 0; j <= i; j++){
+					document.write("*\t");
+				}
+				document.write("<br/>");
+			}
+			/*
+			* * * * 
+			* * * 
+			* *
+			* 
+			 */
+			for(var i = 4; i > 0; i--){
+				for(var j = 0; j < i; j++){
+					document.write("*\t");
+				}
+				document.write("<br/>");
+			}
+			
+			//结束循环
+			//break continue
+			
+			for(var i = 0; i < 100; i++){
+				if(i == 10){
+					break;//结束循环
+				}
+				console.log("今天下大雨"+i);
+			}
+			for(var i = 0; i < 10; i++){
+				if(i == 5){
+					continue;//结束本次循环
+				}
+				console.log("明天要下雨"+i);
+			}
+		</script>
+	</body>
+</html>

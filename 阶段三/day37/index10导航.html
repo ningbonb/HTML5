@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>导航</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 500px;
+				height: 100px;
+				border: 2px solid silver;
+				margin: 40px auto;
+				position: relative;
+			}
+			#wrap ul{
+				list-style: none;
+				overflow: hidden;
+				font-size: 25px;
+				text-align: center;
+			}
+			#wrap ul li{
+				float: left;
+				width: 20%;
+				padding: 10px 0;
+			}
+			#wrap ul li a{
+				text-decoration: none;
+				color: silver;
+			}
+			#scroll{
+				height: 5px;
+				width:20%;
+				background-color: indianred;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul>
+				<li><a href="###">首页</a></li>
+				<li><a href="###">视频</a></li>
+				<li><a href="###">体育</a></li>
+				<li><a href="###">信息</a></li>
+				<li><a href="###">科学</a></li>
+			</ul>
+			<div id="scroll"></div>
+		</div>
+	</body>
+	
+	<script src="js/tween.js"></script>
+	<script>
+//		var wrap = document.getElementById("wrap");
+		var scroll = document.getElementById("scroll");
+		var navList = document.querySelectorAll("#wrap ul li");
+		
+		//绑定事件
+		var index = 0;//记录滑块的位置
+		for(var i = 0; i < navList.length; i++){
+			navList[i].index = i;//自定义属性
+			navList[i].onclick = function(){
+				//alert(scroll.offsetLeft);
+				//offsetLeft:相对于第一个具有定位属性的父元素左边距
+				
+				//四个参数
+				var t = 0;//开始时间
+				//初始位置(每次不同，滑块距离左边的距离)
+				//var b = index * this.offsetWidth;
+				var b = scroll.offsetLeft;
+				//变化量（当前点击的位置  - 初始的位置）
+				var c = this.index * this.offsetWidth - b;
+				//持续时间
+				var d = 100;
+				
+				//保存滑块点击位置
+				index = this.index;
+				
+				//开始动画
+				move(scroll,t,b,c,d);
+			};
+		}
+		var timer;
+		function move(obj,t,b,c,d){
+			clearInterval(timer);
+			timer = setInterval(function(){
+				//让步数增加
+				t += 5;
+				//返回距离
+				obj.style.left = Tween.Bounce.easeIn(t,b,c,d) + "px";
+				//t到达 总时间
+				if(t == d)clearInterval(timer);
+			},16);
+		}
+	</script>
+</html>

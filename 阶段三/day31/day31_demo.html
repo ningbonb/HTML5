@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>day31_demo</title>
+		<style>
+			.fontcolor{
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			//1.求1 x 2 x 3 x 4 x ... x 19 x 20的结果? 
+			var sum = 1;
+			for(var i = 1; i <= 20; i++) {
+				sum *= i;
+			}
+			console.log(sum);
+			document.write("1、 1 x 2 x 3 x 4 x ... x 19 x 20的结果是：" + '<span class="fontcolor">' + sum + '</span>' + "<br>");
+			
+			//2.已知abc+cba = 1333，其中a、b、c均为一位数，编程求出满足条件的a、b、c所有组合。
+			document.write("2、abc+cba = 1333，其中a、b、c均为一位数，满足条件的a、b、c所有组合：");
+			for(var a = 0; a < 10; a++) {
+				for(var b = 0; b < 10; b++) {
+					for(var c = 0; c < 10; c++) {
+						if(a * 100 + b * 10 + c + c * 100 + b * 10 + a == 1333) {
+							console.log(a, b, c);
+							document.write('<span class="fontcolor">' + a, b, c + '</span>' + " ");
+						}
+					}
+				}
+			}
+			//3.给定某年某月某日,输出其为这一年的第几天(提示: 使用数组)
+			document.write("<br>" + "3、" + "<br/>");
+			document.write('<input type="text" id="year" placeholder="给定某年"/><br>');
+			document.write('<input type="text" id="month" placeholder="给定某月"/><br>');
+			document.write('<input type="text" id="day" placeholder="给定某日"/><br><br/>');
+			document.write('<input type="text" id="result" placeholder="结果为"/>');
+			document.write('<button onclick="days()">计算结果</button><br/><br/>');
+
+			function days() {
+				var year = +document.getElementById("year").value;
+				var month = +document.getElementById("month").value;
+				var day = +document.getElementById("day").value;
+				var result = document.getElementById("result");
+				var sum = 0;
+				switch(month) {
+					case 1:
+						sum = day;
+						break;
+					case 2:
+						sum = 31 + day;
+						break;
+					case 3:
+						sum = 31 + 28 + day;
+						break;
+					case 4:
+						sum = 31 + 28 + 31 + day;
+						break;
+					case 5:
+						sum = 31 + 28 + 31 + 30 + day;
+						break;
+					case 6:
+						sum = 31 + 28 + 31 + 30 + 30 + day;
+						break;
+					case 7:
+						sum = 31 + 28 + 31 + 30 + 30 + 30 + day;
+						break;
+					case 8:
+						sum = 31 + 28 + 31 + 30 + 30 + 30 + 31 + day;
+						break;
+					case 9:
+						sum = 31 + 28 + 31 + 30 + 30 + 30 + 31 + 31 + day;
+						break;
+					case 10:
+						sum = 31 + 28 + 31 + 30 + 30 + 30 + 31 + 31 + 30 + day;
+						break;
+					case 11:
+						sum = 31 + 28 + 31 + 30 + 30 + 30 + 31 + 31 + 30 + 31 + day;
+						break;
+					default:
+						sum = 31 + 28 + 31 + 30 + 30 + 30 + 31 + 31 + 30 + 31 + 30 + day;
+						break;
+				}
+				if(month > 2 && (month % 400 == 0 || (month % 4 == 0 && !month % 100 == 0))) {
+					sum++;
+				}
+				result.value = sum;
+			}
+			
+			
+			//4.创建一个数组, 10个元素, 随机为元素赋值, 取值范围[66, 99], 求最大值和最小值, 及其所在的下标
+			document.write("4、创建一个数组, 10个元素, 随机为元素赋值, 取值范围[66, 99]<br/>");
+			var arr = [];
+			var max = 66;
+			var min = 99;
+			for(var i = 0; i < 10; i++){
+				arr[i] = parseInt(Math.random() * 34 + 66);
+				if(arr[i] > max){
+					max = arr[i];
+					var j = i;
+				}
+				if(arr[i] < min){
+					min = arr[i];
+					var k = i;
+				}
+			}
+			document.write("这个数组为：" + '<span class="fontcolor">' + arr + '</span>' + "<br/>");
+			document.write(" 最大值为：" + '<span class="fontcolor">' + max + '</span>' + " 所在下标为：" + '<span class="fontcolor">' + j + '</span>' + "<br/>");
+			document.write(" 最小值为：" + '<span class="fontcolor">' + min + '</span>' + " 所在下标为：" + '<span class="fontcolor">' + k + '</span>' + "<br/>");
+			
+			//5.编程将所有“水仙花数”打印出来，并打印其总个数。 “水仙花数”是一个各个位立方之和等于该整数的三位数(个位数立方 + 十位数立方 + 百位数立方 = 这个整数)。
+			document.write("5、“水仙花数”是一个各个位立方之和等于该整数的三位数(个位数立方 + 十位数立方 + 百位数立方 = 这个整数)<br/>")
+			document.write('“水仙花数”有：');
+			var i = 0;
+			for(var a = 0; a < 10; a++){
+				for(var b = 0; b < 10; b++){
+					for(var c = 1; c < 10; c++){
+						if(a * a * a + b * b * b + c * c *c == a + b * 10 + c * 100){
+							document.write('<span class="fontcolor">' + (a + b * 10 + c * 100) + '</span>' + "&nbsp;");
+							i++;
+						}
+					}
+				}
+			}
+			document.write('<br/>“水仙花数”总个数：' + '<span class="fontcolor">' + i + '</span>');
+		</script>
+	</body>
+</html>

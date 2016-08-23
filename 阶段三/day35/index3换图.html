@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>换图</title>
+	</head>
+	<body>
+		<img src="img/1.jpg" alt="" />
+		<div id="box">
+			<button id="left">向左</button>
+			<button id="right">向右</button>
+			<button id="begin">自动开始</button>
+			<button id="stop">停止</button>
+		</div>
+		
+		<script>
+			//获取元素
+			var img = document.querySelector("img");
+			//左边按钮
+			var left = document.getElementById("left");
+			//向右
+			var right = document.getElementById("right");
+			//自动
+			var begin = document.getElementById("begin");
+			//停止
+			var stop = document.getElementById("stop");
+			
+			var index = 0;//记录图片的位置
+			var imgs = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg"];
+			//向左事件
+			left.onclick = function(){
+				index--;
+				//判断是否到了-1，回到最后一张
+				index = index < 0 ? imgs.length - 1 : index;
+				img.src = 'img/' + imgs[index];
+			};
+			
+			right.onclick = function(){
+				index++;
+				index = index > imgs.length - 1 ? 0 : index;
+				img.src = 'img/' + imgs[index];
+			};
+		</script>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM方法</title>
+		<style>
+			#box{
+				width: 300px;
+				height: 300px;
+				border: 2px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div class="inner">111</div>
+			<div class="inner">222</div>
+			<div class="inner">333</div>
+			<a href="#">a111</a>
+			<a href="#">a222</a>
+		</div>
+		<span class="inner">span1111</span>
+		<a href="#">a333</a>
+		
+		
+		<script>
+			//1.通过id:getElementById
+			//通过id:标准方法
+			//调用的对象只能是document
+			var oDiv = document.getElementById("box");
+			oDiv.style.border = '5px solid black';
+			
+			//2.直接通过id的名字
+			//不是标准方法，推荐第一种方式
+			//box.style.border = '5px solid red';
+			
+			//3.通过class找到元素
+			//返回的是数组
+			//如果通过document调用，找到的是所有叫做inner的元素
+			//也可以通过其他文档对象调用
+			var inners = document.getElementsByClassName("inner");
+			inners[3].style.color = "red";
+			console.log(inners.length);//4
+			
+			var boxInners = box.getElementsByClassName("inner");
+			console.log(boxInners.length);//3
+			
+			//4.通过标签
+			//返回的是数组
+			//如果通过document调用，找到的是所有叫做a的元素
+			//也可以通过其他文档对象调用，返回的是该对象下叫做a的标签
+			var links = document.getElementsByTagName("a");
+			links[2].style.color = "red";
+			
+			var boxLinks = box.getElementsByTagName("a");
+			boxLinks[1].style.color = "red";
+			
+			//5.querySelector()
+			//通过选择器去查找对象
+			//返回的是单个对象
+			//如果该选择器下多个对象，默认第一个
+			
+			var inner = document.querySelector(".inner");
+			//inner.style.border = '10px solid black';
+			
+			var linkFirst = document.querySelector("#box > a");
+			linkFirst.style.color = 'yellow';
+			
+			//querySelectorAll:找到所有该选择器的元素
+			//返回类型数组
+			var links = document.querySelectorAll("#box a");
+			links[1].style.color = "black";
+		</script>
+	</body>
+</html>

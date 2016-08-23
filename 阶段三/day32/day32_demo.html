@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.redfont{
+				color: red;
+				width: 15px;
+			}
+			.bluefont{
+				color: blue;
+				width: 15px;
+			}
+			.box{
+				width: 100px;
+				height: 180px;
+				margin:20px;
+				position: relative;
+			}
+			.img1{
+				position: absolute;
+				display: block;
+				left: 0;
+				top: 0;
+			}
+			.img2{
+				position: absolute;
+				display: block;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="primeNum" placeholder="请输入一个数字" />
+		<input type="text" id="primeRe" placeholder="这个数字是否是素数？" />
+		<button id="primeBtn">点击查看结果</button>
+		<br/><br/>
+		规则：蓝色球（1个）号码区1-16，红色球（6个）号码区1-33，红色球不重复<br/>
+		蓝色球：<input type="text" class="bluefont" id="blue1" readonly/>
+		红色球：
+		<input type="text" class="redfont" readonly/>
+		<input type="text" class="redfont" readonly/>
+		<input type="text" class="redfont" readonly/>
+		<input type="text" class="redfont" readonly/>
+		<input type="text" class="redfont" readonly/>
+		<input type="text" class="redfont" readonly/>
+		<button id="shuangBtn">点击出现结果</button>
+		<div class="box">
+			<div class="img1" id="img1">
+				<img src="img/1.gif" alt="" />
+			</div>
+			<div class="img2" id="img2">
+				<img src="img/2.gif" alt="" />
+			</div>
+		</div>
+		
+		
+		<script>
+			// 3.写函数, 判断一个数是不是素数(质数), 是, 返回true, 不是, 返回false（除了1和它本身以外不再被其他的除数整除。)  
+			var primeRe = document.getElementById("primeRe");
+			var primeBtn = document.getElementById("primeBtn");
+			primeBtn.onclick = function(){
+				var primeNum = document.getElementById("primeNum").value;
+				var k = 0;
+				if(primeNum > 1){
+					for(var i = 2; i < primeNum; i++){
+						if(primeNum % i == 0){
+							k++;
+						}
+					}
+					if(k > 0){
+						primeRe.value = primeNum + "不是一个素数";
+					}else{
+						primeRe.value = primeNum + "是一个素数";
+					}
+				}else{
+					primeRe.value = primeNum + "不是一个素数";
+				}
+			};
+			
+			//5.制作双色球机选效果
+			var shuangBtn = document.getElementById("shuangBtn");
+			shuangBtn.onclick = function(){
+				//蓝色球结果
+				var blue1 = document.getElementById("blue1");
+				blue1.value = randomNumber(1,16);
+				
+				//红色球结果
+				var red = document.getElementsByClassName("redfont");
+				for(var i = 0; i < red.length; i++){
+					red[i].value = randomNumber(1,33);
+					var reRed = red[i].value;
+					for(var k = 0; k < red.length; k++){
+						if(k == i)continue;
+						if(red[k].value == reRed){
+							red[i].value = randomNumber(1,33);
+						}
+					}
+				}
+			};
+			
+			//随机数
+			function randomNumber(min,max){
+				return parseInt(Math.random() * (max - min + 1) + min);
+			}
+			
+			// 7.实现关灯开灯效果
+			var img1 = document.getElementById("img1");
+			var img2 = document.getElementById("img2");
+			img2.onclick = function(){
+				img2.style.display = "none";
+				console.log(img2.style.display);
+			}
+			img1.onclick = function(){
+				img2.style.display = "block";
+				console.log(img2.style.display);
+			}
+		</script>
+	</body>
+</html>

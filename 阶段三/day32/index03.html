@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+		
+			html,body{
+				height: 100%;
+			}
+			body{
+				position: relative;
+			}
+			div{
+				width: 60%;
+				height: 60%;
+				border: 2px solid black;
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				background-color: #fff;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="inToOut">向外变</button>
+		<button id="outToIn">向里变</button>
+		
+		<div>
+			<div>
+				<div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<script>
+			//按钮（向外）
+			var inToOutBtn = document.getElementById("inToOut");
+			var outToInBtn = document.getElementById("outToIn");
+			//获取div的数组集合
+			//getElementsByTagName:通过标签获取
+			var boxs = document.getElementsByTagName("div");
+			//console.log(boxs);
+			//绑定事件
+			inToOutBtn.onclick = function(){
+				//最外层是最小值，内层数组下标大
+				//boxs[0].style.border = "2px solid red";
+				
+				for(var i = 0; i < boxs.length - 1; i++){
+					boxs[i].style.backgroundColor = boxs[i + 1].style.backgroundColor;
+				}
+				boxs[boxs.length-1].style.backgroundColor = randomColor();
+			};
+			
+			outToInBtn.onclick = function(){
+				for(var i = boxs.length-1; i >= 1; i--){
+					boxs[i].style.backgroundColor = boxs[i - 1].style.backgroundColor;
+				}
+
+				boxs[0].style.backgroundColor = randomColor();
+			}
+			function randomNumber(min,max){
+				return parseInt(Math.random() * (max - min + 1) + min);
+			}
+			
+			//随机颜色
+			function randomColor(){
+				var r = randomNumber(0,255);
+				var g = randomNumber(0,255);
+				var b = randomNumber(0,255);
+				return "rgb(" + r + "," + g + "," + b + ")";
+			}
+		</script>
+	</body>
+</html>

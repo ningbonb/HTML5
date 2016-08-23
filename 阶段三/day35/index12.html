@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 300px;
+				height: 200px;
+				border: 2px solid dodgerblue;
+				position: relative;
+				overflow: hidden;
+			}
+			#content{
+				overflow: hidden;
+				width: 500%;
+				position: absolute;
+				left: 0px;
+				transition: all 1s ease-in-out;
+			}
+			#content img{
+				float: left;
+				width: 300px;
+				height: 200px;
+			}
+		</style>
+		<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>
+		
+		<div class="box">
+			<div id="content">
+				<img src="img/11.jpg" alt="" />
+				<img src="img/12.jpg" alt="" />
+				<img src="img/13.jpg" alt="" />
+				<img src="img/14.jpg" alt="" />
+				<img src="img/15.jpg" alt="" />
+			</div>			
+		</div>
+	</head>
+	<body>
+		
+		<script>
+			var btns = document.querySelectorAll("button");
+			var content = document.getElementById("content");
+			for(var i = 0; i < btns.length; i++){
+				btns[i].index = i;
+				btns[i].onclick = function(){
+					//alert(this.index);
+					content.style.left = -300 * this.index + 'px';
+				};
+			}
+		</script>
+	</body>
+</html>

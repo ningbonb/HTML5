@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			#box{
+				width: 80px;
+				border: 1px solid red;
+			}
+			ul{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+				display: none;
+			}
+			a{
+				display: inline-block;
+				margin-bottom: 15px;
+			}		
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<a href="#">设置</a>
+			<ul>
+				<li>张三</li>
+				<li>和</li>
+				<li>李四</li>
+				<li>是一对</li>
+			</ul>
+		</div>
+		
+		<script>
+			var objA = document.querySelector('a');
+			var oUl = document.querySelector('ul');
+			
+			var timer;
+			//onmousemove鼠标移入事件
+			objA.onmousemove = function(){
+				//alert(11);
+				clearTimeout(timer);
+				oUl.style.display = "block";
+			};
+			//onmouseout鼠标移出事件
+			objA.onmouseout = function(){
+				//alert(23);
+				clearTimeout(timer);
+				timer = setTimeout(function(){
+					oUl.style.display = "none";
+				},500);
+			};
+			
+			
+			oUl.onmousemove = function(){
+				//alert(11);
+				clearTimeout(timer);
+				oUl.style.display = "block";
+			};
+			//onmouseout鼠标移出事件
+			oUl.onmouseout = function(){
+				//alert(23);
+				clearTimeout(timer);
+				timer = setTimeout(function(){
+					oUl.style.display = "none";
+				},500);
+			};
+		</script>
+	</body>
+</html>

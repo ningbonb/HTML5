@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包实现计数器</title>
+	</head>
+	<body>
+		
+		
+		<script>
+			//整个文档严格模式
+//			"use strict"
+		
+		
+			//没有定义a使用报错
+			//console.log(a);	//a is not defined
+			
+			//1.变量的声明即使是在最下面，浏览器会进行变量的声明提前，提前到作用域的最前面
+			//2.变量的定义（赋值）不会被提前
+			//console.log(a);//undefined
+			//var a = 10;
+			window.a = 10;
+			
+			//全局变量默认属于winndow对象
+			console.log(window);
+			//window对象的属性：a
+			console.log(window.a);
+			//console.log(a);
+			
+			//不加var，直接写变量名赋值，默认全局变量，属于window的属性
+			b = 200;
+			console.log(b);
+			console.log(window);
+			
+			function fn(){
+				//声明严格模式
+//				"use strict"
+				c = 300;
+			}
+			fn();
+			console.log(window.c);//300
+			console.log(c);//300
+			
+			//变量的就近原则
+			var e = 10;
+			var f = 20;
+			function fn1(e){
+				//修改的是局部变量（形参e）,不是全局变量
+				e = 100;
+				console.log('函数内部变量' + e);
+				var f = 100;
+				console.log('函数内部变量f' + f);
+			}
+			fn1();
+			console.log(e);
+			console.log('全局的f:' + f);
+			
+			//函数声明+定义前置
+			fn2();
+			function fn2(){
+				console.log("哈哈哈");
+			}
+			
+			//闭包：(结合匿名函数)
+			
+			//计数器：函数每调用一下，记录次数
+			var count = 0;
+			function add(){
+				count++;
+			}
+			add();
+			add();
+			add();
+			console.log(count);
+			
+			//闭包实现计数器
+			var add2 = (function(){
+				//保证局部变量不会被修改并且释放
+				var count = 0;
+				return function(){
+					return count++;
+				};
+			})();
+			
+			//add2:是内部匿名函数的函数指针
+			add2();//调用内部匿名函数
+			alert(add2());
+			alert(add2());
+		</script>
+	</body>
+</html>

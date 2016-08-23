@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>classname</title>
+		<style>
+			.normal{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 200px;
+			}
+			.active{
+				width: 100px;
+				height: 100px;
+				background-color: blue;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="active" id="div1" custom = 'hh'>
+			点我改变样式
+		</div>
+		
+		<script>
+			//获取
+			var oDiv = document.querySelector(".active");
+			oDiv.onclick = function(){
+				//访问class属性用clsaaName,其他的系统属性对应属性名
+				//alert(this.className);
+				
+				this.className = this.className == "normal" ? "active" : "normal";
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 500px;
+				height: 100px;
+				border: 1px solid silver;
+				margin: 50px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			#content{
+				height: 100%;
+				width: 1000%;
+				display: hidden;
+				position: absolute;
+				left: 0;
+			}
+			#content img{
+				width: 150px;
+				height: 100px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="content">
+				<img src="img/11.jpg" alt="" />
+				<img src="img/12.jpg" alt="" />
+				<img src="img/13.jpg" alt="" />
+				<img src="img/14.jpg" alt="" />
+				<img src="img/15.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+	<script src="js/tween.js"></script>
+	<script>
+		/*
+		 使用tween.js
+		 1.变化元素的哪一个属性
+		 2.几次曲线运动
+		 3.每次曲线运动有哪些属性值变化 b和c的变化
+		 4.t每次要变化，变化到d 代表一次曲线运动结束
+		 * */
+		var content = document.getElementById("content");
+		content.innerHTML += content.innerHTML;
+		var img = content.querySelector("img");
+		var t = 0;
+		var b = 0;
+		var c = -img.offsetWidth;
+		var d = 100;
+		var timer;
+		var outTimer;
+		var index = 0;//记录图片位置
+		timer = setInterval(function(){
+			//需要修改的值
+			t++;
+			content.style.left = Tween.Bounce.easeInOut(t,b,c,d) + "px";
+			if(t == d){
+				//clearInterval(timer);
+				//需要改的值
+				t = 0;
+				b = content.offsetLeft;
+				index++;
+			}
+			if(index == 5){
+				//下标归零
+				index = 0;
+				//偏移量0
+				content.style.left = 0;
+				//初始位置
+				b = 0;
+			}
+		},16);
+	</script>
+</html>
