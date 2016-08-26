@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			html,body{
+				margin: 0;
+				padding: 0;
+			}
+			#a{
+				width: 600px;
+				height: 600px;
+				background-color: red;
+				border: 10px solid black;
+				position: relative;
+			}
+			#b{
+				width: 300px;
+				height: 300px;
+				background-color: pink;
+				border: 10px solid white;
+				margin-top: 100px;
+				margin-left: 100px;
+				position: relative;
+			}
+			#c{
+				width: 100px;
+				height: 100px;
+				background-color: cornflowerblue;
+				border: 2px solid green;
+				margin-top: 100px;
+				margin-left: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="a">
+			<div id="b">
+				<div id="c"></div>
+			</div>
+		</div>
+	</body>
+	
+	<script>
+		//计算c元素到浏览器顶部的距离
+		var cDiv = document.getElementById("c");
+		
+		//1.a 和 b 都没有定位关系
+		console.log(cDiv.offsetTop);//220
+		
+		//2.b有定位关系
+		var offTop = cDiv.offsetTop + cDiv.offsetParent.clientTop + cDiv.offsetParent.offsetTop;
+		console.log(offTop);//220
+		
+		//3.a和b都有定位关系
+		var offTop2 = cDiv.offsetTop + cDiv.offsetParent.clientTop + cDiv.offsetParent.offsetTop + cDiv.offsetParent.offsetParent.clientTop + cDiv.offsetParent.offsetParent.offsetTop;
+		console.log(offTop2);//220
+		
+		function getOffTop(ele){
+			//最上层有body是offsetParent
+			if(ele.offsetParent == null){
+				return 0;
+			}
+			
+			var offtop = ele.offsetTop + ele.offsetParent.clientTop;
+			
+			return offTop + getOffTop(ele.offsetParent);
+		}
+		
+		console.log(getOffTop(cDiv));
+	</script>
+</html>

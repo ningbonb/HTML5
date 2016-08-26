@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 400px;
+				height: 110px;
+				border: 1px solid silver;
+				overflow: hidden;
+				margin: 50px auto;
+			}
+			#content{
+				overflow: hidden;
+				width: 9999px;
+				height: 100%;
+			}
+			#content img{
+				float: left;
+				width: 150px;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="content">
+				<img src="img/11.jpg" alt="" />
+				<img src="img/12.jpg" alt="" />
+				<img src="img/13.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		var content = document.getElementById("content");
+		var wrap = document.getElementById("wrap");
+		content.innerHTML += content.innerHTML;
+		
+		var step = 0;
+		var max = 450;
+		//wrap.scrollLeft = 450;
+		var timer 
+		timer = setInterval(function(){
+			step += 2;
+			//改的是容器元素的偏移，全是正数
+			wrap.scrollLeft = step;
+			if(step >= max){
+				step = 0;
+			}
+		},16);
+	</script>
+</html>

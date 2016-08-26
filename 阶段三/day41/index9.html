@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动尺寸</title>
+		<style>
+			body,html{
+				margin: 0;
+				padding: 0;
+			}
+			#div1{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				overflow: scroll;
+				padding: 10px;
+			}
+			#div2{
+				width: 1000px;
+				height: 1000px;
+				background-color: brown;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">111</div>
+		</div>
+	</body>
+	<script>
+		/*
+		 滚动尺寸
+		 scrollHeight,scrollWidth,scrollTop,scrollLeft
+		 
+		 scrollHeight:当前元素内容高度(如果子元素高度大于当前元素高度，内容高度为子元素的高度)+paddingTop + paddingBottom
+		 
+		 scrollWidth:当前元素内容高度(如果子元素宽度大于当前元素宽度，内容宽度为子元素的宽度)+paddingLeft + paddingRight
+		 
+		 
+		 //兼容性问题
+		 scrollWidth:在谷歌下，paddingRight不会被计算进去
+		 注：在火狐下scrollWidth：paddingRight不会被计算进去，scrollHeight：paddingBottom不会被计算进去
+		 
+		 scrollTop: 垂直滚动距离
+		 scrollLeft: 水平滚动距离
+		 * */
+		
+		var div1 = document.getElementById("div1");
+		console.log(div1.scrollHeight);
+		console.log(div1.scrollWidth);
+		
+		div1.onclick = function(){
+			console.log('垂直滚动距离' + this.scrollTop);
+			console.log('水平滚动距离' + this.scrollLeft);
+		};
+	</script>
+</html>
