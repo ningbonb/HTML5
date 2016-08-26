@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			/*
+			 date():指定参数
+			 获取固定日期的date对象
+			 注意：月份从0计算
+			 1.年，月，日，时，分，秒（省略为0）
+			 
+			 2.字符串：字符串形式下，月份正常
+			 	"月 日 年 时： 分： 秒"
+			 	"月 日, 年 时： 分： 秒"
+			 	
+			 	"月份简写 日，年 时：分：秒"
+			 	Jue Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+			 * */
+			var date1 = new Date(2016,0,1,11,10,10);
+			console.log(date1);
+			
+			var date2 = new Date("10 1 2016 10:10:10");
+			console.log(date2);
+			
+			var date3 = new Date("10 1,2016 10:10:10");
+			console.log(date3);
+			
+			var date4 = new Date("Jan 1,2016 10:10:10");
+			console.log(date4);
+		</script>
+	</body>
+</html>

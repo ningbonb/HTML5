@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				height: 100px;
+				width: 100px;
+				background-color: pink;
+				padding: 10px;
+				border: 10px solid silver;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	
+	<script>
+		var div1 = document.getElementById("div1");
+		/*
+		 外尺寸：
+		 offsetHeight offsetWidth offsetParent offsetTop offsetLeft
+		 
+		 offsetHeight: 内容高度height + paddingTop + paddingBottom + border-top + border-bottom
+		 offsetWidth: 内容高度width + paddingLeft + paddingRight + border-left + border-right
+		 
+		 offsetParent:获取到距离当前元素最近的并且带有定位属性（除了默认static）的父元素，当所有父元素都没有定位关系，在标准浏览器下和ie高版本下，offsetParent获取到body
+		 
+		 * */
+		
+		console.log(div1.offsetHeight);
+		console.log(div1.offsetWidth);
+	</script>
+</html>

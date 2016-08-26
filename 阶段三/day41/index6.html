@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: pink;
+				padding: 10px;
+				border: 10px solid silver;
+				border-top: 20px solid silver;
+				border-left: 30px solid silver;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			
+		</div>
+	</body>
+	<script>
+		//元素内尺寸
+		/*
+		 内尺寸：(不包含边框)
+		 clientHeight clientWidth clientTop cilentLeft
+		 
+		 clientHeight:内容height + padding-top + padding-bottom
+		 clientWidth:内容wdith + padding-left + padding-right
+		 clientTop: 上边框的大小 border-top
+		 clientLeft: 左边框大小 border-left
+		 * */
+		var div1 = document.getElementById("div1");
+		console.log(div1.clientHeight);//120
+		console.log(div1.clientWidth);//120
+		
+		console.log(div1.clientTop);//10
+		console.log(div1.clientLeft);//10
+		
+		//浏览器可视区域大小
+		console.log(window.innerHeight);//ie不支持
+		
+		//可视区域高度
+		console.log(document.documentElement.clientHeight);
+		
+		var height = window.innerHeight || document.documentElement.clientHeight;
+		console.log(height);
+	</script>
+</html>

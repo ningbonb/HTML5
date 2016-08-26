@@ -1,0 +1,42 @@
+DOM:
+document object model:文档对象模型
+
+2.DOM树：文档解析完成后，浏览器把文档中的元素，转化成一种树形结构（一个个的结点组成）
+
+document->html body->div->ul->li
+			   head->title
+			   
+
+3.DOM提供了一些常用的属性和方法，可以对文档中的元素，访问和更改（增加元素，删除元素，替换元素）
+
+//查找：
+document.getElementById
+docuemnt.getElementsTagName
+document.getElementsClassName
+document.getElementsByName:通过表单元素的name属性
+
+//h5不兼容ie6-8
+document.querySelector
+document.querySelectorAll
+
+//关系查找
+文档树关系查找
+children:子节点
+parentNode:父结点
+nextSibling:下兄弟结点
+
+节点：页面中所有内容的一个分类
+1.元素节点 <div> <span>....
+2.文本节点 'hello world'
+3.属性节点 id class name src....
+4.注释节点 <!--注释-->
+5.根节点 document
+6.声明节点 
+
+			nodeType	nodeName	nodeValue
+元素节点：		1 		 "DIV"(元素名) null
+属性节点：		2		"属性名"		"属性值"
+文本节点:		3		"#text"		"文本内容"
+注释节点:		8		"comment"	"注释内容"
+根节点:			9		"#document"   null 
+声明节点			10		 "html"		  null

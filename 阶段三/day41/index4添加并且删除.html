@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击累加</title>
+	</head>
+	<body>
+		<button id="btn">添加</button>
+		<ul id="ul1"></ul>
+		<script>
+			var btn = document.getElementById("btn");
+			var ul1 = document.getElementById("ul1");
+			
+			var index = 0;
+			//var li = null;
+			btn.onclick = function(){
+				index++;
+				var li = document.createElement("li");
+				
+				//方式1
+				li.innerHTML = "我是li" + index + '<a href="###">删除</a>';
+				
+				//方式2
+				//创建一个a标签
+//				var newA = document.createElement("a");
+//				newA.href="###";
+//				newA.innerHTML = "删除";
+//				li.appendChild(newA);
+				
+				//判断是不是第一次添加
+				if(ul1.children.length > 0){
+					ul1.insertBefore(li,ul1.children[0]);
+				}else{
+					ul1.appendChild(li);
+				}
+				
+				//删除事件
+				var linkA = li.children[0];
+				linkA.onclick = function(){
+//					alert(this);
+					//找到当前点击的a标签父元素，把它删除
+					//ul1.removeChild(this.parentNode);
+					
+					//方式2：直接删除对应的li
+					ul1.removeChild(li);
+				};
+			};
+		</script>
+	</body>
+</html>

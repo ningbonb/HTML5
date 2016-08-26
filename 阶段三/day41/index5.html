@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		选择省：
+		<select name="province" id="province">
+			<option value="请选择省份">请选择省份</option>
+			<option value="shanxi">山西</option>
+			<option value="henan">河南</option>
+		</select>
+		
+		<select name="city" id="city">
+			<option value="shi">市区</option>
+		</select>
+	</body>
+	
+	<script>
+		var province = document.getElementById("province");
+		var city = document.getElementById("city");
+		
+		var shanxi = ['太原','运城','晋中',"临汾",'晋城','吕梁','大同','忻州','朔州'];
+		var henan = ['郑州','新乡','焦作','开封','洛阳','信阳','驻马店'];
+		
+		
+		//列表选择时会触发函数
+		province.onchange = function(){
+			//alert(this.value);//对应选择到的 value
+			
+			//1.删除之前旧数据
+			removeOption();
+			//2.添加新的数据
+			
+			switch (this.value){
+				case "shanxi":
+					//alert('shanxi');
+					//创建山西下的所有的市
+					for(var i = 0; i < shanxi.length; i++){
+						var optionNew = document.createElement("option");
+						optionNew.value = shanxi[i];
+						optionNew.innerHTML = shanxi[i];
+						city.appendChild(optionNew);
+					}
+					break;
+				case "henan":
+					//alert("henan");
+					for(var i = 0; i < shanxi.length; i++){
+						var optionNew = document.createElement("option");
+						optionNew.value = henan[i];
+						optionNew.innerHTML = henan[i];
+						city.appendChild(optionNew);
+					}
+					break;
+				default:
+					//alert("其他");
+					var optionNew = document.createElement("option");
+					optionNew.value = "请选择省";
+					optionNew.innerHTML = "请选择省";
+					city.appendChild(optionNew);
+					break;
+			}
+		};
+		
+		function removeOption(){
+			while(city.children.length > 0){
+				city.remove(city.lastElementChild)
+			}
+//			var childs = document.querySelectorAll('#city option');
+//			for(var i = 0; i < childs.length; i++){
+//				city.removeChild(childs[i]);
+//			}
+		};
+	</script>
+</html>

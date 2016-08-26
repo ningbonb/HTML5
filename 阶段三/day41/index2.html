@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#wrap{
+				border: 1px solid silver;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="wrap">
+			<button id="btn2">我是容器本身按钮</button>
+		</div>
+		<button id="btn">点击添加</button>
+		
+		<script>
+			var btn = document.getElementById("btn");
+			var wrap = document.getElementById("wrap");
+			var btn2 = document.getElementById("btn2");
+			
+			//点击添加a标签
+			var newA = document.createElement("a");
+			newA.href = "###";
+			btn.onclick = function(){
+				//创建一个新节点
+				//创建一个文本节点
+				//var textNode = document.createTextNode("新创建的一个a标签");
+				//放到newA内部
+				//newA.appendChild(textNode);
+				
+				newA.innerHTML = "新创建的一个a标签；"
+				
+				//放到wrap
+				wrap.appendChild(newA);
+			};
+			
+			//按钮2本身事件
+			btn2.onclick = function(){
+				alert(111);
+			};
+		</script>
+	</body>
+</html>

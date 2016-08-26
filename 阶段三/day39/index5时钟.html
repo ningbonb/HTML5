@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>时钟</title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			#box {
+				width: 500px;
+				height: 500px;
+				border-radius: 50%;
+				margin: 50px auto;
+				/*阴影效果
+				 参数3：模糊的距离
+				 参数4：模糊大小
+				 * */
+				box-shadow: 0 0 25px 2px gray;
+				background-image: linear-gradient(to bottom, white 2%, silver 10%, silver 90%, white);
+				position: relative;
+			}
+			
+			#clock {
+				width: 94%;
+				height: 94%;
+				border-radius: 50%;
+				background-color: #fff;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				box-shadow: 0 0 15px 2px silver inset;
+			}
+			
+			#number {
+				position: relative;
+				height: 100%;
+				/*background-color: red;*/
+				border-radius: 50%;
+			}
+			
+			#number li {
+				position: absolute;
+				width: 100%;
+				height: 50px;
+				/*background-color: yellow;*/
+				font-size: 40px;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			#number span {
+				line-height: 50px;
+				display: inline-block;
+				height: 100%;
+				margin-left: 18px;
+			}
+			
+			#needle {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background-color: silver;
+				border-radius: 50%;
+			}
+			/*共有样式*/
+			
+			#needle li {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: -10px;
+				margin: auto;
+				/*更改中心点：left：从左边计算35px*/
+				transform-origin: 35px center;
+			}
+			
+			#hour {
+				width: 140px;
+				height: 15px;
+				background-color: dimgray;
+				z-index: 8;
+				box-shadow: 0 0 3px 1px lightslategray;
+				border-radius: 35%;
+			}
+			
+			#min {
+				width: 180px;
+				height: 10px;
+				background-color: lightslategray;
+				z-index: 9;
+				box-shadow: 0 0 5px 1px gainsboro;
+				border-radius: 50%;
+			}
+			
+			#sec {
+				width: 240px;
+				height: 5px;
+				background-color: gainsboro;
+				z-index: 10;
+				box-shadow: 0 0 3px 1px gainsboro;
+				border-radius: 50%;
+			}
+			
+			#needle li:last-child {
+				width: 20px;
+				height: 20px;
+				background: white;
+				border-radius: 50%;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				transform-origin: center center;
+				z-index: 11;
+			}
+			
+			#dial {
+				height: 100%;
+				width: 100%;
+				border-radius: 50%;
+				/*background-color: red;*/
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+			#dial li {
+				position: absolute;
+				height: 2px;
+				width: 100%;
+				/*background-color: green;*/
+				top: 0;
+				bottom: 0;
+				margin: auto;
+			}
+			
+			#dial span {
+				display: block;
+				width: 8px;
+				height: 2px;
+				background-color: #000;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<!--外边框-->
+		<div id="box">
+			<!--表盘-->
+			<div id="clock">
+				<!--数字-->
+				<ul id="number">
+					<li><span>9</span></li>
+					<li><span>10</span></li>
+					<li><span>11</span></li>
+					<li><span>12</span></li>
+					<li><span>1</span></li>
+					<li><span>2</span></li>
+					<li><span>3</span></li>
+					<li><span>4</span></li>
+					<li><span>5</span></li>
+					<li><span>6</span></li>
+					<li><span>7</span></li>
+					<li><span>8</span></li>
+				</ul>
+
+				<ul id="needle">
+					<li id="hour"></li>
+					<li id="min"></li>
+					<li id="sec"></li>
+					<!--当中的小圆点-->
+					<li></li>
+				</ul>
+
+				<ul id="dial">
+					<!--<li><span></span></li>-->
+				</ul>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		var numers = document.querySelectorAll("#number li");
+		var numers_span = document.querySelectorAll("#number span");
+
+		//遍历数组，旋转
+		for(var i = 0; i < numers.length; i++) {
+			numers[i].style.transform = "rotate(" + (i * 30) + "deg)";
+			//console.log("rotate(" +(i*30) + "deg)");
+			//相反的方向把数字摆正
+			numers_span[i].style.transform = "rotate(" + (-30 * i) + "deg)";
+		}
+
+		var hour = document.getElementById("hour");
+		var min = document.getElementById("min");
+		var sec = document.getElementById("sec");
+
+		function updateTime() {
+			//获取当前时间
+			var currentDate = new Date();
+			//时
+			var h = currentDate.getHours();
+			//分
+			var m = currentDate.getMinutes();
+			//秒
+			var s = currentDate.getSeconds();
+			//转为角度
+			var sDeg = s * 6;
+
+			sec.style.transform = "rotate(" + (-90 + sDeg) + "deg)";
+			//分针度数
+			//1分钟 == 60秒 == 6度每秒分针走0.1读
+			var mDeg = m * 6 + 0.1 * s;
+			min.style.transform = "rotate(" + (-90 + mDeg) + "deg)";
+			//时针毒素
+			//1小时 == 60分 == 3600秒 == 30度 
+			//每分钟走0.5度 每秒走1/120
+			var hDeg = h * 30 + 0.5 * m + s / 120;
+			hour.style.transform = "rotate(" + (-90 + hDeg) + "deg)";
+		}
+		updateTime();
+		setInterval(updateTime, 1000);
+
+		var dial = document.getElementById("dial");
+		//dial.innerHTML = "<li><span></span></li>";
+		for(var i = 0; i < 60; i++) {
+			dial.innerHTML += "<li><span></span></li>";
+			//获取到li
+			var dial_li = dial.querySelectorAll("li")[i];
+			dial_li.style.transform = "rotate(" + (i * 6) + "deg)";
+
+			if(i % 5 == 0) {
+				//获取到span标签
+				var dial_li_span = dial_li.querySelector('span');
+				dial_li_span.style.height = "3.5px";
+				dial_li_span.style.width = "12px";
+			}
+
+		}
+	</script>
+
+</html>
