@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<input type="text" id="text1" />
+		<ol id="ol1"></ol>
+	</body>
+	<script type="text/javascript">
+		var text1 = document.getElementById("text1");
+		var ol = document.getElementById("ol1")
+		
+		text1.onkeydown = function(ev){
+			var ev = ev || event;
+			console.log(ev.keyCode);
+			//13
+			if(ev.keyCode == 13 && this.value != '' && ev.ctrlKey == true && ev.shiftKey){
+				var li = document.createElement("li");
+				li.innerText = this.value;
+				ol1.appendChild(li);
+				ol1.insertBefore(li,ol1.firstElementChild);
+			}
+		};
+	</script>
+</html>

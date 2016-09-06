@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		/*
+		 将数据保存到浏览器中，浏览器关闭后数据没了
+		 使用方式和localStroage一样
+		 * */
+		console.log(window.sessionStorage);
+		
+		sessionStorage.name = "石头";
+		sessionStorage['age'] = 20;
+		
+		sessionStorage.setItem('gender','男');
+		//key值相同时属性值被覆盖
+		sessionStorage.name = "大石头";
+		
+		
+		//删除 删除 全部删除
+		//sessionStorage.removeItem('age');
+		//delete sessionStorage.name;
+		//sessionStorage.clear();
+		
+		for(var pro in sessionStorage){
+			console.log(pro,sessionStorage[pro]);
+		}
+		
+	</script>
+</html>

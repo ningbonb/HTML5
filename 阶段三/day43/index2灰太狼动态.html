@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>锅打灰太狼</title>
+	</head>
+	<body>
+		<img src="img/h0.png" alt="" id="ht1"/>
+	</body>
+	<script>
+		var imgObj = document.getElementById("ht1");
+		
+		//当前图片的位置
+		imgObj.index = 0;
+		
+		var timer = setInterval(function(){
+			imgObj.src = "img/h"+ imgObj.index +".png"
+			imgObj.index++;
+			
+			if(imgObj.index > 5){
+				clearInterval(timer);
+				var timer2 = setInterval(function(){
+					imgObj.index--;
+					imgObj.src = "img/h"+ imgObj.index +".png"
+					if(imgObj.index < 1){
+						clearInterval(timer2);
+						document.body.remove(imgObj);
+					}
+				},200);
+			}
+		},300);
+		
+		imgObj.onclick = function(){
+			clearInterval(timer);
+		};
+	</script>
+</html>

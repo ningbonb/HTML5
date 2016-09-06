@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--<iframe src="http://www.ningbo00.top" frameborder="0" height="300" width="300"></iframe>-->
+		<iframe frameborder="10" height="300" width="300" name="iframe1"></iframe>
+		<button id="btn1">在iframe下显示</button>
+		<hr />
+		<!--结合a链接open-->
+		<a href="http://www.ningbo00.top" target="ningbo">打开宁勃的网页</a>
+		<button id="btn2">结合a标签使用</button>
+		
+		<!--打开关闭窗口-->
+		<hr />
+		打开关闭测试
+		<button id="open1">打开窗口</button>
+		<button id="close1">关闭窗口</button>
+		
+		<hr />
+		打开关闭多个
+		<button id="openMore">打开多个窗口</button>
+		<button id="closeMore">关闭多个窗口</button>
+		
+		<hr />
+		移动窗口
+		<button id="open2">打开新窗口</button>
+		<button id="moveTo">moveTo</button>
+		<button id="moveBy">moveBy</button>
+		
+		<hr />
+		给上面的新窗口添加一个元素
+		<button id="add">添加新的元素</button>
+	</body>
+	
+	<script>
+		/*
+		 //BOM:Brower object model
+		 处理窗口与窗口之间通道
+		 
+		 window:是我们核心对象，所有的对象都是从window延伸而来：都是window的子对象
+		 
+		 子对象：
+		 1.document（文档对象）
+		 2.location（网址对象，包含网页的网址信息）
+		 3.navigation（浏览器信息对象，包含浏览器信息：比如版本型号等）
+		 4.screen（屏幕对象，电脑屏幕信息）
+		 5.history（历史纪录，包含浏览器浏览的历史纪录）
+		 * */
+		
+		var a = 100;
+		console.log(window.a);
+		
+		//全局函数也属于window
+		function fn(){
+			console.log("全局函数");
+		}
+		window.fn();
+		
+		//this: 默认情况下是window
+		//console.log(this);
+		
+		function fn1(){
+			console.log(this);
+		}
+		//fn1();
+		//call:可以改变this的指向
+		fn1.call(document);
+		
+		//对象中声明函数的this,指的是当前的这个对象
+		var obj = {
+			name:"石头",
+			run:function(){
+				console.log(this);
+			}
+		};
+		obj.run();
+		
+		//元素事件中的this，指的是添加事件的当前对象
+		document.onclick = function(){
+			console.log(this);
+			console.log(self);
+		};
+		
+		//self:无论在哪里调用，self都是window对象
+		console.log(self);
+		
+		//window下常用方法
+		/*
+		 1.window.open(网址，name,feature)
+		 参数1：网址
+		 参数2：指定打开窗口的名字（结合iframe使用,ifranme下的name属性必须和我的参数2的name值相同）
+		 参数3：指定新窗口的特性
+		 * */
+		
+		//直接调用open方法，浏览器会拦截
+		//window.open('http://www.baidu.com');
+		document.onclick = function(){
+			//window.open('http://www.ningbo00.top');
+			//参数3
+			//window.open('http://www.ningbo00.top','','width=300,height=300,left=50,top=100');
+			
+		};
+		
+		var btn1 = document.getElementById("btn1");
+		btn1.onclick = function(){
+			window.open("http://www.ningbo00.top","iframe1")
+		};
+		
+		//name：结合a标签使用
+		var btn1 = document.getElementById("btn2");
+		btn2.onclick = function(){
+			//打开一个target是ningbo的页面，如果这个页面被打开，不再创建新的窗口页面
+			//参数2的属性值 == a标签的target的值
+			window.open('','ningbo');
+		};
+		
+		//打开窗口，关闭窗口
+		var open1 = document.getElementById("open1");
+		var close1 = document.getElementById("close1");
+		
+		//window.open:返回创建的新窗口对象
+		var newWindow = null;
+		open1.onclick = function(){
+			newWindow = window.open('http://www.ningbo00.top');
+			console.log(newWindow);
+		};
+		//close():调用者是被关闭的窗口对象
+		close1.onclick = function(){
+			newWindow.close();
+		};
+		
+		//打开多个窗口，关闭多个窗口
+		var openMore = document.getElementById("openMore");
+		var closeMore = document.getElementById("closeMore");
+		
+		var windows = [];
+		openMore.onclick = function(){
+			for(var i = 0; i < 5; i++){
+				var newW = open('http://ningbo00.top','','width=300,height=300');
+				windows.push(newW);
+			}
+		};
+		
+		closeMore.onclick = function(){
+			for(var i = 0; i < windows.length; i++){
+				windows[i].close();
+			}
+		};
+		
+		/*
+		 移动窗口
+		 1.moveTo(x,y):移动到哪一个位置
+		 2.moveBy(x,y):基于当前的位置移动x或者y距离
+		 * */
+		
+		var open2 = document.getElementById("open2");
+		var moveToBtn = document.getElementById("moveTo");
+		var moveByBtn = document.getElementById("moveBy");
+		
+		var newWindow = null;
+		open2.onclick = function(){
+			newWindow = window.open("text.html","","width=400,height=400");
+		};
+		var posi = 100;
+		//新窗口必须在显示范围内
+		moveToBtn.onclick = function(){
+			posi += 20;
+			newWindow.moveTo(posi,posi);
+		};
+		
+		moveByBtn.onclick = function(){
+			newWindow.moveBy(20,10);
+		};
+		
+		//
+		var addBtn = document.getElementById("add");
+		addBtn.onclick = function(){
+			if(newWindow){
+				//创建一个元素
+				newWindow.document.title = "测试";
+				var divObj = newWindow.document.createElement('div');
+				divObj.style.width = '100px';
+				divObj.style.height = '100px';
+				divObj.style.background = 'blue';
+				//拼接到body
+				newWindow.document.body.appendChild(divObj);
+			}
+		};
+	</script>
+</html>

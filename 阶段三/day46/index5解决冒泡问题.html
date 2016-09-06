@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>解决冒泡问题</title>
+		<style>
+			#list{
+				padding: 0;
+				list-style: none;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">显示</button>
+		<ul id="list">
+			<li>选项1</li>
+			<li>选项2</li>
+			<li>选项3</li>
+			<li>选项4</li>
+			<li>选项5</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		var list = document.getElementById("list");
+		
+		//阻止冒泡
+		btn.onclick = function(ev){
+			list.style.display = 'block';
+			var ev = ev || event; 
+			ev.cancelBubble = true;
+			
+			//w3c的组织冒泡的方法
+			ev.stopPropagation();
+		};
+		
+		document.onclick = function(){
+			list.style.display = "none";
+		};
+		
+		/*
+		 ev.cancelBubble = true; 取消冒泡传递，但是ie678的方法，谷歌或者火狐旧版本不支持，但是最新的谷歌和火狐都已经支持
+		 
+		 stopPropagation（）:w3c的方法，ie678不支持
+		 * */
+	</script>
+</html>

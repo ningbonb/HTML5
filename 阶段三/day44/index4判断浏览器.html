@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		function browser(){
+			//userAgent
+			var userAgent = navigator.userAgent;
+			//alert(userAgent.indexOf('Chrome'));
+			//indexOf()：如果找不到自定字符，返回-1，找到话返回位置
+			if(userAgent.indexOf('Chrome') > -1){
+				return 'Chrome';
+			}
+			if(userAgent.indexOf('Firefox') > -1){
+				return 'Firefox';
+			}
+			if(userAgent.indexOf('Opera') > -1){
+				return 'Opera';
+			}
+			if(userAgent.indexOf('Safari') > -1){
+				return 'Safari';
+			}
+			if(userAgent.indexOf('MSIE') > -1 && userAgent.indexOf('compatible') > -1){
+				return 'IE';
+			}
+			return "你用的不是主流浏览器";
+		};
+		
+		var brow = browser();
+		alert(brow);
+	</script>
+</html>

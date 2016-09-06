@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>事件捕获</title>
+		<style>
+			#div1{
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+			#div2{
+				width: 200px;
+				height: 200px;
+				background: blue;
+				position: relative;
+				left: 50px;
+				top: 50px;
+			}
+			#div3{
+				height: 100px;
+				width: 100px;
+				background: green;
+				position: relative;
+				left: 50px;
+				top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+	/*
+	 1.事件捕获：和冒泡过程相反
+	 当事件触发，事件会从对上一级元素（document，window）开始查找，直到捕获到事件目标（点击的对象），在传递过程中如果元素绑定了捕获事件，事件就会触发
+	 
+	 IE678没有捕获过程
+	 
+	 addEventListener():参数3指定是false(默认)：过程时冒泡，如果是true，事件在捕获过程触发
+	 * */
+		var div1 = document.getElementById('div1');
+		var div2 = document.getElementById('div2');
+		var div3 = document.getElementById('div3');
+		
+		function fn(){
+			alert(this.id + "捕获");
+		}
+		
+		div1.addEventListener('click',fn,true);
+		//div2.addEventListener('click',fn,true);
+		div3.addEventListener('click',fn,true);
+		
+		div2.onclick = function(){
+			alert('div冒泡事件');
+		};
+		
+		div3.addEventListener('click',function(){
+			alert('div3冒泡事件')
+		},false);
+		
+		document.addEventListener('click',function(){
+			alert("捕获docuemnt");
+		},true);
+		window.addEventListener('click',function(){
+			alert('捕获window');
+		},true);
+		
+		//高ie和标准：都是从window开始 -> 目标结束
+	</script>
+</html>

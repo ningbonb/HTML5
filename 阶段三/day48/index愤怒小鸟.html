@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>愤怒的小鸟</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			#fbWrap{
+				border: 2px solid #6293F0;
+				width: 320px;
+				height: 480px;
+				margin: 30px auto;
+				background: url(img/bg.jpg) no-repeat 100% 100%;
+				position: relative;
+				overflow: hidden;
+			}
+			#score{
+				position: absolute;
+				left: 45%;
+				top: 10%;
+				z-index: 2;
+			}
+			#head{
+				position: absolute;
+				left: 60px;
+				top: 130px;
+				
+				animation: headMove 1s linear infinite alternate;
+			}
+			#head span{
+				background:url(img/down_bird.png) no-repeat;
+				height: 30px;
+				width: 40px;
+				position: absolute;
+				right: 0;
+				top: 15px;
+				animation: fly 1s linear infinite alternate;
+			}
+			#menu{
+				position: absolute;
+				width:100%;
+				height: 100%;
+				/*层级调高，防止被同级元素遮挡点击无效*/
+				z-index: 1;
+			}
+			#menu img{
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 65%;
+				margin: auto;
+				cursor: pointer;
+			}
+			#slider{
+				position: absolute;
+				bottom: 42px;
+				width: 100000px;
+				animation: silderMove 3s linear infinite;
+			}
+			/*动画*/
+			@keyframes headMove{
+				from{
+					top: 130px;
+				}
+				to{
+					top: 100px;
+				}
+			}
+			@keyframes fly{
+				from{
+					background: url(img/down_bird.png);
+				}
+				to{
+					background: url(img/up_bird.png);
+				}
+			}
+			@keyframes silderMove{
+				from{
+					left: 0;
+				}
+				to{
+					left: -320px;
+				}
+			}
+			/*开始后布局*/
+			#bird{
+				position: absolute;
+				left: 67px;
+				top: 50%;
+				display: none;
+			}
+			#end{
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				top: 40%;
+				color: #2A7C80;
+				display: none;
+			}
+			#end span{
+				position: absolute;
+				font-size: 30px;
+			}
+			#end span:nth-child(2){
+				right: 65px;
+				top: 30px;
+			}
+			#end span:last-child{
+				right: 65px;
+				top: 80px;
+			}
+			
+			/*管道*/
+			#pipes{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+			}
+			.pipe{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 62px;
+				height: 423px;
+			}
+			#topPipe{
+				position: absolute;
+				width: 100%;
+				height: 150px;
+				top: 0;
+				left: 0;
+				background: url(img/up_pipe.png) no-repeat left bottom,url(img/up_mod.png) repeat-y;
+			}
+			
+			#bottomPipe{
+				position: absolute;
+				width: 100%;
+				height: 150px;
+				bottom: 0;
+				left: 0;
+				background: url(img/down_pipe.png) no-repeat,url(img/down_mod.png) repeat-y;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="fbWrap">
+			<!--分数-->
+			<div id="score">
+				<img src="img/0.jpg" alt="" />
+			</div>
+			<!--head-->
+			<div id="head">
+				<img src="img/head.jpg" alt="" />
+				<!--动态的小鸟背景-->
+				<span></span>
+			</div>
+			<!--开始-->
+			<div id="menu">
+				<img src="img/start.jpg"/>
+			</div>
+			<!--滑块-->
+			<div id="slider">
+				<img src="img/slider.png"/><img src="img/slider.png"/>
+			</div>
+			
+			<!--开始后的布局-->
+			<img src="img/bird.png" alt="" id="bird"/>
+			<!--游戏结束-->
+			<div id="end">
+				<img src="img/message.jpg" alt="" />
+				<!--当前得分-->
+				<span>0</span>
+				<!--最高分-->
+				<span>0</span>
+			</div>
+			<!--管道-->
+			<ul id="pipes">
+				<!--<li class="pipe">
+					<div id="topPipe"></div>
+					<div id="bottomPipe"></div>
+				</li>-->
+			</ul>
+			<audio src="img/bullet.mp3" id="buullent"></audio>
+			<audio src="img/game_music.mp3" id="gameM" loop="loop"></audio>
+			<audio src="img/game_over.mp3" id="gameOver"></audio>
+			
+		</div>
+	</body>
+	<script>
+		var gameM = document.getElementById("gameM");
+		var gameOver = document.getElementById("gameOver");
+		var bullet = document.getElementById("bullet");
+		
+		//点击开始后需隐藏
+		var menu = document.getElementById("menu");
+		//开始按钮
+		var start = menu.firstElementChild;
+		//分数
+		var scoreDiv = document.getElementById("score");
+		//head隐藏
+		var headDiv = document.getElementById("head");
+		//小鸟对象
+		var bird = document.getElementById("bird");
+		//柱子容器
+		var pipeBox = document.getElementById("pipes");
+		//分数
+		var end = document.getElementById("end");
+		var currentScore = end.children[1];
+		var bestScore = end.children[2];
+
+		//点击开始游戏
+		var mainTimer;
+		start.onclick = function(){
+			//需要隐藏
+			menu.style.display = 'none';
+			headDiv.style.display = 'none';
+			
+			//显示
+			bird.style.display = 'block';
+			//开始音乐
+			gameM.play();
+			
+			//创建管道
+			mainTimer = setInterval(createPipe,3500);
+			createPipe();
+			
+			//小鸟下落
+			bird.dropTimer = setInterval(dropAction,20);	
+		};
+		
+		
+		//创建管道方法
+		var pathHeight = 150;
+		function createPipe(){
+			var pipeLi = document.createElement("li");
+			//样式
+			pipeLi.className = 'pipe';
+			//位置
+			pipeLi.style.left = pipeBox.offsetWidth + 'px';
+			pipeBox.appendChild(pipeLi);
+			
+			//上管道
+			var topPipe = document.createElement("div");
+			//样式
+			topPipe.id = "topPipe";
+			//随机高度
+			var randHeight = randNum(50,pipeLi.offsetHeight - pathHeight - 50);
+			
+			topPipe.style.height = randHeight + 'px';
+			//放到li里面
+			pipeLi.appendChild(topPipe);
+			
+			//下管道
+			var bottomPipe = document.createElement("div");
+			bottomPipe.id = "bottomPipe";
+			//高度
+			bottomPipe.style.height = pipeLi.offsetHeight - pathHeight - randHeight + 'px';
+			pipeLi.appendChild(bottomPipe);
+			
+			//移动柱子
+			movePipe(pipeLi);
+		}
+		
+		
+		//移动柱子
+		function movePipe(obj){
+			obj.moveTimer = setInterval(function(){
+				var posi = obj.offsetLeft - 1;
+				obj.style.left = posi + 'px';
+				//判断出去清除定时器和对象
+				if(posi <= -obj.offsetWidth){
+					//定时器清除
+					clearInterval(obj.moveTimer);
+					//移出元素
+					pipeBox.removeChild(obj);
+				}
+				
+				//判断得分
+				if(obj.offsetLeft + obj.offsetWidth == bird.offsetLeft){
+					//alert('得分');
+					changeScore();
+				}
+			},20);
+		}
+		
+		//下落
+		bird.speed = 0;
+		function dropAction(){
+			bird.speed += 0.4;
+			bird.style.top = bird.offsetTop +  bird.speed + 'px';
+			bird.src = "img/down_bird.png";
+			//判断死亡
+			if(bird.offsetTop + bird.offsetHeight >= pipeBox.firstElementChild.offsetHeight){
+				//alert('死亡');
+				//游戏结束
+				gameOverFn();
+			}
+		}
+		
+		//游戏结束事件
+		function gameOverFn(){
+			//清空所有定时器
+			var timerLast = setInterval(function(){},10);
+			for(var i = 0; i <= timerLast; i++){
+				clearInterval(i);
+			}
+			//结束音乐
+			gameM.pause();
+			gameOver.play();
+			
+			//得分
+			end.style.display = 'block';
+			currentScore.innerText = bird.score;
+			//最好得分
+			var result = confirm('重新开始');
+			if(result) location.reload();
+		}
+		
+		//得分
+		bird.score = 0;
+		function changeScore(){
+			//清空分数
+			scoreDiv.innerHTML = '';
+			bird.score++;
+			//分数的位数 == 图片个数
+			//number转为字符串
+			var scoreStr = bird.score.toString();
+			//遍历字符串
+			for(var i = 0; i < scoreStr.length; i++){
+				var scoreImg = document.createElement("img");
+				scoreImg.src = "img/" + scoreStr[i] + ".jpg";
+				//插入到分数div
+				scoreDiv.appendChild(scoreImg);
+			}
+		}
+		function randNum(min,max){
+			return parseInt(Math.random() * (max - min + 1) + min);
+		}
+		
+		//获取焦点
+//		window.onfocus = function(){
+//			mainTimer = setInterval(createPipe,3500);
+//		};
+//		//失去焦点
+//		window.onblue = function(){
+//			clearInterval(mainTimer);
+//		};
+	</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width:100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script type="text/javascript">
+		var div1 = document.getElementById("div1");	
+		var le = false;
+		var ri = false;
+		var to = false;
+		var bo = false;
+		
+		var timer = setInterval(function(){
+			if(le){
+				div1.style.left = div1.offsetLeft - 5 + 'px';	
+			}
+			if(ri){
+				div1.style.left = div1.offsetLeft + 5 + 'px';	
+			}
+			if(to){
+				div1.style.top = div1.offsetTop - 5 + 'px';	
+			}
+			if(bo){
+				div1.style.top = div1.offsetTop + 5 + 'px';	
+			}
+		},20);
+		
+		document.onkeydown = function(){
+			var ev = ev || event;
+			console.log(ev.keyCode);
+			//37,38,39,40
+			//左
+			switch (ev.keyCode){
+				case 37:
+					le = true;	
+					break;
+				case 38:
+					to = true;
+					break;
+				case 39:
+					ri = true;
+					break;
+				case 40:
+					bo = true;
+					break;
+				default:
+					break;
+			}
+		};
+		
+		document.onkeyup = function(){
+			le = false;
+			ri = false;
+			to = false;
+			bo = false;
+		};
+	</script>
+</html>

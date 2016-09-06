@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>移动事件</title>
+		<style>
+			#div1{
+				width: 400px;
+				height: 400px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		//移动端也可以用点击事件，但是事件有200左右的延迟
+		//移动端事件：touch事件
+//		div1.onclick = function(){
+//			alert(1111);
+//		};
+
+		/*
+		 touchstart: 开始触摸 onmousedown
+		 touchmove: 移动 onmouesemove
+		 touchend: 结束 onmouseup
+		 
+		 mousecancle: 触摸取消
+		 * */
+		
+		//不能绑定触摸事件
+		div1.ontouchstart = function(){
+			alert(111);
+		};
+		
+		
+		/*事件对象下的属性
+		 touches:屏幕上有多少触摸点，就包含多少触摸对象
+		 targetTouches：事件源对象上的所有触摸点
+		 changedTouches：变化的触摸点，当前的触摸点
+		 * */
+		div1.addEventListener("touchstart",function(ev){
+			//alert(11111);
+			//console.log(ev);
+			div1.innerHTML += "touches" + ev.touches.length + "targetTouches" + ev.targetTouches.length + "<br>";
+		});
+		
+		div1.addEventListener("touchmove",function(ev){
+			div1.innerHTML += "touches" + ev.touches.length + "targetTouches" + ev.targetTouches.length + "<br>";
+			//阻止默认事件
+			ev.preventDefault();
+		});
+		//结束
+		div1.addEventListener("touchend",function(){
+			div1.innerHTML = "结束";
+		});
+		//程序运行中，电话，闹铃等触发把我们触摸事件终止（数据的保存，暂停游戏）
+		div1.addEventListener("touchcancel",function(){
+			div1.innerHTML = "被迫结束";
+		});
+	</script>
+</html>

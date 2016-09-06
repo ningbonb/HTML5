@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>222222222222</title>
+	</head>
+	<body>
+		页面2222222
+		<a href="history1.html">上一页</a>
+		<a href="history3.html">下一页</a>
+		<button id="pre">上一页</button>
+		<button id="next">下一页</button>
+	</body>
+	<script>
+		var pre = document.getElementById("pre");
+		var next = document.getElementById("next");
+		
+		pre.onclick = function(){
+			history.back();
+		};
+		next.onclick = function(){
+			history.forward();
+		};
+	</script>
+</html>

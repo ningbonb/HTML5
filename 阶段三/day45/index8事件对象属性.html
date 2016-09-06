@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 2000px;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script type="text/javascript">
+		var div1 = document.getElementById("div1");
+		/*
+		 clientX:点击位置距离浏览器可视区左边的距离
+		 clientY:点击位置距离浏览器可视区上边的距离
+		 
+		 screenX:点击位置到屏幕左边距离
+		 screenY:点击位置到屏幕上边距离
+		 
+		 pageX:没有滚动的情况下，和screenX一样，有滚动的是获取的到页面左部距离
+		 pageY:没有滚动的情况下，和screenY一样，有滚动的是获取的到页面顶部距离
+		 
+		 问题：ie678不支持！！！
+		 
+		 offsetX:获取到点击位置到当前元素的左边距离
+		 offsetY:获取到点击位置到当前元素的上边距离
+		 低版本火狐不支持
+		 * */
+		div1.onmousedown = function(ev){
+			var ev = ev || window.event;
+			//console.log(ev.clientX,ev.clientY);
+			//console.log(ev.screenX,ev.screenY);
+			
+			//console.log(ev.pageX,ev.pageY);
+			
+			//console.log(ev.offsetX,ev.offsetY);
+			
+			//layerX:获取到距离offsetParent边缘距离 ie678不支持
+			//console.log(ev.layerX,ev.layerY);
+			
+			/*
+			 button:获取鼠标点击的是哪一个键
+			 0：左键
+			 1：中间
+			 2：右键
+			 * */
+			console.log(ev.button);
+		};
+		
+		div1.oncontextmenu = function(){
+			return false;
+		}
+		
+		
+		document.onkeydown = function(ev){
+			var ev = ev || window.event;
+			console.log(ev.keyCode);
+			//是否按下了ctrl键，一个boolean值
+			console.log(ev.ctrlKey);
+			console.log(ev.shiftKey);
+			console.log(ev.altKey);
+		};
+	</script>
+</html>

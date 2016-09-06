@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>滚轮事件</title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		
+		//Chrome 除了火狐外鼠标滚轮事件为：onmousewheel
+		//火狐浏览器为DOMMouseScroll，必须为监听方式绑定
+		div1.onmousewheel = function(ev){
+			//console.log('鼠标滚动');
+			var ev = ev || window.event;
+			console.log(ev.wheelDelta);
+			/*
+			 wheelDelta: 当>0:鼠标上滚动
+			 				<0:鼠标下滚动
+			 * */
+			
+		};
+		
+		div1.addEventListener("DOMMouseScroll",function(ev){
+			var ev = ev || window.event;
+			console.log(ev.detail);
+			/*
+			  detail：
+			  值<0:鼠标上滚动
+			  值>0:鼠标下滚动
+			*/
+			
+		});
+	</script>
+</html>

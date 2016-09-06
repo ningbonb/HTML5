@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>放大镜</title>
+		<style>
+			#min_wrap{
+				border: 2px solid silver;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+			}
+			#slider{
+				position: absolute;
+				width: 50%;
+				height: 50%;
+				left: 0;
+				top: 0;
+				background-color: rgba(100,100,100,0.3);
+				display: none;
+			}
+			#max_wrap{
+				border: 2px solid silver;
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				left: 450px;
+				top: 50px;
+				overflow: hidden;
+				display: none;
+			}
+			#max_wrap img{
+				position: absolute;
+				left: 0;
+				right: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="min_wrap">
+			<img src="img/min.jpg" alt="" />
+			<div id="slider"></div>
+		</div>
+		<div id="max_wrap">
+			<img src="img/max.jpg"/>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var minWrap = document.getElementById("min_wrap");
+		var maxWrap = document.getElementById("max_wrap");
+		var slider = document.getElementById("slider");
+		var bigImgObj = document.querySelector("#max_wrap img");
+		
+		//鼠标移入
+		minWrap.onmouseover = function(){
+			slider.style.display = "block";
+			maxWrap.style.display = "block";
+		};
+		//鼠标移出
+		minWrap.onmousemove = function(ev){
+			var ev = ev || window.event;
+			//获取鼠标minWrap移动的坐标
+			//方式一
+			//var x = ev.offsetX;
+			//var y = ev.offsetY;
+			//方式二 兼容性好
+			//clientLeft左边框的宽度
+			//页面滚动的时候client会变小,滑块位置不准确
+			//var x = ev.clientX - this.offsetLeft - this.clientLeft - slider.offsetWidth/2;
+			//var y = ev.clientY - this.offsetTop - this.clientTop - slider.offsetHeight/2;
+			
+			//pageX:不能兼容ie678 方案2：clientY + 页面scrollTop
+			var x = ev.pageX - this.offsetLeft - this.clientLeft - slider.offsetWidth/2;
+			var y = ev.pageY - this.offsetTop - this.clientTop - slider.offsetHeight/2;
+			
+			//最大移动区域
+			//clientWidth：内尺寸 没有边框
+			var maxX = minWrap.clientWidth- slider.offsetWidth;
+			var maxY = minWrap.clientHeight - slider.offsetHeight;
+			
+			x = x >= maxX ? maxX : x;
+			x = x <= 0 ? 0 : x;
+			y = y >= maxY ? maxY : y;
+			y = y <- 0 ? 0 : y;
+			//控制滑块位置
+			slider.style.left = x + "px";
+			slider.style.top = y + "px";
+			
+			//比例关系
+			//x / maxX == maxWrap(移动x) / 大图片宽度-maxWrap宽度
+			var scaleX = x / maxX;
+			var scaleY = y / maxY;
+			maxWrap.scrollLeft = scaleX * (bigImgObj.offsetWidth - maxWrap.clientWidth);
+			maxWrap.scrollTop = scaleY * (bigImgObj.offsetHeight - maxWrap.clientHeight);
+		};
+		//鼠标移出		
+		minWrap.onmouseout = function(){
+			slider.style.display = "none";
+			maxWrap.style.display = "none";
+			
+			//minWrap.onmouseout = minWrap.onmousemove = null;
+		}
+	</script>
+</html>

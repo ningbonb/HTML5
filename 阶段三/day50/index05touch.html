@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="img/BSZ319G$X3IOA~X~JJ6J7_W.jpg"/>
+	</body>
+	<script src="js/touch.js"></script>
+	<script>
+		var imgObj = document.querySelectorAll("img")[0];
+		
+		touch.on(imgObj,"touchstart",function(ev){
+			//开始旋转
+			ev.startRotate();
+			//
+			ev.preventDefault();
+		});
+		var angle = 0;
+		touch.on(imgObj,"rotate",function(ev){
+			//console.log(ev);
+			//每次按下角度从零开始
+			var deg = ev.rotation + angle;
+			
+			if(ev.fingerStatus == 'end'){
+				angle = deg;
+			}
+			
+			imgObj.style.transform = "rotate("+ deg +"deg)";
+		});
+	</script>
+</html>

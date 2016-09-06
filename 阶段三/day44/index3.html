@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="get">
+			<input type="text" name="username" />
+			<input type="text" name="password" />
+			<input type="submit" value="提交"/>
+		</form>
+		
+		<iframe src="text.html" frameborder="10"></iframe>
+		<iframe src="text.html" frameborder="10"></iframe>
+		<iframe src="text.html" frameborder="10"></iframe>
+	</body>
+	<script>
+		/*
+		子对象：
+		 1.document（文档对象）
+		 2.location（网址对象，包含网页的网址信息）
+		 3.navigation（浏览器信息对象，包含浏览器信息：比如版本型号等）
+		 4.screen（屏幕对象，电脑屏幕信息）
+		 5.框架对象frames:页面下所有框架，数组形式保存
+		 6.history（历史纪录，包含浏览器浏览的历史纪录）		 
+		 * */
+		
+		//location
+		console.log(location);
+		
+		//主机:id+端口
+		console.log(location.host);
+		
+		//主机名
+		console.log(location.hostname);
+		
+		//端口号
+		console.log(location.port);
+		
+		//文件路径
+		console.log(location.pathname);
+		
+		//协议
+		console.log(location.protocol);
+		
+		//链接地址
+		console.log(location.href);
+		document.onclick = function(){
+			//location.href = 'http://www.baidu.com';
+		};
+		//hash:锚点 ：URL中#后面的值
+		
+		//search: 获取URL的参数列表 ？后面的值
+		document.onclick = function(){
+			console.log(location.search);
+		};
+		
+		//reload() 刷新网页
+		document.onclick = function(){
+			location.reload();
+		};
+		
+		//navigator
+		console.log(navigator);
+		
+		//appCodeName: 浏览器的代号
+		console.log(navigator.appCodeName);//Mozilla
+		//Netscape: 浏览器的名称
+		console.log(navigator.appName);
+		//appVersion:版本信息
+		console.log(navigator.appVersion);
+		
+		//userAgent:用户代理信息（浏览器发送请求时的请求信息）
+		console.log(navigator.userAgent);
+		
+		//screen
+		console.log(screen.height);
+		console.log(screen.width);
+		
+		//有效宽高，去除屏幕上的工具条
+		console.log(screen.availHeight);
+		console.log(screen.availWidth);
+		
+		//框架对象frames:页面下所有框架，数组形式保存
+		console.log(frames);
+		console.log(frames.length);
+		document.onclick = function(){
+			frames[0].document.body.style.backgroundColor = "blue";
+		};
+		
+		
+		//history
+		/*
+		 forword():向前一个网页
+		 back(): 向后一个网页
+		 
+		 go(2):向前2个
+		 go(-3):后退3个
+		 * */
+	</script>
+</html>

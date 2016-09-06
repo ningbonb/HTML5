@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		document.addEventListener('contextmenu',function(ev){
+			console.log(111112);
+			//只能取消通过on方式绑定的事件
+			//return false;
+			
+			var ev = ev || window.event;
+			//阻止默认事件,通过监听添加的事件只能通过事件对象阻止
+			ev.preventDefault();
+		});
+	</script>
+</html>

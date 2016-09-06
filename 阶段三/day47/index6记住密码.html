@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>记住密码</title>
+		
+	</head>
+	<body>
+		<form action="" method="get" id="form1">
+			用户名：<input type="text" id="username" name="user" placeholder="输入用户名"/>
+			<br />
+			密&nbsp;码：<input type="password" id="pass" placeholder="密码"/>
+			<br />
+			<input type="checkbox" id="ch1"/>记住用户名
+			<br />
+			<input type="checkbox" id="ch2" />记住密码
+			<br />
+			<input type="submit" value="提交"/>
+		</form>
+	</body>
+	<script type="text/javascript" src="js/cookie.js"></script>
+	<script type="text/javascript">
+		var form1 = document.getElementById("form1");
+		var user = document.getElementById("user");
+		var pass = document.getElementById("pass");
+		var ch1 = document.getElementById("ch1");
+		var ch2 = document.getElementById("ch2");
+		
+		if(getCookie('user')){
+			user.value = getCookie('user');
+			ch1.checked = true;
+		}
+		if(getCookie('pass')){
+			user.value = getCookie('pass');
+			ch2.checked = true;
+		}
+		//提交事件
+		form1.onsubmit = function(){
+			if(ch1.checked){
+				setCookie('user',user.value,60*60*24);
+			}else{
+				removeCookie('user');
+			}
+			if(ch2.checked){
+				setCookie('pass',pass.value,60*60*24);
+			}else{
+				removeCookie('pass');
+			}
+		};
+		removeCookie('gender');
+		
+		console.log(document.cookie);
+	</script>
+	
+</html>

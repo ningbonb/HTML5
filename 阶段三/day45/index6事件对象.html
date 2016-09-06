@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script type="text/javascript">
+		//事件对象：每一个事件都会创建一个event的对象，保存事件的所有属性
+		var div1 = document.getElementById('div1');
+		div1.onclick = function(ev){
+			//火狐下没有全局的event对象属性，在谷歌下兼容
+			//console.log(event);
+			//火狐需要给方法加一个事件参数
+			//console.log(ev);
+			
+			
+			//ie678无法识别时间对象作为参数		
+			//console.log(event);
+			
+			//兼容写发
+			var ev = ev || window.event;
+			console.log(ev);
+			
+			
+			
+		};
+	</script>
+</html>

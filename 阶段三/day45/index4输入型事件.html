@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="text1" -value="输入姓名" placeholder="请输入文字"/>
+		<hr />
+		<input type="text" id="text2"/>
+	</body>
+	<script>
+		var text1 = document.getElementById("text1");
+		
+		//元素获取焦点触发
+		text1.onfocus = function(){
+			console.log('获取到焦点');
+			//this.value = '';
+		};
+		
+		//失去焦点触发
+		text1.onblur = function(){
+			console.log('失去焦点');
+			//this.value = '输入姓名';
+		};
+		
+		
+		window.onfocus = function(){
+			console.log('窗口获取焦点');
+		};
+		window.onblur = function(){
+			console.log('窗口失去焦点');
+		};
+		
+		var text2 = document.getElementById('text2');
+		//内容变化后（按回车或者失去焦点会被处罚）
+		text2.onchange = function(){
+			console.log('输入内容变了' + this.value);
+		};
+		
+		
+		//每次内容发生改变，马上触发
+		text2.oninput = function(){
+			console.log('输入内容变化了' + this.value);
+		};
+	</script>
+</html>
