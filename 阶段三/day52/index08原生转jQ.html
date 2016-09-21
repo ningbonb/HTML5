@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			#div2{
+				width: 120px;
+				height: 120px;
+				background-color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//默认给获取到所有的元素绑定事件
+			$('div').click(function(){
+				//alert(111);
+				console.log(this);
+				//当前this对象是DOM对象
+				//错误：原生对象无法调用JQ对象
+				//this.text();
+						
+				//转换：把原生对象转换为JQ对象 $(原生对象)
+				//$(this).text();
+				$(this).width(200);
+				$(this).height(300);
+			});
+			
+			
+		});
+	</script>
+</html>

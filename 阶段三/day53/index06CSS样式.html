@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">hello world</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		/*
+		 css函数或者设置样式:获取到行间样式和style标签下设置的样式
+		 
+		 * */
+		var div1 = $("#div1");
+		$(function(){
+			console.log(div1.width(),typeof div1.width());		
+			console.log(div1.height(),typeof div1.height());		
+			//字符串类型，有单位
+			console.log(div1.css("width"),typeof div1.css("width"));
+			
+			console.log(div1.css('background'));
+			
+			//设置
+			div1.css("color","white");
+			div1.css("font-size","30px");
+			
+			//一次性设置多个
+			div1.css({
+				width: 200,
+				height: '200px',
+				textAlign: 'center',
+				lineHeight: '200px',
+				border: "2px solid silver",
+			});
+			
+			div1.css('height',function(index,value){
+				console.log(index,value);
+				//parseFloat():参数可以是number或者string类型，转化为number，只有数字
+				console.log(parseFloat(value));
+				console.log(parseInt(value));
+				return 300 + parseFloat(value);
+			});
+			
+			div1.css({
+				width:function(index,value){
+					console.log(index,parseFloat(value));
+					return 100 + parseFloat(value);
+				},
+			});
+			
+			$(document).click(function(){
+				div1.css({
+					width: "+=100",
+				});
+			});
+		});
+	</script>
+</html>

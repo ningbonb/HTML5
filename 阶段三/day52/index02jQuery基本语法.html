@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p id="p1">我是第一个P1111</p>
+		<p id="p2" class="classP2">我是第二个pppp</p>
+		<div id="div1">
+			<p id="div1P0">div1P0</p>
+			<p id="div1P1">div1P1</p>
+			<p id="div1P2">div1P2</p>
+			<p id="div1P3">div1P3</p>
+			<p id="div1P4">div1P4</p>
+			<div>
+				<p>马上下课</p>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			/*
+			 选择器查找元素
+			 语法：$('选择器名')
+			 获取到元素：以jQuery数组形式保存，无论是id还是class
+			 
+			 
+			 * */
+			var p1 = $("#p1");
+			console.log(p1);//通过id获取，是以jq数组形式保存，不是原生p1对象
+			console.log($('p'));
+			
+			//class
+			console.log($(".classP2"));
+			
+			//族群选择器
+			console.log($("#p1,.classP2"));
+			//选择所有
+			console.log($("*"));
+			
+			console.log($("#div1 p"));
+			console.log($("#div1>p"));
+			
+			// + :相邻兄弟选择器
+			console.log($("#div1P1+p"));
+			
+			//~:兄弟选择器:获取div1P1之后的所有兄弟p
+			console.log($("#div1P1~p"));
+		});
+		
+	</script>
+</html>

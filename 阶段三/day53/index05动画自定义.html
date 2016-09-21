@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>显示隐藏</title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="custom1">自定义动画1</button>
+		<button id="custom2">自定义动画2</button>
+		<button id="custom3">自定义动画3</button>
+		<button id="stop">流程控制</button>
+		<div id="div1">文字</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		var div1 = $("#div1");
+		/*
+		 animate(属性列表，时间，时长，变化曲线，回调函数)
+		 * */
+		$(function(){
+			$("#custom1").click(function(){
+				div1.animate({
+					width:300,
+					height:300,
+					//复合属性使用驼峰命名
+					fontSize: 100,
+					//背景渐变不支持
+					backgroundColor: "blue",
+					left:100,
+					top:100,
+				},1000,function(){
+					console.log('动画完成');
+				});
+				
+			});
+			$("#custom2").click(function(){
+				//字符串或者数字，单位可以加可以省略
+				//+= 在之前基础上加
+				div1.animate({
+					//width:'+=300',
+					//height:'+=100',
+					left: '+=50',
+					top:'+=50',
+				},2000);
+			});
+			$("#custom3").click(function(){
+				div1.animate({width:300,},2000);
+				//div1.delay(2000,'fx');//等待2秒继续下一个队列动画
+				div1.animate({height:300},2000);
+				div1.animate({width:300},2000);
+				div1.animate({height:200},2000);
+			});
+			//停止动画
+			/*
+			 stop(参数1，参数2)
+			 ：两个参数是boolean值，默认都是false
+			 参数1：stopAll(默认false是只清除正在执行动画，马上开启队列中第一个等待对话，如果给true:会清除正在执行动画和队列中所有的动画)
+			 参数2：goEnd:默认false：直接停止动画，如果是true：停止动画，但是动画最终效果会显示
+			 * */
+			$("#stop").click(function(){
+				//div1.stop();
+				//div1.stop(true);
+				//div1.stop(false,true);
+				
+				//停止当前动画和队列中所有动画，并且显示当前动画的效果
+				//div1.stop(true,true);
+				
+				//延迟动画执行
+				//div1.delay(2000);
+				
+				//结束动画（立即停止当前对话，和队列中所有等待动画，并且：元素效果是动画结束后的最终效果）
+				div1.finish();
+			});
+		});
+		
+	</script>
+</html>

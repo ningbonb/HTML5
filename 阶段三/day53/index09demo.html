@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#wrap{
+				width: 200px;
+				height: 150px;
+				position: relative;
+				overflow: hidden;
+			}
+			#content{
+				width: 800px;
+				height: 150px;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			#content img{
+				float: left;
+				width: 200px;
+				height: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		
+		<div id="wrap">
+			<div id="content">
+				<img src="img/11.jpg" alt="" />
+				<img src="img/12.jpg" alt="" />
+				<img src="img/13.jpg" alt="" />
+				<img src="img/14.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//绑定点击事件
+			$("button").on("click",function(){
+				//alert(11);
+				//获取元素在数组中对应 的下标
+				//方式1:index()不传参数
+				//$(this).index():获取调用元素对应下标
+				//var index = $(this).index();
+				//alert(index);
+				//方法2：获取到this对象在$("button")的下标
+				
+				
+				var index = $("button").index($(this));
+				
+				var width = $("#content img").width();
+//				$("#content").css({
+//					left:-index*width,
+//				});
+				$("#content").stop().animate({
+					left:-index*width,
+				},1000);
+			});
+		});
+	</script>
+</html>

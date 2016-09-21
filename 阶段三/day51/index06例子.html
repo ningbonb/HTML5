@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//判断字符串是否http:// 开头
+		
+		/*
+		 \转义
+		 \*
+		 \$
+		 \^
+		 \(
+		 \)
+		 \[
+		 \]
+		 \{
+		 \}
+		 \.
+		 \+
+		 \?
+		 \/
+		 \-
+		 
+		 * */
+		var str1 = 'http://www.ningbo00.top';
+		//s? s是一个或者0个
+		var reg1 = /^https?:\/\//;
+		var result = reg1.test(str1);
+		if(result){
+			console.log('是一个链接');
+		}else{
+			console.log('不是一个链接，不是一个链接');
+		}
+		
+		//邮编 030000
+		//6位数 第一位能为0
+		
+		//压缩包命名 name.zip name.rar
+		var str2 = "123_.rar";
+		var reg2 = /^\w+\.(zip|rar)$/;
+		if(reg2.test(str2)){
+			console.log("合法命名压缩包");
+		}else{
+			console.log("重新命名");
+		}
+		
+		//去除收尾空格
+		var str3 =" abc ";
+		//必须全局匹配 第一次匹配开头 第二次或条件匹配结尾
+		var reg3 = /^(\s+)|(\s+)$/g;
+		var newS = str3.replace(reg3,"");
+		console.log(newS);
+		
+		//手机号
+		//11位 开头是1  13 14 15 17 18
+		var str4 = "18435185887";
+		
+		var reg4 = /^1[34578](\d{9})$/;
+		if(reg4.test(str4)){
+			console.log('正确手机号');
+		}else{
+			console.log('格式不对');
+		}
+		
+		//qq号
+		// 4-11 开头不能为0
+		
+		var str5 = "447415480";
+		var reg5 = /^[1-9](\d{3,10})$/;
+		if(reg5.test(str5)){
+			console.log('是正确qq');
+		}else{
+			console.log("不是正确qq");
+		}
+	</script>
+</html>

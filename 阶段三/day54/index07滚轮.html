@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			#div2{
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$.fn.extend({
+			mouseWheel: function(fn) {
+				//this:调用者，可能是个jq的数组
+				
+				//遍历数组，取出原生对象
+				this.each(function(index,obj){
+					
+					//判断浏览器:是否是火狐:indexOf()：如果包含，返回位置，否则返回-1
+					var ff = navigator.userAgent.indexOf('Firefox');
+					//console.log(navigator.userAgent);
+					if(ff != -1) {
+						obj.addEventListener("DOMMouseScroll", scroll);
+					} else {
+						obj.onmousewheel = scroll;
+					}
+	
+					function scroll(ev) {
+						var ev = ev || window.event;
+	
+						var down = false;
+	
+						//火狐 在Window下的滚轮方向，mac下相反
+						if(ff != -1) {
+							down = ev.detail < 0 ? false : true;
+						} else {
+							down = ev.wheelDelta > 0 ? false : true;
+						}
+	
+						//把down给回调回去
+						//fn(ev, down);
+						fn.call(obj,ev,down);
+						//阻止默认事件
+						//监听方式组织默认事件
+						if(ev.preventDefault) {
+							ev.preventDefault();
+						}
+						//谷歌下阻止默认事件 
+						return false;
+					}
+				});
+				
+			}
+		});
+	</script>
+	<script>
+		$("div").mouseWheel(function(ev,down){
+			//console.log(this);
+			
+			if(down){
+				console.log("下");
+			}else{
+				console.log("上");
+			}
+		});
+		//原生
+		//mouseWheel(div,function(ev,down){});
+	</script>
+</html>

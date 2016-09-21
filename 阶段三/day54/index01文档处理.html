@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<input type="button" name="btn" id="btn" value="点击我"/>
+		<input type="button" name="btn" id="clone" value="点击克隆"/>
+		<ul>
+			<li>1111</li>
+			<li>2222</li>
+			<li>3333</li>
+		</ul>
+	</body>
+	
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			var div1 = $("#div1");
+			//a.append(b):把b放入a的尾部
+			div1.append("<p><span>11111</span></p>");
+			// a.appendTo(b):把a添加到b的尾部
+			$("<a href='#'>link</a>").appendTo(div1);
+			
+			//a.prepend(b):把b放到a前面
+			div1.prepend('<b>prepend</b>');
+			
+			//a.prependTo(b):把a放到b前面
+			$("<i>prependTo</i>").prependTo(div1);
+			
+			//a.after(b):把b放到a的下面
+			div1.after("<a href='##' class='aaa'>第二个来接</a>")
+			
+			//a.insertAfter(b):把a放到b的后面
+			$("<p>insertAfter</p>").insertAfter(div1);
+			
+			//a.before(b):把b放到前面
+			div1.before("<a href='#' >before</a>");
+			
+			//a.insertBefore(b):把a放到b的前面
+			$("<p>insertBefore</p>").insertBefore(div1);
+			
+			
+			//删除：remove()
+			//要删除对象调用remove方法，把对象对应删除
+			//$("a").remove();//删除所有a
+			$("a").eq(0).remove();//删除第一个a
+			//remove(添加选择器)
+			//找到所有a，删除类是.aaa的a
+			$('a').remove(".aaa");//删除class="aaa"的a
+			
+			$("#btn").on("click",function(){
+				alert(1111);
+			});
+			
+			//detach():删除界面效果和remove()一样，也都会把对应删除对象返回，但是remove会把之前绑定的方法删除，detach保留方法
+			var btn = $("#btn").detach();
+			//var btn = $("#btn").remove();
+			console.log(btn);
+			
+			//再次添加
+			btn.appendTo($("body"));
+			
+			//empty()：把所哟子元素和自身文本节点全部清空
+			//div1.empty();
+			
+			//包裹元素
+			//wrap:对应每一个li都对应包裹一个div
+			//$("li").wrap("<div></div>");
+			//wrapALl把所有li被div包裹
+			//$("li").wrapAll("<div></div>");
+			//wrapInner每个li的内容被对应div包裹
+			$("li").wrapInner("<div></div>");
+			
+			
+			//替换
+			$("a").replaceWith("<span>替换a</span>");
+			//把所有p替换成span
+			$("<span>替换p</span>").replaceAll("p");
+			
+			//克隆
+			//clone(true)深克隆 把方法也克隆
+			$("#clone").click(function(){
+				$(this).clone(true).insertAfter(this);
+			});
+		});
+	</script>
+</html>

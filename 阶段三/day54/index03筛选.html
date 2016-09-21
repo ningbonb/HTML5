@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>筛选</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="one"></div>
+			<div id="two">
+				<div id="cld1"></div>
+				<div id="cld2"></div>
+			</div>
+			<div id="three"></div>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//parent():父元素
+			console.log($("#one").parent());
+			//parents():祖先元素
+			console.log($("#cld1").parents());
+			
+			//parents():指定祖先元素
+			console.log($("#cld1").parents("#wrap"));
+			
+			//parentsUntil 指定到body元素之前结束，不包括body
+			console.log($("#cld1").parentsUntil("body"));
+			
+			//children:第一代子元素
+			console.log($("#wrap").children());
+			
+			//后代
+			//找到所有后代
+			console.log($("#wrap").find("*"));
+			
+			//找wrap下的cld1
+			console.log($("#wrap").find("#cld1"));
+			
+			//兄弟
+			/*
+			 向前找兄弟：pre
+			 * */
+			console.log($("#three").prev());
+			console.log($("#three").prevAll());
+			
+			//找到所有前面兄弟的  #one
+			console.log($("#three").prevAll("#one"));
+			console.log($("#three").prevUntil("#one"));
+			
+			//next
+			console.log($("#one").next());
+			console.log($("#one").nextAll());
+			console.log($("#one").nextAll("#three"));
+			console.log($("#one").nextUntil("#three"));
+			
+			//
+			console.log($("#two").siblings());
+			console.log($("#two").siblings("#one"));
+			
+		});
+	</script>
+</html>

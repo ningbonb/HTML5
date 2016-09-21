@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加属性</title>
+		<style>
+			#p1{
+				width: 100px;
+				height: 100px;
+				/*background: red;*/
+			}
+			.one{
+				background: blue;
+			}
+			.two{
+				background: green;
+			}
+			.three{
+				background: darkcyan;
+			}
+			.newClass{
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<p id="p1">一个p标签</p>
+		<span>111111111</span>
+		<span>222222222</span>
+		<span>333333333</span>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//给一个元素添加类名
+			/*
+			 addClass(类名/函数) 返回值jQ对象
+			 
+			 * */
+			
+			var obj = $("#p1").addClass('one');
+			//可以一次添加多个class
+			obj.addClass("two three");
+			console.log(obj);
+			
+			
+			//使用函数作为参数添加类名，如果('#p1')选择出多个元素，那么有多少个元素，该函数就会被回调多少次，函数有两个参数
+			//参数1：获取到元素对应下标，参数2：以前设置的类名，如果要设置新的类名，通过设置函数返回值
+			$('#p1').addClass(function(index,value){
+				console.log(index,value);
+				return 'newClass';
+			});//0 "one two three"
+			
+			
+			$("span").addClass(function(index,value){
+				console.log(index,value);
+				if(index == 1){
+					return "one";
+				}else{
+					return "two";
+				}
+			});
+			
+			//JQ可以把所有获取到的元素添加上类名
+			$('span').addClass('three');
+			//eq(0):获取到JQ数组对象下对应下标的元素（jq对象）
+			$("span").eq(1).addClass('newClass');
+			
+			//删除类名
+			//删除$("span")查询结果所有
+			//$("span").removeClass("three newClass one");
+			
+			//函数参数形式：如果想删除：return '类名'
+			$('span').removeClass(function(index,value){
+				console.log(index,value);
+				//return 'two three';
+				if(index == 0){
+					return "three two";
+				}else if(index == 1){
+					return "three newClass";
+				}else{
+					return "three";
+				}
+			});
+			
+			//单独删除
+			$('span').eq(1).removeClass('newClass');
+			
+			//toggleClass(参数1，参数2)
+			//参数1：类名 参数2：boolean：控制删除或者添加 true添加 false删除
+			//删除
+			$('#p1').toggleClass('one two three newClass',false);
+			
+			//添加
+			$('#p1').toggleClass('one',true);
+			
+			//$('#p1').toggleClass('one');
+			//$('#p1').toggleClass('one');
+			
+			//toggleClass:只传参数1类名，如果元素有对应的类名，删除，如果没有添加
+			document.onclick = function(){
+				$('#p1').toggleClass('one');
+			};
+		});
+	</script>
+</html>

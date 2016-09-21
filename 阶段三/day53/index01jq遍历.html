@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="choose"></div>
+		<button id="btn1">全选</button>
+		<button id="btn2">反选</button>
+		<ul id="ul1">
+			<li><input type="checkbox" /></li>
+			<li><input type="checkbox" /></li>
+			<li><input type="checkbox" /></li>
+			<li><input type="checkbox" /></li>
+			<li><input type="checkbox" /></li>
+			<li><input type="checkbox" /></li>
+		</ul>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//全选
+			$("#btn1").click(function(){
+				//所有checkbox选中
+				//console.log($("input:checkbox"));
+				//不需要循环，默认全部选中
+				$("input:checkbox").prop("checked",true);
+			});
+			//反选
+			$("#btn2").click(function(){
+				
+				//each:遍历jq数组，参数是函数指针，回调时返回对应下标和对应元素对象（原生对象）
+				$("input:checkbox").each(function(index,ele){
+					//console.log(index,ele);
+					//console.log(ele.checked)
+					//ele.checked = !ele.checked;
+					
+					//this就是每次对应取到的input对象，jq内部给回调处理
+					//console.log(this);
+					//方法2：
+					//this.checked = !this.checked;
+					
+					//获取
+					var value = $(this).prop("checked");
+					//设置
+					$(this).prop("checked",!value);
+				});
+			});
+		});
+	</script>
+</html>

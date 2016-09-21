@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>元字符</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		 元字符
+		 \n: 换行
+		 \t：制表符
+		 \r：回车
+		 
+		 \d：数字类型 0 9
+		 \D：非数字
+		 
+		 \s：空白符号（空格，回车，制表符tap）
+		 \S：非空白符号
+		 
+		 \w：字符（a-z,A-Z,0-9 特殊字符：下划线）
+		 \W：非字符
+		 
+		 . 点：代表任意单个字符
+		 * */
+		
+		var str = "I love \n China";
+		console.log(str);
+		//匹配字符串中没有\n
+		var reg = /\n/;
+		console.log(reg.test(str));
+		
+		//tap \t
+		var str2 = "I love\tChina";
+		console.log(str2);
+		var reg2 = /\t/;
+		console.log(reg2.test(str2));
+		
+		//\r 回车
+		var str3 = 'I love \r NUC';
+		console.log(str3);
+		var reg3 = /\r/;
+		console.log(reg3.test(str3));
+		
+		// \d 数字
+		var str4 = '111a';
+		var reg4 = /\d/;
+		console.log(reg4.test(str4));
+		// 第一个\ : 转义字符
+		reg4 = new RegExp("\\d");
+		console.log(reg4.test(str4));
+		
+		// \D: 非数字
+		var reg5 = /\D/;
+		//只要有非数字，返回true 否则false
+		console.log(reg5.test(str4));
+		
+		// \s: 空白符号
+		var str6 = 'jhkashdkash';
+		var reg6 = /\s/;
+		console.log(reg6.test(str6));
+		
+		// \S：非空白符
+		var str7 = "";
+		var reg7 = /\S/;
+		//只要有空白符号true 否则false
+		console.log(reg7.test(str7));
+		
+		//  \w: 字符（a-z,A-Z,0-9 特殊字符：下划线）满足
+		var str8 = '999999#ww';
+		var reg8 = /\w/;
+		console.log(reg8.test(str8));
+		
+		// \W：检测特殊字符（用来检测用户名中是否包含特殊字符）
+		var reg9 = /\W/;
+		console.log(reg9.test(str8));
+		
+		// .
+		var str10 = 'heello';
+		//包含：两段h和l当中只能有一个字符，但是任意字符
+		var reg10 = /h.l/;
+		console.log(reg10.test(str10));
+		
+		// * 代表任意0个或者多个
+		var str11 = 'axxxxc';
+		var reg11 = /a*c/;
+		console.log(reg11.test(str11));
+	</script>
+</html>

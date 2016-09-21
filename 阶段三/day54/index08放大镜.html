@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.jzoom{
+				width: 320px;
+				height:372px;
+				border: 2px solid silver;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="jzoom">
+  			<img src="img/mm.jpg">
+		</div> 
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/jzoom.min.js"></script>
+	<script src="js/jzoom.js"></script>
+	<script>
+		$('.jzoom').jzoom({
+			 width: 400,
+             height: 400,
+             position: "right",
+             offsetX: 20,
+             offsetY: 0,
+             opacity: 0.6,
+             bgColor: "#fff",
+             loading: "Loading..."
+		});
+	</script>
+</html>

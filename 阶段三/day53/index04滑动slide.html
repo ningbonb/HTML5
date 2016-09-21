@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>显示隐藏</title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="slideUp">上滑</button>
+		<button id="slideDown">下滑</button>
+		<button id="slideToggle">上滑或者下滑</button>
+		<button id="slideUpAndDown">上滑下滑</button>
+		<div id="div1"></div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		var div1 = $("#div1");
+		$(function(){
+			//高度减小，为0时隐藏
+			$("#slideUp").click(function(){
+				$("#div1").slideUp(3000,function(){
+					console.log("上滑完成");
+				});
+			});
+			$("#slideDown").click(function(){
+				$("#div1").slideDown(3000,function(){
+					console.log("下滑完成");	
+				});
+				
+			});
+			$("#slideToggle").click(function(){
+				$("#div1").stop().delay().slideToggle(1000,function(){
+					console.log("上滑或下滑完成");
+					var isHide = $("#div1").css("display") == "block" ? false : true;
+					isHide ? $("#slideToggle").text("下滑") : $("#slideToggle").text("上滑");
+				});
+			});
+			//slideUpAndDown:先上滑，完后下滑
+			$("#slideUpAndDown").click(function(){
+				//1：动画完成回调函数处理
+//				div1.slideUp(2000,function(){
+//					div1.slideDown("slow");
+//				});
+				//2：代码回继续往下执行，动画是异步操作，不会阻塞代码执行，但是未被执行的动画效果会被放到等待队列中，slideDown会被放在队列中，只有等上一个动画执行完成后，从队列去除第一个动画执行
+//				div1.slideUp(2000);
+//				div1.slideDown(2000);
+//				div1.fadeOut(2000);
+//				div1.fadeIn(2000);
+//				div1.slideUp(2000);
+//				div1.slideDown(2000);
+				
+				div1.slideUp(2000).slideDown(2000);
+			});
+		});
+		
+		
+	</script>
+</html>

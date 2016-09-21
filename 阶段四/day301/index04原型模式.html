@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原型模式</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		function Person(){
+			this.name = "小鹏";
+		}
+		//原型对象:构造函数名：phototype属性
+		console.log(Person.prototype);
+		//原型对象的constructor属性又指向了对应构造函数
+		console.log(Person.prototype.constructor);
+		//
+		Person.prototype.name = "毛毛";
+		Person.prototype.age = 18;
+		Person.prototype.job = "司机";
+		Person.prototype.getName = function(){
+			//this:指调用对象
+			return this.name;
+		};
+		
+		//原型
+		//每一个原型对象都有一个constructor，指向了对应的构造函数，如果构造函数变化，constructor会伴随着变化
+		//每一个构造函数都会有一个原型对象，这个原型对象上的方法被所有 new创建的对象拥有
+		var person = new Person();
+		console.log(person.name);
+		console.log(person.job);
+		console.log(person.getName());
+		
+		var person2 = new Person();
+		person2.name = "石头";
+		console.log(person2.name);
+		console.log(person2.job);
+		console.log(person2.getName());
+		
+		
+		//说明原型对象下函数对象只被创建了一次，并且被所有对象访问
+		console.log(person.getName === person2.getName);//true
+		console.log(person.age === person2.age);//true
+		
+		var person3 = new Person();
+		console.log(person3);
+		console.log(person3.name);//访问的构造函数下的name
+		console.log(person3.getName());
+		
+		//结论：实例对象会继承原型对象上的属性和方法
+		//2.实例属性或者方法访问过程
+		//person3.name:
+		//1.首先从实例对象本身开始查找（构造函数内部定义），如果查找到返回对应的结果
+		//2.如果实例对象本身没有，查找对应的原型对象，如果该原型对象有属性或者方法，返回对应结果
+		//3.如果原型上也没有
+		
+		//判断属性或者方法属于原型还是实例对象
+		var hasAge = person.hasOwnProperty("age");
+		console.log(hasAge);//false,不是实例对象上属性
+		
+		var hasName = person.hasOwnProperty("name");
+		console.log(hasName);//true
+		
+		var hasJob = Person.prototype.hasOwnProperty("job");
+		console.log(hasJob);//true
+		//hasOwnProperty: 判断调用对象是否有某一个属性
+		
+		//isPrototypeOf:判断原型是否属于某一个对象
+		var isP = Person.prototype.isPrototypeOf(person);
+		console.log(isP);
+	</script>
+</html>

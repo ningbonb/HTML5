@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			var jqObj = $('#div1');
+			//JQ对象没法使用原生方法
+			console.log(jqObj.clientHeight);
+			
+			//jq对象转换为原生对象
+			console.log(jqObj);
+			
+			//jqObj.get(0);
+			//get(下标)：和eq类似，区别get返回原生对象，eq返回jq对象
+			var domObj = jqObj.get(0);
+			//方式2  jqObj[0] == jqObj.get(0)
+			var domObj = jqObj[0];
+			
+			console.log(domObj);
+			domObj.style.width = '200px';
+			
+			jqObj = $('div');
+			//get()用法2：不传参数
+			var arr = jqObj.get();
+			console.log(arr);
+		});
+	</script>
+</html>

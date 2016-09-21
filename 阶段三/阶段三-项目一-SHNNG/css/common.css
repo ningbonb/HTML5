@@ -1,0 +1,154 @@
+
+/*重置*/
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 10px;
+}
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+img{
+	vertical-align: top;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+a{
+	display: inline-block;
+}
+/*head*/
+header{
+	background-color: #1B1B1B;
+	width: 100%;
+	box-shadow: 0  1px 2px #1B1B1B;
+	position: relative;
+}
+.headerContent{
+	max-width: 980px;
+	margin: 0 auto;
+	overflow: hidden;
+	line-height: 5.5rem;
+	font-size: 1.5rem;
+}
+.headerContent a{
+	display: block;
+}
+.logolink{
+	width: 13.36734693877551%;
+	min-width: 85px;
+	float: left;
+	margin-left: 3%;
+}
+.headerContent a img{
+	width: 100%;
+	vertical-align: middle;
+}
+.navbtn{
+	float: right;
+	cursor: pointer;
+	display: none;
+	width: 4%;
+	margin-right: 1rem;
+}
+.navbtn img{
+	vertical-align: middle;
+	width: 100%;
+}
+nav{
+	width: 65%;
+	float: right;
+	display: block;
+	margin-right: 1.5rem;
+}
+nav ul{
+	overflow: hidden;
+}
+nav li{
+	float: left;
+	width: 14%;
+}
+nav li:nth-child(3),nav li:nth-child(4){
+	width: 22%;
+	white-space: nowrap;
+}
+nav a{
+	color: #606060;
+	text-align: center;
+}
+.navBorderOne{
+	border:1px solid;
+	padding: 3% 7%;
+	border-radius: 12%;
+	border-color: #fff;
+	color: #fff;
+	font-size: 1.6rem;
+}
+.navBorder:hover{
+	border:1px solid;
+	padding: 3% 7%;
+	border-radius: 12%;
+	border-color: #fff;
+	color: #fff;
+	font-size: 1.6rem;
+	transition: all 1.2s;
+}
+@media only screen and (max-width: 610px) {
+	html{
+		font-size: 7px;
+	}
+	.headerContent{
+		line-height: 3rem;
+	}
+	.navbtn{
+		display: block;
+	}
+	nav{
+		position: absolute;
+		right: -1.5rem;
+		top: 3rem;
+		width: 40%;
+		text-align: center;
+		display: none;
+		line-height: 3rem;
+		background-color: #1B1B1B;
+		box-shadow: 0  1px 2px #1B1B1B;
+		z-index: 10;
+	}
+	nav li{
+		clear: left;
+		width: 100%;
+	}
+	nav li:nth-child(3),nav li:nth-child(4){
+		width: 100%;
+	}
+}
+
+
+/*footer*/
+footer{
+	text-align: center;
+	position: relative;
+}
+footer a{
+	display: inline-block;
+	overflow: hidden;
+}
+.footerShareOne{
+	margin: 1.5rem;
+}
+.footerShareTwo img{
+	margin:0 .5rem 2rem;
+}
+footer p{
+	margin-bottom: 1.5rem;
+}

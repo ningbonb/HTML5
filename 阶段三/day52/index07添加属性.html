@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加属性</title>
+	</head>
+	<body>
+		<p id="p1">ppppppppppppppp</p>
+		<p id="p2">ppppppppppppppp</p>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		//attr():主要用来自定义属性
+		//attr(属性名，属性值/函数)
+		
+		$(function(){
+			//设置(默认全都被设置)
+			$('p').attr('name','shitou');
+			//添加多个属性，参数是对象类型
+			$('#p1').attr({
+				age:10,
+				//修改
+				name:'xiaoshitou',
+				gender:'boy',
+			});
+			//使用函数自定义属性
+			//attr(1,2)
+			//参数1：修改或者添加的属性，参数2：函数对象，返回值是修改或者设置的值
+			$('#p1').attr('age',function(index,value){
+				return +value+40;
+			});
+			//修改
+			$('#p1').attr('age','100');
+			//删除
+			$('#p1').removeAttr('age');
+			
+			//prop():用来处理元素本身自带属性
+			var value = $("#p1").prop('name');
+			console.log(value);//undefined
+			//自带属性
+			var value2 = $("#p1").prop('id');
+			console.log(value2);//p1
+			
+			//属性设置
+			$('#p1').prop('classA','valueTest');
+			
+			//处理系统自带属性正常
+			$('#p1').prop('class','valueTest');
+		});
+	</script>
+</html>

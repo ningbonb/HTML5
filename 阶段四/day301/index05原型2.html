@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原型2</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//function string(){}
+		console.log(String.prototype);
+		
+		//所有字符串对象都有了该方法
+		String.prototype.trimPreSuf = function(){
+			return this.replace(/^\s+|\s+$/g,'');
+		};
+		var str = "  hihid   shishd kshdk  s s ";
+		console.log(str);
+		console.log(str.trim());
+		console.log(str);
+		
+		console.log(str.trimPreSuf());
+		
+		var str2 = "ddd";
+		str2.trimPreSuf();
+		
+		console.log(String.prototype);
+		
+		//原型设置方式2
+		String.prototype = {
+			trimSP : function(){
+				alert(1111);
+			}
+		}
+		//String.prototype.trimSP();
+		//var str3 = "";
+		//str3.trimSP();
+		
+		//给所有对象都添加上该方法
+		Object.prototype.toStringOwn = function(){
+			return this.toString();
+		};
+		
+		var obj = new Object();
+		console.log(obj.toStringOwn());
+		console.log(obj.toString());
+		
+		console.log(Object.prototype);
+		
+		//字符串调用
+		console.log(str.toString());
+		
+		//数组
+		var arr = [1,2,3,4,5];
+		console.log(arr.toStringOwn());
+		
+		
+		console.log(Array.prototype);
+		
+		
+		//自己定义一个构造函数
+		function Person(){
+			this.toStringOwn = function(){
+				console.log("覆盖原型上方法");
+				return 'AHAHHA';
+			};
+		}
+		Person.prototype.toStringOwn = function(){
+			console.log("自己原型上的方法，可以覆盖继承原型的方法")
+		}
+		
+		var person = new Person();
+		//console.log(person.toStringOwn());
+		person.toStringOwn();
+		console.log(Person.prototype);
+		
+		console.log(Person.prototype);
+		
+		//1.首先从实例对象本身开始查找（构造函数内部定义），如果查找到返回对应的结果
+		//2.如果实例对象本身没有，查找对应的原型对象，如果该原型对象有属性或者方法，返回对应结果
+		//3.如果原型上也没有,继续查找最大父类Object的原型，如果有返回结果，如果没有，函数访问：报错，属性访问：未定义。
+	</script>
+</html>

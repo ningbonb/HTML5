@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 2000px;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				padding: 50px;
+				margin: 50px;
+				border: 10px solid silver;
+				background-color: red;
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+			#box{
+				width: 300px;
+				height: 300px;
+				background: silver;
+				position: relative;
+				left: 100px;
+				top: 400px;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background: yellow;
+				border: 2px solid brown;
+				left: 50px;
+				top: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="box">
+			<div id="div2"></div>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		var div1 = $("#div1");
+		var div2 = $("#div2");
+		$(function(){
+			console.log(div1.width());
+			console.log(div1.height());
+			//设置宽高
+			//div1.width(200);
+			//div1.height(200);
+			
+			//innerWidth:内容宽度+padding左右
+			//innerHeight:内容高度+padding上下
+			console.log(div1.innerWidth());
+			console.log(div1.innerHeight());
+			
+			
+			//outerHeght()内容高度+上下padding+上下边框 = offSetHeight
+			console.log(div1.outerWidth());
+			console.log(div1.outerHeight());
+			
+			//outerHeight:参数：布尔值：默认false,不会计算margin值，如果是true，会计算margin
+			console.log(div1.outerHeight(true));
+			
+			
+			//offset()：当前元素基于页面文档的位置
+			console.log(div1.offset());
+			console.log(div1.offset().left);
+			console.log(div1.offset().top);
+			
+			//只能接受number类型
+			div1.offset({
+				left: 100,
+				top: 100,
+			});
+			
+			//div1.css({});
+			
+			//position():当前元素基于最近定位父元素的距离
+			console.log(div2.position());
+			console.log(div2.position().left);
+			
+			
+			console.log(div2.offset());
+			
+			$(document).click(function(){
+				//可以获取
+				console.log($("body").scrollTop());
+				console.log($("body").scrollLeft());
+				//不可以获取
+				console.log($("html").scrollTop());
+				//可以获取
+				console.log($(window).scrollTop());
+				
+				//回到顶部
+				//$(window).scrollTop(0);
+				
+				$("body").animate({
+					scrollTop: 0,
+				},500);
+			});
+		});
+	</script>
+</html>

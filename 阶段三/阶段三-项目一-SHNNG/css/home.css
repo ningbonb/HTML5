@@ -1,0 +1,167 @@
+/*home*/
+.homeMain{
+	max-width: 980px;
+	margin: 0 auto;
+	position: relative;
+}
+.title{
+	width: 45%;
+	margin: 5rem auto;
+	overflow: hidden;
+	overflow: hidden;
+}
+.titleBgLeft,.titleBgRight{
+	width: 26%;
+	height: 2.5rem;
+	background: url(../img/line_yellow.png) no-repeat;
+	background-position-y: 50%;
+	float: left;
+}
+.titleBgRight{
+	float: right;
+}
+.title h1{
+	width: 48%;
+	text-align: center;
+	font-size: 2.5rem;
+	color: #616161;
+	font-weight: bold; 
+	float: left;
+}
+
+
+.homeContentBox{
+	background-color: silver;
+	width: 100%;
+	overflow: hidden;
+	height: 215px;
+	transition: all 1.5s;
+}
+.boxleft{
+	width: 60%;
+	height: 100%;
+	float: left;
+}
+.boxleft a{
+	width: 100%;
+	height: 100%;
+}
+.boxleft a img{
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.boxright{
+	width: 36%;
+	height: 100%;
+	float: right;
+	color: #B0B0B0;
+	font-size: 15px;
+	text-align: center;
+	line-height: 2.5rem;
+	background-color: #fff;
+	transition: all 1.5s;
+}
+.boxright h2 a{
+	color: #B0B0B0;
+	font-size: 2.8rem;
+	font-weight: bold;
+	line-height: 5rem;
+	transition: all 1.5s;
+}
+div.boxleftSed{
+	float: right;
+}
+#contentRight{
+	text-align: right;
+	line-height: 3rem;
+	margin: 1rem 0;
+	padding-right: 1rem;
+}
+#contentRight1{
+	text-align: right;
+	padding-right: 1rem;
+}
+.boxrightSed{
+	float: left;
+}
+.homeContentBox:hover{
+	background-color: #CFDB00;
+}
+.homeContentBox:hover .boxright{
+	color: #000;
+}
+.homeContentBox:hover .boxright h2 a{
+	color: #000;
+}
+@media only screen and (max-width: 980px) {
+	.boxleft{
+		width: 64%;
+	}
+	.boxright h2 a{
+		color: #B0B0B0;
+		font-size: 2rem;
+		font-weight: bold;
+		line-height: 3.2rem;
+	}
+}
+@media only screen and (max-width: 825px) {
+	.boxleft{
+		width: 69%;
+	}
+	.boxright{
+		width: 31%;
+	}
+}
+@media only screen and (max-width: 770px) {
+	.boxleft{
+		width: 73%;
+	}
+	.boxright{
+		width: 27%;
+		font-size: 1.6rem;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.title h1{
+		font-size: 2rem;
+		line-height: 2.8rem;
+	}
+}
+@media only screen and (max-width: 640px) {
+	html{
+		font-size: 7px;
+	}
+	.title{
+		width: 80%;
+	}
+	.homeContentBox{
+		width: 100%;
+		overflow: hidden;
+		height: 100%;
+		background: #fff;
+	}
+	.homeContentBox:hover{
+		background-color: #fff;
+	}
+	.homeContentBox:nth-child(1),.homeContentBox:nth-child(2){
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid silver;
+	}
+	.boxleft{
+		width: 100%;
+		float: left;
+	}
+	.boxright{
+		box-sizing: border-box;
+		width: 100%;
+		float: left;
+		padding: 0 1rem;
+		margin-top: 1.5rem;
+	}
+	#contentRight,#contentRight1{
+		text-align: center;
+	}
+}

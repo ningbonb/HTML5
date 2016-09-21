@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>面向对象</title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		/*
+		面向对象/面向过程
+		面向过程：以事件为中心，把对应事件分为若干步骤
+		面向对象：以事物对象为中心，完成每一个事件需要哪些对象来参与
+		
+		对象：特征（属性）和行为（方法）
+		
+		面向对象：封装、继承、多态。
+		封装：把过程和数据封装到一块，组成功能模块，使用该功能可以访问直接定义好的方法或者属性。
+		继承：通过类继承，对象的一个新的类可以继承现有的类。
+		多态:不同的对象去实现相同的方法，获取的结果不同。
+		
+		类：对对象的抽象。 类：人
+		对象：对类的实例化，具有属性和方法。  对象： 人->毛毛
+		
+		js: 是一个面向对象的语言，但是不是一个标准的面向对象语言，没有类的概念
+		 * */
+		
+		var arr = [];//数组对象
+		arr = new Array();
+		
+		//节点对象
+		var div = document.createElement("div");
+		
+		var dateO = new Date();//事件对象
+		
+		var person = {
+			//属性
+			name:"小鹏",
+			age:30,
+			//方法
+			speak:function(){
+				//alert("你好");
+			},
+		};
+		
+		console.log(person.name);
+		console.log(person.speak);
+		
+		//js对象，无序集合组成
+		//主要遍历对象,in前面获取对应属性名
+		for(var attribute in person){
+			console.log(attribute);
+			console.log(person[attribute])
+		}
+		
+		var arr = ['a','b','c','d'];
+		for(var index in arr){
+			console.log(index);
+			console.log(arr[index]);
+		}
+		//工厂模式
+		function createPerson(nameValue,ageValue){
+			var person = {
+				name:nameValue,
+				age:ageValue,
+				getName:function(){
+					return "我叫" + this.name;
+				},
+			}
+			return person;
+		}
+		
+		var person2 = createPerson("毛毛",18);
+		console.log(person2.name,person2.age);
+		console.log(person2.getName());
+		
+		var person3 = createPerson("石头",28);
+		console.log(person3.name,person3.age);
+		console.log(person3.getName());
+	</script>
+</html>

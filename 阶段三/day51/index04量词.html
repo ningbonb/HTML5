@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>量词</title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		/*
+		 lllo+号：查找o个数 >= 1
+		 *号：查找个数 >= 0
+		 ?号：个数{0，1} 只能取值0或者1
+		 
+		 * */
+		
+		var str = 'helloo woooooorld aoalo oob';
+		//找到所有连续的 o 
+		var reg = /o+/g;
+		document.body.innerHTML = '<br>' + str.match(reg);
+		// l后面是o o的个数不能为0
+		var reg2 = /lo+/g;
+		document.body.innerHTML += '<br/>' + str.match(reg2);
+		
+		var reg3 = /\w+/g;
+		document.body.innerHTML += '<br>' + str.match(reg3);
+		document.body.innerHTML += '<br>' + str.split(" ");
+		
+		// *
+		var reg4 = /lo*/g;
+		document.body.innerHTML += '<br>' + str.match(reg4);
+		//所有都会满足
+		var reg5 = /o*/g;
+		document.body.innerHTML += '<br>' + str.match(reg5);
+		
+		//？
+		var str6 = 'lo llo ll looo';
+		
+		var reg6 = /lo?/g;
+		document.body.innerHTML += '<br>' + str6.match(reg6);
+		
+		
+		/*
+		 {x}:个数是x个
+		 {x,y}:个数在x,y之间
+		 {x,}:x到无限大
+		 
+		 * */
+		
+		var str7 = 'lo loooolo ll looo';
+		var reg7 = /lo{3}/g;
+		document.body.innerHTML += '<br>' + str7.match(reg7);
+		
+		
+		var str8 = 'shkak3y83hiweo3h00931234ih=-ck==-D3J2GBFJWG388983i'
+		var reg8 = /\d{4}/g;
+		document.body.innerHTML += '<br>' + str8.match(reg8);
+		
+		//优先满足最大值
+		var str9 = 'aaa2h83383dh83h932928r93823jr2333jrio32jrr';
+		var reg9 = /\d{2,4}/g;
+		document.body.innerHTML += '<br>' + str9.match(reg9);
+		
+		var str10 = 'aaa2h83383dh83h932928r93823jr2333jrio32jrr';
+		var reg10 = /\d{3,}/g;
+		document.body.innerHTML += '<br>' + str10.match(reg10);
+		
+		
+		/*
+		 a$:代表以a结尾
+		 ^a:以a开头
+		 
+		 * */
+		
+		var str11 = '今天天气不错.';
+		//判断是否以不错结尾
+		var reg11 = /不错.$/;
+		var result = reg11.test(str11);
+		console.log(result);
+		//只有满足好日子结尾，才会被替换
+		var newStr = str11.replace(reg11,"糟糕");
+		console.log(newStr);
+		
+		var reg12 = /^今天/;
+		var newStr2 = str11.replace(reg12,'明天');
+		console.log(newStr2);
+		
+		var str13 = '12223324jdhfksdhfksd';
+		//以数字开头，数字一个或者多个
+		var reg13 = /^\d+/;
+		document.body.innerHTML += "<br>" + str13.replace(reg13,"哈哈");
+		
+		var str14 = '     a a a  aa   aaa   aa';
+		var reg14 = /^\s+/;
+//		document.body.innerHTML +='<br>' + str14.replace(reg14,"");
+		var newS = str14.replace(reg14,"");
+		console.log(newS);
+	</script>
+</html>
