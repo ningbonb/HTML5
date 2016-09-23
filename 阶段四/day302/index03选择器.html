@@ -68,6 +68,36 @@
 			//console.log(arg);
 			arg = dealStyle(arg);
 			console.log(arg);
+			
+			var selector = arg.split("");
+			
+			//每次超找到的所有元素作为下次查找的父元素
+			var parents = [document];//存储每次查找到的元素
+			
+			for(var i = 0; i < selector.length; i++){
+				//获取每一个选择器
+				var selector = selector[i];
+				//保存每次查找到的对应子元素
+				var childs = [];
+				
+				for(var j = 0; j < parents.length; j++){
+					//获取每一个父元素
+					var parent = parents[j];
+					
+					//判断选择器类型
+					//如果是ID
+					if(/^#/.test(selector)){
+						console.log("是ID"+selector);
+					}else if(/^\./.test(selector)){//如果是class
+						//.需要转译字符，代表单个字符
+						console.log("是一个class"+selector);
+					}else{
+						console.log("是标签选择"+selector);
+					}
+				}//第二个for循环结束
+				
+			}//第一个for循环结束
+			
 		}
 		
 		

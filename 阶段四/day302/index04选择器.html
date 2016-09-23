@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery框架整体</title>
+	</head>
+	<body>
+		<div id="div1">
+			<div class="div2">
+				<div class="div3">第一个div3</div>
+				<div class="div3">第二个div3
+					<div>hahhahahaha1</div>
+					<div>haahhaahhah2</div>
+				</div>
+			</div>
+			<div class="div2">
+				<div class="div3">第三个div3</div>
+				<div class="div3">第四个div3
+					<div>hahahaha3</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		//jQuery框架整体
+		
+		//arg:选择器字符串/对象/函数
+		function jQuery(arg){
+			//数组，存放查询到的对象 $("#div1 div")
+			this.elements = [];//关键
+			//判断参数类型
+			if(typeof arg == "undefined"){
+				//保存默认document对象
+				this.elements.push(document);
+			}else if(typeof arg == "function"){//$(function(){}),$(document).ready(function(){});
+				//函数类型，判断文档加载完成回调
+				this.ready(arg);
+			}else if(typeof arg == "object"){
+				//对象类型直接保存
+				this.elements.push(arg);
+			}else{
+				var objs = getElement(arg);
+				//保存所有元素
+				this.elements = objs;
+			}
+		}
+		
+		//原型
+		jQuery.prototype.ready = function(domLoadCBack){
+			//文档加载完成回调domLoadCBack
+			//console.log(domLoadCBack);
+			window.onload
+			if(document.addEventListener){//如果有这个函数，ie8以上
+				document.addEventListener("DOMContentLoaded",domLoadCBack,false);
+			}else{
+				//监听文档状态
+				document.onreadystatechange = function(){
+					if(document.readyState == "complete"){
+						domLoadCBack();				
+					}
+				}
+			}
+		};
+		
+		function $(arg){
+			return new jQuery(arg);
+		}
+		
+		//处理空格，前后空格删除，当中空格只留一个
+		function dealStyle(arg){
+			var reg = /^\s+|\s+$/g;
+			arg = arg.replace(reg,"");
+			//当中空格
+			var reg2 = /\s+/g;
+			arg = arg.replace(reg2," ");
+			return arg;
+		}
+		
+		//把arr每一个元素遍历保存到target数组
+		function combineArr(target,arr){
+			for(var i = 0; i < arr.length; i++){
+				target.push(arr[i]);
+			}
+			return target;
+		}
+		
+		//根据选择器获取对象
+		//$("  #div1   .div2 .div3 div ")
+		function getElement(arg){
+			//console.log(arg);
+			arg = dealStyle(arg);
+			console.log(arg);
+			
+			var selector = arg.split("");
+			
+			//每次超找到的所有元素作为下次查找的父元素
+			var parents = [document];//存储每次查找到的元素
+			
+			for(var i = 0; i < selector.length; i++){
+				//获取每一个选择器
+				var selector = selector[i];
+				//保存每次查找到的对应子元素
+				var childs = [];
+				
+				for(var j = 0; j < parents.length; j++){
+					//获取每一个父元素
+					var parent = parents[j];
+					
+					//判断选择器类型
+					//如果是ID
+					if(/^#/.test(selector)){
+						var selectorSuf = selector.substr(1);//默认从该位置截取到最后
+						var ele = document.getElementById("selectorSuf");
+						//保存
+						
+						childs.push(ele);
+					}else if(/^\./.test(selector)){//如果是class
+						//.需要转译字符，代表单个字符
+						var selectorSuf = selector.substr(1);
+						if(parents.getElementsByClassName){//是否有该方法
+							var eles = parent.getElementsByClassName(selectorSuf);
+							//保存
+							//childs = eles;
+							child = combineArr(childs,eles);
+						}else{//处理ie
+							
+						}
+					}else{
+						var eles = parent.getElementsByTagName(selector);
+						childs = combineArr(childs,eles);
+					}
+				}//第二个for循环结束
+				
+				//把查询结果给parents,作为下次查询的父元素
+				parents = childs;
+				
+			}//第一个for循环结束
+			return childs;
+		}
+		
+		//原型上绑定方法
+		//eq(index)
+		jQuery.prototype.eq = function(index){
+			//return this.elements[index];
+			//包装为jQuery
+			return $(this.elements[index]);
+		};
+		
+		//绑定事件函数
+		function addEvent(eventName,callBackFn){
+			alert(this);
+			//jq默认给当前对象下所有查询到的元素全部绑定
+			for(var i = 0; i < this.elements.length; i++){
+				if(this.elements[i].addEventListener){
+					this.elements[i].addEventListener(eventName,callBack,false);
+				}else{//ie 678
+					//ie事件名必须加on
+					this.elements[i].attachEvent('on'+eventName,callBack);
+				}
+			}
+			
+			function callBack(ev){
+				//alert(this);
+				var ev = ev || window.event;
+				//回调
+				//callBackFn(ev);
+				//callBackFn.call(this,ev);
+				//this包装为jQuery对象
+				callBackFn.call($(this),ev);
+			}
+		}
+		
+		//on()绑定事件操作
+		jQuery.prototype.on = function(eventName,callBackFn){
+			
+			addEvent.call(this,eventName,callBackFn);
+			//addEvent.apply(this,arguments);
+		};
+		//hover
+		jQuery.prototype.hover = function(overFn,outFn){
+			//鼠标移入
+			addEvent.call(this,"mouseover",overFn);
+			//鼠标移出
+			addEvent.apply(this,["mouseout",outFn]);
+		};
+		
+		//获取样式属性:默认获取查找到第一个对象属性
+		function getStyle(styleName){
+			
+			//getComputedStyle:标准
+			//currentStyle：ie678
+			return window.getComputedStyle ? window.getComputedStyle(this.elements[0],null)[styleName] : this.elements[0].currentStyle[styleName];
+		}
+		
+		//设置属性方法:默认给查询到的所有元素全部设置
+		function setStyle(styleName,styleValue){
+			for(var i = 0; i < this.elements.length; i++){
+				this.elements[i].style[styleName] = styleValue;
+			}
+		}
+		
+		//css()
+		jQuery.prototype.css = function(){
+			//arguments
+			if(arguments.length == 1){//一个参数，字符串或者对象
+				//判断参数类型
+				if(typeof arguments[0] == "string"){//获取属性
+					return getStyle.call(this,arguments[0]);
+				}else if(typeof arguments[0] == "object"){//设置多个属性
+					//遍历对象
+					for(var att in arguments[0]){
+						setStyle.call(this,att,arguments[0][att]);
+					}
+				}
+				
+			}else if(arguments.length == 2){//字符串单个属性设置
+				setStyle.call(this,arguments[0],arguments[1]);
+			}
+		};
+		
+		$(function(){
+			//alert(111111);
+		});
+		//$();
+		//$(function(){});
+		//$(document);
+		//$("#div1 div")
+		//$("#div1");
+		
+		//完整写法
+		$(document).ready(function(){
+			//$("     #div1  .div2  .div3 div ")
+			
+			var obj = $("#div1 .div2 .div3");
+			console.log(obj);
+			
+			var obj2 = $("#div1 .div2 .div3 div");
+			console.log(obj2.eq(1));
+			
+			obj2.on("click",function(ev){
+//				console.log("点击");
+//				var rel = this.css("color");
+//				console.log(rel);
+//				this.css("color","red");
+//				obj2.css("color","blue");
+				this.css({
+					color: "red",
+					width: "200px",
+					backgroundColor: "blue",
+				});
+			});
+			
+			//obj2.on("click",function(){});
+//			$("#div1 .div2 .div3 div").hover(function(ev){
+//				console.log(this+"鼠标移入");
+//			},function(ev){
+//				console.log(this+"鼠标移出");
+//			});
+		});
+	</script>
+</html>
