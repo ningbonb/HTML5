@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px silver;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		<input type="button" value="变化" id="btn1"/>
+		<input type="button" value="变化2" id="btn2"/>
+		<a href="" id="imgData1">跳转</a>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var btn1 = document.getElementById("btn1");
+		var btn2 = document.getElementById("btn2");
+		var ctx = canvas.getContext("2d");
+		
+		var imgObj = new Image();
+		imgObj.src = "img/xiaopeng.jpg";
+		//加载完成
+		imgObj.onload = function(){
+			ctx.drawImage(this,0,0,500,500);
+		};
+		
+		//取相反颜色
+		btn1.onclick = function(){
+			var imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+			//console.log(imgData.data);
+			for(var i = 0; i < imgData.data.length; i+=4){
+				//设置相反颜色
+				imgData.data[i] = 255 - imgData.data[i];
+				imgData.data[i+1] = 255 - imgData.data[i+1];
+				imgData.data[i+2] = 255 - imgData.data[i+2];
+			}
+			//putImageData:对画布进行像素的写入
+			ctx.putImageData(imgData,0,0);
+		};
+		
+		//图片灰度
+		btn2.onclick = function(){
+			var imgData = ctx.getImageData(0,0,canvas.width,canvas.height);
+			for(var i = 0; i < imgData.data.length; i+=4){
+				var avg = (imgData.data[i] + imgData.data[i+1] + imgData.data[i+2])/3;
+				imgData.data[i] = avg;
+				imgData.data[i+1] = avg;
+				imgData.data[i+2] = avg;
+			}
+			//putImageData:对画布进行像素的写入
+			//ctx.putImageData(imgData,0,0);
+			//参数4，5，6，7：代表插入新的像素区域
+			//4，5表示需要更改的坐标起点
+			//6，7表示需要更改的宽高
+			ctx.putImageData(imgData,0,0,100,100,200,200);
+			
+			//toDataURL:获取canvas图片链接，1代表最好品质，0代表差
+			var urlS = canvas.toDataURL("image/jpg",1);
+			var aObj = document.getElementById("imgData1");
+			aObj.href = urlS;
+			//window.open(urlS);
+		};
+	</script>
+</html>

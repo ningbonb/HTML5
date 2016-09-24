@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 320px;
+				height: 480px;
+				position: relative;
+			}
+			#box img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+			}
+			#myCanvas{
+				box-shadow: 0 0 5px gray;
+				position: absolute;
+				transition: all 1.5s;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/xiaopeng.jpg" alt="" />
+			<canvas id="myCanvas" width="320" height="480"></canvas>
+		</div>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		//画一个灰色背景
+		ctx.fillStyle = "gainsboro";
+		ctx.fillRect(0,0,320,480);
+		
+		canvas.onmousedown = function(){
+			//绑定移动事件
+			canvas.onmousemove = function(ev){
+				var ev = ev || window.event;
+				var x = ev.offsetX;
+				var y = ev.offsetY;
+				
+				ctx.fillStyle = "red";
+				ctx.globalCompositeOperation = "destination-out";
+				ctx.beginPath();
+				ctx.arc(x,y,20,0,Math.PI*2,false);
+				ctx.fill();
+				
+				//var imgeDate = ctx.getImageData(x,y,20,20);
+				adjustAlpha();
+			};
+			
+			canvas.onmouseup = function(){
+				canvas.onmousemove = canvas.onmouseup = null;
+			};
+		};
+		
+		function adjustAlpha(){
+			var imgData = ctx.getImageData(0,0,320,480);
+			var data = imgData.data;
+			var count = 0;
+			//找到所有透明度为0的个数
+			for(var i = 0; i < data.length; i+=4){
+				if(data[i+3] == 0){
+					count++;
+				}
+			}
+			//判断是否大于50%
+			if(count*2 > data.length/4){
+				canvas.style.opacity = "0";
+			}
+		}
+	</script>
+</html>
