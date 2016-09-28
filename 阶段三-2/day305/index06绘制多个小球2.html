@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas {
+				box-shadow: 0 0 5px saddlebrown;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+
+		function Ball() {
+			this.cx = 50;
+			this.cy = 50;
+			this.sx = 5;
+			this.sy = 2;
+			this.radius = 30;
+			this.backgroundColor = "red";
+			//动作
+
+		}
+		Ball.prototype.draw = function() {
+			ctx.fillStyle = this.backgroundColor;
+			ctx.beginPath();
+			ctx.arc(this.cx, this.cy, this.radius, 0, Math.PI * 2, false);
+			ctx.fill();
+		};
+		Ball.prototype.move = function() {
+			this.draw();
+			this.cx += this.sx;
+			this.cy += this.sy;
+
+			//碰壁检查
+			if(this.cx >= canvas.width - this.radius || this.cx <= this.radius) {
+				this.sx = -this.sx;
+			}
+			if(this.cy >= canvas.height - this.radius || this.cy <= this.radius) {
+				this.sy = -this.sy;
+			}
+		};
+		var balls = [];
+		for(var i = 0; i < 1000; i++) {
+			var ball = new Ball();
+			ball.radius = randomNumber(5,20);
+			//中心点
+			ball.cx = randomNumber(ball.radius,canvas.width - ball.radius);
+			ball.cy = randomNumber(ball.radius,canvas.height - ball.radius);
+			ball.backgroundColor = randomColor();
+			ball.sx = randomNumber(-4,4);
+			ball.sy = randomNumber(-10,10);
+			//防止速度为零
+			ball.sx = ball.sx == 0 ? 4 : ball.sx;
+			ball.sy = ball.sy == 0 ? 4 : ball.sy;
+			ball.draw();
+			//保存创建的小球对象
+			balls.push(ball);
+		}
+		
+		
+		canvas.onmouseover = function() {
+			(function move() {
+				ctx.clearRect(0,0,500,500);
+				for(var i = 0; i < balls.length; i++){
+					var ball = balls[i];
+					ball.move();
+				}
+				window.framesId = requestAnimationFrame(move);
+			})();
+		};
+		//鼠标移出,停止移动
+		canvas.onmouseout = function() {
+			cancelAnimationFrame(window.framesId);
+		}
+
+		function randomNumber(min, max) {
+			return parseInt(Math.random() * (max - min + 1) + min);
+		}
+
+		function randomColor() {
+			var r = randomNumber(0, 255);
+			var g = randomNumber(0, 255);
+			var b = randomNumber(0, 255);
+			return "rgb(" + r + "," + g + "," + b + ")";
+		}
+	</script>
+
+</html>

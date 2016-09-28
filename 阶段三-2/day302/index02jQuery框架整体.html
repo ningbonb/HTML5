@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery框架整体</title>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		//jQuery框架整体
+		
+		//arg:选择器字符串/对象/函数
+		function jQuery(arg){
+			//数组，存放查询到的对象 $("#div1 div")
+			this.elements = [];//关键
+			//判断参数类型
+			if(typeof arg == "undefined"){
+				//保存默认document对象
+				this.elements.push(document);
+			}else if(typeof arg == "function"){//$(function(){}),$(document).ready(function(){});
+				//函数类型，判断文档加载完成回调
+				this.ready(arg);
+			}else if(typeof arg == "object"){
+				//对象类型直接保存
+				this.elements.push(arg);
+			}else{
+				
+			}
+		}
+		
+		//原型
+		jQuery.prototype.ready = function(domLoadCBack){
+			//文档加载完成回调domLoadCBack
+			//console.log(domLoadCBack);
+			window.onload
+			if(document.addEventListener){//如果有这个函数，ie8以上
+				document.addEventListener("DOMContentLoaded",domLoadCBack,false);
+			}else{
+				//监听文档状态
+				document.onreadystatechange = function(){
+					if(document.readyState == "complete"){
+						domLoadCBack();				
+					}
+				}
+			}
+		};
+		
+		function $(arg){
+			return new jQuery(arg);
+		}
+		$(function(){
+			alert(111111);
+		});
+		//$();
+		//$(function(){});
+		//$(document);
+		//$("#div1 div")
+		//$("#div1");
+		
+		//完整写法
+		$(document).ready(function(){
+			alert("加载完成");
+		});
+	</script>
+</html>

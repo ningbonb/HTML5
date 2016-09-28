@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#myCanvas{
+				box-shadow: 0 0 5px gold;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		<video width="500" height="500" id="video">
+			<source src="img/oxford-10秒.mp4" type="video/mp4"></source>
+		</video>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		var video = document.getElementById("video");
+		//当浏览器能够开始播放指定视频或者音频时触发
+		video.oncanplay = function(){
+			video.play();
+			
+			
+			//绘制方法
+			function drawVideo(){
+				//绘制到画布
+				ctx.drawImage(video,0,0,500,500);
+				//延时定时器功能类似，但是没有延迟
+				/*
+				 requestAnimationFrame：可以使动画绘制和浏览器自身绘制频率保持一致
+				 * */
+				window.requestAnimationFrame(drawVideo);
+			}
+			drawVideo();
+		};
+	</script>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//每秒钟走的次数，调用的帧数
+		
+		var oldDate = new Date();
+		var oldTime = oldDate.getTime();
+		console.log(oldTime);//毫秒数
+		
+		var n = 0;
+		function frames(){
+			var newDate = new Date();
+			var newTime = newDate.getTime();
+			
+			//获取差值，得到调用一次用的时间差
+			var spaceTime = newTime - oldTime;
+			//计算一秒钟调用的次数
+			var framesNumber = parseInt(1000/spaceTime);
+			
+			//当前时间变为旧的时间
+			oldTime = newTime;
+			
+			n++;
+			//console.log(n);
+			if(n % 10 == 0){
+				document.body.innerHTML = framesNumber;
+			}
+			requestAnimationFrame(frames);
+		}
+		frames();
+	</script>
+</html>

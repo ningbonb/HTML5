@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px black;
+				margin-top: 50px;
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		ctx.fillRect(100,0,1,200);
+		ctx.fillRect(0,100,200,1);
+		
+		ctx.font = "50px 微软雅黑";
+		//文本对齐
+		//start:文本指定的位置开始
+		//end:文本指定的位置结束
+		//center:文本的中心被放置在指定的位置
+		ctx.textAlign = "start";
+		
+		//文本垂直
+		//top 文本基线是em 方框的顶端
+		//bottom
+		//middle
+		ctx.textBaseline = "bottom";
+		
+		//设置阴影
+		ctx.shadowColor = "red";
+		//大小
+		ctx.shadowBlur = 10;
+		//偏移
+		ctx.shadowOffsetX = 3;
+		ctx.shadowOffsetY = 10;
+		
+		//文本尺寸测量
+		var ctext = ctx.measureText("Hello World");
+		var w = ctext.width;
+		
+		//渐变
+		var linear = ctx.createLinearGradient(100,100,100+w,100);
+		linear.addColorStop(0,"red");
+		linear.addColorStop(0.5,"yellow");
+		linear.addColorStop(1,"blue");
+		
+		ctx.fillStyle = linear;
+		ctx.strokeStyle = linear;
+		
+		//text: String, x: Number, y: Number, maxWidth: Number
+		//x,y：开始显示坐标 maxWidth:
+		ctx.fillText("Hello World",100,100);
+		
+		ctx.strokeText("Hello World",100,300);
+	</script>
+</html>

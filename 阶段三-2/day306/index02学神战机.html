@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+				*{
+					padding: 0;
+					margin: 0;
+				}
+				a{
+					text-decoration: none;
+				}
+				li{
+					list-style: none;
+				}
+				html,body{
+					width: 100%;
+					height: 100%;
+				}
+				#wrap{
+					width: 100%;
+					height: 100%;
+					position: relative;
+				}
+				#score{
+					position: absolute;
+					left: 0;
+					top: 0;
+					font-size: 25px;
+					padding: 10px;
+				}
+				#myCanvas{
+					box-shadow: 0 0 5px orange;
+					/*width: 100%;
+					height: 100%;*/
+				}
+				#lose{
+					position: absolute;
+					width: 70%;
+					height: 150px;
+					left: 0;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					margin: auto;
+					border: 1px solid #CCCCCC;
+					border-radius: 15px;
+					background-color: gainsboro;
+					font-size: 20px;
+					text-align: center;
+					display: none;
+				}
+				#lose li{
+					height: 50px;
+					line-height: 50px;
+					border-bottom: 1px solid darkgray;
+				}
+				#lose li:last-child{
+					border-bottom-width: 0;
+				}
+		</style>
+	</head>
+	<body>
+		<div id="audioList">
+			<audio src="audio/bullet.mp3" id="bulletSound"></audio>
+			<audio src="audio/enemy1_down.mp3" id="enemy1Sound"></audio>
+			<audio src="audio/enemy2_down.mp3" id="enemy2Sound"></audio>
+			<audio src="audio/enemy3_down.mp3" id="enemy3Sound"></audio>
+			<audio src="audio/game_music.mp3" id="gameSound" loop="loop"></audio>
+			<audio src="audio/game_over.mp3" id="gameOverSound"></audio>
+		</div>
+		
+		<div id="wrap">
+			<!--分数-->
+			<div id="score">
+				<span id="scores">0</span>
+			</div>
+			<!--画布-->
+			<canvas id="myCanvas" width="320" height="568"></canvas>
+			
+			<!--游戏结束-->
+			<ul id="lose">
+				<li>游戏结束</li>
+				<li>得分 <span id="scoreEnd">0</span> </li>
+				<li><a href="" id="again">再来一次</a></li>
+			</ul>
+			
+			
+		</div>
+		<script src="js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				//获取元素
+				var bulletSound=document.getElementById("bulletSound");
+				var enemy1Sound=document.getElementById("enemy1Sound");
+				var enemy2Sound=document.getElementById("enemy2Sound");
+				var enemy3Sound=document.getElementById("enemy3Sound");
+				var gameMusic=document.getElementById("gameSound");
+				var gameOverMusic=document.getElementById("gameOverSound");
+				
+				var canvas=$("#myCanvas");
+				var score=$('#score');
+				var again=$('#again')
+				
+				var ctx=canvas[0].getContext('2d');
+				//设置画布宽高等同手机屏幕
+				canvas[0].width=$(window).width();
+				canvas[0].height=$(window).height();
+				
+				//音乐
+				//gameMusic.play();
+				
+				var bgImg=new Image();
+				bgImg.src='img/background.png';
+				
+				//图片对象
+				var bgImgObj={
+					x:0,
+					y:0,
+					w:canvas.width(),
+					h:canvas.height(),
+					//绘制方法
+					draw:function(){
+						//alert(bgImg.complete);
+						if (bgImg.complete) {//图片已经加载完成
+							
+							ctx.drawImage(bgImg,this.x,this.y,this.w,this.h);
+							//顶部绘制一个背景
+							ctx.drawImage(bgImg,this.x,this.y-this.h,this.w,this.h);
+						}
+						
+					},
+					//移动
+					move:function(){
+						this.y+=2;
+						if (this.y>=this.h) {
+							this.y=0;
+						}
+					},
+					
+				};
+				//学神战机
+				var heroImage=new Image();
+				heroImage.src='img/herofly.png';
+				var heroObj={
+					//一个飞机330/5=66，减去一半居中
+					x:canvas.width()/2-33,
+					y:canvas.height()-82-150,
+					w:66,
+					h:82,
+					//裁切的位置
+					px:0,
+					//绘制
+					draw:function(){
+						if(heroImage.complete){
+							//9个参数：当中四个 控制裁切  最后四个：显示坐标和位置
+							ctx.drawImage(heroImage,this.px,0,this.w,this.h,this.x,this.y,this.w,this.h)
+						}
+					},
+				}
+				//移动端的手指拖动
+				canvas.on('touchstart',function(ev){
+					//获取手指
+					//console.log(ev);
+					var touchObj=ev.originalEvent.targetTouches[0];
+					//console.log(touchObj);
+					//手指在画布上的坐标，页面铺满不滑动，clientX不需要减去偏移
+					var tx=touchObj.clientX;
+					var ty=touchObj.clientY;
+					//判断这个点是不是在飞机上
+					if (tx>heroObj.x&&tx<(heroObj.x+heroObj.w)&&ty>heroObj.y&&ty<(heroObj.y+heroObj.h)) {
+						//绑定手指移动事件
+						canvas.on('touchmove',function(ev){
+							//移动手指
+							var touchObj=ev.originalEvent.targetTouches[0];
+							//移动的坐标
+							var mx=touchObj.clientX-heroObj.w/2;
+							var my=touchObj.clientY-heroObj.h/2;
+							//给战机设置位置
+							heroObj.x=mx;
+							heroObj.y=my;
+							
+							
+							
+						});
+						
+						//绑定手指抬起事件
+						canvas.on('touchend',function(){
+							//释放移动和本身事件
+							canvas.off('touchmove touchend');
+						});
+					}
+					//阻止默认事件
+					ev.preventDefault();
+				});//点击结束
+				
+				
+				//游戏函数结构框架
+				function main(){
+					//背景绘制
+					bgImgObj.draw();
+					//背景移动
+					bgImgObj.move();
+					//绘制战机
+					heroObj.draw();
+				}
+				
+				//动画方法
+				function animate(){
+					//擦掉画布
+					ctx.clearRect(0,0,canvas.width(),canvas.height());
+					//重新绘制
+					main();
+					//循环调用
+					window.requestAnimationFrame(animate);
+				}
+				
+				//游戏函数入口
+				animate();
+				
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>

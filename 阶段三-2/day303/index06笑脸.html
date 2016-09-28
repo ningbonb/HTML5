@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px black;
+				margin-top: 50px;
+				margin-left: 50px;
+			}
+			#myCanvas2{
+				box-shadow: 0 0 5px salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<!--宽高只能在属性值设置，样式设置像素值有差别-->
+		<canvas id="myCanvas" width="500" height="500">浏览器版本太低，请更新</canvas>
+		<!--<canvas id="myCanvas2" width="50" height="50">
+		</canvas>-->
+	</body>
+	<script>
+		//获取canvas对象
+		var canvas = document.getElementById("myCanvas");
+		//上下文:理解：canvas标签内置画笔
+		var ctx = canvas.getContext("2d");//目前仅支持2d画板
+		
+		//开始绘制
+		ctx.beginPath();
+		ctx.arc(250,250,100,0,Math.PI*2,false);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.arc(250,250,70,0,Math.PI,false);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.arc(220,220,10,0,Math.PI*2,false);
+		ctx.stroke();
+		
+		ctx.beginPath();
+		ctx.arc(280,220,10,0,Math.PI*2,false);
+		ctx.stroke();
+	</script>
+</html>

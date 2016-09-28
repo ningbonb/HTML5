@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px silver;
+				float: left;
+			}
+			#show{
+				float:left;
+				width: 150px;
+				height: 100px;
+				background-color: silver;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+		<div id="show">111</div>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var show = document.getElementById("show");
+		var ctx = canvas.getContext("2d");
+		
+		var imgObj = new Image();
+		imgObj.src = "img/xiaopeng.jpg";
+		//加载完成
+		imgObj.onload = function(){
+			ctx.drawImage(this,0,0,500,500);
+		};
+		
+		//
+		canvas.onmousemove = function(ev){
+			show.style.display = "block";
+			var ev = ev || window.event;
+			//鼠标点的位置
+			var x = ev.offsetX;
+			var y = ev.offsetY;
+			
+			//console.log(x,y);
+			//获取像素点
+			var imgData = ctx.getImageData(x,y,1,1);
+			//console.log(imgData.data);
+			
+			var rgba = "rgba("+ imgData.data[0] +","+ imgData.data[1] +","+ imgData.data[2] +","+ imgData.data[3] +")";
+			
+			show.innerHTML = rgba;
+			show.style.backgroundColor = rgba;
+			
+			canvas.onmouseout = function(){
+				show.style.display = "none";
+			}
+		}
+	</script>
+</html>

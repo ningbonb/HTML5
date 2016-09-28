@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px silver;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		var imgObj = new Image();
+		imgObj.src = "img/xiaopeng.jpg";
+		//加载完成
+		imgObj.onload = function(){
+			//只有加载完成后才可以绘制图片
+			//drawImage(img_elem: Element, dx_or_sx: Number, dy_or_sy: Number, dw_or_sw: Number, dh_or_sh: Number, dx: Number, dy: Number, dw: Number, dh: Number): none
+			
+			/*
+			三个参数：参数1：图片对象； 2，3是在画布上的显示坐标
+			五个参数：参数1：图片对象； 2，3是在画布上的显示坐标；4，5在画布上显示图片的宽高
+			九个参数：参数1：图片对象；最后四个参数：同上后4个参数
+			当中四个参数：对图片裁剪：2，3，代表在“原图”上裁剪的位置坐标，4，5代表原图上裁剪的大小
+			 * */
+			
+			//ctx.drawImage(this,0,0);
+			//ctx.drawImage(imgObj,0,0,200,200);
+			ctx.drawImage(imgObj,0,0,500,500);
+			//9个参数
+			//ctx.drawImage(imgObj,390,22,150,210,10,50,400,400);
+			
+			
+			//获取图片的像素点
+			/*
+			 getImageDate:四个参数：前两个：获取坐标位置，后两个:获取的宽高大小
+			 每一个像素位：代表一个rgba(255，255，255，255)；
+			 包含：高度*宽度*4个数据，所以从0开始，到(高度*宽度*4)-1
+			 * */
+			
+			var imgData = ctx.getImageData(0,0,500,500);
+			console.log(imgData);
+			console.log(imgData.data);
+		};
+		
+	</script>
+</html>
