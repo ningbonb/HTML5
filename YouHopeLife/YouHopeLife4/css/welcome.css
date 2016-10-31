@@ -1,0 +1,262 @@
+/*欢迎页*/
+html{
+	min-width: 333px;
+}
+/*欢迎页头部*/
+.welcome_head{
+	width: 100%;
+	background-color: #EEE;
+	line-height: 3rem;
+}
+a{
+	color: #66666A;
+}
+a:hover{
+	color: #C93729;
+}
+.welcome_head_wrap{
+	max-width: 960px;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+}
+.welcome_head>a{
+	float: left;
+}
+.welcome_head_right{
+	float: right;
+}
+/*|*/
+.sep{
+	display: inline-block;
+	margin: 0 .3rem;
+	color: #66666A;
+}
+.sep1{
+	display: inline-block;
+	margin: 0 0.5rem;
+	color: #66666A;
+}
+/*logo行*/
+.welcome_logo{
+	max-width: 960px;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 0 2rem;
+	box-sizing: border-box;
+	line-height: 10rem;
+}
+.welcome_logo>a{
+	width: 16%;
+	display: inline-block;
+	float: left;
+}
+.welcome_logo a>img{
+	width: 100%;
+	vertical-align: middle;
+}
+.welcome_logo_login{
+	float: right;
+	font-size: 1.6rem;
+}
+/*大背景图*/
+.welcome_wrap{
+	position: relative;
+	width: 100%;
+	background: url(../img/background.png) no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	text-align: center;
+}
+.welcome_slogan{
+	color: #fff;
+	font-size: 3rem;
+	letter-spacing: .3rem;
+	margin: 10rem auto 5rem;
+}
+/*欢迎页搜索块*/
+.welcome_search{
+	height: 3.1rem;
+	line-height: 3.1rem;
+	max-width: 440px;
+	width: 82%;
+	margin: 0 auto 20rem;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+.welcome_search_box{
+	background-color: #fff;
+	height: 100%;
+	float: left;
+	width: 73%;
+	text-align: left;
+	overflow: hidden;
+}
+.welcome_search_box>input{
+	height: 100%;
+	width: 70%;
+	padding-left: 1rem;
+	border: hidden;
+}
+
+#welcome_add{
+	display: inline-block;
+	width: 24%;
+	font-size: 1.6rem;
+	line-height: 1.6rem;
+	height: 2rem;
+	vertical-align: middle;
+	text-align: center;
+	border-left: 1px solid silver;
+	cursor: pointer;
+}
+#welcome_search_button{
+	float: right;
+	width: 20%;
+	height: 100%;
+	background-color: #EC6A17;
+	text-align: center;
+	border-radius: .3rem;
+	color: #fff;
+	cursor: pointer;
+}
+#welcome_search_button a{
+	color: #fff;
+}
+#welcome_search_button a:hover{
+	color: #fff;
+}
+/*隐藏地址选择框*/
+#welcome_add_choose{
+	box-sizing: border-box;
+	width: 82%;
+	height: 16rem;
+	max-width: 440px;
+	position: absolute;
+	border: 1px solid silver;
+	background-color: #fff;
+	top: 55%;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	padding: 0.5rem 1rem;
+	text-align: left;
+	color: #666666;
+	overflow-y: scroll;
+	display: none;
+	overflow-x: hidden;
+}
+/*热门城市*/
+#welcome_add_hot{
+	font-size: 1.5rem;
+	line-height: 4rem;
+	border-bottom: 1px solid silver;
+}
+#welcome_add_city{
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 0rem .8rem;
+	margin-left: 1rem;
+	border: 1px solid #FF6C00;
+	color: #FF6C00;
+	font-size: 1.3rem;
+	line-height: 2rem;
+	border-radius: .2rem;
+	cursor: pointer;
+}
+#welcome_add_choose>ul{
+	margin-top: 0.5rem;
+}
+#welcome_add_choose>ul li{
+	border-bottom: 1px solid silver;
+	line-height: 3.5rem;
+}
+/*数字*/
+.welcome_add_num{
+	display: inline-block;
+	line-height: 1.5rem;
+	width: 4rem;
+	padding: 0.3rem 0rem;
+	text-align: center;
+	background-color: #EEEEEE;
+	font-size: 1.6rem;
+	color: #999999;
+	border-radius: 0.3rem;
+	vertical-align: top;
+	margin-top: 0.75rem;
+}
+.welcome_add_name{
+	width: 70%;
+	display: inline-block;
+	line-height: 2rem;
+	font-size: 1.4rem;
+	margin-left: 1rem;
+}
+.welcome_add_name span{
+	display: inline-block;
+	padding: 0.75rem 1rem;
+	cursor: pointer;
+}
+/*欢迎页页脚*/
+.welcome_footer{
+	border-top: 1px solid silver;
+	width: 100%;
+	margin: 0 auto;
+	padding:.5rem 0 2rem;
+	text-align: center;
+	font-size: 1.3rem;
+	line-height: 2.5rem;
+	color: silver;
+}
+.welcome_footer_slogen{
+	color: #008DE1;
+}
+
+@media only screen and (max-width: 840px) {
+	.welcome_logo{
+		line-height: 8rem;
+	}
+	.welcome_logo>a{
+		width: 16%;
+	}
+}
+@media only screen and (max-width: 680px) {
+	.welcome_logo{
+		line-height: 6rem;
+	}
+	.welcome_logo>a{
+		width: 16%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.welcome_logo{
+		line-height: 6rem;
+	}
+	.welcome_logo>a{
+		width: 18%;
+	}
+	.welcome_footer{
+		font-size: 1.1rem;
+	}
+	/*搜索框*/
+	#welcome_add{
+		width: 20%;
+		font-size: 1.4rem;
+	}
+	#welcome_search_button{
+		width: 24%;
+		font-size: 1.3rem;
+	}
+}
+@media only screen and (max-width: 480px) {
+	html{
+		font-size: 8px;
+	}
+	.welcome_logo{
+		line-height: 4.5rem;
+	}
+	.welcome_logo>a{
+		width: 18%;
+	}
+}
