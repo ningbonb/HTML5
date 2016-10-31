@@ -1,0 +1,113 @@
+/*轮播图*/
+.home_scroll{
+	width: 100%;
+}
+.swiper-slide a{
+	width: 100%;
+}
+.swiper-slide a img{
+	width: 100%;
+}
+/*精选品牌主体*/
+.merchants_wrap{
+	max-width: 1180px;
+	margin: 1% auto;
+	padding: 0 1%;
+	overflow: hidden;
+	text-align: center;
+}
+.merchant_box{
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding:  2% 1%;
+	text-align: left;
+}
+.merchant_box:hover{
+	background-color: #F2F2F2;
+}
+.small_box_wrap{
+	width: 100%;
+	position: relative;
+}
+.small_box_wrap img{
+	width: 100%;
+}
+.small_box_wrap span{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	font-size: 1.4rem;
+	line-height: 2rem;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.samll_msg{
+	line-height: 2.5rem;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-size: 1.4rem;
+}
+.samll_msg img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 5%;
+	margin-right: 2%;
+}
+@media only screen and (max-width: 1080px) {
+	.home_small_box{
+		margin-bottom: 2%;
+	}
+}
+@media only screen and (max-width: 980px) {
+	.samll_msg img{
+		width: 7%;
+	}
+	.samll_msg{
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+	.small_box_wrap span{
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+	.home_small_box{
+		width: 32.66%;
+		margin-bottom: 0%;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.merchant_box{
+		width: 33.3333%;
+		padding:  2% 1%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.samll_msg img{
+		width: 6%;
+	}
+	.samll_msg{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.small_box_wrap span{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.merchant_box{
+		width: 50%;
+	}
+	.swiper-button-prev{
+		display: none;
+	}
+	.swiper-button-next{
+		display: none;
+	}
+}
