@@ -129,7 +129,6 @@
 }
 .login_forget input{
 	display: inline-block;
-	vertical-align: middle;
 }
 .login_forget a{
 	float: right;
@@ -146,7 +145,7 @@
 	background-size: 100%;
 }
 .login_logo{
-	width: 30%;
+	width: 25%;
 	margin: 5% auto;
 	overflow: hidden;
 }

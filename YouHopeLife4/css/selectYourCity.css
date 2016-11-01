@@ -21,6 +21,10 @@ div .select_font1 a{
 	color: #FF6600;
 }
 /*当前位置*/
+.select_site1{
+	text-align: left;
+	font-size: 1.4rem;
+}
 .select_site a{
 	color: #999999;
 }

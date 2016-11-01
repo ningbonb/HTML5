@@ -2,12 +2,12 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>注册</title>
+		<title>登录</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/headfooter.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/welcome.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/register.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/login.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper-3.3.1.min.css"/>
 	</head>
 	<body>
@@ -38,6 +38,11 @@
 		<div class="register_wrap">
 			<div class="register_bg">
 				<div class="register_box">
+					<div class="login_font">
+						登录
+						<img src="../img/login1.png" alt="" />
+						<a href="###">手机验证码登录</a>
+					</div>
 					<div class="register_box_input">
 						<input type="text" placeholder="请输入手机号"/>
 						<img src="../img/register2.png"/>
@@ -47,20 +52,12 @@
 						手机号不正确，请重新输入
 					</div>
 					<div class="register_box_input">
-						<input type="password" placeholder="请输入密码（6-20位号码字符）"/>
+						<input type="password" placeholder="请输入密码"/>
 						<img src="../img/register2.png"/>
 					</div>
 					<div class="register_box_font">
 						<img src="../img/rigister1.png"/>
-						密码格式不正确，请重新输入
-					</div>
-					<div class="register_box_input">
-						<input type="password" placeholder="请再次输入密码确认"/>
-						<img src="../img/register2.png"/>
-					</div>
-					<div class="register_box_font">
-						<img src="../img/rigister1.png"/>
-						两次输入密码不一致，请重新输入
+						密码不正确，请重新输入
 					</div>
 					<div class="register_box_input register_box_input2">
 						<input type="password" placeholder="验证码"/>
@@ -73,15 +70,21 @@
 						<img src="../img/rigister1.png"/>
 						验证码错误，请稍后获取
 					</div>
-					<div class="register_box_input register_box_input3">
-						<input type="text" placeholder="手机验证码"/>
-						<a href="###">获取验证码</a>
+					<!---->
+					<div class="login_forget">
+						<input type="checkbox" />自动登录
+						<a href="###">忘记密码</a>
 					</div>
 					<div class="register_box_button register_box_button1">
-						<a href="###">注册</a>
+						<a href="###">&nbsp;&nbsp;注&nbsp;&nbsp;册&nbsp;&nbsp;</a>
 					</div>
 					<div class="register_box_button">
-						<a href="###">登录</a>
+						<a href="###">会员注册</a>
+					</div>
+					<div class="login_font1">用合作网站登录</div>
+					<div class="login_logo">
+						<a href="###"><img src="../img/weixin.png" alt="" /></a>
+						<a href="###"><img src="../img/qq.png" alt="" /></a>
 					</div>
 				</div>
 			</div>
@@ -168,6 +171,6 @@
 	</body>
 	<script src="../js/swiper-3.3.1.min.js"></script>
 	<script src="../js/jquery-3.1.0.min.js"></script>
-	<script src="../js/register.js"></script>
+	<script src="../js/login.js"></script>
 	<script src="../js/common.js"></script>
 </html>
