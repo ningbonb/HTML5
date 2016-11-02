@@ -12,10 +12,15 @@ var mySwiper = new Swiper ('.swiper-container', {
     prevButton: '.swiper-button-prev',
     
 }) 
-//打开添加地址
-$(".commodity_box_one_button a").click(function(){
-	$(".integra_add_wrap").show();
-	$(".intergra_button a").click(function(){
-		$(".integra_add_wrap").hide();
-	});
-});
+
+var swiper = new Swiper('.swiper-container2', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 4,
+        paginationClickable: true,
+        autoplay : 5000,
+        loop: true,
+        spaceBetween: 30
+        
+         //nextButton: '.swiper-button-next',
+   		 //prevButton: '.swiper-button-prev',
+    });
