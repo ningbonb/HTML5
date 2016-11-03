@@ -2,15 +2,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>商家详细信息</title>
+		<title>申请入驻</title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/headfooter.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/merchants.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/swiper-3.3.1.min.css"/>
 		<link rel="stylesheet" type="text/css" href="../css/selectYourCity.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/commodity.css"/>
-		<link rel="stylesheet" type="text/css" href="../css/commodity_about.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/apply.css"/>
 	</head>
 	<body>
 		<!--头部文件-->
@@ -203,246 +202,89 @@
 			</div>
 		</div>
 		<!--头部文件结束-->
-		<!--首页部分-->
 		
-			
-		<!--精选品牌主体-->
-		<div class="merchants_wrap">
+		<div class="apply_wrap">
 			<!--当前位置-->
 			<div class="select_site select_site1">
 				您当前的位置：
-				<a href="###">商家</a>>
+				<a href="###">搜索</a>>
 				<span class="select_font1">
-					<a href="###">毛毛的旗舰店</a>
+					<a href="###">海澜之家旗舰店</a>
 				</span>
 			</div>
-			<div class="part">
-				<div class="part_img">
-					<a href="###">
-						<img src="../img/part1.png" alt="" />
-					</a>
-					<div class="part_scroll">
-						 <!-- Swiper -->
-					    <div class="swiper-container">
-					        <div class="swiper-wrapper">
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					            <div class="swiper-slide">
-					            	<a href="###">
-					            		<img src="../img/part1.png" alt="" />
-					            	</a>
-					            </div>
-					        </div>
-					        <!-- Add Pagination -->
-					        <!--<div class="swiper-pagination"></div>-->
-					    </div>
+			<div class="apply_about_wrap">
+				<a href="###">
+					<img src="../img/apply1.png" alt="" />
+				</a>
+				<p>填写基本信息（带*为必填，请如实填写）</p>
+				<div class="apply_about_box">
+					<span>*</span>商家地址：
+				</div>
+				<input type="text" /><br />
+				<div class="apply_about_box">
+					<span>*</span>商户名称：
+				</div>
+				<input type="text" /><br />
+				<div class="apply_about_box">
+					<span>*</span>商家类型：
+				</div>
+				<input type="radio" />企业商户
+				<input type="radio" />个人商户<br />
+				<div class="apply_about_box">
+					<span>*</span>联系人：
+				</div>
+				<input type="text" /><br />
+				<div class="apply_about_box">
+					<span>*</span>联系电话：
+				</div>
+				<input type="text" /><br />
+				<div class="apply_about_box">
+					<span>*</span>备注：
+				</div>
+				<textarea name="" rows="" cols=""></textarea><br />
+				<div class="apply_about_box">
+					<span>*</span>图片信息：
+				</div>
+				<div class="apply_about_img">
+					<p>1.商家门脸照</p>
+					<div class="apply_img_wrap">
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
 					</div>
-				</div>
-				<div class="part_about">
-					<h1>毛毛的旗舰店</h1>
-					<p>商家基本信息介绍商家基本信息介绍商家基本信息介绍商家基本信息介绍商家基本信息介绍商家基本信息介绍商家基本信息介绍</p>
-					<hr />
-					<p>
-						<img src="../img/part11.png" alt="" />
-						李杰
-					</p>
-					<p>
-						<img src="../img/part12.png" alt="" />
-						18435185887
-					</p>
-					<p>
-						<img src="../img/part13.png" alt="" />
-						山西省太原市尖草坪区中北大学
-					</p>
-					<hr />
-					<h2>商家公告：</h2>
-					<p>这里是商家的公告这里是商家的公告这里是商家的公告这里是商家的公告</p>
-				</div>
-				<div class="part_aboutmore">
-					<b>所属品牌：</b>毛毛的品牌<br />
-					<b>综合评分：</b>4.5分<br />
-					<table>
-						<tr>
-							<th>描述</th>
-							<th>商品</th>
-							<th>服务</th>
-						</tr>
-						<tr>
-							<td>4.5分</td>
-							<td>4.5分</td>
-							<td>4.5分</td>
-						</tr>
-					</table>
-					<b>客服一：</b>
-					<a href="###">
-						<img src="../img/part3.png" alt="" />
-					</a><br />
-					<b>客服一：</b>
-					<a href="###">
-						<img src="../img/part4.png" alt="" />
-					</a>
-				</div>
-			</div>
-			<div class="commodity_box_wrap">
-				<div class="part_menu">
-					<a href="###">男上衣</a>
-					<a href="###">女上衣</a>
-					<a href="###">男裤</a>
-					<a href="###">女裤</a>
-					<a href="###">男衬衫</a>
-					<a href="###">到店的商品</a>
-					<a href="###">男裤</a>
-					<a href="###">女裤</a>
-					<a href="###">男衬衫</a>
-					<a href="###" id="post_all">全部商品</a>
-				</div>
-				<div class="part_menu part_menu1">
-					<a href="###">男上衣</a>
-					<a href="###">女上衣</a>
-					<a href="###">男裤</a>
-					<a href="###">女裤</a>
-					<a href="###">男衬衫</a>
-					<a href="###">到店的商品</a>
-					<a href="###">男裤</a>
-					<a href="###">女裤</a>
-					<a href="###">男衬衫</a>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
+					<p>2.商家环境照</p>
+					<div class="apply_img_wrap">
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
 					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
-					</div>
-				</div>
-				<div class="commodity_box_one">
-					<a href="###">
-						<img src="../img/commodity1.png" alt="" />
-					</a>
-					<p><a href="###">自家礼包送亲人，送朋友的不二选择，自家礼包打着销售</a></p>
-					<div class="commodity_price">
-						￥11.8 <del>￥20.0</del>
+					<p>1.资质认证照</p>
+					<div class="apply_img_wrap">
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
+						<a href="###">
+							<img src="../img/apply2.png" alt="" />
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--精选品牌主体结束-->
 		
 		<!--页脚文件-->
 		<div class="footer">
@@ -522,8 +364,7 @@
 		</div>
 		<!--页脚文件结束-->
 	</body>
-	<script src="../js/swiper-3.3.1.min.js"></script>
 	<script src="../js/jquery-3.1.0.min.js"></script>
+	<script src="../js/apply.js"></script>
 	<script src="../js/common.js"></script>
-	<script src="../js/commodity_about.js"></script>
 </html>
