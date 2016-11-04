@@ -1,0 +1,65 @@
+/*个人中心*/
+.mine_wrap{
+	max-width: 1180px;
+	margin: 2% auto;
+	overflow: hidden;
+	font-size: 1.5rem;
+	color: #666666;
+}
+/*左侧*/
+.mine_menu{
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 0% 2% 2%;
+	width: 15%;
+	float: left;
+	border: 1px solid silver;
+	line-height: 3rem;
+}
+.mine_menu a{
+	display: block;
+	color: #666666;
+}
+.mine_menu a:hover{
+	color: #ED7122;
+	text-decoration: underline;
+}
+/*个人中心*/
+.mine_menu_title{
+	border-bottom: 1px dashed silver;
+	font-size: 2rem;
+	line-height: 5rem;
+	margin-bottom: 5%;
+}
+.mine_menu_title img{
+	display: inline-block;
+	vertical-align: baseline;
+}
+.mine_menu_head{
+	margin: 1% 0;
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+.mine_menu_head span{
+	float: right
+}
+/*右侧*/
+.mine_about{
+	float: right;
+	border: 1px solid silver;
+	box-sizing: border-box;
+	width: 83%;
+	position: relative;
+}
+.mine_box{
+	width: 100%;
+}
+.mine_menu_title1{
+	box-sizing: border-box;
+	padding-left: 2%;
+	margin-bottom: 2%;
+}
+.mine_box_hid{
+	display: none;
+}
+
