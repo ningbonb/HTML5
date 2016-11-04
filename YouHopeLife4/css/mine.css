@@ -57,9 +57,132 @@
 .mine_menu_title1{
 	box-sizing: border-box;
 	padding-left: 2%;
-	margin-bottom: 2%;
+	margin-bottom: 0%;
 }
 .mine_box_hid{
 	display: none;
 }
+/*账户*/
+.zhanghu_info{
+	box-sizing: border-box;
+	padding:1%;
+	background-color: #FFF4EC;
+}
+.zhanghu_info table{
+	width: 100%;
+	text-align: center;
+}
+.zhanghu_info span{
+	color: #EE7B31;
+}
+.zhanghu_left{
+	text-align: left;
+}
+.zhanghu_info table td a{
+	width: 7rem;
+	height: 7rem;
+}
+.zhanghu_info table td a img{
+	width: 100%;
+	height: 100%;
+}
+.zhanghu_lv{
+	box-sizing: border-box;
+	padding: 2% 1%;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+.zhanghu_lv i{
+	color: #EC6A17;
+	font-size: 2.2rem;
+	font-weight: bold;
+}
 
+.zhanghu_ad{
+	margin: 2% 0;
+}
+.zhanghu_ad,.zhanghu_ad img{
+	width: 100%;
+}
+.zhuanhu_pres{
+	margin: 2% 0 0.5%;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 0 5.5%;
+}
+.zhuanghu_v{
+	float: left;
+	height: 2rem;
+	width: 2.83%;
+	background-color: #D3D3D3;
+	color: #fff;
+	text-align: center;
+	border-radius: 50%;
+	line-height: 2rem;
+	font-size: 1.2rem;
+	transition: all 0.1s;
+}
+.zhuanghu_p{
+	margin: 0.75rem 0.44%;
+	height: 0.5rem;
+	width: 12.4%;
+	background-color: #D3D3D3;
+	float: left;
+	position: relative;
+	transition: all 0.5s;
+}
+.zhuanghu_p_pre{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 0%;
+	background-color: #EC6A17;
+	transition: all 1s;
+}
+.zhanghu_prize{
+	width: 100%;
+	overflow: hidden;
+}
+.zhanghu_prize span{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 14.28%;
+	text-align: center;
+	float: left;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+
+/*我的积分*/
+.jifen_wrap{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1%;	
+}
+.jifen_wrap p{
+	display: inline-block;
+	margin-right: 3rem;
+	line-height: 3rem;
+}
+.jifen_wrap p span{
+	color: #EC6A17;
+	font-size: 1.6rem;
+}
+.jifen_wrap a{
+	float: right;
+	color: #209BE5;
+}
+.jifen_wrap table{
+	width: 100%;
+	line-height: 3rem;
+	text-align: center;
+}
+.jifen_wrap table th{
+	width: 33%;
+	background-color: #F2F2F2;
+}
+.jifen_wrap table td{
+	width: 33%;
+	font-size: 1.2rem;
+}
