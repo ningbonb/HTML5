@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/headfooter.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-3.3.1.min.css"/>
+	</head>
+	<body>
+		<!--头部文件-->
+		<div class="head">
+			<!--顶部导航-->
+			<div class="top_wrap">
+				<div class="topMenu">
+					<!--选择城市-->
+					<div class="topMenu_choose">
+						所在城市：<a href="selectYourCity.html">太原 ∨</a>
+					</div>
+					<div class="min_logo">
+						<img src="../img/Menu.png" alt="" title="点击查看菜单全部内容" />
+					</div>
+					<div class="topMenu_other">
+						<a href="###" class="menu_close">✘</a>
+						<a href="login.html">登录</a>
+						<a href="register.html">注册</a>
+						<div class="topMenu_sep">|</div>
+						<a href="mine.html">我的订单</a>
+						<div class="topMenu_sep">|</div>
+						<a href="mine.html">我的消息</a>
+						<div class="topMenu_sep">|</div>
+						<a href="login_forC.html">我是商家</a>
+						<div class="topMenu_sep">|</div>
+						<a href="###">400-100-0907</a>
+					</div>
+				</div>
+			</div>
+			<!--logo层-->
+			<!--主题导航栏-->
+			<div class="menu">
+				<!--logo图片-->
+				<a href="home.html"><img src="../img/logo.png"/></a>
+				<!--购物车进程图片-->
+				<div class="shop_one">
+					<img src="../img/shopone.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<!--头部文件结束-->
+		<!--首页部分-->
+		
+		<!--购物车部分-->
+		<div class="shop_wrap shop_wrap1">
+			<p>
+				<img src="../img/shop1.png" alt="" />
+				购物车
+			</p>
+			<!---->
+			<div class="shopadd">
+				<table>
+					<tr>
+						<th>
+							<input type="checkbox" />
+						</th>
+						<th>毛毛的旗舰店</th>
+						<th>规格</th>
+						<th>单价</th>
+						<th>数量</th>
+						<th>金额</th>
+						<th>操作</th>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>
+							<img src="../img/shop3.png" alt="" />
+							<span>毛毛旗舰店顶配产品</span>
+						</td>
+						<td>
+							<span>版本：最佳</span>
+							<span>颜色：钢琴黑</span>
+						</td>
+						<td>￥999.0</td>
+						<td>
+							<input type="number" placeholder="1"/>
+						</td>
+						<td>￥999.0</td>
+						<td>
+							<a href="###">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<input type="checkbox" />
+						</td>
+						<td>
+							<img src="../img/shop3.png" alt="" />
+							<span>毛毛旗舰店顶配产品</span>
+						</td>
+						<td>
+							<span>版本：最佳</span>
+							<span>颜色：钢琴黑</span>
+						</td>
+						<td>￥999.0</td>
+						<td>
+							<input type="number" placeholder="1"/>
+						</td>
+						<td>￥999.0</td>
+						<td>
+							<a href="###">删除</a>
+						</td>
+					</tr>
+				</table>
+				<p id="shop_price">商品金额：<span>￥1888.0</span></p>
+			</div>
+			<div class="shop_button">
+				<a href="###">全选</a>
+				<a href="###" class="shop_button2">批量删除</a>
+				<a href="shop_order.html" class="shop_button4">去结算</a>
+				<p id="shop_price" class="shop_button3">商品金额：<span>￥1888.0</span></p>
+			</div>
+		</div>
+		<!--购物车部分结束-->
+		
+		<!--页脚文件-->
+		<div class="footer">
+			<div class="footer_footer">
+				<div class="footer_copy">
+					版权所有&copy;易和生活港 保留所有权利 | weixin ningbo00
+				</div>
+				<div class="footer_slogen" title="易和生活 纵向品质">
+					易和生活 纵向品质
+				</div>
+			</div>
+		</div>
+		<!--页脚文件结束-->
+	</body>
+	<script src="../js/swiper-3.3.1.min.js"></script>
+	<script src="../js/jquery-3.1.0.min.js"></script>
+	<script src="../js/shop.js"></script>
+	<script src="../js/common.js"></script>
+</html>

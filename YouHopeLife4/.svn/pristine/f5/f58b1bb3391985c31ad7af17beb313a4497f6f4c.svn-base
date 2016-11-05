@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>购物车</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/headfooter.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/shop.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/swiper-3.3.1.min.css"/>
+	</head>
+	<body>
+		<!--头部文件-->
+		<div class="head">
+			<!--顶部导航-->
+			<div class="top_wrap">
+				<div class="topMenu">
+					<!--选择城市-->
+					<div class="topMenu_choose">
+						所在城市：<a href="selectYourCity.html">太原 ∨</a>
+					</div>
+					<div class="min_logo">
+						<img src="../img/Menu.png" alt="" title="点击查看菜单全部内容" />
+					</div>
+					<div class="topMenu_other">
+						<a href="###" class="menu_close">✘</a>
+						<a href="login.html">登录</a>
+						<a href="register.html">注册</a>
+						<div class="topMenu_sep">|</div>
+						<a href="mine.html">我的订单</a>
+						<div class="topMenu_sep">|</div>
+						<a href="mine.html">我的消息</a>
+						<div class="topMenu_sep">|</div>
+						<a href="login_forC.html">我是商家</a>
+						<div class="topMenu_sep">|</div>
+						<a href="###">400-100-0907</a>
+					</div>
+				</div>
+			</div>
+			<!--logo层-->
+			<!--主题导航栏-->
+			<div class="menu">
+				<!--logo图片-->
+				<a href="home.html"><img src="../img/logo.png"/></a>
+				<!--购物车进程图片-->
+				<div class="shop_one">
+					<img src="../img/shopone.png" alt="" />
+				</div>
+			</div>
+		</div>
+		<!--头部文件结束-->
+		<!--首页部分-->
+		
+		<!--购物车部分-->
+		<div class="shop_wrap">
+			<p>
+				<img src="../img/shop1.png" alt="" />
+				购物车
+			</p>
+			<div class="shop_null">
+				<img src="../img/shop2.png" alt="" />
+				<p>您的购物车是空的</p>
+				<a href="home.html">去首页看看</a>
+			</div>
+		</div>
+		<!--购物车部分结束-->
+		
+		<!--页脚文件-->
+		<div class="footer">
+			<div class="footer_footer">
+				<div class="footer_copy">
+					版权所有&copy;易和生活港 保留所有权利 | weixin ningbo00
+				</div>
+				<div class="footer_slogen" title="易和生活 纵向品质">
+					易和生活 纵向品质
+				</div>
+			</div>
+		</div>
+		<!--页脚文件结束-->
+	</body>
+	<script src="../js/swiper-3.3.1.min.js"></script>
+	<script src="../js/jquery-3.1.0.min.js"></script>
+	<script src="../js/common.js"></script>
+</html>

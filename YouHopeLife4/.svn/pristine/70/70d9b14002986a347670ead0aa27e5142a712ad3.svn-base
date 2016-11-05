@@ -283,67 +283,12 @@
 					<div class="mine_menu_title mine_menu_title1">
 						个人资料
 					</div>
-					<div class="mine_infi">
-						<table>
-							<tr>
-								<td>当前头像：</td>
-								<td>
-									<img src="../img/zhanghu.png" alt="" />
-									<a href="###">修改</a>
-								</td>
-							</tr>
-							<tr>
-								<td>昵称：</td>
-								<td>
-									<input type="text" />
-								</td>
-							</tr>
-							<tr>
-								<td>性别：</td>
-								<td>
-									<input type="radio" />男
-									<input type="radio" />女
-								</td>
-							</tr>
-							<tr>
-								<td>生日：</td>
-								<td><input type="date" /></td>
-							</tr>
-							<tr>
-								<td>手机：</td>
-								<td>
-									<input type="number" />
-									<a href="###">更换手机</a>
-								</td>
-							</tr>
-							<tr>
-								<td></td>
-								<td id="mine_button">
-									<a href="###">确认提交</a>
-								</td>
-							</tr>
-						</table>
-					</div>
 				</div>
 				
 				<!--地址管理-->
 				<div class="mine_box">
-					<div class="mine_menu_title mine_menu_title1 mine_menu_add">
-						我的地址
-						<a href="###">添加新地址</a>
-					</div>
-					<div class="mine_add_wrap">
-						<table>
-							<tr>
-								<th>序号</th>
-								<th>收货人</th>
-								<th>所在区域</th>
-								<th>街道地址</th>
-								<th>联系电话</th>
-								<th>备注</th>
-								<th>操作</th>
-							</tr>
-						</table>
+					<div class="mine_menu_title mine_menu_title1">
+						地址管理
 					</div>
 				</div>
 				
@@ -352,7 +297,6 @@
 					<div class="mine_menu_title mine_menu_title1">
 						我的收藏
 					</div>
-					<div class="mine_star_wrap"></div>
 				</div>
 				
 				<!--最近浏览-->
@@ -360,7 +304,6 @@
 					<div class="mine_menu_title mine_menu_title1">
 						最近浏览
 					</div>
-					<div class="mine_res_see"></div>
 				</div>
 				
 				<!--修改密码-->
@@ -368,53 +311,6 @@
 					<div class="mine_menu_title mine_menu_title1">
 						修改密码
 					</div>
-					<div class="register_box">
-					<div class="register_box_input">
-						<input type="text" placeholder="请输入手机号"/>
-						<img src="../img/register2.png"/>
-					</div>
-					<div class="register_box_font">
-						<img src="../img/rigister1.png"/>
-						手机号不正确，请重新输入
-					</div>
-					<div class="register_box_input">
-						<input type="password" placeholder="请输入密码（6-20位号码字符）"/>
-						<img src="../img/register2.png"/>
-					</div>
-					<div class="register_box_font">
-						<img src="../img/rigister1.png"/>
-						密码格式不正确，请重新输入
-					</div>
-					<div class="register_box_input">
-						<input type="password" placeholder="请再次输入密码确认"/>
-						<img src="../img/register2.png"/>
-					</div>
-					<div class="register_box_font">
-						<img src="../img/rigister1.png"/>
-						两次输入密码不一致，请重新输入
-					</div>
-					<div class="register_box_input register_box_input2">
-						<input type="password" placeholder="验证码"/>
-						<div class="register_box_yzm">
-							<div class="yzm"></div>
-							<a href="###">看不清换一张</a>
-						</div>
-					</div>
-					<div class="register_box_font">
-						<img src="../img/rigister1.png"/>
-						验证码错误，请稍后获取
-					</div>
-					<div class="register_box_input register_box_input3">
-						<input type="text" placeholder="手机验证码"/>
-						<a href="###">获取验证码</a>
-					</div>
-					<div class="register_box_button register_box_button1">
-						<a href="login.html">提交修改</a>
-					</div>
-					<!--<div class="register_box_button">
-						<a href="login.html">登录</a>
-					</div>-->
-				</div>
 				</div>
 				<div class="mine_box mine_box_hid">站内信</div>
 				
@@ -422,16 +318,6 @@
 				<div class="mine_box">
 					<div class="mine_menu_title mine_menu_title1">
 						我的消息
-					</div>
-					<div class="mine_msg">
-						<table>
-							<tr>
-								<th>标题</th>
-								<th>发送时间</th>
-								<th>状态</th>
-								<th>操作</th>
-							</tr>
-						</table>
 					</div>
 				</div>
 			</div>

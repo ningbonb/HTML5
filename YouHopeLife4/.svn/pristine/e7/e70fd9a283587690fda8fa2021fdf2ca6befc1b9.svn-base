@@ -59,5 +59,6 @@ function addBox_tj(Aurl,ImgUrl,part,prize1,prize2,className){
 	aDel.innerHTML = "￥"+prize2;
 	aDiv.appendChild(aDel);
 	Div.appendChild(aDiv);
+	
 	$(className).append(Div);
 }

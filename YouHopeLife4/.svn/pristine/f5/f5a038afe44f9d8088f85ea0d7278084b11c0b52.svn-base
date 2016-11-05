@@ -1,0 +1,155 @@
+.shop_one{
+	margin: 2% 0 0 4%;
+	float: left;
+	width: 60%;
+}
+.shop_one img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+}
+.shop_wrap{
+	max-width: 1180px;
+	margin: 1% auto;
+	border-top: 1px dashed silver;
+	overflow: hidden;
+}
+.shop_wrap p{
+	margin: 2% 0 0 2%;
+	font-size: 2rem;
+	color: #898989;
+}
+.shop_null{
+	box-sizing: border-box;
+	padding: 10%;
+	margin: 10% auto;
+	max-width: 50rem;
+	overflow: hidden;
+	text-align: center;
+}
+.shop_null img{
+	width: 25%;
+	float: left;
+}
+.shop_null p{
+	width: 100%;
+	font-size: 1.4rem;
+}
+.shop_null a{
+	width: 7.5rem;
+	height: 2.3rem;
+	border-radius: 0.4rem;
+	color: #fff;
+	margin: 3% 12%;
+	background-color: #EC6A17;
+	text-align: center;
+	line-height: 2.5rem;
+}
+/*shop end*/
+.shop_end{
+	box-sizing: border-box;
+	padding: 10%;
+	margin: 4% auto;
+	max-width: 50rem;
+	overflow: hidden;
+	text-align: center;
+}
+.shop_end img{
+	width: 25%;
+}
+.shop_end p{
+	margin: 4% 0;
+	width: 100%;
+	font-size: 2rem;
+}
+.shop_end a{
+	display: block;
+	width: 7.5rem;
+	height: 2.3rem;
+	border-radius: 0.4rem;
+	color: #fff;
+	margin: 3% auto;
+	background-color: #EC6A17;
+	text-align: center;
+	line-height: 2.5rem;
+}
+/*shop_add*/
+.shop_wrap1>p{
+	margin: 2% 0 0 0;
+}
+.shopadd table{
+	margin-top: 2%;
+	width: 100%;
+	border: 1px solid silver;
+}
+.shopadd table th{
+	padding: 0.5% 0;
+	text-align: center;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	background-color: #F2F2F2;
+}
+.shopadd table th:nth-child(2){
+	box-sizing: border-box;
+	text-align: left;
+	padding: 0 2%;
+}
+.shopadd table td{
+	box-sizing: border-box;
+	text-align: center;
+	border-bottom: 1px dashed silver;
+	padding: 0.5% 0;
+}
+.shopadd table td:nth-child(2) img{
+	width: 5rem;
+	height: 5rem;
+	padding: 0.3% 2%;
+	float: left;
+}
+.shopadd table td:nth-child(2) span{
+	float: left;
+	display: inline-block;
+	vertical-align: bottom;
+	font-size: 1.2rem;
+	line-height: 5rem;
+}
+.shopadd table td:nth-child(3) span{
+	display: block;
+}
+.shopadd table td:nth-child(5) input{
+	width: 3rem;
+}
+.shopadd>p{
+	float: right;	
+}
+#shop_price{
+	display: inline-block;
+	font-size: 1.5rem;
+	box-sizing: border-box;
+	padding-right: 1rem;
+	text-align: right;
+}
+#shop_price span{
+	color: #EC6A17;
+}
+.shop_button{
+	margin-top: 3%;
+	width: 100%;
+	float: left;
+	line-height: 2.5rem;
+}
+.shop_button2{
+	margin-left: 2%;
+}
+.shop_button3{
+	float: right;
+}
+.shop_button4{
+	width: 7rem;
+	background-color: #EC6A17;
+	color: #fff;
+	text-align: center;
+	border-radius: 0.3rem;
+	float: right;
+	margin-top: 1.5%;
+}
