@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+
+
+	<title>数钱</title>
+</head>
+<body>
+	<!-- <audio src="audio/" autoplay="autoplay" loop="loop"></audio> -->
+	<div class="wrap">
+		<!--图片的预加载-->
+		<!--加载页面-->
+		<div id="loading-wrap">
+			<div id="loading">0%</div>
+		</div>
+
+		<!--第一页-->
+		<div id="page1">
+			<!--挑战文字-->
+			<img src="img/tiaozhan.png" id="challenge" class="animated bounceIn" />
+			<!--口号-->
+			<img src="img/yingqu.png" id="slogan" class="animated wobble" />
+			<!--开始挑战-->
+			<img src="img/start_game.png" id="start" class="animated pulse infinite" />
+			<!--手-->
+			<img src="img/shou.png" id="hand" class="animated fadeOut infinite" />
+			<!--按钮栏-->
+			<img src="img/p1_btns_wrap.png" class="button-wrap" />
+			<!--数钱榜按钮-->
+			<img src="img/ranking.png" class="rank1" />
+			<!--活动规则-->
+			<img src="img/activity_rule.png" class="rule" />
+			<!--活动奖品-->
+			<img src="img/prize.png" class="prize" />
+			<!--奖券使用说明-->
+			<img src="img/shiyong.png" class="explain" />		
+		</div>
+
+		<!--第二页-->
+		<div id="page2">
+			<img src="img/p2_kuang.png" id="outline"/>
+			<img src="img/p2_txt1.png" id="text"/>
+			<div id="time">
+				<span class="time-num">0</span>
+				<span class="time-num">0</span>
+				<span class="time-num">0</span>
+				<span class="time-clock">60</span>
+			</div>
+			<div id="money-wrap">
+				<img src="img/p2_qian.jpg" id="money"/>
+			</div>
+			<img src="img/p2_zhuan.png" id="block"/>
+			<img src="img/p2_shou.png" id="hand2" class="animated fadeOutUp infinite"/>
+		</div>
+		<!--第三页-->
+		<div id="page3">
+			<img src="img/p3_acquire.png" id="acquire"/>
+			<p id="result-money">￥100</p>
+			<p id="result-text">没有办法!你已经强到没有对手了!</p>
+			<div id="best-wrap">
+				我的辉煌战绩: ￥999, 当前的排名: 66位
+			</div>
+			<img src="img/p3_again.png" id="again"/>
+			<img src="img/p3_share_btn.png" id="share"/>
+			<!--按钮栏-->
+			<img src="img/p1_btns_wrap.png" class="button-wrap" />
+			<!--数钱榜按钮-->
+			<img src="img/ranking.png" class="rank1" />
+			<!--活动规则-->
+			<img src="img/activity_rule.png" class="rule" />
+			<!--活动奖品-->
+			<img src="img/prize.png" class="prize" />
+			<!--奖券使用说明-->
+			<img src="img/shiyong.png" class="explain" />
+		</div>
+
+				<!--弹出框-->
+		<!--1.填写用户信息-->
+		<div class="alert-wrap" id="user-alert">
+			<img src="img/close.png" class="close" />
+			<form id="user-form">
+				<input type="text" placeholder="姓名" id="username" />
+				<input type="text" placeholder="电话" id="phone" />
+				<input type="text" placeholder="地址" id="address" />
+				<input type="button" />
+			</form>
+		</div>
+		<!--2.数钱榜-->
+		<div class="alert-wrap" id="rank-alert">
+			<img src="img/close.png" class="close" />
+			<div id="rank-wrap">
+				<ul>
+					<li>
+						<span class="rank"></span>
+						<img src="img/shizhong.png" class="photo" />
+						<span class="name">暂无</span>
+						<span class="score">0分</span>
+					</li>
+					<li>
+						<span class="rank"></span>
+						<img src="img/shizhong.png" class="photo" />
+						<span class="name">暂无</span>
+						<span class="score">0分</span>
+					</li>
+					<li>
+						<span class="rank"></span>
+						<img src="img/shizhong.png" class="photo" />
+						<span class="name">暂无</span>
+						<span class="score">0分</span>
+					</li>
+					<li>
+						<span class="rank">4</span>
+						<img src="img/shizhong.png" class="photo" />
+						<span class="name">暂无</span>
+						<span class="score">0分</span>
+					</li>
+					<li>
+						<span class="rank">5</span>
+						<img src="img/shizhong.png" class="photo" />
+						<span class="name">暂无</span>
+						<span class="score">0分</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--3.活动规则-->
+		<div class="alert-wrap" id="rule-alert">
+			<img src="img/close.png" class="close" />
+			<div class="content-wrap">
+				<h2>活动规则</h2>
+				<p>
+					1、每人有多次游戏机会，但成绩只能提交一次，且提交之后不能更改！<br /> 
+					2、提交成绩时要提供姓名及手机号码作为兑奖凭证，因用户本人未在规定时间内提供正确的手机号码造成的奖品损失，由用户个人承担。 <br />
+					3、活动时间为2016年5月11日-5月19日24:00，活动结束后将在“雾灵山庄”微信公布中奖名单。<br />
+					4、获奖规则：系统将根据大家提交的成绩，按照由多到少的规则进行排行，排名第1的网友将获得一等奖，排名第2-第21位的网友将分获二等奖，以此类推。 5、奖品的发放：活动结束后，将由工作人员与您取得联系，并将相应的卡券编号发送到您提供的手机号码上。
+				</p>
+			</div>
+		</div>
+
+		<!--4.活动奖品-->
+		<div class="alert-wrap" id="prize-alert">
+			<img src="img/close.png" class="close" />
+			<div class="content-wrap">
+				<h2>活动奖品</h2>
+				<p>
+					一等奖1人：价值1488元7号楼1晚豪华标间免费房券1张，并可享康体项目3折优惠；<br /><br />
+					二等奖20人：100元订房代金券每人1张，并可享康体项目4折优惠；<br /><br />
+					三等奖50人：50元订房代金券每人1张，并可享康体项目5折优惠。<br /><br />
+					奖品的有效期：2016年5月20日至6月15日（周五、周六及法定节假日不可用）
+				</p>
+			</div>
+		</div>
+		<!--5.奖券使用说明-->
+		<div class="alert-wrap" id="explain-alert">
+			<img src="img/close.png" class="close" />
+			<div class="content-wrap">
+				<h2>奖券使用说明</h2>
+				<p>
+					1、每人有多次游戏机会，但成绩只能提交一次，且提交之后不能更改！<br />
+					2、提交成绩时要提供姓名及手机号码作为兑奖凭证，因用户本人未在规定时间内提供正确的手机号码造成的奖品损失，由用户个人承担。<br />
+					3、活动时间为2016年5月11日-5月19日24:00，活动结束后将在“雾灵山庄”微信公布中奖名单。<br />
+					4、获奖规则：系统将根据大家提交的成绩，按照由多到少的规则进行排行，排名第1的网友将获得一等奖，排名第2-第21位的网友将分获二等奖，以此类推。<br />
+					5、奖品的发放：活动结束后，将由工作人员与您取得联系，并将相应的卡券编号发送到您提供的手机号码上。<br />
+				</p>
+			</div>
+		</div>
+		<!--6.分享-->
+		<div class="alert-wrap" id="share-alert">
+			<img src="img/p3_share.png" id="#share" />
+		</div>
+
+	</div>
+	
+</body>
+</html>
+
+<!--导入js-->
+<script src="js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/touch.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/home.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

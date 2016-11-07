@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<!--ng-init：声明变量：var name="你好"-->
+<!--定义或者使用变量的时候：变量名不能加引号，但是变量的值如果是字符串必须加引号，如果不加引号默认被解析为变量-->
+<body ng-init="name='你好';name2='name';num1=0;num2=0">
+
+    {{1+2}}
+    {{name+name2}}
+    <input type="text" ng-model='name'><br>
+    <!--表达式-->
+    <input type="text" ng-model="num1">
+    <input type="text" ng-model="num2">
+    <div>
+        相乘：{{num1*num2}}
+    </div>
+    <div>
+        <p>{{num1}}和{{num2}}相乘=={{num1*num2}}</p>
+    </div>
+</body>
+</html>
+<!--原理：
+    1.Angular加载完成后，首先找到ng-app指令，获取程序所有者
+    2.找到后，ng-app里面所有标签都可以解析Angular指令，使用变量
+    3.找到对应ng-modle，把变量生成数据模型，默认放到根作用域，所有地方都可以使用，（读取或者修改变量的值，数据是双向绑定的，实时更新）
+-->

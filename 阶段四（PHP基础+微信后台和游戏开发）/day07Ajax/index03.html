@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：<input type="text" id="user"/><br>
+		密码：<input type="password" id="pass"/><br>
+		<input type="button" value="发送" id="login"/>
+	</body>
+</html>
+
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/AJAX.js"></script>
+<script>
+	$("#login").click(function(){
+		//login.php?time=  &userName=石头&password=123
+		var user = $("#user");
+		var pass = $("#pass");
+		
+		var urls = "loginGet.php?userName="+user.val()+"&password="+pass.val();
+		//alert(urls);
+		//发送请求
+		ajax(urls,function(responseTest){
+			alert(responseTest);
+		},function(status){
+			alert(status);
+		});
+	});
+	
+	var urls = "php.php";
+	var data = {
+		userName:"石头",
+		passWord:"123",
+		//time = 11111111,
+	};
+	
+	//给对象添加时间戳属性
+	data.time = new Date().getTime();
+	
+	var arr = [];
+	//遍历参数对象
+	for(var k in data){
+		var str = k+"="+data[k];
+		//保存每一个key=value
+		arr.push(str);
+	}
+	//数组转字符串
+	var paraStr = arr.join("&");
+	//完整url
+	urls = urls + "?" + paraStr;
+	
+</script>

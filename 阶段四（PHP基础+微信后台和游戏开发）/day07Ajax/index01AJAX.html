@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//步骤
+		/*
+		 1.创建请求对象
+		 2.设置请求的方式（get post）和请求的url链接（服务器地址）
+		 3.发送请求
+		 4.检测请求状态，等待服务器返回数据
+		 * */
+		
+		//XMLHttpRequest:对象
+		//1.标准浏览器
+		//var request = new XMLHttpRequest();
+		//var request = new ActiveXObject("Microsoft.XMLHTTP");
+		
+		var request = null;
+		if(window.XMLHttpRequest){
+			request = new XMLHttpRequest();
+		}else{
+			request = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		
+		//2.设置请求方式，和URL
+		//method: String, uri: URIString, async: Boolean
+		//method:GET/POST
+		//url:服务器地址
+		//async：默认异步：true  true:异步  false:同步
+		request.open("GET","test.txt",true);
+		
+		//3.发送:get方式参数不传
+		request.send();
+		
+		//4.等待
+		//每当readyState属性改变时，调用该函数
+		/*
+		 0：请求未初始化
+		 1：服务器链接已建立
+		 2：请求已接受
+		 3：请求处理中
+		 4：请求已完成，且响应已就绪
+		 
+		 * */
+		request.onreadystatechange = function(){
+			//当前readyState为4的时候，代表通话建立，等待对面（服务器）接听响应
+			//alert(request.readyState);
+			if(request.readyState == 4){//发送成功
+				//
+				//alert(request.status);
+				//检测服务器返回的状态码
+				if(request.status >= 200 && request.status <= 206 || request.status == 304){
+					//alert("服务器返回成功");
+					alert(request.responseText);
+				}
+			}
+		};
+		
+		//alert("测试异步请求提示");
+		//如果是异步请求，不会有数据，请求通过回调返回,如果是同步(request.open("GET","test.txt",false);)，会有数据，不会回调onreadystatechange，不过当前主线程会被阻塞，只有请求成功后才可以继续执行，影响用户体验。
+		//如果是异步请求，不会阻塞当前主线程，系统默认开辟一个新的子线程处理数据请求，请求成功后回调到当前主线程，继续执行。
+		//alert(request.responseText+"外面弹出");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,256 @@
+.part{
+	box-sizing: border-box;
+	padding: 1%;
+	text-align: left;
+	overflow: hidden;
+	margin-bottom: 1.5%;
+}
+.part_img{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+.part_img>a{
+	width: 100%;
+}
+.part_img>a img{
+	width: 100%;
+}
+.part_scroll{
+	margin-top: 3%;
+	width: 100%;
+	border: 1px solid silver;
+}
+.part_scroll .swiper-container {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide{
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+        
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide a{
+	width: 100%;
+}
+.swiper-slide a img{
+	width: 100%;
+}
+.part_about{
+	width: 40%;
+	float: left;
+	margin-left: 2%;;	
+}
+.part_about>h1{
+	font-size: 2rem;
+	line-height: 3rem;
+	color: #269EE5;
+}
+.part_about>p{
+	font-size: 1.2rem;
+	color: silver;
+	line-height: 1.7rem;
+}
+.part_about>hr{
+	color: #C1C1C1;
+	margin: 2% 0;
+}
+.part_about>p>img{
+	width: 1rem;
+	height: 1rem;
+	display: inline-block;
+	vertical-align: middle;
+}
+.part_about h2{
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	color: #FFA767;
+}
+.part_aboutmore{
+	float: right;
+	width: 25%;
+	font-size: 1.5rem;
+	line-height: 3rem;
+}
+.part_aboutmore>table{
+	width: 100%;
+	text-align: center;
+}
+.part_aboutmore>table td{
+	color: #FFA767;
+	border-right: 1px dashed #E9E9E9;
+}
+.part_aboutmore>table th{
+	border-right: 1px dashed #E9E9E9;
+}
+.part_aboutmore>a{
+	width: 35%;
+	display: inline-block;
+	vertical-align: text-top;
+}
+.part_aboutmore>a img{
+	width: 100%;
+}
+.part_menu{
+	width: 100%;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.part_menu a{
+	float: left;
+	text-align: center;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 10%;
+	line-height: 2.8rem;
+	background-color: #F8F8F8;
+	border: 1px solid #EFEFEF;
+	color: #525353;
+	font-size: 1.4rem;
+}
+.part_menu a:hover{
+	background-color: #fff;
+	border: none;
+	border-top: 2px solid #008DE1;
+	color: #008DE1;
+}
+.part_menu1{
+	display: none;
+}
+@media only screen and (max-width: 980px) {
+	.part_img{
+		width: 35%;
+		height: 100%;
+	}
+	.part_about{
+		width: 35%;
+		margin-left: 2%;;	
+	}
+	.part_aboutmore{
+		float: right;
+		width: 25%;
+		font-size: 1.5rem;
+		line-height: 2.5rem;
+	}
+	.part_about>p{
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+	.part_menu a{
+		box-sizing: border-box;
+		width: 20%;
+		line-height: 2rem;
+		font-size: 1.2rem;
+	}
+}
+@media only screen and (max-width: 880px) {
+	.part_img{
+		width: 35%;
+		height: 100%;
+	}
+	.part_about{
+		width: 35%;
+		margin-left: 2%;;	
+	}
+	.part_about h1{
+		font-size: 1.6rem;
+		line-height: 2rem;
+	}
+	.part_about h2{
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+	}
+	.part_aboutmore{
+		float: right;
+		width: 25%;
+		font-size: 1.5rem;
+		line-height: 3rem;
+	}
+	.part_about>p{
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.part_img{
+		margin-top: 2%;
+		width: 100%;
+		height: 100%;
+	}
+	.part_about{
+		width: 60%;
+		margin-left: 0%;
+		margin-top: 3%;
+	}
+	.part_about h1{
+		font-size: 1.6rem;
+		line-height: 2rem;
+	}
+	.part_about h2{
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+	}
+	.part_aboutmore{
+		float: right;
+		width: 35%;
+		font-size: 1.5rem;
+		line-height: 3rem;
+		margin-top: 3%;
+	}
+	.part_about>p{
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.part_img{
+		box-sizing: border-box;
+		padding: 0 4%;
+		margin-top: 2%;
+		width: 100%;
+		height: 100%;
+	}
+	.part_about{
+		box-sizing: border-box;
+		padding: 0 4%;
+		width: 100%;
+		margin-left: 0%;
+		margin-top: 3%;
+	}
+	.part_about h1{
+		font-size: 1.6rem;
+		line-height: 2rem;
+	}
+	.part_about h2{
+		font-size: 1.4rem;
+		line-height: 1.6rem;
+	}
+	.part_aboutmore{
+		box-sizing: border-box;
+		padding: 0 4%;
+		border: 1px dashed #E9E9E9;
+		float: left;
+		width: 80%;
+		font-size: 1.5rem;
+		line-height: 2rem;
+		margin-top: 3%;
+	}
+	.part_about>p{
+		font-size: 1.2rem;
+		line-height: 1.7rem;
+	}
+}

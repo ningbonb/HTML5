@@ -1,0 +1,55 @@
+系统关键字不区分大小写，但是建议大写（）
+自己定义的字段名表名等关键字是区分的，使用的时候可以用``来引用，也可以不写
+
+1.插入数据
+:VALUES值必须和数据库的字段名一一对应（个数和位置都对应）
+INSERT INTO user VALUES(NULL,"毛毛",10,"男","18435181111","预留")
+//常用
+INSERT INTO user(name,age,tel) VALUES("宁勃",18,"18435185887")
+
+//2.更新
+UPDATE user SET age=30 WHERE id=4
+//更新多个字段
+UPDATE user SET name="李四",age=69 WHERE name="张三"
+
+//3.查询
+SELECT * FROM `user`
+SELECT * FROM user WHERE id=3
+SELECT * FROM `user` WHERE id>2
+
+//<>:不等于
+SELECT * FROM `user` WHERE id<>2 
+
+//多条件查询
+SELECT * FROM `user` WHERE id>2 AND id<4
+
+//模糊查询
+SELECT * FROM `user` WHERE name LIKE "毛%"
+
+//查询某个字段
+SELECT name,sex FROM `user` WHERE id=1
+
+//查询数据库条数
+SELECT COUNT(*) FROM user
+
+//查询重命名
+SELECT COUNT(*) AS length FROM `user`
+
+//查找最大ID
+//MAX()
+SELECT MAX(id) AS maxID FROM `user`
+
+//排序 ORDER
+//ASC默认 DESC倒序
+SELECT * FROM `user` ORDER BY id DESC
+
+//查询限制LIMIT 2：只取前两条
+SELECT * FROM `user` LIMIT 2
+
+//
+SELECT * FROM `user` ORDER BY id DESC LIMIT 3
+//LIMIT 3，3：从第三个位置再次查询三个
+SELECT * FROM `user` ORDER BY id DESC LIMIT 3，3
+
+//删除
+DELETE FROM user WHERE id=1

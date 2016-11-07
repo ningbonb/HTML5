@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实例</title>
+	</head>
+	<body>
+		<input type="text" name="text" id="text"/>
+		<input type="button" name="button" id="button" value="确定" />
+	</body>
+	<script>
+		//回调函数
+		function callBack(jsonO){
+			console.log(jsonO);
+		}
+	</script>
+	<script>
+		var textIn = document.getElementById("text");
+		var buttonIn = document.getElementById("button");
+		
+		//修改src
+		buttonIn.onclick = function(){
+			var api = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+textIn.value+"&cb=callBack";
+			//1.创建一个script
+			var sct = document.createElement("script");
+			//设置src属性
+			sct.src = api;
+			//必须添加到页面内，才开始网络请求：send()；
+			var head = document.querySelector("head");
+			head.appendChild(sct);
+			//用完移出
+			head.removeChild(sct);
+		};
+	</script>
+</html>

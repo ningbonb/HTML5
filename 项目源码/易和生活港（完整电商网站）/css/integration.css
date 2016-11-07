@@ -1,0 +1,275 @@
+/*轮播图*/
+.home_scroll{
+	width: 100%;
+}
+.swiper-slide1 a{
+	width: 100%;
+}
+.swiper-slide1 a img{
+	width: 100%;
+}
+/*今日特价主体*/
+.commodity_wrap{
+	max-width: 1180px;
+	margin: 1% auto;
+	padding: 0 1%;
+	overflow: hidden;
+}
+.home_shop_font{
+	margin: 2% 0;
+	font-size: 3rem;
+	color: #FE6E00;
+}
+.homeFont1{
+	color: #008CE1;
+}
+.homeFont2{
+	color: #666;
+	font-size: 1.6rem;
+	display: inline-block;
+	margin-left: 1%;
+}
+
+.commodity_box_wrap{
+	width: 100%;
+	margin-top: 2%;
+}
+.commodity_box_one{
+	box-sizing: border-box;
+	border: 1px solid transparent;
+	width: 20%;
+	float: left;
+	padding: 2% 0.5%;
+}
+.commodity_box_one a{
+	width: 100%;
+}
+.commodity_box_one a img{
+	width: 100%;
+}
+.commodity_box_one p{
+	font-size: 1.4rem;
+	padding: 5% 1%;
+}
+.commodity_box_one p a{
+	color: #B2B2B2;
+}
+.commodity_price{
+	padding: 0% 1%;
+	color: red;
+	font-size: 1.7rem;
+	overflow: hidden;
+}
+.commodity_price_right{
+	display: inline-block;
+	float: right;
+	color: #B2B2B2;
+	font-size: 1.3rem;
+	margin-right: 3%;
+	margin-top: 1%;
+	bottom: 0;
+}
+.commodity_box_one_button{
+	width: 100%;
+	text-align: center;
+	margin: 7% 0 0;
+}
+.commodity_box_one_button a{
+	width: 45%;
+}
+.commodity_box_one_button a img{
+	width: 100%;
+}
+.commodity_box_one:hover{
+	border: 1px solid #F9AF79;
+}
+/*添加收货人地址*/
+.integra_add_wrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	top: 0;
+	left: 0;
+	z-index: 20;
+	display: none;
+}
+.intergra_add{
+	position: absolute;
+	width: 30%;
+	height: 43%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: #fff;
+	padding: 1%;
+	border: 1p solid silver;
+	line-height: 3rem;
+	overflow: hidden;
+}
+.intergra_add p{
+	color: #44ABE9;
+	border-bottom: 1px solid silver;
+}
+.intergra_add_font{
+	box-sizing: border-box;
+	float: left;
+	width: 20%;
+	text-align: right;
+}
+.intergra_add_input{
+	box-sizing: border-box;
+	float: right;
+	width: 79%;
+}
+.intergra_add_input input:nth-child(1){
+	width: 80%;
+}
+#interAdd{
+	width: 100%;
+}
+#interPho{
+	width: 26%;
+}
+#interPho1{
+	width: 20%;
+}
+#interPho2{
+	width: 20%;
+}
+.intergra_add_font span{
+	color: red;
+}
+.intergra_button_wrap{
+	margin-top: 2%;
+	width: 100%;
+	overflow: hidden;
+}
+.intergra_button{
+	margin-top: 4%;
+	box-sizing: border-box;
+	width: 50%;
+	float: left;
+	text-align: center;
+	line-height: 2rem;
+}
+.intergra_button a{
+	background-color: #999;
+	color: #fff;
+	padding: 0rem 2rem;
+	border-radius: .3rem;
+}
+.intergra_button2 a{
+	background-color: #EC6A17;
+}
+@media only screen and (max-width: 1280px) {
+	.intergra_add{
+		position: absolute;
+		width: 45%;
+		height: 50%;
+		line-height: 3rem;
+	}
+	.intergra_add_font{
+		width: 25%;
+	}
+	.intergra_add_input{
+		width: 74%;
+	}
+}
+@media only screen and (max-width: 980px) {
+	.home_shop_font{
+		font-size: 2rem;
+	}
+	.homeFont2{
+		font-size: 1.2rem;
+		margin-left: 1%;
+	}
+	.commodity_box_one p{
+		font-size: 1.2rem;
+	}
+	.commodity_price{
+		font-size: 1.5rem;
+	}
+	.commodity_price del{
+		font-size: 1.1rem;
+	}
+}
+@media only screen and (max-width: 880px) {
+	.commodity_price_right{
+		float: left;
+	}
+	.intergra_add{
+		position: absolute;
+		width: 60%;
+		height: 50%;
+		line-height: 3rem;
+	}
+	.intergra_add_font{
+		width: 25%;
+	}
+	.intergra_add_input{
+		width: 74%;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.commodity_box_one{
+		width: 25%;
+	}
+	.intergra_add{
+		position: absolute;
+		width: 70%;
+		height: 50%;
+		line-height: 3rem;
+	}
+	.intergra_add_font{
+		width: 25%;
+	}
+	.intergra_add_input{
+		width: 74%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.home_shop_font{
+		margin-top: 1.5%;
+		font-size: 1.6rem;
+	}
+	.homeFont2{
+		font-size: 1rem;
+		margin-left: 1%;
+	}
+	.commodity_box_one p{
+		font-size: 1.0rem;
+	}
+	.commodity_price{
+		font-size: 1.3rem;
+	}
+	.commodity_price del{
+		font-size: 1.0rem;
+	}
+	.commodity_box_one{
+		width: 33.333%;
+	}
+	.swiper-button-prev{
+		display: none;
+	}
+	.swiper-button-next{
+		display: none;
+	}
+	.commodity_box_one_button a{
+		width: 60%;
+	}
+	.intergra_add{
+		position: absolute;
+		width: 90%;
+		height: 60%;
+		line-height: 3rem;
+	}
+	.intergra_add_font{
+		width: 25%;
+	}
+	.intergra_add_input{
+		width: 74%;
+	}
+}

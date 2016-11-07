@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <!--<my-header></my-header>-->
+    <!--<div my-header=""></div>-->
+
+    <!--<div class="my-header"></div>-->
+
+    <my-header>
+        你好，内部添加
+    </my-header>
+
+    <div>body</div>
+
+    <footer></footer>
+</body>
+</html>
+<script>
+    <!--自定义指令-->
+    //1.获取ng-app
+    //console.log(angular);
+    //参数1：ng-app的值，参数2：数组，存放需要依赖注入的模块
+    var app = angular.module("myApp",[]);
+    console.log(app);
+    //参数1：指定名称(使用的时候，驼峰命名变为-连接)，参数2：回调函数
+    app.directive("myHeader",function(){
+        //返回值类型对象
+        /*
+        * E 作为元素名使用
+         A 作为属性使用
+         C 作为类名使用
+         M 作为注释使用
+        * */
+
+        return{
+          template:"<div><ng-transclude></ng-transclude><a href='###'>导航栏</a><span>12345</span><ng-transclude></ng-transclude></div>",
+            restrict:"EAC",
+            //如果自定义标签内部需要添加内容，指定：<ng-transclude></ng-transclude>,放到哪里，哪里就被替换
+            transclude:true,
+        };
+    });
+
+    //templateUrl
+    app.directive("footer",function () {
+        //templateUrl:只能服务器环境才可以解析对应链接
+        return {
+            templateUrl:"8.footer.html"
+        };
+    });
+</script>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <!--指令：ng-app:标明应用程序的根元素，一般放到html里面，且一般只能用一次，写在html中表明html是程序的所有者，内部可以解析指令
+        指令命名：文档定义驼峰命名，但是使用的时候，单词间用-链接
+    -->
+    <input type="text" ng-model="name">
+    <!--ng-model:用来input标签，把输入的内容保存到变量name（是一个变量）中，并且保存到应用程序-->
+    hello:{{name}}
+    <!--name-->
+    <!--{{}}:显示变量或者表达式-->
+    <div ng-app="">
+        <input type="text" ng-model="name">
+        hello:{{name}}
+    </div>
+</body>
+</html>

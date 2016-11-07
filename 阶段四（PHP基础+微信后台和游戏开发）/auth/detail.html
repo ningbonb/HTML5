@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>微信界面</title>
+</head>
+<body>
+	<h2>微信网页授权流程</h2>
+	<ol>
+		<li>公司公众号的维护人员，编辑了一个文章，群发给关注者（查看原文）</li>
+		<li>部分关注者转发或者查看原文</li>
+		<li>粉丝的朋友会点击查看原文（提示授权）</li>
+		<li>如果不需要获取用户的信息，不需要授权，如果需要获取，进行用户授权(非公众号关注者)</li>
+		<li>用户点击授权</li>
+		<li>获取用户基本信息(头像，昵称，性别，城市)(做一个排行榜)</li>
+	</ol>
+	<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxb56f1725c4f779a9&redirect_uri=http://ningbonuc.applinzi.com/auth/auth.php&response_type=code&scope=snsapi_userinfo&state=234#wechat_redirect">查看原文</a>
+
+	<!-- 
+		//授权后：微信把code值和state传给我们的php接口
+		http://ningbonuc.applinzi.com/auth/auth.php?code=CODE&state=0101010;
+	 -->
+</body>
+</html>

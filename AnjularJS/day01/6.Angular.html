@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-init="name='张三';flag=false;">
+    <div>{{name}}</div>
+    <!--方法-->
+    <!--<button ng-click="flag=!flag">显示隐藏</button>-->
+    <button ng-mouseover="flag=!flag" ng-mouseout="flag=!flag">显示隐藏</button>
+    {{flag}}
+    <ul ng-hide="flag">
+        <li>11</li>
+        <li>22</li>
+    </ul>
+    <div ng-show="flag">0000000</div>
+</body>
+</html>

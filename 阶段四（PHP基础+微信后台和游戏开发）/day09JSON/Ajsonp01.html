@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			jsonp原理：由于浏览器的同源策略，无法访问和当前网页不同（协议，域名，端口）的网址信息，这个时候ajax请求无法实现了，它只能在同源下做请求。但是html中没有该限制,比如（img=src,video,audio,srcipt）这些有src属性的，都可以跨域访问.jsonp就是利用的script特性实现跨域请求的技术。
+			
+			
+		-->
+	</body>
+	<script>
+		//https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=html&sugmode=2&json=1&p=3&sid=1431_20793_18194_17942_21096_21191&req=2&bs=html&pbs=html&csor=4&pwd=html&cb=jQuery110206968060403378782_1476406251816&_=1476406251821
+		//https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=html&cb=jQuery110206968060403378782_1476406251816
+		
+		
+		//路径：https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su
+		//参数：wd=html搜索关键字  cb:callBack：回调：函数名
+		
+		//回调函数
+		function jQuery110206968060403378782_1476406251816(jsonO){
+			console.log(jsonO);
+		}
+	</script>
+	
+	<script src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=html&cb=jQuery110206968060403378782_1476406251816"></script>
+</html>

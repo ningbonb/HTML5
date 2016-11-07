@@ -1,0 +1,202 @@
+/*轮播图*/
+.home_scroll{
+	width: 100%;
+}
+.swiper-slide a{
+	width: 100%;
+}
+.swiper-slide a img{
+	width: 100%;
+}
+/*加入我们主体*/
+.join_about{
+	width: 100%;
+	background: url(../img/join1.png) no-repeat;
+	background-size: 100% 100%;
+	padding: 2% 0;
+}
+.join_about p{
+	font-size: 1.7rem;
+	line-height: 3rem;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 0 10%;
+}
+.join_font1{
+	color: #EC6A17;
+}
+.join_wrap{
+	background-color: #F2F2F2;
+	margin: 0 auto;
+	padding: 5% 1%;
+	overflow: hidden;
+}
+.join_choose{
+	box-sizing: border-box;
+	width: 50%;
+	text-align: center;
+	float: left;
+}
+.join_choose_border{
+	margin-left: 25%;
+	margin-right: 25%;
+	width: 50%;
+	border: 1px solid #EC6A17;
+	border-radius: 100%;
+	line-height: 3rem;
+	padding: 10% 0;
+	color: #AEAEAE;
+	background-color: #FFF;
+}
+.join_choose_border p:nth-child(1){
+	color: #EC6A17;
+	font-size: 1.7rem;
+}
+.join_choose_border p:nth-child(2){
+	font-size: 1.5rem;
+	color: #7C7C7C;
+}
+.join_choose_border p:nth-child(5){
+	text-align: center;
+	margin-top: 2%;
+}
+.join_choose_border p:nth-child(5) a{
+	color: #fff;
+	width: 30%;
+	background-color: #EC6A17;
+	border-radius: .4rem;
+}
+.join_choose_border2{
+	border: 1px solid #008DE1;
+}
+.join_choose_border2 p:nth-child(1){
+	color: #008DE1;
+}
+.join_choose_border2 p:nth-child(5) a{
+	background-color: #008DE1;
+}
+
+/*意见反馈*/
+.join_feedback{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100;
+	display: none;
+}
+.join_feedback_wrap{
+	position: absolute;
+	width: 30%;
+	height: 25%;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background-color: #fff;
+	padding: 2%;
+	overflow: hidden;
+}
+.join_text{
+	width: 100%;
+	height: 70%;
+	border: 1px solid silver;
+	position: relative;
+}
+.join_text textarea{
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+}
+#font_num{
+	position: absolute;
+	display: inline-block;
+	right: 1%;
+	bottom: 1%;
+}
+.join_text_button{
+	box-sizing: border-box;
+	width: 50%;
+	float: left;
+	margin-top: 4%;
+	text-align: center;
+}
+.join_text_button a{
+	width: 30%;
+	color: #fff;
+	background-color: #999;
+	line-height: 2rem;
+	border-radius: .3rem;
+}
+.join_text_button2 a{
+	background-color: #EC6A17;
+}
+@media only screen and (max-width: 980px) {
+	.join_about{
+		padding: 2% 0;
+	}
+	.join_about p{
+		font-size: 1.3rem;
+		line-height: 2.3rem;
+	}
+	.join_feedback_wrap{
+		position: absolute;
+		width: 40%;
+		height: 25%;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.join_about{
+		padding: 1% 0;
+	}
+	.join_about p{
+		font-size: 1.2rem;
+		line-height: 2rem;
+	}
+	.join_choose{
+		width: 100%;
+		margin-bottom: 5%;
+	}
+	.join_feedback_wrap{
+		position: absolute;
+		width: 50%;
+		height: 30%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.join_about{
+		padding: 1.5% 0;
+	}
+	.join_about p{
+		font-size: 1rem;
+		line-height: 1.8rem;
+	}
+	.join_choose_border{
+		margin-left: 20%;
+		margin-right: 20%;
+		width: 60%;
+		line-height: 2.5rem;
+	}
+	.join_choose_border p:nth-child(1){
+		font-size: 1.5rem;
+	}
+	.join_choose_border p:nth-child(2){
+		font-size: 1.3rem;
+	}
+	.join_choose_border p:nth-child(5) a{
+		color: #fff;
+		width: 30%;
+		background-color: #EC6A17;
+		border-radius: .4rem;
+	}
+	.join_feedback_wrap{
+		position: absolute;
+		width: 80%;
+		height: 40%;
+	}
+	
+}

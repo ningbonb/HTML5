@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="get">get请求</button>
+		<button id="post">post请求</button>
+		<button id="ajax">post/get请求</button>
+		<button id="jsonp">跨域请求</button>
+	</body>
+</html>
+<script src="jquery-3.1.0.min.js"></script>
+<script>
+	//get请求
+	$("#get").click(function(){
+		//第一种方式
+		/*
+		$.get("loginGet.php?userName=ning&passWord=123",function(data){
+			console.log(data);
+		});
+		*/
+		
+		$.get("loginGet.php",{
+			userName:"ning",
+			passWord:"123"
+		},function(data){
+			console.log(data);
+		});
+	});
+	
+	//post
+	$("#post").click(function(){
+		$.post("loginPost.php",{
+			userName:"ning",
+			passWord:"123"
+		},function(data){
+			console.log(data);
+		});
+	});
+	
+	$("#ajax").click(function(){
+		/*
+		$.ajax({
+			type:"post",
+			url:"loginPost.php",
+			//async:true
+			data:{
+				userName:"ning",
+				passWord:"123"
+			},
+			success:function(jsonS){
+				console.log(jsonS);
+			}
+			
+		});
+		*/
+		
+		
+		$.ajax("loginGet.php",{
+			type:"get",
+			data:{
+				userName:"ning",
+				passWord:"123"
+			},
+			success:function(jsonS){
+				console.log(jsonS);
+			}
+		});
+	});
+	
+	//跨域请求
+	$("#jsonp").click(function(){
+		//jsonp()
+		//在 jQuery 1.2 中，您可以通过使用JSONP形式的回调函数来加载其他网域的JSON数据
+		$baseUrl = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=?";
+		$.getJSON($baseUrl,{
+			wd:"html"
+		},function(data){
+			console.log(data);
+		});
+	});
+</script>

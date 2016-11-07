@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>实例</title>
+		<style>
+			#box {
+				width: 400px;
+				margin: 50px auto 0;
+			}
+			
+			#list {
+				list-style: none;
+				padding: 0px;
+				margin: 0;
+			}
+			
+			input {
+				width: 400px;
+				height: 35px;
+				font-size: 18px;
+				box-sizing: border-box;
+				padding-left: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="text" name="text" id="text" placeholder="👁.👁百度一下😏" />
+			<ul id="list">
+			</ul>
+		</div>
+	</body>
+	<script src="AjaxGPJP.js"></script>
+	
+	<script>
+		var textIn = document.getElementById("text");
+		//修改src
+		textIn.onkeyup = function() {
+			//函數調用：後臺接口文檔表明，參數1：服務器路徑 參數2：本次請求的額參數，參數4：通過該參數獲取前端的函數名（地址）
+			jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su", {
+				wd: textIn.value
+			}, function(jsonO) {
+				console.log(jsonO);
+				var arr = jsonO.s;
+				var list = document.getElementById("list");
+				//清空列表
+				list.innerHTML = "";
+				for(var i = 0; i < arr.length; i++) {
+					var li = document.createElement("li");
+					li.innerHTML = arr[i];
+					list.appendChild(li);
+				}
+			}, "cb");
+		};
+	</script>
+
+</html>

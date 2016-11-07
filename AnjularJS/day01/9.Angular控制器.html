@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainController">
+    {{name}}
+    <p>{{"我叫："+person.name+"今年"+person.age}}</p>
+    <ul>
+        <li ng-repeat="person in array">{{"我叫："+person.name+"今年"+person.age}}</li>
+    </ul>
+</body>
+</html>
+<!--
+    model:
+    view:我们html文件
+    controller:我们ng-controler指定的控制器
+-->
+<script>
+    //1.加载模块
+    var app = angular.module("myApp",[]);
+    //2.加载控制器
+    //参数1：需要加载的控制器名称，参数2：回调函数
+    app.controller("mainController",function ($scope) {
+        console.log($scope);
+        //$scope：理解为我们model数据模型，我们可以向这个模型里添加数据，view层可以自动更新（数据的双向绑定）
+        //好比我们在ng-init里面给model层绑定name变量并且赋值(MVVM)
+        $scope.name = "test";
+        $scope.person = {name:'毛毛',age:38};
+        $scope.array = [{name:'毛毛',age:38},{name:'毛毛2',age:328},{name:'毛毛3',age:238}];
+    });
+</script>

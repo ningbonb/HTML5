@@ -8,4 +8,10 @@ HTML以及HTML5系统全面的学习
 CSS以及CSS3系统全面的学习
 
 ##阶段三
-JavaScript系统全面的学习
+JavaScript和jQuery系统全面的学习
+
+##阶段四
+PHP基础学习和微信后台开发、微信游戏开发
+
+##Anjular学习
+Anjular入门及深入学习
