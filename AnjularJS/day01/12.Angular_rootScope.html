@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <button ng-click="test()">事件</button>
+
+    <div ng-controller="header">
+
+    </div>
+
+    <div ng-controller="body">
+
+    </div>
+
+    <div ng-controller="footer">
+
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    //$rootScope
+    app.controller("mainC",function($scope,$rootScope){
+        console.log(1111);
+        console.log($scope);
+        $scope.name = "毛毛雨";
+        $scope.test = function(){
+
+            console.log($scope.name);
+            console.log($rootScope.name);
+        }
+    });
+    app.controller("header",function($scope,$rootScope){
+        $rootScope.name = "header毛毛";
+    });
+    app.controller("body",function($scope){
+        console.log($scope);
+        console.log($scope.name);
+    });
+    app.controller("footer",function($scope,$rootScope){
+        $rootScope.name = "毛毛";
+        console.log(111111222);
+        console.log($scope);
+        //$scope->$parent(是mainC下的scope)->$parent(系统默认的scope，也就是rootScope)
+    });
+</script>

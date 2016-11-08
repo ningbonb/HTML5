@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-sanitize.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <div ng-bind-html="headerHtml"></div>
+    <!--<div ng-bind="name"></div>-->
+    <div ng-bind-html="name"></div>
+</body>
+</html>
+<script>
+    //[]:依赖注入：
+    var app = angular.module("myApp",["ngSanitize"]);
+    //ajax,$http服务，只能在控制器使用
+    app.controller("mainC",function($scope,$http){
+        $scope.name = "111";
+        console.log(typeof $http);
+        $http.get("8.footer.html").success(function(resp){
+            console.log(resp);
+            $scope.name = resp;
+        });
+        //post
+        $http.post("7.header.html",{user:'张三',pass:'123'}).success(function(resp){
+            $scope.headerHtml = resp;
+        });
+
+        //
+         $http({url:"8.footer.html",method:"get"}).then(function(resp){
+             console.log(resp.data);
+         },function(){
+             console.log(err);
+         });
+    });
+</script>

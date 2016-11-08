@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    {{name}}
+    <div ng-controller="header">
+        {{name}}
+    </div>
+
+    <div ng-controller="body">
+        <button ng-click="say()">事件</button>
+    </div>
+
+    <div ng-controller="footer">
+        <button ng-click="say()">事件</button>
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("mainC",function($scope){
+        $scope.name = "mainC";
+        console.log($scope);
+
+        $scope.say = function(){
+            console.log("你好");
+        };
+    });
+    app.controller("header",function($scope){
+        $scope.name = "header";
+        console.log($scope);
+    });
+    app.controller("body",function($scope){
+        $scope.name = "body";
+        console.log($scope);
+    });
+    app.controller("footer",function($scope){
+        $scope.name = "footer";
+        console.log($scope);
+    });
+</script>

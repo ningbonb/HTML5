@@ -11,7 +11,8 @@
         <p>{{"我叫："+person.name+"今年"+person.age}}</p>
         <ul>
             <!--$index获取对应下标-->
-            <li ng-repeat="person in array">{{"我叫："+person.name+"今年"+person.age}}<button ng-click="reload($index)">按钮</button></li>
+            <!--<li ng-repeat="person in array">{{"我叫："+person.name+"今年"+person.age}}<button ng-click="reload($index)">按钮</button></li>-->
+            <li ng-repeat="person in array" ng-show="$even">{{$index}}{{"我叫："+person.name+"今年"+person.age}}<button ng-click="reload(person)">按钮</button></li>
         </ul>
         <button ng-click="reload('123')">按钮</button>
     </div>
@@ -38,10 +39,18 @@
         $scope.array = [{name:'毛毛',age:38},{name:'毛毛2',age:328},{name:'毛毛3',age:238}];
         //给模型绑定事件
         $scope.reload = function (num) {
+            console.log(num);
+            //this:指当前通过ng-repeat指令默认创建的一个scope
+            //console.log(this);
+            //console.log(this.$parent);
             //console.log($scope);
-            console.log(this);
+            //当前点击坐标
             console.log(this.$index);
-            //alert(num);
+            //继承父scope的属性
+            console.log(this.name);
+            console.log(this.person.name);
+            //更新数据模型 view自动显示
+            $scope.name = "更新名字"+Math.random();
         }
     });
     //$scope：只能在自己的控制器声明然后使用
