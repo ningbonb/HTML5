@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>服务jsonp</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <input type="text" ng-model="content" ng-change="request(content)">
+    <ul>
+        <li ng-repeat="result in resultList">{{result}}</li>
+    </ul>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("mainC",function($scope,$http){
+        $scope.request = function(content){
+            console.log(content);
+            //cb:是百度服务器定义的，通过它找到js的回调函数
+            //JSON_CALLBACK：是AngularJS规定的，通过它找到cb，从而指向定义好的回调函数
+            var api = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+content+"&cb=JSON_CALLBACK";
+            $http.jsonp(api).success(function (resp) {
+                console.log(resp);
+                $scope.resultList = resp.s;
+            });
+        };
+
+    });
+</script>
