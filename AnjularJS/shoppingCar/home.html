@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+</head>
+<body class="container-fluid" ng-controller="mainC">
+<!--<div ng-include="template/navBar.html"></div>-->
+<nav-bar></nav-bar>
+<div class="row">
+    <!--按钮组合-->
+    <div class="col-md-3">
+        <button class="btn-default btn-block btn-lg" ng-click="updateDataOfCategary('全部')" ng-class="chooseCategaryActive('全部')">全部</button>
+        <!--products | unique : 'categary'['篮球'，'足球','羽毛球']-->
+        <button class="btn-default btn-block btn-lg" ng-repeat="categary in products | unique : 'categary'" ng-click="updateDataOfCategary(categary)" ng-class="chooseCategaryActive(categary)">{{categary}}</button>
+    </div>
+    <!--商品列表-->
+    <div class="col-md-9 panel panel-default">
+        <ul>
+            <li class="well" ng-repeat="product in currentPageProducts">
+                <h3>{{product.name}}<span class="label label-primary pull-right">{{product.priec | currency:"￥"}}</span></h3>
+                <button class="btn btn-success pull-right">加入购物车</button>
+                <p class="lead">{{product.description}}</p>
+            </li>
+
+        </ul>
+        <!--分页-->
+        <div class="btn btn-group pull-right">
+            <button class="btn btn-default" ng-repeat="page in pages" ng-click="getProductsPage(page)">{{page}}</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="template/filterUnique.js"></script>
+<script src="js/home.js"></script>
