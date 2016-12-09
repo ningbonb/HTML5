@@ -3,9 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Zepto</title>
+	<style>
+		.width{
+			width: 100px;
+		}
+	</style>
 </head>
 <body>
-	
+	<ul>
+		<li>list item 1</li>
+		<li>list item 2</li>
+		<li>list item 3</li>
+	</ul>
+	<p>a paragraph</p>
+	<h2>a h2</h2>
+	<form action="###">
+		
+	</form>
 </body>
 <script src="js/zepto.min.js"></script>
 <script>
@@ -83,5 +97,48 @@
 	console.log($.type(new Date));
 	console.log($.type("hello world"));
 	console.log($.type(1111));
+
+	//add:添加元素到当前匹配的元素集合中来。如果没有给定content参数，则在整个document中查找
+	$('li').add('p,h2').css('background-color','red');
+
+	//addClass:添加class类名
+	$('li').addClass('width');
+
+	//after:在匹配元素后插入内容（外部插入）。内容可以为html字符串，dom节点，或者节点组成的数组
+	$('li:first-child').after('<p>A note below the label</p>')
+
+	//before:在匹配元素前面插入内容（外部插入）。内容同after。
+	$('ul').before('<p>before</p>');
+
+	//append:在每个匹配的元素末尾插入内容（内部插入）。内容同after。
+	$('ul').append('<li>new list item end</li>');
+
+	//appendTo:功能与append类似，格式相反。内容同after。
+	$('<li>new list item head</li>').appendTo('ul');
+
+	//attr:读取或设置dom的属性
+	//如果没有给定参数，则读取对象集合中第一个元素的属性值。
+	//如果参数为null，那么这个属性将被移出（类似removeAttr）
+	//多个属性值可以通过对象键值对的方式进行设置
+	//要读取DOM属性如checked和selected，使用prop
+	$('form').attr('action','##');
+	$('form').attr('action',null);
+	console.log($('form').attr('action'));
+	//多个属性
+	$('form').attr({
+		action: '#',
+		method: 'post'
+	});
+	console.log($('form').attr('method'));
+
+	//children:获得匹配元素的直接子元素
+	var child1 = $('ul').children();
+	console.log(child1);
+	var child2 = $('ul').children(':first-child');
+	console.log(child2);
+
+	//clone:通过深度克隆来复制集合中的所有元素，此方法不会将数据和事件处理程序复制到新的元素
+	var newDiv = $('ul').clone();
+	console.log(newDiv);
 </script>
 </html>
