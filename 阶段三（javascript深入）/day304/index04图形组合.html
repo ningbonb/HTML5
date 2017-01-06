@@ -16,8 +16,16 @@
 		var canvas = document.getElementById("myCanvas");
 		var ctx = canvas.getContext("2d");
 		
-		ctx.fillStyle = "blue";
-		ctx.fillRect(50,50,200,200);
+		//ctx.fillStyle = "blue";
+		//ctx.fillRect(50,50,200,200);
+		ctx.save();
+		ctx.strokeStyle = "green";
+		ctx.lineWidth = 10;
+		ctx.beginPath();
+		ctx.moveTo(0,500);
+		ctx.lineTo(500,0);
+		ctx.stroke();
+		ctx.restore();
 		
 		/*
 		source-over	默认。在目标图像上显示源图像。
@@ -36,10 +44,30 @@
 		//目标：上面绘制的
 		//源图：最新绘制的
 		ctx.globalCompositeOperation = "xor";
-		
-		ctx.fillStyle = "red";
+		ctx.save();
+		ctx.strokeStyle = "red";
+		ctx.lineWidth = 20;
 		ctx.beginPath();
-		ctx.arc(250,250,100,0,Math.PI*2,false);
-		ctx.fill();
+		ctx.moveTo(500,500);
+		ctx.lineTo(0,0);
+		ctx.stroke();
+		ctx.restore();
+		// ctx.fillStyle = "red";
+		// ctx.beginPath();
+		// ctx.arc(250,250,100,0,Math.PI*2,false);
+		// ctx.fill();
+
+		//ctx.globalCompositeOperation = "xor";
+
+		// ctx.globalCompositeOperation = "source-over";
+		ctx.save();
+		ctx.strokeStyle = "yellow";
+		ctx.lineWidth = 20;
+		ctx.beginPath();
+		ctx.moveTo(200,0);
+		ctx.lineTo(200,500);
+		ctx.stroke();
+		ctx.restore();
+		
 	</script>
 </html>

@@ -1,9 +1,0 @@
-/*
-	课堂练习css样式
-*/
-body,p{margin:0px;}
-.warp{width:375px;margin:40px auto 0;border:1px solid #d4d0c8;}
-.inner{border-left-color:#fff;border-top-color:#fff;border-style:solid;border-width:1px;background-color:#d4d0c8;}
-.title{height:18px;background:url(../img/title-bg.jpg) 0px 0px no-repeat;color:#fff;padding-left:10px;line-height:18px;}
-.msg{padding:10px 0px 20px 57px;color:#000;font-size:12px;line-height:20px}
-.icon-wr{background:url(../img/icon_wr.jpg) 10px 10px no-repeat;}
