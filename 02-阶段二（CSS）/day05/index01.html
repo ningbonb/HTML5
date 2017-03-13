@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器</title>
+	<style>
+		/*属性选择器：
+			语法 E[attribute]
+			找到具有attribute属性的元素
+			属性可以自定义
+		*/
+		a[href]{
+			color: red;
+		}
+		a[custom]{
+			color:yellow;
+		}
+		/*E[attribute]
+			找到属性值为attribute元素
+		 */
+		a[href=https]{
+			color:pink;
+		}
+		/*E[att~=value]
+			适用于多个属性值，只要包含其中一个
+		 */
+		p[col~=cl1]{
+			color:red;
+		}
+
+		/*
+			E[attr|=value]
+			
+			选择有指定开头的元素	
+			value:必须是个完整的单词;
+		 */
+		p[lang|=zh]{
+			color: red;
+		}
+
+		/*E[att^=value]
+			选择属性值是指定开头的元素
+		 */
+		p[class^=aaa]{
+			color:red;
+		}
+
+		/*E[attr$=value]
+			匹配属性值以指定字符结尾的所有元素
+		 */
+		p[class$=cd]{
+			color:red;
+		}
+
+		/*E[attr*=value]
+		匹配属性值包含指定字符的所有元素
+		 */
+		p[class*=bb]{color:blue;}
+	</style>
+</head>
+<body>
+	<a href="###">W我是一个标签aaaaa</a>
+	<a custom>我是另一个aaaaaa</a>
+	<br>
+	<a href="https">a2333333</a>
+
+	<p col="cl1 cl2">ppppppp1p1p1pp1</p>
+
+	<p lang="zh-cn">pppppppppppppppppp2</p>
+
+	<p class="aaaabbb">ppppppppp333333333333333</p>
+	<p class="aaaabb22bb">ppppppppp444444444444444444</p>
+
+	<p class="aaaacccd">p5555555555555555555</p>
+	<p class="bbbbbbbbcd">ppppppppppp66666666666666</p>
+
+	<p class="aabbssddee">pppppppppppppppppp7777777777777</p>
+</body>
+</html>

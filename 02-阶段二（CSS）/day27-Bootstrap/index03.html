@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Bootstrap-CSS</title>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<style>
+			.container {
+				background: rgba(86, 61, 124, .15);
+				color: white;
+				font-size: 2rem;
+			}
+			
+			.container-fluid {
+				background: gray;
+				color: white;
+				font-size: 2rem;
+			}
+			
+			div[class^="col"] {
+				border: 1px solid rgba(86, 61, 124, .2);
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--<div class="container">
+			我是内容
+		</div>-->
+		<!--<div class="container-fluid">
+			我是内容
+		</div>-->
+		<div class="container">
+			<!--定义一行-->
+			<div class="row">
+				<!--大于桌面显示器（>1200px）同行显示
+					col-lg-6：总共分为12列，数字代表占据的比例
+					
+					每列数字相加 = 12
+				-->
+				<div class="col-lg-7">col-lg-7</div>
+				<div class="col-lg-2">col-lg-2-next</div>
+				<div class="col-lg-3">col-lg-3-next</div>
+			</div>
+
+			<div class="row">
+				<!--中等屏幕屏幕显示器（>992px）同行显示-->
+				<div class="col-md-6">col-md-7</div>
+				<div class="col-md-2">col-md-2-next</div>
+				<div class="col-md-4">col-md-3-next</div>
+			</div>
+
+			<div class="row">
+				<!--小屏幕平板（>=768px）同行显示-->
+				<div class="col-sm-6">col-sm-5</div>
+				<div class="col-sm-2">col-sm-4-next</div>
+				<div class="col-sm-4">col-sm-3-next</div>
+			</div>
+			
+			<div class="row">
+				<!--超小屏幕（<768px）多行显示，大于768同行显示-->
+				<div class="col-xs-6">col-xs-3</div>
+				<div class="col-xs-2">col-xs-4-next</div>
+				<div class="col-xs-4">col-xs-5-next</div>
+			</div>
+		</div>
+	</body>
+
+</html>

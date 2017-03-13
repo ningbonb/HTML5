@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			video:ie8或更早不支持
+			视频格式：{
+				mp4:ie高版本chrome，火狐
+				webM:谷歌发明，火狐支持，主流模式
+				OGG:火狐，chrome支持
+			}
+			controls:是否显示控件
+		-->
+		<!--controls:显示播放控件-->
+		<!--autoplay：自动播放-->
+		<!--<video src="img/1.mp4" width="400px" height="400px" controls autoplay=""><!--</video>-->
+
+		<!--loop:循环播放-->
+		<!--<video src="img/1.mp4" width="400px" height="400px" controls autoplay="" loop=""></video>-->
+
+		<!--muted:静音-->
+		<video src="img/1.mp4" width="400px" height="400px" controls autoplay="" loop="" muted=""></video>
+
+		<!--poster:视频播放前的站位图-->
+		<video src="img/1.mp4" width="400px" height="400px" controls -autoplay="" loop="" poster="img/weibo.jpg"></video>
+
+		<!--兼容所有浏览器-->
+		<video width="200px" height="200px" controls>
+			<!--
+				chrome和火狐
+				type:视频类型
+			-->
+			<source src="img/1.mp4" type="video/mp4"></source>
+			<source src="img/1.webm" type="video/webm"></source>
+			<source src="img/1.ogg" type="video/ogg"></source>
+		</video>
+
+		<!--audio: 和视频一样
+			mp3,ogg,wav
+		-->
+		<audio controls="">
+			<source src="img/music.mp3" type="audio/mp3"></source>
+			<source src="img/music.ogg" type="audio/ogg"></source>
+			<source src="img/music.wav" type="audio/wav"></source>
+		</audio>
+		
+		<!---->
+		<div class="header"></div>
+		<div class="nav"></div>
+		<div class="section"></div>
+		<div class="footer"></div>
+		
+		<!--头部标签-->
+		<header></header>
+		<!--标签导航-->
+		<nav></nav>
+		<!--管理h1-h6-->
+		<hgroup>
+			<h3>h3333</h3>
+			<h4>h4444</h4>
+		</hgroup>
+		<!--文章侧边栏-->
+		<aside></aside>
+		<!--文章内容，一个评论区-->
+		<artical></artical>
+		<!--文章分区-->
+		<section></section>
+		<!--尾部-->
+		<footer></footer>
+		
+		
+		<header>头部</header>
+		<nav>导航</nav>
+		<section>
+			<aside>侧边栏</aside>
+			<artical>
+				<hgroup>
+					<h2>文章标题</h2>
+				</hgroup>
+				<footer>文章的尾部</footer>
+			</artical>
+		</section>
+		<footer>结尾</footer>
+	</body>
+
+</html>

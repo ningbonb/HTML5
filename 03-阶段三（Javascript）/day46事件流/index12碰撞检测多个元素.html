@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: black;
+				position: absolute;
+				left: 50px;
+				top: 50px;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}
+			#div3{
+				width: 30px;
+				height: 50px;
+				background: blue;
+				position: absolute;
+				left: 500px;
+				top: 100px;
+			}
+			#div4{
+				width: 200px;
+				height: 150px;
+				background: green;
+				position: absolute;
+				left: 200px;
+				top: 402px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<div id="div4"></div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		//var div2 = document.getElementById("div2");
+		var divs = document.querySelectorAll("#div2,#div3,#div4");
+		//alert(divs.length);
+		
+		//div1拖拽
+		div1.onmousedown = function(ev){
+			var ev = ev || event;
+			var offsetX = ev.clientX - this.offsetLeft;
+			var offsetY = ev.clientY - this.offsetTop;
+			
+			document.onmousemove = function(ev){
+				var ev = ev ||event;
+				div1.style.left = ev.clientX - offsetX + "px";
+				div1.style.top = ev.clientY - offsetY + "px";
+				
+				for(var i = 0; i < divs.length; i++){
+					var obj = divs[i];
+					if(crash(div1,obj)){
+						obj.style.background = "pink";
+					}else{
+						obj.style.background = "red";
+					}
+				}
+				
+//				if(crash(div1,div2)){
+//					div2.style.backgroundColor = "red";
+//				}else{
+//					div2.style.backgroundColor = "yellow";
+//				}
+			};
+			
+			document.onmouseup = function(){
+				document.onmouseup = document.onmousemove = null;
+			};
+		};
+		
+		//碰撞函数
+		function crash(obj1,obj2) {
+			//碰撞检测
+			var L1 = obj1.offsetLeft;
+			var R1 = L1 + obj1.offsetWidth;
+			var T1 = obj1.offsetTop;
+			var B1 = T1 + obj1.offsetHeight;
+
+			var L2 = obj2.offsetLeft;
+			var R2 = L2 + obj2.offsetWidth;
+			var T2 = obj2.offsetTop;
+			var B2 = T2 + obj2.offsetHeight;
+
+			//没有碰撞的时候
+			if(R1 < L2 || B1 < T2 || L1 > R2 || T1 > B2) {
+				//碰不到
+				return false;
+			} else {
+				return true;
+			}
+
+		}</script>
+</html>

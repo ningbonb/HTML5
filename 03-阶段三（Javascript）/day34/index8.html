@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>checked</title>
+	</head>
+
+	<body>
+		<button id="choose">选择或者取消</button>
+		<input type="checkbox" id="check" />
+
+		<script>
+			var chooseBtn = document.getElementById("choose");
+			var check = document.getElementById("check");
+
+			var checkBool = false;
+			//			chooseBtn.onclick = function(){
+			//				if(!checkBool){
+			//					check.checked = true;
+			//				}else{
+			//					check.checked = false;
+			//				}
+			//				checkBool = !checkBool;
+			//			};
+			
+			//方式2
+//			var checkBool = false;
+//			chooseBtn.onclick = function(){
+//				check.checked = checkBool == false ? true : false;
+//				checkBool = !checkBool;
+//			};
+			
+			//方式3
+			chooseBtn.onclick = function(){
+				//alert(check.checked);
+				check.checked = !check.checked;
+			};
+		</script>
+	</body>
+
+</html>

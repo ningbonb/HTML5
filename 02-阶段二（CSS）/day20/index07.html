@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3d</title>
+		<style>
+			.container{
+				width: 400px;
+				height: 400px;
+				margin: 10px auto;
+				background: url(img/bg-grid.jpg) no-repeat;
+				border: 5px dotted #333;
+				background-size: 100% 100% ;
+				position: relative;
+			}
+			.container img{
+				position: absolute;
+				width: 100px;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			.container img:first-child{
+				opacity: .3;
+			}
+			.container img:last-child{
+				/* z轴：垂直线*/
+				/* transform:rotateZ(-30deg);*/
+				/* x轴: 水平线旋转
+				 * 正数：顺时针
+				 * 负数：逆时针
+				 */
+				transform: rotateX(30deg);
+				/* y轴：垂直线旋转*/
+				transform: rotateY(70deg);
+				
+				/* 简写
+				 * （前三个只能0或1，最后一个角度）
+				 * 0:代表没有
+				 * 1：代表有
+				 */
+				transform: rotate3d(1,1,1,50deg);
+				
+				transform: rotateX(20deg) rotateY(70deg) rotateZ(10deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="img/cardKingClub.png" alt="" />
+			<img src="img/cardKingClub.png" alt="" />
+			
+		</div>
+	</body>
+</html>

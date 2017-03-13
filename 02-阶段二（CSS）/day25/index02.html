@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>animation</title>
+		<!--<link rel="stylesheet" href="http://s.mlcdn.co/animate.css">-->
+		<link rel="stylesheet" href="css/animate.css" />
+		<style>
+			/* 用法2
+			 * 动画名称（bounce）必须和animation.css相同
+			 */
+			.car{
+				animation: bounce 2s linear 1s 3 alternate;
+			}
+			
+			.hover:hover{
+				animation:fadeInRight 2s linear 1s 3 alternate;
+			}	
+			/*用法3：结合hover和鼠标移开*/
+			.ho:hover{
+				animation: bounce 1s;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 class="animated infinite bounce">Example</h1>
+		<h1 class="animated infinite bounce">Example</h1>
+		<!--至少两个参数-->
+		<h1 class="animated bounce">Example</h1>
+		<img src="img/1.jpg" class="animated bounce" alt="" />
+		<hr />
+		<!--嵌套-->
+		<div class="animated bounceIn">
+			<p>111111</p>
+			<h4>444444444444444</h4>
+		</div>
+		
+		<!--用法2-->
+		<img src="img/1.jpg" class="car" alt="" />
+		<hr />
+		<img src="img/1.jpg" class="hover" alt="" />
+		<hr />
+		<img src="img/1.jpg" class="animated shake ho" alt="" />
+		
+	</body>
+</html>

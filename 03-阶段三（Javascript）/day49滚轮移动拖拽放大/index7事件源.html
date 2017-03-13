@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件源</title>
+		<style>
+			#div1{
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+			#div2{
+				width: 200px;
+				height: 200px;
+				background: black;
+			}
+			#div3{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		var div2 = document.getElementById("div2");
+		var div3 = document.getElementById("div3");
+		
+		/*
+		 事件源：
+		 事件触发的源头（点击最开始的元素）
+		 target:标准属性 ie678不支持（没有target属性）
+		 
+		 srcElement:是ie678和谷歌下支持，但是火狐不支持（火狐支持target）
+		 * */
+		div1.onclick = function(ev){
+			var ev = ev || window.event;
+			//alert(111);
+			console.log(ev.target);
+			
+			
+			var sourceObj = ev.target || ev.srcElement;
+			sourceObj.style.border = "2px solid yellow";
+			
+			console.log(ev.srcElement);
+		};
+	</script>
+</html>

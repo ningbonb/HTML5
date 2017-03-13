@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>流式布局</title>
+		<!--
+			不再用px单位，（rem设置文字或者宽高）
+			用百分比计算宽高，margin或padding也用百分比
+			
+			目标元素宽高 / 上下文元素宽高（保留5位小数）
+		-->
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			li{list-style: none}
+			/**/
+			html,body{
+				height: 100%;
+			}
+			section{
+				width: 80%;
+				/*height: 80%;*/
+				border: 2px solid red;
+				margin: 20px auto;
+				
+				/*最小宽度*/
+				min-width: 500px;
+				/*最大宽度*/
+				max-width: 900px;
+			}
+			
+			ul{
+				height: 100%;
+				overflow: hidden;
+			}
+			li{
+				background: blue;
+				/*22%*/
+				width: 22%;
+				height: 22%;
+				height: 80px;
+				border: 5px solid black;
+				/*怪异模式 width+padding+border+内容*/
+				box-sizing: border-box;
+				float: left;
+				color: red;
+				font-size: 40px;
+				
+				/*12%/5*/
+				margin-left: 2.4%;
+				/*top宽度值是根据width宽度计算*/
+				margin-top: 2.4%;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+				<li>9</li>
+				<li>10</li>
+				<li>11</li>
+				<li>12</li>
+				<li>13</li>
+				<li>14</li>
+				<li>15</li>
+				<li>16</li>
+			</ul>
+		</section>
+	</body>
+</html>

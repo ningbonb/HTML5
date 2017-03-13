@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/wx_car.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
+	</head>
+	<body>
+		<div class="wrap">
+			<!--图片预加载-->
+			<div id="loading-wrap">
+				<div id="loading">0%</div>
+			</div>
+			
+			<!--首页 第一页-->
+			<div id="page1">
+				<!--白云1-->
+				<img src="img/cloud1.png" id="cloud1" alt="" />
+				<!--白云2-->
+				<img src="img/cloud2.png" id="cloud2" alt="" />
+				<!--车-->
+				<img src="img/car.png" id="car" alt="" />
+				<!--前行，只为更好-->
+				<img src="img/font1.png" id="font1" alt="" />
+				<!--持久力，大挑战-->
+				<img src="img/font2.png" id="font2" alt="" class="animated bounceInLeft"/>
+				<!--动力越持久-->
+				<img src="img/font3.png" id="font3" alt="" class="animated bounceInRight">
+				<!--说明-->
+				<div id="info1">参与持久力大挑战，有机会赢Iphone6(共1台)、充电宝（共10台）、话费卡（共20张）、品牌T恤（共50件）等精美礼品哦！</div>
+				<div id="info2">活动时间：2014年10月27日-11月15日</div>
+				<!--开始按钮-->
+				<img src="img/start.png" id="start" alt="" />
+			</div>
+			<!--首页 第一页结束-->
+			
+			<!--游戏界面-->
+			<div id="page2">
+				<!--得分-->
+				<div id="score">
+					<span id="min">0</span>分钟<span id="sed">0</span>秒钟
+				</div>
+				<!--障碍物-->
+				<div id="bug1" style="top: 22%;left: 55%;width: 18%;height: 9%;"></div>
+				<div id="bug2" style="top: 40%;left: 10%;width: 11%;height: 28%;"></div>
+				<div id="bug3" style="top: 41%;left: 75%;width: 18%;height: 15%;"></div>
+				<div id="bug4" style="top: 61%;left: 31%;width: 42%;height: 13%;"></div>
+				<!--游戏汽车-->
+				<img src="img/gamecar.png" id="gamecar" alt="" style="top: 40%;left: 45%;" />
+			</div>
+			<!--游戏界面结束-->
+			
+			<!--游戏说明-->
+			<div id="page3">
+				<img src="img/rule.png" id="rule"/>
+				<!--关闭按钮-->
+				<img src="img/close.png" class="close" alt="" />
+			</div>
+			<!--游戏说明结束-->
+			
+			<!--游戏结束界面-->
+			<div id="page4">
+				<!--白云1-->
+				<img src="img/cloud1.png" id="cloud1" alt="" />
+				<!--白云2-->
+				<img src="img/cloud2.png" id="cloud2" alt="" />
+				<!--车-->
+				<img src="img/car.png" id="car" alt="" />
+				<!--前行，只为更好-->
+				<img src="img/font1.png" id="font1" alt="" />
+				<!--深色背景区-->
+				<div class="dark">
+					<p class="p1">历史最高持续了<span id="end_min">0</span>分钟</p>
+					<p class="p2">在全国持久力测试中排名第<span id="rank">0</span>位</p>
+				</div>
+				<p class="p3">达到指定成绩即可抽奖！</p>
+				<!--奖项说明-->
+				<div class="end_info">
+					<p>iphone6（共1台）<span>35分钟</span></p>
+					<p>移动充电宝（共10台）<span>20分钟</span></p>
+					<p>30元手机话费卡（共20张）<span>10分钟</span></p>
+					<p>品牌T恤（共50件）<span>1分钟</span></p>
+				</div>
+				<!--分享按钮-->
+				<img src="img/share.png" id='share' alt="" />
+				<!--重玩一次-->
+				<img src="img/again.png" id="again" alt="" />
+			</div>
+			<!--游戏结束界面结束-->
+			
+			<!--分享页面-->
+			<div id="page5">
+				<img src="img/shareimg.png" id="pageshare"/>
+			</div>
+			<!--分享页面结束-->
+			
+			
+			<!--抽中奖品页面-->
+			<div id="page7">
+				<!--白云1-->
+				<img src="img/cloud1.png" id="cloud1" alt="" />
+				<!--白云2-->
+				<img src="img/cloud2.png" id="cloud2" alt="" />
+				<!--车-->
+				<img src="img/car.png" id="car" alt="" />
+				<!--前行，只为更好-->
+				<img src="img/font1.png" id="font1" alt="" />
+				<!--深色背景区-->
+				<div class="dark">
+					<!--成功-->
+					<div class="success">
+						<p class="success_p0 success_p3">恭喜您!</p>
+						<p class="success_p1 success_p2">抽中斯柯达《持久力大挑战》礼品<span class="success_p0 success_p3">品牌T恤</span>一件。</p>
+						<p class="success_p2">发送中奖页面截图至上海大众斯柯达微信，小柯给您颁奖哦！</p>
+						<p class="success_p3">活动时间：2016年10月27日-12月31日</p>
+					</div>
+					<!--失败-->
+					<div class="fail">
+						<p class="fail_p1">很遗憾，您没有中奖哦</p>
+						<p class="success_p2">关注<spanclass="success_p3">微信公众号</span>(ciwenyiweizhuce)，关注并发截图到该公众号可获得又一轮<span class="success_p3">抽奖机会！</span></p>
+					</div>
+				</div>
+				<!--分享按钮-->
+				<img src="img/addbutton.png" id='addbutton' alt="" />
+				<!--重玩一次-->
+				<img src="img/trybutton.png" id="trybutton" alt="" />
+			</div>
+			<!--抽中奖品页面结束-->
+			<!--关注公众号页面-->
+			<div id="page6">
+				<img src="img/add.png" id="add"/>
+			</div>
+			<!--关注公众号页面结束-->
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/wx_car.js"></script>
+</html>

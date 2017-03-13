@@ -1,0 +1,152 @@
+/*轮播图*/
+.home_scroll{
+	width: 100%;
+}
+.swiper-slide1 a{
+	width: 100%;
+}
+.swiper-slide1 a img{
+	width: 100%;
+}
+/*今日特价主体*/
+.commodity_wrap{
+	max-width: 1180px;
+	margin: 1% auto;
+	padding: 0 1%;
+	overflow: hidden;
+}
+.home_shop_font{
+	margin: 2% 0;
+	font-size: 3rem;
+	color: #FE6E00;
+}
+.homeFont1{
+	color: #008CE1;
+}
+.homeFont2{
+	color: #666;
+	font-size: 1.6rem;
+	display: inline-block;
+	margin-left: 1%;
+}
+
+.commodity_box_wrap{
+	width: 100%;
+}
+.commodity_box_one{
+	box-sizing: border-box;
+	border: 1px solid transparent;
+	width: 20%;
+	float: left;
+	padding: 2% 0.5%;
+	text-align: left;
+}
+.commodity_box_one a{
+	width: 100%;
+}
+.commodity_box_one a img{
+	width: 100%;
+}
+.commodity_box_one p{
+	font-size: 1.4rem;
+	padding: 5% 1%;
+}
+.commodity_box_one p a{
+	color: #B2B2B2;
+}
+.commodity_price{
+	padding: 0% 1%;
+	color: red;
+	font-size: 1.7rem;
+}
+.commodity_price del{
+	color: black;
+	font-size: 1.3rem;
+}
+.commodity_box_one:hover{
+	border: 1px solid #F9AF79;
+}
+/*轮播图*/
+.commodity_scroll{
+	width: 100%;
+}
+ .swiper-container2 {
+    width: 100%;
+    height: 100%;
+}
+.swiper-slide2 {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+        
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-slide2 .commodity_box_one{
+	width: 100%;
+}
+@media only screen and (max-width: 980px) {
+	.home_shop_font{
+		font-size: 2rem;
+	}
+	.homeFont2{
+		font-size: 1.2rem;
+		margin-left: 1%;
+	}
+	.commodity_box_one p{
+		font-size: 1.2rem;
+	}
+	.commodity_price{
+		font-size: 1.5rem;
+	}
+	.commodity_price del{
+		font-size: 1.1rem;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.commodity_box_one{
+		width: 25%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.home_shop_font{
+		margin-top: 1.5%;
+		font-size: 1.6rem;
+	}
+	.homeFont2{
+		font-size: 1rem;
+		margin-left: 1%;
+	}
+	.commodity_box_one p{
+		font-size: 1.0rem;
+	}
+	.commodity_price{
+		font-size: 1.3rem;
+	}
+	.commodity_price del{
+		font-size: 1.0rem;
+	}
+	.commodity_box_one{
+		width: 33.333%;
+	}
+	.swiper-button-prev{
+		display: none;
+	}
+	.swiper-button-next{
+		display: none;
+	}
+	.swiper-slide2{
+		font-size: 1rem;
+	}
+}

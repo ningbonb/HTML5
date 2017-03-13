@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单提交</title>
+</head>
+<body>
+	<!-- 请求方式
+	1.name: 传递数据的key，这个需要和接口文档上的key保持一致
+	2.复选框输入name一般需要带keys后面加[] name="hobby[]",这样在数据提交到后台的时候是以数组的形式提交过去
+	3.文件上传，必须使用post请求，添加属性叫enctype="multipart/form-data"
+	 -->
+	<form action="php03.php" method="post" enctype="multipart/form-data">
+		姓名：<input type="text" name="userName"><br>
+		年龄：<input type="number" name="age"><br>
+		性别：
+		<input type="radio" name="gender" value="0">男
+		<input type="radio" name="gender" value="1">女
+		<br>
+		爱好：
+		<input type="checkbox" name="hobby[]" value="smoke">吸烟
+		<input type="checkbox" name="hobby[]" value="drink">喝酒
+		<input type="checkbox" name="hobby[]" value="tangTou">烫头
+		<br>
+		城市：
+		<select name="city" id="">
+			<option value="1">北京</option>
+			<option value="2">上海</option>
+			<option value="3">太原</option>
+			<option value="4">东京</option>
+		</select>
+		<br>
+		图片上传：<input type="file" name="imgage"><br>
+		<input type="hidden" name="MAX_FILE_SIZE" value="10240000">
+		压缩包上传：<input type="file" name="fileZip"><br>
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

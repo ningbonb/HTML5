@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>数组常用方法</title>
+	</head>
+
+	<body>
+
+		<script>
+			/*
+			1.push:向数组尾部添加元素
+			参数：一个或者多个
+			返回值：新数组的长度
+			* */
+			var arr = [1, 2, 4, 5];
+			var newLen = arr.push(6, 7);
+			console.log('arr:' + arr + 'arr.lenght' + newLen);
+
+			/*
+			 2.unshift:向数组的头部添加元素
+			 参数： 多个
+			 返回值：新的数组长度
+			 
+			 * */
+
+			var arr2 = ['是', '一个', '大帅哥'];
+			var len = arr2.unshift('张三');
+			console.log('arr2:' + arr2 + 'length:' + len);
+
+			/*
+			 pop():从数组的尾部删除一个元素
+			 参数：无
+			 返回值：被删除的元素
+			 
+			 * */
+			var arr3 = [1, 3, 5, 7, 9];
+			arr3.pop();
+			arr3.pop();
+			var delEle = arr3.pop();
+			console.log(arr3, delEle);
+
+			/*
+			 shift():从数组的头部删除一个元素
+			 参数：无
+			 返回值：被删除的元素
+			 
+			 * */
+			var arr4 = ['石头', '是', '一个', '大帅哥'];
+			var headDelEle = arr4.shift();
+			console.log(arr4, headDelEle);
+
+			/*
+			 5.slice() 返回选定的元素（包含开头，不包含结尾）
+			 参数1：开始的位置
+			 参数2：结束的位置
+			 参数可以为负数
+			 
+			 只传参数1，从该位置截取到最后
+			 
+			 * */
+			var arr5 = [5, 7, 9, 10];
+			console.log(arr5.slice(0, 3)); //[5,7,9]
+			console.log(arr5.slice(1)); //[7, 9, 10]
+
+			/*
+			 splice():从数组中任意位置：删除或者插入任意个元素
+			 返回值：被删除元素组成的数组
+			 
+			 参数：任意个
+			 
+			 常用：
+			 第一个参数：指定开始的位置
+			 第二个参数：指定删除的长度
+			 从第三个参数开始：指定要插入的元素
+			 
+			 如果只给一个参数，从该位置删除到最后
+			 
+			 * */
+
+			var arr6 = ['石头', '张三', '是', '一对', '好朋友'];
+			var delEle = arr6.splice(3, 2);
+			console.log(arr6, delEle);
+
+			var arr6 = ['石头', '张三', '是', '一对', '好朋友'];
+			var delEle = arr6.splice(3, 2, '一对', '好基友'); //["石头", "张三", "是", "一对", "好基友"]
+			console.log(arr6, delEle);
+
+			//只添加，不删除
+			var arr6 = ['石头', '张三', '是', '一对', '好朋友'];
+			arr6.splice(1, 0, '李四');
+			console.log(arr6);
+
+			var arr6 = ['石头', '张三', '是', '一对', '好朋友'];
+			arr6.splice(2);
+			console.log(arr6);
+
+			/*
+			 join()
+			 数组中元素合并为字符串
+			 参数一个：连接符
+			 
+			 返回值：字符串
+			 
+			 注意：参数不传情况
+			 默认逗号隔开
+			 * */
+			var arr7 = [1, 4, 5, 9];
+			var relStr = arr7.join('-');
+			console.log(relStr);
+
+			var arr7 = [1, 4, 5, 9];
+			var relStr = arr7.join();
+			console.log(relStr); //1,4,5,9
+
+			/*
+			 数组的合并
+			 concat()
+			 参数一个或者多个
+			 
+			 返回一个新的数组(对操作数组（原数组）没有影响)
+			 * */
+			var conArr1 = [1, 2, 3];
+			var conArr2 = [4, 5, 6];
+			var conArr3 = [7, 8, 9];
+
+			var newConArr = conArr1.concat(conArr2, conArr3);
+			console.log(newConArr); //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+			newConArr = newConArr.concat(10, 11, 12);
+			console.log(newConArr); //[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+
+			//利用concat返回新的数组特性可以实现对数组的copy
+			//alert(typeof conArr1);
+
+			var nums1 = [1, 2, 3];
+			//多了一个nums2的指针变量引用数组
+			var nums2 = nums1;
+			nums2.push(4);
+			//nums1?
+			console.log(nums1); //[1, 2, 3, 4]
+
+			//解决办法： concat copy一份
+			var copArr1 = [1, 2, 3];
+			//copy一份新的数组
+			var copArr2 = copArr1.concat();
+			copArr2.push(4, 5, 6);
+			console.log(copArr1, copArr2); //[1, 2, 3] [1, 2, 3, 4, 5, 6]
+
+			/*
+			 sort()：排序
+			 改变原始数组
+			 
+			 参数：一个，可选：传的话只能传递一个函数类型参数
+			 
+			 参数不传的话默认从小到大排序
+			 
+			 * */
+
+			var sortArr = ['b', 'a', 'd', 'z', 'mam', 'mbm'];
+			sortArr.sort();
+			console.log(sortArr); //["a", "b", "d", "gg", "mm", "z"]
+
+			//问题
+			var sortNumArr = [4, 3, 8, 1, 10, 7];
+			sortNumArr.sort();
+			console.log(sortNumArr); //[1, 10, 3, 4, 7, 8]
+
+			/*
+			 自定义函数：形参：两个
+			 返回值：必须是number类型
+			 
+			 当返回值是正数的时候，就交换两个数的位置
+			 当返回值是负数的时候，不交换
+			 0的时候也不交换
+			 
+			 return n1 - n2 的时候：就是一个从小到大的排序
+			 
+			 return n2 - n1 的时候：就是一个从大到小的排序
+			 * */
+
+			//从小到大
+			function up(n1, n2) {
+				return n1 - n2;
+			}
+			//从大到小
+			function down(n1, n2) {
+				return n2 - n1;
+			}
+			sortNumArr.sort(up);
+			console.log(sortNumArr); //[1, 3, 4, 7, 8, 10]
+			sortNumArr.sort(down);
+			console.log(sortNumArr); //[10, 8, 7, 4, 3, 1]
+
+			//变量接受函数指针
+			var va = function(n1, n2) {
+				return n1 - n2;
+			}
+			sortNumArr.sort(va);
+			console.log(sortNumArr);
+
+			//匿名函数
+			sortNumArr.sort(function(n1, n2) {
+				return n1 - n2;
+			});
+			console.log(sortNumArr); //[1, 3, 4, 7, 8, 10]
+
+			/*
+			 some()
+			 检测数组元素中是否有元素符合指定的条件
+			 
+			 参数：函数指针
+			 
+			 不改变原始数组
+			 */
+			var soArr = [1, 2, 5, 9, 0];
+			//判断数组中是否有大于8的数字，有的话返回true，没有的话返回false
+			var rel = soArr.some(function(pra) {
+				return pra > 8;
+			});
+			console.log(rel);
+
+			var rel = soArr.some(function(pra) {
+				return pra == 9;
+			});
+			console.log(rel);
+
+			/*
+			 every():所有元素必须全部满足才返回true，否则false
+			 * */
+			var eveArr = [1, 3, 5, 7, 9, 0];
+			var rel = eveArr.every(function(pra) {
+				return pra >= 0;
+			});
+			console.log(rel); //true
+
+			/*
+			 filter():返回数组中的满足回调函数中指定的条件的元素
+			 
+			 * */
+			// Define a callback function. 
+			function CheckIfPrime(value, index, ar) {
+				high = Math.floor(Math.sqrt(value)) + 1;
+
+				for(var div = 2; div <= high; div++) {
+					if(value % div == 0) {
+						return false;
+					}
+				}
+				return true;
+			}
+
+			// Create the original array. 
+			var numbers = [31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53];
+
+			// Get the prime numbers that are in the original array.  
+			var primes = numbers.filter(CheckIfPrime);
+
+			document.write(primes);
+			// Output: 31,37,41,43,47,53
+		</script>
+	</body>
+
+</html>

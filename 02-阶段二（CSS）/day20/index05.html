@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2d变形-旋转</title>
+		<style>
+			.container{
+				width: 400px;
+				height: 400px;
+				margin: 10px auto;
+				background: url(img/bg-grid.jpg) no-repeat;
+				border: 5px dotted #333;
+				background-size: 100% 100% ;
+				position: relative;
+			}
+			.container img{
+				position: absolute;
+				width: 100px;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			.container img:first-child{
+				opacity: .3;
+			}
+			.container img:last-child{
+				/*正数：顺时针*/
+				/*transform: rotate( 90deg );*/
+				/*负数：逆时针*/
+				/*transform: rotate( -30deg );*/
+				
+				transform: rotate( 30deg );
+				/* 旋转的中心的问题：
+				 *
+				 */
+				-moz-transform-origin: center;
+				-ms-transform-origin: center;
+				-webkit-transform-origin: center;
+				transform-origin: center;
+				/*
+				 * 参数两个：
+				 * 参数1：x轴方向
+				 * 参数2：Y轴方向
+				 * 如果省略第二个，默认center
+				 */
+				/*左边中点*/
+				transform-origin: left center;
+				/*左上角*/
+				transform-origin: left top;
+				/*右上角*/
+				transform-origin: top right;
+				/*右下角*/
+				transform-origin: right bottom;
+				transform-origin: bottom right;
+				
+				/*上边中点*/
+				transform-origin: top center;
+				transform-origin: left center;
+				
+				/*px或者百分比*/
+				/*左上角*/
+				transform-origin: 0 0;
+				/*中心点*/
+				transform-origin: 50% 50%;
+				transform-origin: 30px 30px;
+				/*右上角*/
+				transform-origin: 100% 0
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="img/cardKingClub.png" alt="" />
+			<img src="img/cardKingClub.png" alt="" />
+			
+		</div>
+	</body>
+</html>

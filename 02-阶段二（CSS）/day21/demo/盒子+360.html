@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>盒子中心360</title>
+		<style>
+			.box{
+				height: 400px;
+				width: 400px;
+				/*border: 2px solid black;*/
+				/*background-color: black;*/
+				position: relative;
+				margin: 50px auto;
+				perspective: 2000px;
+				transform-style: preserve-3d;
+				transform: rotateX(-45deg) rotateY(30deg);
+				transition: all 30s;
+			}
+			.box:hover{
+				transform:rotateX(-45deg) rotateY(2900deg) ;
+			}
+			.box div{
+				height: 150px;
+				width: 150px;
+				position: absolute;
+				opacity: .8;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+			}
+			.box div img{
+				height: 100%;
+				width: 100%;
+			}
+			.div1{
+				transform: translateZ(300px); 
+			}
+			.div2{
+				transform: rotateY(30deg) translateZ(300px);
+			}
+			.div3{
+				transform: rotateY(60deg) translateZ(300px);
+			}
+			.div4{
+				transform: rotateY(90deg) translateZ(300px);
+			}
+			.div5{
+				transform: rotateY(120deg) translateZ(300px);
+			}
+			.div6{
+				transform: rotateY(150deg) translateZ(300px);
+			}
+			.div7{
+				transform: rotateY(180deg) translateZ(300px);
+			}
+			.div8{
+				transform: rotateY(210deg) translateZ(300px);
+			}
+			.div9{
+				transform: rotateY(240deg) translateZ(300px);
+			}
+			.div10{
+				transform: rotateY(270deg) translateZ(300px);
+			}
+			.div11{
+				transform: rotateY(300deg) translateZ(300px);
+			}
+			.div12{
+				transform: rotateY(330deg) translateZ(300px);
+			}
+			.div1a{
+				background-color: red;
+				transform: translateZ(100px);
+			}
+			.div2a{
+				background-color: green;
+				transform-origin: left;
+				transform: translateZ(100px) rotateY(90deg);
+			}
+			.div3a{
+				background-color: blue;
+				transform-origin: right;
+				transform: translateZ(100px) rotateY(-90deg);
+			}
+			.div4a{
+				background-color: yellow;
+				transform-origin: bottom;
+				transform:translateZ(-50px) rotateX(-90deg);
+			}
+			.div5a{
+				background-color: silver;
+				transform-origin: top;
+				transform: translateZ(100px) rotateX(-90deg);
+			}
+			.div6a{
+				background-color: white;
+				transform: translateZ(-50px) rotateY(180deg);}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1a">
+					<img src="img/1.jpg" alt="" />
+				</div>
+				<div class="div2a">
+					<img src="img/2.jpg" alt="" />
+				</div>
+				<div class="div3a">
+					<img src="img/3.jpg" alt="" />
+				</div>
+				<div class="div4a">
+					<img src="img/4.jpg" alt="" />
+				</div>
+				<div class="div5a">
+					<img src="img/5.jpg" alt="" />
+				</div>
+				<div class="div6a">
+					<img src="img/6.jpg" alt="" />
+				</div>
+			<div class="div1">
+				<img src="img/1.jpg" alt="" />
+			</div>
+			<div class="div2">
+				<img src="img/2.jpg" alt="" />
+			</div>
+			<div class="div3">
+				<img src="img/3.jpg" alt="" />
+			</div>
+			<div class="div4">
+				<img src="img/4.jpg" alt="" />
+			</div>
+			<div class="div5">
+				<img src="img/5.jpg" alt="" />
+			</div>
+			<div class="div6">
+				<img src="img/6.jpg" alt="" />
+			</div>
+			<div class="div7">
+				<img src="img/1.jpg" alt="" />
+			</div>
+			<div class="div8">
+				<img src="img/2.jpg" alt="" />
+			</div>
+			<div class="div9">
+				<img src="img/3.jpg" alt="" />
+			</div>
+			<div class="div10">
+				<img src="img/4.jpg" alt="" />
+			</div>
+			<div class="div11">
+				<img src="img/5.jpg" alt="" />
+			</div>
+			<div class="div12">
+				<img src="img/6.jpg" alt="" />
+			</div>
+		</div>
+	</body>
+</html>

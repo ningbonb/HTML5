@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>伪类选择器</title>
+	</head>
+	<body>
+		<div id="div1">
+			<span>学习</span>
+			<p id='p1'>p1111111111</p>
+			<p id='p2'>p2222222222</p>
+		</div>
+		<div>
+			<span>JQ学习2</span>
+			<p>唯一p</p>
+		</div>
+		
+		<div style="display: none;">我是被隐藏的1</div>
+		<div style="display: none;">我是被隐藏的2</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//顺序是所有子元素对比
+			console.log($("#div1 p:first-child").text());
+			//同类型的第一个
+			console.log($("#div1 p:first-of-type").text());
+			
+			console.log($("#div1 p:last-child").text());
+			console.log($("#div1 p:last-of-type").text());
+			console.log($("#div1 p:nth-child(2)").text());
+			//同类型对比
+			console.log($("#div1 p:nth-of-type(2)").text());
+			//所有奇数
+			console.log($("#div1 p:nth-child(odd)").text());
+			//所有偶数
+			console.log($("#div1 p:nth-child(even)").text());
+			
+			console.log($("#div1 p:nth-child(n)").text());
+			
+			//选择div 下p ： p满足是一个唯一的子元素
+			console.log($("div p:only-child").text());
+			//同类型对比
+			console.log($("div p:only-of-type").text());
+			
+			
+			//JQ新增
+			//同类型对比
+			console.log($("#div1 p:first").text());
+			console.log($("#div1 p:last").text());
+			
+			//not(选择器):找div1下的p,排除掉id是#p1的p
+			console.log($("#div1 p:not(#p1)").text());
+			
+			//eq(小标) 下标从0开始 处理选择结果数组 找到数组第n个元素
+			console.log($("#div1 p:eq(0)").text());
+			
+			//gt(下标) greater than 下标从0开始  找出大于给定下标的所有元素
+			console.log($("#div1 p:gt(0)").text());
+			
+			//lt(下标) less than 
+			console.log($("#div1 p:lt(1)").text());
+			
+			//root
+			console.log($(':root').text());
+						
+			//hidden:当前隐藏所有div
+			console.log($("div:hidden").text());
+			//hidden:当前显示所有div
+			console.log($("div:visible").text());
+			
+			//has(选择器) 选择div：div必须满足包含#p1选择器
+			console.log($("div:has(#p1)").text());
+			
+			//parent 是父元素
+			console.log($("div:parent").text());
+			
+		});
+	</script>
+</html>

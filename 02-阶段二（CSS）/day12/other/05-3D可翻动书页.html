@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+        <meta name="author" content="charles">
+
+        <title></title>
+		<style type="text/css">
+			body{
+				background-color: black;
+				color: white;
+			}
+			main{
+				margin: 150px auto;
+				width: 300px;
+				height: 400px;
+				position: relative;
+				
+				perspective: 1000px;
+				/*perspective-origin: center center;*/
+				/*perspective-origin: 30% 80%;*/
+			}
+			section{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				background-color: mediumpurple;
+				transform-origin: 0 0 0;
+				opacity: 0.8;
+		transition: transform 2s; 
+			}
+			section i{
+                position: absolute;
+                right: 13px;
+                bottom: 10px;
+                font-size: 11px;
+                color: #ccc;
+            }
+			section:nth-child(1){
+                background-color: yellow;
+                transform: rotateY(-2deg);
+            }
+            section:nth-child(2){
+                background-color: red;
+                transform: rotateY(-17deg);
+            }
+            section:nth-child(3){
+                background-color: blue;
+                transform: rotateY(-32deg);
+            }
+            section:nth-child(4){
+                background-color: green;
+                transform: rotateY(-42deg);
+                color: white;
+                opacity: 0.95;
+            }
+            /*实现鼠标触发翻页*/
+            section:active{
+                transform: rotateY(-120deg);
+            }
+            /*页面内容布局*/
+           section:nth-child(3) h2{
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 10px;
+                font-weight: normal;
+            }
+           section:nth-child(3) p{
+                text-indent: 2em;
+                margin: 10px 30px;
+                font-size: 13px;
+            }
+           section:nth-child(4) h1{
+                position: absolute;
+                top: 30px;
+                left: 25px;
+                font-size: 32px;
+                font-weight: normal;
+            }
+            section:nth-child(4) span{
+                position: absolute;
+                bottom: 80px;
+                left: 125px;
+                font-size: 18px;
+            }
+		</style>
+	</head>
+	<body>
+		<main>
+			<section>
+				<i>4</i>
+			</section>
+            
+			<section>
+				<i>3</i>
+			</section>
+            
+			<section>
+				<i>2</i>
+				<h2>引言</h2>
+				<p>矩阵在图形变换中有广泛的应用，也是图形变换的数学基础。缩放、旋转、倾斜变换只需要使用 2 x 2 矩阵，
+                    如果把平移也加入进来，将得到 2 x 3 矩阵，如果进一步扩充，可以使用一个 3 x 3 的矩阵表示所有的基本2D变换。
+                    多个变换矩阵相乘将得到组合变换的效果。3D变换也可以很方便地用 4 x 4 的矩阵表示。</p>
+                <p>
+                    在图形变换过程中，普通的几何图形只需要考虑顶点即可。旋转变换时需要使用三角函数。
+                    为了在平面显示器中看到3D效果，还需要使用透视理论。</p>
+			</section>
+            
+			<section>
+				<i>1</i>
+				<h1>CSS图形变换入门</h1>
+                <span>智游教育</span>
+
+			</section>
+		</main>
+	</body>
+</html>

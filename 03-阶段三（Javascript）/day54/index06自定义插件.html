@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>插件</title>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		//改$ JQ对象拖拽添加
+		$.extend({
+			hello:function(){
+				console.log("你好");
+			},
+			eat:function(){
+				console.log("吃东西");
+			},
+			
+		});
+		
+		//给所有jq对象都添加了toAlert
+		$.fn.extend({
+			toRed:function(){
+				//this:调用对象
+				console.log(this);
+				this.css('background','red');
+			},
+			toColor:function(color){
+				color = color || '#ccc';
+				this.each(function(index,ele){
+					//this=ele=每次遍历出的对象
+					console.log(this,ele,index);
+					if(index % 2 != 0){
+						$(this).css("background",color);
+					}
+				});
+			},
+			dianji:function(fn){
+					//this:是调用者（li集合）
+				this.click(function(event){
+					//this:是每一个对应点击对象，是jq内部修改的指向
+					//alert("text内部方法");
+					//回调
+					//fn(event);
+					//call();参数1，要修改的this指向
+					//修改fn这个方法的this指向，call第一个参数是要修改的this指向，后面的参数和fn参数顺序个数一样
+					fn.call(this,event);
+				});
+				
+				
+			},
+		});
+	</script>
+	<script>
+		$(document).click(function(){
+			//$("ul li").toColor('red');
+		});
+		$("ul li").dianji(function(ev){
+			//salert("点击我了");
+			//alert(this);
+			console.log(ev,this);
+		});
+	</script>
+</html>

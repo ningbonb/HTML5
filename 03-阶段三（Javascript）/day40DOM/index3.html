@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				color: blue;
+			}
+			#div1:first-letter{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--测试属性节点-->
+		<div id="div1" class="div2Class" shiTou="石头" xiaoShiTou="小石头" style="width: 200px;background-color: red;">
+			1111111111
+		</div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		
+		/*
+		 操作属性的方式
+		 1.元素.属性名
+		 2.元素['属性名']
+		 
+		 通过以上两种方式获取属性，不能直接获取class，通过classname可以获取，不可以获取行间自定义属性
+		 * */
+		
+		console.log(div1.id);
+		console.log(div1['id']);
+		//变量
+		var vaId = 'id';
+		console.log(div1[vaId]);
+		
+//		console.log(div1.class);//underfined
+		console.log(div1.className);//div2Class
+		
+		//行间自定义属性获取:无法获取
+		console.log(div1.shiTou);//underfined
+		console.log(div1['shiTou']);//underfined
+		
+		//同对象 点语法自定义属性：可以访问
+		div1.daShiTou = "大石头";
+		console.log(div1.daShiTou);
+		console.log(div1['daShiTou']);
+		
+		//第三种读取设置方式
+		/*
+		 获取属性：getAttribute('属性名')
+		 兼容问题：
+		 获取class:标准下用class
+		 ie下用className
+		 
+		 问题：
+		 无法获取点语法自定义设置的属性
+		 * */
+		
+		var div1Attr1 = div1.getAttribute('id');
+		console.log(div1Attr1);//div1
+		//获取行间自定义
+		console.log(div1.getAttribute('shiTou'));//石头
+		console.log(div1.getAttribute('class'));//div2Class
+		
+		//无法访问点语法自定义属性
+		console.log(div1.getAttribute('daShiTou'));//null
+		
+		//设置属性：直接写到行间属性
+		div1.setAttribute('zhongShiTou','中石头');
+		console.log(div1.getAttribute('zhongShiTou'));//中石头
+		
+		//获取元素样式
+		/*
+		 div1.style.width:只能获取元素的行间样式,无法获取style标签下设置的样式
+		 * */
+		console.log(div1.style.width);
+		console.log(div1.style.backgroundColor);
+		
+		/*
+		 标准下获取style标签下样式：
+		 getComputedStyle()：参数有两个
+		 参数1，要获取样式的元素对象
+		 它会返回这个元素所有的css样式属性组成的对象
+		 
+		 参数2，伪元素选择器
+		 
+		 用法：参数2不传，或者传null
+		 
+		 兼容性：
+		 这个方法是标准浏览器下都可用
+		 
+		 ie：currentStyle 这个方法标准不支持
+		 * */
+		var divHeight = getComputedStyle(div1).height;
+		console.log(divHeight);//100px
+		console.log(getComputedStyle(div1));
+		console.log(getComputedStyle(div1).backgroundColor);//rgb(255, 0, 0)
+		//参数2给null
+		console.log(getComputedStyle(div1,null).color);
+		
+		//获取伪元素的css属性值
+		console.log(getComputedStyle(div1,':first-letter').color);
+		
+		//ie获取属性
+		console.log(div1.currentStyle);//underfined
+//		console.log(div1.currentStyle.height);
+
+		//兼容性写法
+		function getCSS(obj,attr){
+			if(obj == null) return null;
+			return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj,null)[attr];
+		}
+		
+		var wid = getCSS(div1,'width')
+		console.log(wid);//200px
+	</script>
+</html>

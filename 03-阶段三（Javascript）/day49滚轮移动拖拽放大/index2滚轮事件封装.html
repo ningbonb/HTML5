@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>滚轮事件</title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script src="js/mouseWheel.js">
+	</script>
+	<script type="text/javascript">
+		var div1 = document.getElementById("div1");
+		mouseWheel(div1,function(ev,down){
+			//console.log(down);
+			if(down){
+				console.log('下')
+			}else{
+				console.log('上');
+			}
+		});
+	</script>
+</html>

@@ -1,0 +1,302 @@
+<!doctype html>
+<html class="export">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Cascading grid layout library">
+
+  <title>Masonry &#xB7; Layout</title>
+
+    <link rel="stylesheet" href="css/masonry-docs.css" media="screen">
+
+</head>
+<body class="page--layout" data-page="layout">
+
+  <div class="site-nav">
+    <div class="container">
+      <ol class="site-nav__list">
+        <li class="site-nav__item site-nav__item--homepage">
+          <a href=".">Masonry</a></li>
+        <li class="site-nav__item site-nav__item--layout">
+          <a href="layout.html">Layout</a></li>
+        <li class="site-nav__item site-nav__item--options">
+          <a href="options.html">Options</a></li>
+        <li class="site-nav__item site-nav__item--methods">
+          <a href="methods.html">Methods</a></li>
+        <li class="site-nav__item site-nav__item--events">
+          <a href="events.html">Events</a></li>
+        <li class="site-nav__item site-nav__item--extras">
+          <a href="extras.html">Extras</a></li>
+        <li class="site-nav__item site-nav__item--faq">
+          <a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <div id="content" class="content container">
+
+      <h1>Layout</h1>
+
+    <ul class="page-nav">
+<li class="page-nav__item page-nav__item--h2"><a href="#item-sizing">Item sizing</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#responsive-layouts">Responsive layouts</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#imagesloaded">imagesLoaded</a></li>
+</ul>
+
+
+
+<h2 id="item-sizing">Item sizing</h2>
+
+<p>All sizing and styling of items is handled by your own CSS.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--height2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="selector-class">.grid-item</span> {
+  <span class="attribute">float</span>: left;
+  <span class="attribute">width</span>: <span class="number">80px</span>;
+  <span class="attribute">height</span>: <span class="number">60px</span>;
+  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="built_in">hsla</span>(0, 0%, 0%, 0.5);
+}
+
+<span class="selector-class">.grid-item--width2</span> { <span class="attribute">width</span>: <span class="number">160px</span>; }
+<span class="selector-class">.grid-item--height2</span> { <span class="attribute">height</span>: <span class="number">140px</span>; }
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid" data-masonry="{ &quot;columnWidth&quot;: 80 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/osFxj">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<h3 id="responsive-layouts">Responsive layouts</h3>
+
+<p>Item sizes can be set with percentages for responsive layouts. With the <code>masonry</code> layout mode, set percentage-width <code>columnWidth</code> with <a href="options.html#element-sizing">element sizing</a>. Set <code>percentPosition: <span class="literal">true</span></code> so item positions are likewise set with percentages to reduce adjustment transitions on window resize.</p>
+
+<p></p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- width of .grid-sizer used for columnWidth --&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 5 columns */</span>
+<span class="selector-class">.grid-sizer</span>,
+<span class="selector-class">.grid-item</span> { <span class="attribute">width</span>: <span class="number">20%</span>; }
+<span class="comment">/* 2 columns */</span>
+<span class="selector-class">.grid-item--width2</span> { <span class="attribute">width</span>: <span class="number">40%</span>; }
+</code></pre>
+
+<pre><code class="js">$(<span class="string">&apos;.grid&apos;</span>).masonry({
+  <span class="comment">// set itemSelector so .grid-sizer is not used in layout</span>
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  <span class="comment">// use element for option</span>
+  columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+  percentPosition: <span class="literal">true</span>
+})
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;, &quot;percentPosition&quot;: true }">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/JFpeg">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h2 id="imagesloaded">imagesLoaded</h2>
+
+<p>Unloaded images can throw off Masonry layouts and cause item elements to overlap. <a href="http://imagesloaded.desandro.com">imagesLoaded</a> resolves this issue. imagesLoaded is a separate script you can <a href="http://imagesloaded.desandro.com">download at imagesloaded.desandro.com</a>.</p>
+
+<p>Initialize Masonry, then trigger <a href="methods.html#layout"><code>layout</code></a> after each image loads.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="comment">// init Masonry</span>
+<span class="keyword">var</span> <span class="jquery_var">$grid</span> = $(<span class="string">&apos;.grid&apos;</span>).masonry({
+  <span class="comment">// options...</span>
+});
+<span class="comment">// layout Masonry after each image loads</span>
+<span class="jquery_var">$grid</span>.imagesLoaded().progress( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  <span class="jquery_var">$grid</span>.masonry(<span class="string">&apos;layout&apos;</span>);
+});
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--images" data-js-module="imagesloaded-progress">
+      <div class="grid-sizer"></div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/bwy74ok.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/bAZWoqx.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/PgmEBSB.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/aboaFoB.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/LkmcILl.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/q9zO6tw.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/r8p3Xgq.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/hODreXI.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/UORFJ3w.jpg">
+      </div>
+    </div>
+    
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/RPKgEN">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/MwJoZQ">vanilla JS demo</a> on CodePen
+    </p>
+  </div>
+</div>
+
+<p>Or, initialize Masonry after all images have been loaded.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$grid</span> = $(<span class="string">&apos;.grid&apos;</span>).imagesLoaded( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  <span class="comment">// init Masonry after all images have loaded</span>
+  <span class="jquery_var">$grid</span>.masonry({
+    <span class="comment">// options...</span>
+  });
+});
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--images" data-js-module="imagesloaded-callback">
+      <div class="grid-sizer"></div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/bwy74ok.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/bAZWoqx.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/PgmEBSB.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/aboaFoB.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/LkmcILl.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/q9zO6tw.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/r8p3Xgq.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/hODreXI.jpg">
+      </div>
+      <div class="grid-image-item">
+        <img src="http://i.imgur.com/UORFJ3w.jpg">
+      </div>
+    </div>
+    
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/bdgRzg">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/MwJoLQ">vanilla JS demo</a> on CodePen
+    </p>
+  </div>
+</div>
+
+  </div>
+
+  <div class="site-nav">
+    <div class="container">
+      <ol class="site-nav__list">
+        <li class="site-nav__item site-nav__item--homepage">
+          <a href=".">Masonry</a></li>
+        <li class="site-nav__item site-nav__item--layout">
+          <a href="layout.html">Layout</a></li>
+        <li class="site-nav__item site-nav__item--options">
+          <a href="options.html">Options</a></li>
+        <li class="site-nav__item site-nav__item--methods">
+          <a href="methods.html">Methods</a></li>
+        <li class="site-nav__item site-nav__item--events">
+          <a href="events.html">Events</a></li>
+        <li class="site-nav__item site-nav__item--extras">
+          <a href="extras.html">Extras</a></li>
+        <li class="site-nav__item site-nav__item--faq">
+          <a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="site-footer">
+  
+    <div class="container">
+        <p class="site-footer__copy">
+          Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
+          Make something rad with it.
+        </p>
+  
+  
+    </div>
+  
+  </div>
+
+  <script src="js/masonry-docs.min.js"></script>
+
+
+</body>
+</html>

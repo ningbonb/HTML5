@@ -1,0 +1,90 @@
+/*选择城市页面样式*/
+.select_city_wrap{
+	max-width: 1180px;
+	padding: 0 1rem;
+	margin: 0 auto;
+	font-size: 1.6rem;
+	line-height: 4rem;
+	color: #999999;
+}
+.select_city_wrap a{
+	color: #666666;	
+}
+.select_city_wrap a:hover{
+	color: #FF6600;
+}
+.select_about1 span{
+	display: inline-block;
+}
+div .select_font1 a{
+	display: inline-block;
+	color: #FF6600;
+}
+/*当前位置*/
+.select_site1{
+	text-align: left;
+	font-size: 1.4rem;
+}
+.select_site a{
+	color: #999999;
+}
+.select_hot{
+	margin-bottom: 3%;
+}
+.select_about1{
+	padding: 0 1.5%;
+	border: 1px solid silver;
+}
+.select_now,.select_hot{
+	border-bottom: 1px solid #F2F2F2;
+}
+.select_all{
+	margin-left: 1%;
+	margin-bottom: 2%;
+	overflow: hidden;
+	width: 100%;
+}
+.select_all:hover{
+	background-color: #F0F0F0;
+}
+.selsec_num{
+	width: 4rem;	
+	text-align: center;
+	float: left;
+	border: 1px solid silver;
+	font-size: 2rem;
+}
+.select_all:hover .selsec_num{
+	background-color: #008CE1;
+	color: #fff;
+}
+.select_name span{
+	padding: 0 1rem;
+}
+@media only screen and (max-width: 780px) {
+	html{
+		font-size: 9px;
+	}
+	.select_city_wrap{
+		font-size: 1.6rem;
+		line-height: 3rem;
+	}
+	.selsec_num{
+		width: 3rem;	
+	}
+	
+}
+@media only screen and (max-width: 580px) {
+	html{
+		font-size: 7px;
+	}
+	.select_city_wrap{
+		line-height: 2.5rem;
+	}
+	.selsec_num{
+		width: 2.5rem;	
+	}
+	.select_name span{
+		padding: 0 0.6rem;
+	}
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>轮播图</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#wrap{
+				height: 300px;
+				width: 400px;
+				border: 1px solid silver;
+				margin: 50px auto;
+				position: relative;
+				
+			}
+			#content{
+				width: 400%;
+				height: 100%;
+				position: absolute;
+			}
+			#content img{
+				height: 300px;
+				width: 400px;
+				float: left;
+				z-index: 1;
+			}
+			#left,#right{
+				width: 25px;
+				height: 40px;
+				position: absolute;
+				z-index: 10;
+				font-size: 30px;
+				top: 130px;
+				background-color: rgba(0,0,0,.4);
+				text-align: center;
+				line-height: 40px;
+				opacity: .5;
+			}
+			#left:hover,#right:hover{
+				opacity: 1;
+			}
+			#left{
+				left: 3px;
+			}
+			#right{
+				right: 3px;
+			}
+			#solid{
+				list-style: none;
+				position: absolute;
+				left: 50%;
+				bottom: 10px;
+				margin-left: -32.5px;
+				background-color: rgba(0,0,0,.5);
+				border-radius: 10px;;
+			}
+			#solid li{
+				float: left;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: silver;
+				margin: 0 5px;
+				cursor: pointer;
+			}
+			#solid .active{
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="content">
+				<img src="img/11.jpg"/>
+				<img src="img/12.jpg"/>
+				<img src="img/13.jpg"/>
+				<img src="img/11.jpg"/>
+			</div>
+			<div id="left"><</div>
+			<div id="right">></div>
+				<ul id="solid">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+				</ul>
+		</div>
+	</body>
+	<script src="js/tween.js"></script>
+	<script>
+		//获取元素
+		//左右
+		var left = document.getElementById("left");
+		var right = document.getElementById("right");
+		var content = document.getElementById("content");
+		//li原点数组
+		var solids = document.querySelectorAll("#solid li");
+		
+		//右边按钮
+		var timer;
+		//记录下标
+		var index = 0;
+		//保存图片的宽度
+		var w = content.getElementsByTagName("img")[0].offsetWidth;
+		//保存所有图片个数
+		var length = content.getElementsByTagName("img").length;
+		right.onclick = function(){
+			//判断当前点击的是不是左右一张，如果是，马上回到第一张
+			if(index == length -1){
+				content.style.left = 0;
+				index = 0;
+			}
+			//记录图片停留的位置
+			index++;
+			move();
+		};
+		left.onclick = function(){
+			//判断当前点击的是不是第一张，如果是，马上回到最后一张
+			if(index == 0){
+				index = length - 1;
+				content.style.left =  index * -w;
+			}
+			index--;
+			move();
+		};
+		//共用动画函数
+		function move(){
+			var t = 0;
+			//开始位置
+			var b = content.offsetLeft;
+			//变化 -w * index ：点击后要停留的位置  - 开始位置 == 偏移量
+			var c = -w * index - b;
+			//持续时间
+			var d = 50;
+			clearInterval(timer);
+			timer = setInterval(function(){
+				t++;
+				content.style.left = Tween.Linear(t,b,c,d) + "px";
+				//动画结束
+				if(t == d)clearInterval(timer);
+			},14);
+		}
+	</script>
+</html>

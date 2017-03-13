@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>倒计时</title>
+	</head>
+
+	<body>
+		<span id="time"></span>
+
+		<script>
+			var timer = document.getElementById("time");
+
+			//			var nDate = new Date("9 15,2016");
+			//			console.log(nDate);
+			//
+			//			//当前时间
+			//			var cDate = new Date();
+
+			//			//得到一个时间戳结果：单位是毫秒
+			//			var spaceTime = nDate - cDate;
+			//			console.log(spaceTime);
+			//			
+			//			//天 24*60*60*1000 == 86400000
+			//			var d = parseInt(spaceTime / 86400000);
+			//			//console.log(d);
+			//			
+			//			//小时60*60*1000
+			//			var h = parseInt(spaceTime % 86400000 / 3600000);
+			//			//console.log(h);
+			//			
+			//			//分 ： 60*1000
+			//			var m = parseInt(spaceTime % 3600000 / 60000);
+			//			//console.log(m);
+			//			
+			//			//秒 1000
+			//			var s = parseInt(spaceTime % 60000 / 1000);
+			//			//console.log(s);
+			//			
+			//			time.innerHTML = "距离中秋节还有：" + d + "天" + h + "小时" + m + "分" + s + "秒";
+
+			function countDown() {
+				var nDate = new Date("9 15,2016");
+				//console.log(nDate);
+
+				//当前时间
+				var cDate = new Date();
+				var spaceTime = nDate - cDate;
+				//console.log(spaceTime);
+
+				var d = parseInt(spaceTime / 86400000);
+
+				var h = parseInt(spaceTime % 86400000 / 3600000);
+
+				var m = parseInt(spaceTime % 3600000 / 60000);
+
+				var s = parseInt(spaceTime % 60000 / 1000);
+
+				time.innerHTML = "距离中秋节还有：" + d + "天" + h + "小时" + m + "分" + s + "秒";
+			}
+			countDown();
+			setInterval(countDown, 1000);
+		</script>
+	</body>
+
+</html>

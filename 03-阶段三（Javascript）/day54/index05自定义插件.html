@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>插件</title>
+	</head>
+	<body>
+		
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		//改$ JQ对象拖拽添加
+		$.extend({
+			hello:function(){
+				console.log("你好");
+			},
+			eat:function(){
+				console.log("吃东西");
+			},
+			
+		});
+		
+		//给所有jq对象都添加了toAlert
+		$.fn.extend({
+			toAlert:function(){
+				alert("新添加的方法");				
+			},
+			toL:function(){
+				alert("L");
+			},
+		});
+	</script>
+	<script>
+		$.hello();
+		$.eat();
+		
+		//
+		$(document).toAlert();
+		$(document).toL();
+	</script>
+</html>

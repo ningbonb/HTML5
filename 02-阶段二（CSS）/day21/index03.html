@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			body{
+				perspective: 1000px;
+			}
+			.container{
+				width: 400px;
+				height: 400px;
+				margin: 10px auto;
+				background: url(img/bg-grid.jpg) no-repeat;
+				border: 5px dotted #333;
+				background-size: 100% 100% ;
+				position: relative;
+				/*
+				 * perspective-origin: 给舞台元素添加，舞台放大中心点
+				 * (视线对齐点)
+				 */
+				perspective: 2000px;
+				transform: rotateY(60deg);
+				/*transform: rotateX(40deg);*/
+				
+				/* 开启3d视角（舞台元素添加）
+				 * 默认2d效果
+				 */
+				transform-style: preserve-3d;
+			}
+			.container img{
+				position: absolute;
+				width: 100px;
+				left: 0px;
+				right: 0px;
+				top: 0px;
+				bottom: 0px;
+				margin: auto;
+			}
+			.container img:first-child{
+				opacity: .3;
+			}
+			.container img:last-child{
+				transform: translateZ(150px);				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<img src="img/cardKingClub.png" alt="" />
+			<img src="img/cardKingClub.png" alt="" />
+			
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+    <script src="angular-route.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <ul>
+        <li><a href="#/page1">page1</a></li>
+        <li><a href="#/page2">page2</a></li>
+        <li><a href="#/page3">page3</a></li>
+        <li><a href="#/page4">page4</a></li>
+    </ul>
+    <!--<div ng-view=""></div>-->
+    <ng-view></ng-view>
+</body>
+</html>
+<script>
+    //注入路由模块
+    var app = angular.module("myApp",["ngRoute"]);
+    //配置函数:$routeProvider必须使用该名字
+    app.config(function($routeProvider){
+        console.log($routeProvider);
+//        $routeProvider.when("/",{template:"page1"});
+//        $routeProvider.when("/page2",{template:"page2"});
+//        $routeProvider.when("/page3",{template:"page3"});
+//        $routeProvider.when("/page4",{template:"page4"});
+//        $routeProvider.otherwise({redirectTo:'/'});
+        $routeProvider.when("/",{templateUrl:"20page/page1.html"});
+        $routeProvider.when("/page2",{templateUrl:"20page/page2.html"});
+        $routeProvider.when("/page3",{templateUrl:"20page/page3.html"});
+        $routeProvider.when("/page4",{templateUrl:"20page/page4.html"});
+        $routeProvider.otherwise({redirectTo:'/'});
+    });
+
+    app.controller("mainC",function () {
+        console.log("mianC");
+    });
+
+</script>

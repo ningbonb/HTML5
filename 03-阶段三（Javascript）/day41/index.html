@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#wrap{
+				border: 1px solid silver;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="wrap">
+			<button id="btn2">我是容器本身按钮</button>
+		</div>
+		<button id="btn">点击添加</button>
+		
+		<script>
+			var btn = document.getElementById("btn");
+			var wrap = document.getElementById("wrap");
+			var btn2 = document.getElementById("btn2");
+			
+			//点击添加a标签
+			btn.onclick = function(){
+				var inner = wrap.innerHTML;
+				wrap.innerHTML = inner + '<a href="###">新添加的a标签</a>';
+				//wrap.innerHTML赋值，wrap内元素点击事件会被清除，插入的是新的元素
+			};
+			
+			//按钮2本身事件
+			btn2.onclick = function(){
+				alert(111);
+			};
+		</script>
+	</body>
+</html>

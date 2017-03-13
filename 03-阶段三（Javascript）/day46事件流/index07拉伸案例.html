@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拉伸案列</title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 100px;
+				top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		
+		//增加的宽度 = 鼠标移动的clientX - 按下时的clientX 
+		
+		div1.onmousedown = function(ev){
+			var ev = ev || event;
+			
+			//鼠标按下时距离可视区域左边的距离
+			var baseClientX = ev.clientX;
+			var baseClientY = ev.clientY;
+			//初始宽度
+			var baseWidth = div1.offsetWidth;
+			
+			//判断是不是右拉伸（点击右边5像素内可拉伸）
+			var isR = baseWidth + div1.offsetLeft - baseClientX <= 5 ? true : false;
+			
+			//鼠标移动
+			document.onmousemove = function(ev){
+				var ev = ev || event;
+				console.log(ev.clientX - baseClientX);
+				if(isR)div1.style.width = ev.clientX - baseClientX + baseWidth + "px";
+			};
+			//鼠标抬起
+			document.onmouseup = function(){
+				document.onmouseup = document.onmousemove = null;
+			};
+		};
+	</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>居中2</title>
+	<style>
+		body{
+			position: relative;
+		}
+		.wrap{
+			width: 300px;
+			height: 300px;
+			background-color: red;
+
+			/*position: absolute;*/
+			/*横向居中*/
+			/*left: 0;
+			right: 0;
+			margin: 0 auto;*/
+
+			position: relative;
+		}
+		.center{
+			background-color: blue;
+			/*宽高适应父元素宽高（不给宽度）*/
+			position: absolute;
+			/*left: 0;
+			right: 10px;
+			top: 0;
+			bottom: 10px;*/
+
+			/*横向纵向居中（必须设定宽度高度）*/
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			height: 100px;
+			width: 100px;
+
+			/*margin: auto;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="center"></div>
+	</div>
+</body>
+</html>

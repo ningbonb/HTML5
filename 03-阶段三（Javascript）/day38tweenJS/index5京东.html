@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>轮播图</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#wrap{
+				height: 250px;
+				width: 400px;
+				border: 1px solid silver;
+				margin: 50px auto;
+				position: relative;
+				
+			}
+			#wrap img{
+				height: 100%;
+				position: absolute;
+				width: 100%;
+				z-index: 1;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				transition: all 1s;
+			}
+			#wrap img:first-child{
+				opacity: 1;
+			}
+			#left,#right{
+				width: 25px;
+				height: 40px;
+				position: absolute;
+				z-index: 10;
+				font-size: 30px;
+				top: 105px;
+				background-color: rgba(0,0,0,.4);
+				text-align: center;
+				line-height: 40px;
+				opacity: .5;
+			}
+			#left:hover,#right:hover{
+				opacity: 1;
+				cursor: pointer;
+			}
+			#left{
+				left: 3px;
+			}
+			#right{
+				right: 3px;
+			}
+			#solid{
+				list-style: none;
+				position: absolute;
+				left: 50%;
+				bottom: 10px;
+				margin-left: -32.5px;
+				background-color: rgba(0,0,0,.5);
+				border-radius: 10px;;
+				z-index: 10;
+			}
+			#solid li{
+				float: left;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: silver;
+				margin: 0 5px;
+				cursor: pointer;
+			}
+			#solid .active{
+				background-color: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="img/11.jpg"/>
+			<img src="img/12.jpg"/>
+			<img src="img/13.jpg"/>
+			<div id="left"><</div>
+			<div id="right">></div>
+				<ul id="solid">
+					<li class="active"></li>
+					<li></li>
+					<li></li>
+				</ul>
+		</div>
+	</body>
+	<script src="js/tween.js"></script>
+	<script>
+		//左右
+		var left = document.getElementById("left");
+		var right = document.getElementById("right");
+		//li原点数组
+		var solids = document.querySelectorAll("#solid li");
+		//图片数组
+		var imgArr = document.querySelectorAll("#wrap img");
+		//右边按钮
+		var timer;
+		//记录下标
+		var index = 0;
+		var length = imgArr.length
+		right.onclick = function(){
+			index++;
+			//判断是否超出最后一张
+			if(index > length - 1)index = 0;
+			changeOpacity();
+			changeDot();
+		};
+		left.onclick = function(){
+			index--;
+			if(index < 0)index = length - 1;
+			changeOpacity();
+			changeDot();
+		}
+		
+		//绑定圆点事件
+		for(var i = 0; i < solids.length; i++){
+			solids[i].clickIndex = i;
+			solids[i].onclick = function(){
+				index = this.clickIndex;
+				changeOpacity();
+				changeDot();
+			};
+		}
+		
+		//改变透明度
+		function changeOpacity(){
+			for(var i = 0; i < length; i++){
+				imgArr[i].style.opacity = 0
+			}
+			imgArr[index].style.opacity = 1;
+		}
+		
+		function changeDot(){
+			for(var i = 0; i < solids.length; i++){
+				solids[i].className = "";
+			}
+			solids[index].className = "active";
+		}
+		
+		//定时器
+		
+		function auto(){
+			index++
+			//判断是否超出最后一个
+			index = index > length - 1 ? 0 : index;
+			changeOpacity();
+			changeDot();
+		}
+		
+		var timer = setInterval(auto,3000);
+		
+		//鼠标移入，清定时器
+		var wrap = document.getElementById("wrap");
+		wrap.onmouseover = function(){
+			clearInterval(timer);
+		};
+		wrap.onmouseout = function(){
+			timer = setInterval(auto,3000);
+		};
+	</script>
+</html>

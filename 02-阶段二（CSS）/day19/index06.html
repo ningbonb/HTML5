@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>背景background-size</title>
+		<style>
+			.div1{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				/*background: url(img/1.jpg) no-repeat;*/
+				background: url(img/bg_a.jpg) no-repeat;
+				
+				/* 
+				 * 参数1： 宽度
+				 * 参数2： 高度
+				 * 给定一个，另一个自适应（auto）
+				 */
+				background-size: 200px;
+				background-size: 200px auto;
+				background-size: auto 200px;
+				
+				/*参照的元素宽高*/
+				background-size: 100%;
+				/*background-size: 50%;*/
+				
+				/* cover: 完全覆盖背景
+				 * 保证图片不拉伸，造成有一部分不显示
+				 */
+				background-size: cover;
+				/* contain: 包含
+				 * 宽度高度完全适应背景区域，根据图片的比例适应，会有空白
+				 */
+				background-size: contain;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="mainController">
+        {{name}}
+        <p>{{"我叫："+person.name+"今年"+person.age}}</p>
+        <ul>
+            <!--$index获取对应下标-->
+            <!--<li ng-repeat="person in array">{{"我叫："+person.name+"今年"+person.age}}<button ng-click="reload($index)">按钮</button></li>-->
+            <li ng-repeat="person in array" ng-show="$even">{{$index}}{{"我叫："+person.name+"今年"+person.age}}<button ng-click="reload(person)">按钮</button></li>
+        </ul>
+        <button ng-click="reload('123')">按钮</button>
+    </div>
+    <!--超出mainController范围，所有子啊mianController里面的$scope定义的数据模型全部失效-->
+    <p>{{"我叫："+person.name+"今年"+person.age}}</p>
+</body>
+</html>
+<!--
+    model:
+    view:我们html文件
+    controller:我们ng-controler指定的控制器
+-->
+<script>
+    //1.加载模块
+    var app = angular.module("myApp",[]);
+    //2.加载控制器
+    //参数1：需要加载的控制器名称，参数2：回调函数
+    app.controller("mainController",function ($scope) {
+        //console.log($scope);
+        //$scope：理解为我们model数据模型，我们可以向这个模型里添加数据，view层可以自动更新（数据的双向绑定）
+        //好比我们在ng-init里面给model层绑定name变量并且赋值(MVVM)
+        $scope.name = "test";
+        $scope.person = {name:'毛毛',age:38};
+        $scope.array = [{name:'毛毛',age:38},{name:'毛毛2',age:328},{name:'毛毛3',age:238}];
+        //给模型绑定事件
+        $scope.reload = function (num) {
+            console.log(num);
+            //this:指当前通过ng-repeat指令默认创建的一个scope
+            //console.log(this);
+            //console.log(this.$parent);
+            //console.log($scope);
+            //当前点击坐标
+            console.log(this.$index);
+            //继承父scope的属性
+            console.log(this.name);
+            console.log(this.person.name);
+            //更新数据模型 view自动显示
+            $scope.name = "更新名字"+Math.random();
+        }
+    });
+    //$scope：只能在自己的控制器声明然后使用
+    //$scope.name = "莫阿莫阿";
+</script>

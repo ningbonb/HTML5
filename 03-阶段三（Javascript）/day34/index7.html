@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>切换页面</title>
+		
+		<style>
+			.active{
+				background-color: red;
+				color: green;
+				border-radius: 5px;
+				width: 50px;
+				width: 40px;
+			}
+			
+			div{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+				margin: 10px;
+				font-size: 100px;
+				text-align: center;
+				line-height: 300px;
+				
+				display: none;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="active">1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		
+		<div class="show">div1</div>
+		<div>div2</div>
+		<div>div3</div>
+		<div>div4</div>
+		
+		<script>
+			//获取按钮
+			var chooseList = document.querySelectorAll("button");
+			//获取div列表
+			var showList = document.getElementsByTagName("div");
+			//chooseList绑定事件
+			for(var i = 0; i < chooseList.length; i++){
+				//给每一个按钮自定义对应下标
+				chooseList[i].index = i;
+				
+				chooseList[i].onclick = function(){
+					//对应按钮选中状态
+					for(var j = 0; j < chooseList.length; j++){
+						chooseList[j].className = "";
+						//找到每一个div
+						showList[j].className = "";
+					}
+					//点击按钮高亮状态
+					this.className = "active";
+					//找到对应的div
+					//alert(this.index);
+					showList[this.index].className = "show";
+				};
+			}
+		</script>
+	</body>
+</html>

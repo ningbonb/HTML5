@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>错误实例</title>
+	</head>
+	<body>
+		<input type="text" name="text" id="text"/>
+		<input type="button" name="button" id="button" value="确定" />
+	</body>
+	<script>
+		//回调函数
+		function callBack(jsonO){
+			console.log(jsonO);
+		}
+	</script>
+	
+	<!--开始网络请求：ajax 后台在调用前端一个叫callback的函数,后台事通过cd字段取出的函数名-->
+	<script id="sct" src="https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=html&cb=callBack"></script>
+	
+	<script>
+		var textIn = document.getElementById("text");
+		var buttonIn = document.getElementById("button");
+		
+		//动态的设置script：标签的src属性
+		var sct = document.getElementById("sct");
+		//alert(sct.src);
+		//修改src
+		buttonIn.onclick = function(){
+			var api = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+textIn.value+"&cb=callBack";
+			//alert(api);
+			//修改src:
+			sct.src = api;
+			//没有结果:单个script标签，json请求只能用一次
+			//如果多次请求，需要动态创建script
+			
+		};
+	</script>
+</html>

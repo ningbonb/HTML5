@@ -1,0 +1,1844 @@
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Correct the line height in all browsers.
+ * 3. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  line-height: 1.15; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+
+article,
+aside,
+details, /* 1 */
+figcaption,
+figure,
+footer,
+header,
+main, /* 2 */
+menu,
+nav,
+section,
+summary { /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+
+template, /* 1 */
+[hidden] {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+
+a {
+  background-color: transparent; /* 1 */
+  -webkit-text-decoration-skip: objects; /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+
+button,
+input { /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+
+button,
+select { /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* colors
+
+light gray #D8D5D2
+dark gray #333
+purple #A2C
+red #D26
+*/
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* font-size on html for rem*/
+html {
+  font-family: Texta, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+html.export {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+
+
+body {
+  color: #333;
+  background: #D8D5D2;
+}
+
+/* ---- links ---- */
+
+a,
+a code {
+  color: #A2C;
+  text-decoration: none;
+}
+
+a:hover,
+a:hover code {
+  color: #D26;
+}
+
+
+/* ---- headers ---- */
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+}
+
+/* ---- lists ---- */
+
+ul, ol {
+  padding-left: 1.8em;
+}
+
+/* ---- code ---- */
+
+pre, code {
+  font-family: Consolas, Menlo, monospace;
+  font-size: 14px;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  html {
+    font-size: 19px;
+  }
+
+  html.export { font-size: 16px; }
+
+  pre, code, kbd {
+    font-size: 15px;
+  }
+
+}
+
+
+/* Code
+------------------------- */
+
+pre, code {
+  background: #222;
+  color: white;
+}
+
+pre {
+  padding: 0.8em;
+  border-radius: 5px;
+  white-space: pre-wrap;
+}
+
+code {
+  padding: 0.2em 0.3em;
+  line-height: 1.2;
+  border-radius: 3px;
+}
+pre code {
+  padding: 0;
+  line-height: 1.5;
+  background: none;
+}
+
+a code {
+  background: #A2C;
+  color: white;
+}
+
+a:hover code {
+  color: white;
+  background: #D26;
+}
+
+code .string,
+code .tag .value { color: #0C4; }
+code .number, /* integer */
+code .cp, /* doctype */
+code .literal { color: #38F; } /*boolean*/
+code .keyword { color: #F73; } /* keyword */
+code .kd, /* storage */
+code .attribute { color: #DC8; } /* markup attribute */
+code .title { color: #9CF; }
+code .params { color: #98D; }
+code .p  { color: #EDB; } /* punctuation */
+code .o  { color: #F63; }   /* operator */
+code .nb { color: #AA97AC;} /* support */
+
+/* comment */
+code .comment { color: #999; font-style: italic; }
+
+code .tag { color: #6CF; } /* Markup open tag */
+
+code .id { color: #ABC; } /* css id */
+code .class { color: #A63; }  /* CSS class */
+code .rules { color: #FED; }
+code .m  { color: #DE8E50; } /* CSS value */
+code .nd { color: #9FAD7E; } /* CSS pseudo selector */
+code .hexcolor { color: #F63; }
+code .at_rule { color: #088; }
+
+/* masonry keywords */
+code .masonry_var { color: #F3F; }
+code .jquery_var { color: #DF8; }
+code .masonry_keyword { color: #0FF; text-decoration: underline; }
+
+/* content
+------------------------- */
+
+.content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ---- typography ---- */
+
+.content h1 {
+  font-size: 3.4rem;
+}
+
+.content h2 {
+  font-size: 2.0rem;
+  font-weight: 400;
+  padding: 30px 0;
+  border-top: 2px solid white;
+  margin-top: 50px;
+}
+
+.content h2:target {
+  padding-left: 0.5em;
+  background: #D26;
+  color: white;
+}
+
+.content h3 {
+  font-size: 1.6rem;
+  border-top: 1px solid white;
+  padding-top: 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+
+@media screen and ( min-width: 768px ) {
+
+  .content > * {
+    max-width: 900px;
+  }
+
+  /* stuff that can go wide */
+  .content > .example {
+    max-width: none;
+  }
+
+}
+
+/* ---- demos ---- */
+
+.demo .masonry,
+.demo.masonry {
+  background: white;
+  border-radius: 5px;
+}
+
+.demo .button {
+  margin-bottom: 0.8em;
+}
+
+/* ---- fit width ---- */
+
+#fit-width {
+  border: 2px solid white;
+  border-radius: 6px;
+}
+
+#fit-width .masonry {
+  margin: 10px auto;
+}
+
+/* ---- counting ---- */
+
+.masonry.counting {
+  counter-reset: item;
+}
+
+.masonry.counting .item:before {
+  counter-increment: item;
+  content: counter(item);
+  display: block;
+  color: white;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* ---- measurement demos ---- */
+
+#gutter-opt-demo2 .item {
+  margin-bottom: 10px;
+}
+
+/* responive column width */
+.masonry.masonry--percent-width .grid-sizer { width: 20%; }
+.masonry.masonry--percent-width .item { width: 20%; }
+.masonry.masonry--percent-width .item.w2,
+.masonry.masonry--percent-width .item.w3 { width: 40%; }
+
+#row-height-demo2 .grid-sizer {
+  height: 60px;
+}
+
+#gutter-opt-demo3 .gutter-sizer {
+  width: 3%;
+}
+
+/* ---- stamp ---- */
+
+.has-stamp {
+  position: relative;
+}
+
+#stamp-demo .stamp {
+  right: 10%;
+  top: 10px;
+  width: 35%;
+  height: 70px;
+}
+
+#stamp-demo .item { opacity: 0.8; }
+
+/* ---- animate-item-size ---- */
+
+/* item is invisible, but used for layout */
+.masonry.animate-item-size-demo .item,
+.masonry.animate-item-size-demo .item-content {
+  width: 60px;
+  height: 60px;
+}
+
+.masonry.animate-item-size-demo .item {
+  border: none;
+  background: transparent;
+}
+
+/* item-content is visible, and transitions size */
+.animate-item-size-demo .item-content {
+  width: 60px;
+  height: 60px;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+  -webkit-transition: width 0.4s, height 0.4s;
+     -moz-transition: width 0.4s, height 0.4s;
+       -o-transition: width 0.4s, height 0.4s;
+          transition: width 0.4s, height 0.4s;
+}
+
+.animate-item-size-demo .item:hover .item-content {
+  border-color: white;
+  background: #A2C;
+}
+
+/* both item and item content change size */
+.animate-item-size-demo .item.is-expanded,
+.animate-item-size-demo .item.is-expanded .item-content {
+  width: 180px;
+  height: 120px;
+}
+
+.animate-item-size-demo .item.is-expanded {
+  z-index: 2;
+}
+
+.animate-item-size-demo .item.is-expanded .item-content {
+  background: #F90;
+}
+
+
+/* ---- animate item size responsive ---- */
+
+#animate-item-size-responsive .item,
+#animate-item-size-responsive .grid-sizer {
+  width: 20%;
+}
+
+#animate-item-size-responsive .item-content {
+  width:  100%;
+  height: 100%;
+}
+
+/* item has expanded size */
+#animate-item-size-responsive .item.is-expanded {
+  width: 60%;
+}
+
+/* web fonts
+------------------------- */
+
+/*@import url("//hello.myfonts.net/count/2d333f");*/
+
+/*
+  Just use WOFF2 and WOFF for webfonts
+  http://css-tricks.com/snippets/css/using-font-face/ */
+
+/* Texta Heavy */
+@font-face {
+  font-family: 'Texta';
+  font-weight: bold;
+  font-style: normal;
+  src: url('../fonts/2D333F_0_0.woff2') format('woff2'),
+    url('../fonts/2D333F_0_0.woff') format('woff');
+}
+
+/* Texta Italic */
+@font-face {
+  font-family: 'Texta';
+  font-weight: normal;
+  font-style: italic;
+  src: url('../fonts/2D333F_1_0.woff2') format('woff2'),
+    url('../fonts/2D333F_1_0.woff') format('woff');
+}
+
+/* Texta Regular */
+@font-face {
+  font-family: 'Texta';
+  src: url('../fonts/2D333F_2_0.woff2') format('woff2'),
+    url('../fonts/2D333F_2_0.woff') format('woff');
+}
+
+/* ---- desktop  ---- */
+
+@media screen and ( min-width: 960px ) {
+
+  /* first primary content not used on homepage */
+  .index-page #content > .primary-content:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+}
+
+/* ---- #content ---- */
+
+
+/* ---- row ---- */
+
+.row .cell {
+  margin-bottom: 0.8em;
+}
+
+/* clearfix */
+.row:after {
+  content: ' ';
+  display: block;
+  clear: both;
+}
+
+.row4 .cell {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+}
+
+/* tablet-ish */
+@media screen and ( min-width: 800px ) {
+
+  .row {
+    margin-bottom: 0.8em;
+  }
+
+  /* two column by default*/
+  .row .cell {
+    float: left;
+    width: 48.75%;
+    margin-right: 2.5%;
+    margin-bottom: 0;
+  }
+  /* IE8 doesn't support :last-child */
+  .lt-ie9 .row .cell { margin-right: 1.5%; }
+
+  /* no margin */
+/*  .example.row .cell {
+    width: 50%;
+    margin-right: 0;
+  }*/
+
+  /* three column */
+  .row3 .cell {
+    width: 31.6%;
+  }
+
+  /* four column */
+  .row4 .cell {
+    width: 23.1%;
+  }
+
+  .row .cell:last-child {
+    margin-right: 0;
+  }
+
+}
+
+
+
+
+
+/* ---- instruction ---- */
+
+.instruction {
+  font-size: 18px;
+  margin-bottom: 0.2em;
+  color: #888;
+}
+
+/* ---- notification ---- */
+
+#notification {
+  display: none; /* hide by default */
+  position: fixed;
+  z-index: 20; /* above most stuff */
+  bottom: 0px;
+  right: 0px;
+  background: #A2C;
+  padding: 0.5em;
+  color: white;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* button
+------------------------- */
+
+.button {
+  display: inline-block;
+  padding: 5px 15px;
+  margin-bottom: 10px;
+  background: #A2C;
+  border: none;
+  border-radius: 7px;
+  background-image: linear-gradient( to bottom, hsla(0, 0%, 0%, 0), hsla(0, 0%, 0%, 0.2) );
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #C2E;
+}
+
+.button:active,
+.button.is-checked,
+.button.is-selected {
+  background-color: #D26;
+}
+
+.button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+/* hide radio inputs */
+.button input[type="radio"] { display: none; }
+
+/* ---- button-group ---- */
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 0;
+  margin-right: 1px;
+}
+
+.button-group .button:first-child { border-radius: 0.5em 0 0 0.5em; }
+.button-group .button:last-child { border-radius: 0 0.5em 0.5em 0; }
+
+/* call out
+------------------------- */
+
+.call-out {
+  border-top: 2px solid #F90;
+  border-bottom: 2px solid #F90;
+  padding-left: 40px;
+  position: relative;
+  margin: 20px 0;
+}
+
+/* (i) */
+.call-out:before {
+  content: 'i';
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 5px;
+  top: 20px;
+  background: #F90;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-family: Consolas, Georgia, serif;
+  font-style: italic;
+}
+
+.call-out h2 {
+  margin-top: 0;
+  padding-top: 10px;
+  border-top: none;
+}
+
+.call-out--chill { border-color: #1FB; }
+.call-out--chill:before { background: #1FB; }
+
+@media screen and (min-width: 768px) {
+
+  .call-out {
+    border: 2px solid #F90;
+    padding: 10px 20px 10px 80px;
+    border-radius: 6px;
+    position: relative;
+    margin: 20px 0;
+  }
+
+  .call-out--chill { border-color: #1FB; }
+
+  .call-out:before {
+    width: 40px;
+    height: 40px;
+    left: 20px;
+    top: 30px;
+    font-size: 1.9em;
+    line-height: 46px;
+  }
+
+}
+
+/* container
+------------------------- */
+
+.container {
+  margin-left: 10px;
+  margin-right: 10px;
+  max-width: 1200px;
+}
+
+@media screen and ( min-width: 1100px ) {
+  
+  .container {
+    margin-left: 6%;
+    margin-right: 200px;
+  }
+
+}
+
+/* duo
+two columns for large devices
+------------------------- */
+
+/* clearfix */
+.duo:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.duo__cell {
+  margin-bottom: 10px;
+}
+
+@media screen and ( min-width: 768px ) {
+
+  .duo__cell {
+    float: left;
+    width: 48.5%;
+  }
+
+  .duo__cell:first-child {
+    margin-right: 3%;
+  }
+
+}
+
+/* edit-demo
+------------------------- */
+
+.edit-demo {
+  clear: both;
+  font-size: 0.92em;
+}
+
+/* fizzy-bear-shirt
+------------------------- */
+
+.fizzy-bear-shirt {
+  margin: 40px 0;
+}
+
+.fizzy-bear-shirt__title {
+  font-size: 1.6rem;
+}
+
+.fizzy-bear-shirt__image {
+  display: block;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+/* example
+------------------------- */
+
+.example pre {
+  margin-top: 0;
+}
+
+.example__demo--fit-width {
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+/* grid
+------------------------- */
+
+.grid {
+  background: white;
+  border-radius: 5px;
+}
+
+/* clearfix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- banner ---- */
+
+.grid--has-banner {
+  position: relative;
+}
+
+.static-banner {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px 15px;
+  color: white;
+  background: #A2C;
+  z-index: 2; /* above items */
+}
+
+/* ---- centered ---- */
+
+.grid--centered {
+  margin: 10px auto;
+}
+
+/* ---- counting ---- */
+
+.grid--counting {
+  counter-reset: grid-item;
+}
+
+.grid--counting .grid-item:before {
+  counter-increment: grid-item;
+  content: counter(grid-item);
+  display: block;
+  color: white;
+  padding-top: 0.2em;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* ---- stamp ---- */
+
+.grid--has-stamp { position: relative; }
+
+/* ---- grid--fixed-width ---- */
+
+.grid--fixed-width {
+  width: 320px;
+}
+
+/* grid-image-item
+------------------------- */
+
+.grid-image-item,
+.grid--images .grid-sizer { width: 33.33%; }
+
+.grid-image-item {
+  float: left;
+}
+
+.grid-image-item img {
+  display: block;
+  max-width: 100%;
+}
+
+/* grid-item
+------------------------- */
+
+.grid-item {
+  width: 80px;
+  height: 60px;
+  float: left;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.grid-item--width2 { width:  160px; }
+.grid-item--width3 { width:  240px; }
+
+.grid-item--height2 { height: 100px; }
+.grid-item--height3 { height: 140px; }
+.grid-item--height4 { height: 180px; }
+
+.grid-item--gigante {
+  width: 240px;
+  height: 180px;
+  background: #F90;
+  z-index: 2; /* keep it above other items */
+}
+
+/* ---- clickable ---- */
+
+.grid--clickable .grid-item:hover {
+  border-color: white;
+  background: #A2C;
+  cursor: pointer;
+}
+
+/* ---- fluid-5-col ---- */
+
+.grid--fluid-5-col .grid-sizer,
+.grid--fluid-5-col .grid-item { width: 20%; }
+
+.grid--fluid-5-col .grid-item--width2,
+.grid--fluid-5-col .grid-item--width3 {
+  width: 40%;
+}
+
+/* ---- gutter ---- */
+
+.grid--gutter .grid-item--width2 { width: 170px; }
+.grid--gutter .grid-item--width3 { width: 260px; }
+
+.grid--gutter-bottom .grid-item { margin-bottom: 10px; }
+
+/* ---- grid--fluid-gutter ---- */
+
+.grid--fluid-gutter .grid-item,
+.grid--fluid-gutter .grid-sizer {
+  width: 22%;
+}
+
+.grid--fluid-gutter .gutter-sizer {
+  width: 4%;
+}
+
+.grid--fluid-gutter .grid-item--width2,
+.grid--fluid-gutter .grid-item--width3 {
+  width: 48%;
+}
+
+/* hero
+------------------------- */
+
+.hero-grid {
+  padding: 10px 1%;
+  margin: 20px 0;
+  background: white;
+  border-radius: 10px;
+}
+
+/* necessary for proper sizing with margins */
+.hero-grid__grid-sizer {
+  position: absolute;
+}
+
+.hero-grid__item,
+.hero-grid__grid-sizer {
+  width: 47%;
+  margin: 0 1% 20px 1%;
+}
+
+.hero-grid__gutter-sizer {
+  width: 2%;
+}
+
+.hero-grid__item {
+  float: left;
+  border-radius: 8px;
+  background: #D8D6D2;
+  margin-bottom: 20px;
+}
+
+/* ----  ---- */
+
+.hero__title {
+  margin: 0;
+  line-height: 1.2;
+  font-size: 3rem;
+  color: #D26;
+}
+
+.hero__tagline {
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+
+/* ---- texty ---- */
+
+.hero-grid__item--texty {
+  padding: 10px;
+}
+
+.hero-grid__item--width2,
+.hero-grid__item--width3 {
+  width: 96%;
+}
+
+/* ---- ---- */
+
+.hero-grid__big-button {
+  position: relative;
+  display: block;
+  padding: 10px;
+  background: #D26;
+  color: white;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.hero-grid__big-button:hover {
+  background: #A2C;
+  color: white;
+}
+
+.big-button__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.big-button__icon path {
+  fill: white;
+}
+
+/* ----  ---- */
+
+.hero__what-is-title {
+  margin: 0 0 10px;
+}
+
+.hero__what-is-description {
+  margin: 0;
+}
+
+/* ---- .hero-grid__example-link ---- */
+
+.hero__example-link {
+  display: block;
+  background: #D26;
+  border-radius: 8px;
+  color: white;
+}
+
+.hero__example-link:hover {
+  background: #A2C;
+  color: white;
+}
+
+.hero__example-link__img {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.hero__example-link__title {
+  margin: 0;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* enough width for 4 columns */
+@media screen and ( min-width: 768px ) {
+
+  .hero-grid__grid-sizer,
+  .hero-grid__item {
+    width: 22.5%;
+  }
+
+  .hero-grid__item--width2 {
+    width: 47%;
+  }
+
+
+  .hero-grid__item--width3 {
+    width: 71.5%;
+  }
+
+  .hero__title {
+    font-size: 6rem;
+  }
+
+  .hero__tagline {
+    font-size: 2rem;
+  }
+
+  .hero__what-is-title {
+    font-size: 2rem;
+  }
+
+  .hero__what-is-description {
+    font-size: 1.1rem;
+  }
+
+  .hero-grid__big-button {
+    padding-left: 60px;
+    min-height: 60px;
+  }
+
+  .big-button__icon {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+}
+
+/* ---- logo-pizza-banner ---- */
+
+.logo-pizza-banner {
+  display: block;
+  margin: 40px 0;
+  max-width: 1000px;
+  background: #E8E5E2;
+  color: #D26;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.logo-pizza-banner:hover {
+  background: #FFF;
+  color: #A2C;
+}
+
+.logo-pizza-banner__img {
+  display: block;
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.logo-pizza-banner__title {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 10px 0;
+  font-size: 3.0rem;
+}
+
+.logo-pizza-banner__tagline {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+/* other-products
+------------------------- */
+
+.other-product {
+  margin-bottom: 10px;
+}
+
+.other-product__link {
+  position: relative; /* gonna abs */
+  display: block;
+  padding: 0px;
+  background: #E8E5E2;
+  border-radius: 5px;
+  color: #D26;
+}
+
+.other-product__link:hover {
+  background: white;
+  color: #A2C;
+}
+
+.other-product__link:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.other-product__image {
+  float: left;
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.other-product__title {
+  margin: 10px 0;
+  padding-top: 10px;
+  line-height: 1.2;
+  font-weight: bold;
+  font-size: 2.0em;
+}
+
+.other-product__description {
+  line-height: 1.2;
+  margin: 0;
+}
+
+@charset "UTF-8";
+
+/* page-nav
+------------------------- */
+
+.page-nav {
+  padding: 1.0em 0;
+  font-size: 0.8rem;
+  z-index: 2; /* above packeries */
+}
+
+.page-nav__item {
+  display: inline-block;
+}
+
+.page-nav__item:after {
+  content: ' •';
+  margin: 0 10px;
+  opacity: 0.5;
+}
+
+.page-nav__item:last-child:after {
+  content: none;
+}
+
+/* desktop */
+@media screen and ( min-width: 1100px ) {
+
+  .page-nav {
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 200px;
+    list-style: none;
+    padding: 0;
+    padding: 10px;
+  }
+
+  .page-nav__item {
+    display: block;
+    margin-bottom: 4px;
+    margin-left: 0;
+  }
+
+  .page-nav__item:after {
+    content: none;
+  }
+
+  .page-nav__item a {
+    display: block;
+  }
+
+  .page-nav__item--h3 a {
+    padding-left: 10px;
+  }
+
+}
+
+/* fix .page-nav only if we have enough height */
+@media screen and ( min-width: 1100px ) and ( min-height: 540px ) {
+  .page-nav {
+    position: fixed;
+  }
+}
+
+/* refactor-shirt
+------------------------- */
+
+.refactor-shirt {
+  margin: 40px 0;
+}
+
+.refactor-shirt__title {
+  font-size: 1.6rem;
+}
+
+.refactor-shirt__image {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 10px;
+}
+
+/* site nav
+------------------------- */
+
+.site-nav .container {
+  border-bottom: 2px solid white;
+}
+
+/* bottom nav */
+.content ~ .site-nav .container {
+  position: relative;
+  margin-top: 80px;
+  border-top: 2px solid white;
+  border-bottom: none;
+}
+
+.site-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav__list:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.site-nav__item {
+  width: 33.333%;
+  float: left;
+  line-height: 28px;
+}
+
+.site-nav__item a {
+  display: block;
+  padding: 5px
+}
+
+.site-nav__item--homepage {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+.site-nav__item--homepage a {
+  color: #D26;
+}
+
+.site-nav__item a:hover {
+  background: #D26;
+  color: white;
+}
+
+.site-nav__item a:active {
+  background: white;
+  color: #D26;
+}
+
+/* selected */
+.page--options .site-nav__item--options a,
+.page--methods .site-nav__item--methods a,
+.page--events .site-nav__item--events a,
+.page--extras .site-nav__item--extras a,
+.page--faq .site-nav__item--faq a {
+  color: white;
+}
+
+.page--index .site-nav__item--homepage {
+  visibility: hidden;
+}
+
+/* size at which it can fit */
+@media screen and ( min-width: 768px ) {
+
+  .site-nav__item {
+    width: auto;
+    font-size: 1.15rem;
+    line-height: 70px;
+  }
+
+  .site-nav__item a {
+    padding: 0px 25px;
+  }
+
+  .site-nav__item--homepage {
+    font-size: 1.5rem;
+  }
+
+}
+
+/* site-footer
+------------------------- */
+
+.site-footer {
+  color: #888;
+  background: #F8F5F2;
+  padding: 40px 0;
+  position: relative;
+  z-index: 10; /* above page-nav */
+}
+
+@charset "UTF-8";
+/* variable
+------------------------- */
+
+.variable {
+  margin: 0.5em 0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: hsla(0, 0%, 0%, 0.075);
+}
+
+.variable__type {
+  color: #27C;
+}
+
+.variable__type,
+.variable__description {
+  margin-left: 10px;
+}
+
+.variable__type:before,
+.variable__description:before {
+  content: '·';
+  padding-right: 0.4em;
+  display: inline-block;
+}
+
+/* animate-item-size-item
+------------------------- */
+
+.animate-item-size-item {
+  float: left;
+}
+
+/* animate-item-size-item is invisible, but used for layout */
+.animate-item-size-item,
+.animate-item-size-item__content {
+  width: 60px;
+  height: 60px;
+}
+
+/* animate-item-size-item__content is visible, and transitions size */
+.animate-item-size-item__content {
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.7);
+  border-radius: 5px;
+  -webkit-transition: width 0.4s, height 0.4s;
+          transition: width 0.4s, height 0.4s;
+}
+
+.animate-item-size-item:hover .animate-item-size-item__content {
+  border-color: white;
+  background: #A2C;
+  cursor: pointer;
+}
+
+/* both animate-item-size-item and animate-item-size-item content change size */
+.animate-item-size-item.is-expanded,
+.animate-item-size-item.is-expanded .animate-item-size-item__content {
+  width: 180px;
+  height: 120px;
+}
+
+.animate-item-size-item.is-expanded {
+  z-index: 2;
+}
+
+.animate-item-size-item.is-expanded .animate-item-size-item__content {
+  background: #F90;
+}
+
+/* ---- responsive ---- */
+
+.grid--animate-item-size-responsive .animate-item-size-item,
+.grid--animate-item-size-responsive .grid-sizer {
+  width: 20%;
+}
+
+.grid--animate-item-size-responsive .animate-item-size-item__content,
+.grid--animate-item-size-responsive .animate-item-size-item.is-expanded .animate-item-size-item__content {
+  width: 100%;
+  height: 100%;
+}
+
+/* item has expanded size */
+.grid--animate-item-size-responsive .animate-item-size-item.is-expanded {
+  width: 60%;
+}
+
+/* bootstrap 3
+------------------------- */
+
+.bootstrap-3__container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.bootstrap-3__col-xs-4,
+.bootstrap-3__col-xs-6,
+.bootstrap-3__col-xs-8,
+.bootstrap-3__col-xs-12 {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.bootstrap-3__col-xs-4 { width: 33.333%; }
+.bootstrap-3__col-xs-6 { width: 50%; }
+.bootstrap-3__col-xs-8 { width: 66.666%; }
+
+.bootstrap-3__grid-item-content {
+  height: 100px;
+  background: #D26;
+  border: 2px solid hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.bootstrap-3__grid-item-content--height2 { height: 200px; }
+
+/* sm */
+@media (min-width: 768px) {
+  .bootstrap-3__col-sm-4 { width: 33.333%; }
+  .bootstrap-3__col-sm-8 { width: 66.666%; }
+}
+
+/* md */
+@media (min-width: 992px) {
+  .bootstrap-3__col-md-3 { width: 25%; }
+  .bootstrap-3__col-md-6 { width: 50%; }
+}
+
+/* stamp
+------------------------- */
+
+.stamp {
+  position: absolute;
+  width: 30%;
+  height: 60px;
+  background: orange;
+  border: 4px dotted black;
+}
+
+.stamp--static-stamp1 {
+  left: 30%;
+  top: 10px;
+  width: 20%;
+  height: 100px;
+}
+
+.stamp--static-stamp2 {
+  right: 10%;
+  top: 20px;
+  width: 70%;
+  height: 30px;
+}
+
+/* stamp-methods-demo
+------------------------- */
+
+.grid--stamp-methods-demo .grid-item {
+  opacity: 0.8;
+}
+
+.stamp--stamp-methods-demo {
+  left: 10px;
+  top: 10px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>边框图片</title>
+		<style>
+			.one{
+				width: 370px;
+				height: 350px;
+				border: 27px solid blanchedalmond;
+				
+				/*border-image-source： url():图片资源
+				 *border-image-slice：图片切片{
+				 * 	四个值：没有单位（上，右，下，左）
+				 * 	可以是数值，可以是百分比
+				 * 	四个值把图片切成一个九宫格
+				 * 第一个27：从上面向内移动27px,切一刀
+				 * 第二个27：从右面向内移动27px,切一刀
+				 * 第三个27：从下面向内移动27px,切一刀
+				 * 第四个27：从左面向内移动27px,切一刀
+				 * 
+				 * }
+				 * border-image-repeat：{
+				 * 	repeat: 平铺（图片大小不合适可能会被裁剪）
+				 * 	round： 自动分配铺满
+				 * 	stretch： 拉伸，默认
+				 * }
+				 */
+				border-image-source: url(img/border.png);
+				border-image-slice: 27 27 27 27;
+				border-image-repeat: stretch;
+				
+				/*边框图片宽度*/
+				/*border-image-width: 50px;*/
+				
+				/*图片外凸*/
+				/*border-image-outset: 30px;*/
+			}
+			.button{
+				width: 100px;
+				height: 50px;
+				text-align: center;
+				border-width: 0 10px;
+				border-style: solid;
+				/*fill: 显示九宫格中间的格*/
+				border-image: url(img/button_green.png) 0 10 fill;
+				line-height: 50px;
+			}
+			.tab{
+				width: 80px;
+				height: 30px;
+				text-align: center;
+				border-width: 5px 5px 0;
+				border-style: solid;
+				/*fill: 显示九宫格中间的格*/
+				/*border-image: url(img/button_green.png) 0 10 fill;*/
+				line-height: 25px;
+				
+				border-image: url(img/border_tab.png) 5 5 0 fill;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="one"></div>
+		
+		<div class="button">按钮</div>
+		
+		<div class="tab">按钮</div>
+		
+	</body>
+</html>

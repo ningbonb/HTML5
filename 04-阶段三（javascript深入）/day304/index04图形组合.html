@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px silver;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		//ctx.fillStyle = "blue";
+		//ctx.fillRect(50,50,200,200);
+		ctx.save();
+		ctx.strokeStyle = "green";
+		ctx.lineWidth = 10;
+		ctx.beginPath();
+		ctx.moveTo(0,500);
+		ctx.lineTo(500,0);
+		ctx.stroke();
+		ctx.restore();
+		
+		/*
+		source-over	默认。在目标图像上显示源图像。
+		source-atop	在目标图像顶部显示源图像。源图像位于目标图像之外的部分是不可见的。
+		source-in	在目标图像中显示源图像。只有目标图像之内的源图像部分会显示，目标图像是透明的。
+		source-out	在目标图像之外显示源图像。只有目标图像之外的源图像部分会显示，目标图像是透明的。
+		destination-over	在源图像上显示目标图像。
+		destination-atop	在源图像顶部显示目标图像。目标图像位于源图像之外的部分是不可见的。
+		destination-in	在源图像中显示目标图像。只有源图像之内的目标图像部分会被显示，源图像是透明的。
+		destination-out	在源图像之外显示目标图像。只有源图像之外的目标图像部分会被显示，源图像是透明的。
+		lighter	显示源图像 + 目标图像。
+		copy	显示源图像。忽略目标图像。
+		xor	使用异或操作对源图像与目标图像进行组合。
+		 * */
+		
+		//目标：上面绘制的
+		//源图：最新绘制的
+		ctx.globalCompositeOperation = "xor";
+		ctx.save();
+		ctx.strokeStyle = "red";
+		ctx.lineWidth = 20;
+		ctx.beginPath();
+		ctx.moveTo(500,500);
+		ctx.lineTo(0,0);
+		ctx.stroke();
+		ctx.restore();
+		// ctx.fillStyle = "red";
+		// ctx.beginPath();
+		// ctx.arc(250,250,100,0,Math.PI*2,false);
+		// ctx.fill();
+
+		//ctx.globalCompositeOperation = "xor";
+
+		// ctx.globalCompositeOperation = "source-over";
+		ctx.save();
+		ctx.strokeStyle = "yellow";
+		ctx.lineWidth = 20;
+		ctx.beginPath();
+		ctx.moveTo(200,0);
+		ctx.lineTo(200,500);
+		ctx.stroke();
+		ctx.restore();
+		
+	</script>
+</html>

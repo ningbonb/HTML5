@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>文本设置</title>
+	<style>
+		/*
+			1.文本颜色
+			{
+				1.英文单词：17种标准色
+				aqua, black, blue, fuchsia, gray, green, lime, maroon, navy, olive, orange, purple, red, silver, teal, white, yellow
+				浅绿色，黑色，蓝色，紫红色，灰色，绿色，石灰，栗色，海军，橄榄，橙，紫，红，银，蓝绿色，白色和黄色
+
+				2.rgb()取值范围0~255，也可以用百分比rgb(0,0,255) == rgb(0%,0%,100%)
+				组合:(256*256*256)种颜色
+
+				3.rgba() a:透明的alpha;范围0~1，0：透明 1：不透明；
+
+				4.用16进制数字表示
+				#RRGGBB（红绿蓝），值在0~ff之间
+				#0000ff: 蓝色;
+				#aabbcc==#abc
+				#ffffff==#fff
+			}
+				2.
+				text-decoration:
+				underline:下划线;
+				overline: 上划线;
+				line-through: 删除线;
+				none: 什么也没了;
+				text-decoration-color firefox支持
+
+				3.对齐方式
+				text-align:left right center
+				justify: 两端对齐，多行显示，最后一行没有效果;
+				text-align-last: 对齐文本最后一行;
+				
+				4.text-indent:文本缩进;
+				text-indent: 20px;
+				text-indent: 2em; 根据文本大小缩进两个字符
+
+				5.文本方向：
+				direction:
+				ltr: left to right;
+
+				6.文字转换
+				text-transform: uppercase;大写
+				text-transform: lowercase;小写
+				text-transform: capitalize;首字母大写
+
+				7.字母间距
+				letter-spacing:正数负数都可以;
+				word-spacing:单词间距;
+
+				8.
+				white-space: nowrap;文本不换行
+				white-space: pre;原文解析类似<pre>
+				white-space: pre-wrap;空白字符会保留（和pre区别：pre保留原始样式，再长也不换行，pre-wrap:超出换行）
+				white-space: pre-line;
+				空白字符被合并，但是保留换行；
+
+				9.line-height:上一行下边距到本行下边距;
+				文本居中：height == line-height;
+
+		 */
+		p{
+			/*background-color: blue;*/
+			/*color: blue;*/
+			/*color: rgb(0,250,135);*/
+			/*color: rgb(100%,0%,0%);*/
+			/*color: rgba( 255,0,0,0.5 );*/
+			color: #0f0;
+			text-decoration: underline;
+			text-decoration: overline;
+			text-decoration: line-through;
+			/*text-decoration: none;*/
+			text-decoration-color: red;
+			/*text-align: right;*/
+			text-align: justify;
+			/*text-align-last: right;*/
+			/*font-size: 10px;*/
+			/*text-indent: 20px;*/
+			text-indent: 2em;
+			/*direction: rtl;*/
+			text-transform: uppercase;
+			text-transform: lowercase;
+			text-transform: capitalize;
+
+			/*text-transform: 10px;  */  /*？？？？？？？？*/
+			/*letter-spacing: 50px;*/
+			height: 20px;  /*????????*/
+
+			white-space: nowrap;
+			white-space: pre-wrap;
+			white-space: pre;
+			white-space: pre-line;
+
+			/*line-height:50px;*/
+		}
+		.p2{
+			background-color: red;
+			height: 100px;
+			line-height:100px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		he---------取值范围0~255取值范围
+		0~255取值范围
+		0~255取值范围0~255取值范围0~255取值范围0~255取值范
+		围0~255取值范围0~255取值范围0~255取值范围0~255he---------取值范围0~255取值范围0~255取值范围0~255取值范围0~255取33333333333333333333333333333333333333333333333333333
+		值范围0~255取值范围0~255取值范围0~255取值范围0~255取值范围0~255取值范围0~255he---------取值范围0~255取值范围0~255取值范围0~255取值范围0~255取值
+		范围0~255取值范围0~255取值范围0~255取值范围0~255取值范围0~255取值范围0~255
+		dsdfdfdffafaSSDSDSDSDD
+	</p>
+	<p class="p2">你好啊？</p>
+</body>
+</html>

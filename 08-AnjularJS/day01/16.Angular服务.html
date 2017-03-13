@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <div ng-controller="c1">{{name}}</div>
+    <div ng-controller="c2">{{name}}</div>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("mainC",function($scope){
+
+    });
+    //自定义服务4：service
+    app.service("userInfo",function(){
+        this.name = "毛毛";
+        this.sex = "男";
+        this.getInfo = function(){
+            return this.name + '是一个' + this.sex + "同志";
+        };
+    });
+    app.controller("c1",function ($scope,userInfo,$rootScope) {
+        userInfo.name = "毛毛雨";
+        $scope.name = userInfo.getInfo();
+        console.log(userInfo);
+        $rootScope.getInfo = function(){
+            return "1234567";
+        };
+    });
+    app.controller("c2",function ($scope,userInfo,$rootScope) {
+        $scope.name = userInfo.getInfo();
+        $scope.name = $rootScope.getInfo();
+    });
+</script>

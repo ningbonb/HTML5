@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒模型</title>
+	<style>
+		/*内容宽高*/
+		.one{ 
+			width: 100px;
+			height: 100px;
+			background: red;
+			/*padding填充*/
+			/*padding-top: 50px;*/
+			/*左填充*/
+			/*padding-left: 50px;*/
+			/*右填充*/
+			/*padding-right: 50px;*/
+			/*下填充*/
+			/*padding-bottom: 50px;*/
+			
+			/*四个值必须一样*/
+			/*padding: 50px;*/
+			/*四个值不一样
+			顺序：上 右 下 左
+			*/
+			/*padding: 10px 20px 30px 40px;*/
+
+			/*上下相同
+			上下：20 
+			左右：40
+			*/
+			/*padding: 20px 40px;*/
+
+			/*三个值 上 左右 下
+			上：10
+			左右：50
+			下：30
+			 */
+			padding: 10px 50px 30px;
+			
+			/*边框*/
+			/*宽度*/
+			border-width: 10px;
+			border-left-width: 20px;
+			/*边框颜色*/
+			border-color: gray;
+			border-left-color: yellow;
+			/*边框样式
+				solid:实线;
+				dashed:虚线;
+				dotted:点线;
+			*/
+			border-style: dashed;
+
+			/*简写*/
+			border: 5px solid green;
+			/*左边简写*/
+			border-left: 3px dotted gray;
+			border-right: 3px dotted gray;
+
+			/*去除边框*/
+			border-top: none;
+
+			/*margin*/
+			margin-left: 50px;
+			margin-top: 50px;
+			/*margin-bottom margin-bottom
+			必须有参照物*/
+			margin-bottom: 50px;
+			/*右margin*/
+			margin-right: 50px;
+
+			/*简写*/
+			/*margin:30px;*/
+			/*上下 左右*/
+			/*margin: 10px 30px;*/
+			/*上 左右 下*/
+			margin: 10px 30px 40px;
+		}
+		.two{
+			height: 100px;
+			width: 100px;
+			background: blue;
+		}
+		span{
+			background: red;
+		}
+		.span1{
+			margin-right: 20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 
+	盒模型：html 元素都可以看成是一个盒模型
+	div span i.........
+
+	盒模型的组成：内容（width+height）+ padding(内边距) + border(边框) + margin(外边距)
+	 -->
+
+	 <!-- 
+	 盒模型大小 
+		盒子宽度：左margin + 左border + 左padding + width + 右padding + 右border + 右margin
+		盒子高度：上margin + 上border + 上padding + height + 下padding + 下border + 下margin
+	 -->
+	 <div class="one"></div>
+	 <div class="two">
+		<span class="span1">1111</span>
+		<span>2222</span>
+	 </div>
+</body>
+</html>

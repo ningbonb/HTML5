@@ -1,0 +1,280 @@
+<!doctype html>
+<html class="export">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Cascading grid layout library">
+
+  <title>Masonry</title>
+
+    <link rel="stylesheet" href="css/masonry-docs.css" media="screen">
+
+</head>
+<body class="page--index" data-page="index">
+
+  <div class="site-nav">
+    <div class="container">
+      <ol class="site-nav__list">
+        <li class="site-nav__item site-nav__item--homepage">
+          <a href=".">Masonry</a></li>
+        <li class="site-nav__item site-nav__item--layout">
+          <a href="layout.html">Layout</a></li>
+        <li class="site-nav__item site-nav__item--options">
+          <a href="options.html">Options</a></li>
+        <li class="site-nav__item site-nav__item--methods">
+          <a href="methods.html">Methods</a></li>
+        <li class="site-nav__item site-nav__item--events">
+          <a href="events.html">Events</a></li>
+        <li class="site-nav__item site-nav__item--extras">
+          <a href="extras.html">Extras</a></li>
+        <li class="site-nav__item site-nav__item--faq">
+          <a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+    <div class="hero" data-js-module="hero">
+      <div class="container">
+    
+        <div class="hero-grid clearfix">
+          <div class="hero-grid__grid-sizer"></div>
+    
+          <div class="hero-grid__item hero-grid__item--texty hero-grid__item--width3">
+            <h1 class="hero__title">Masonry</h1>
+            <p class="hero__tagline">Cascading grid layout library</p>
+          </div>
+    
+          <div class="hero-grid__item">
+            <a class="hero-grid__big-button" href="masonry.pkgd.min.js">
+              <svg class="big-button__icon" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewbox="0 0 200 200">
+                <path class="st0" d="M177.4 53.1c-1.2 3-4.2 4.9-7.4 4.9h-40c-4.4 0-8-3.6-8-8V10c0-3.2 1.9-6.2 4.9-7.4 3-1.2 6.4-.6 8.7 1.7l40 40c2.3 2.3 3 5.8 1.8 8.8zM178 71v109c0 9.9-8.1 18-18 18H40c-9.9 0-18-8.1-18-18V20c0-9.9 8.1-18 18-18h69v48c0 11.6 9.4 21 21 21h48zm-90.1 47.5V94.8H77.1v45.8c0 1.9 0 3.9-.5 5.7-1.1 3.9-4.8 4.6-8.3 3.7l-.9 9.2c4.6 1 10.1.9 14.2-1.8 4.7-3.1 5.9-8.6 6.3-13.9.4-8.4 0-16.8 0-25zm1.6-38.4c0-8.4-13.9-8.5-13.9 0s13.9 8.4 13.9 0zm19.1 24.7c1-2.8 5.1-3.3 7.7-3.1 3.3.3 6.5 2 8.5 4.6l7-6.2c-4.7-6-13.9-7.5-21-6.1-6.6 1.3-12.2 5.7-12.4 12.8-.1 3.2.8 6.3 3.3 8.5 2.5 2.3 5.8 3.3 9 4.1 2.7.7 5.8 1.2 8.3 2.6 2.4 1.3 2.9 4.7 1 6.7-2.2 2.4-6.3 2.4-9.2 1.7-3-.7-5.8-2.6-7.7-5-2.4 2.2-4.7 4.4-7.1 6.7 5.4 5.9 14 7.9 21.7 6.9 6.3-.8 12.5-4.1 13.7-10.9.6-3.2.4-6.6-1.5-9.4-1.8-2.7-4.8-4.4-7.8-5.5-3.3-1.1-6.7-1.7-10-2.8-2.5-.9-4.6-2.6-3.5-5.6z"/>
+              </svg>
+              Download masonry.&#x200B;pkgd.&#x200B;min.js
+            </a>
+          </div>
+    
+    
+          <div class="hero-grid__item">
+            <a class="hero-grid__big-button" href="https://github.com/desandro/masonry">
+              <svg class="big-button__icon" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewbox="0 0 512 512">
+                <path d="M256 0C115 0 0 115 0 256c0 113 73 209 175 243 13 2 18-5 18-12v-48c-64 12-81-16-86-30-3-7-15-30-26-36-9-5-22-17 0-17 20 0 35 19 39 26 23 39 60 28 75 21 2-17 9-28 16-34-57-6-116-28-116-126 0-28 10-51 26-69-3-6-11-33 3-68 0 0 21-7 70 26 20-6 42-9 64-9s43 3 64 9c49-33 70-26 70-26 14 35 5 61 3 68 16 18 26 41 26 69 0 98-60 120-117 126 9 8 17 23 17 47v70c0 7 5 15 18 12 100-33 173-129 173-242C512 115 397 0 256 0z"/>
+              </svg>
+              Masonry on GitHub
+            </a>
+          </div>
+    
+          <div class="hero-grid__item hero-grid__item--texty hero-grid__item--width2">
+            <h2 class="hero__what-is-title">What is Masonry?</h2>
+            <p class="hero__what-is-description">Masonry is a JavaScript grid layout library. It works by placing elements in optimal position based on available vertical space, sort of like a mason fitting stones in a wall. You&#x2019;ve probably seen it in use all over the Internet.</p>
+          </div>
+    
+        </div> 
+    
+      </div> 
+    
+    </div> 
+
+  <div id="content" class="content container">
+
+
+    <ul class="page-nav">
+<li class="page-nav__item page-nav__item--h2"><a href="#install">Install</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#download">Download</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#cdn">CDN</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#package-managers">Package managers</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#getting-started">Getting started</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#html">HTML</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#css">CSS</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initialize-with-jquery">Initialize with jQuery</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initialize-with-vanilla-javascript">Initialize with Vanilla JavaScript</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initialize-in-html">Initialize in HTML</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#next">Next</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#mit-license">MIT License</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#twitter-updates">Twitter updates</a></li>
+</ul>
+
+
+
+<h2 id="install">Install</h2>
+
+
+<h3 id="download">Download</h3>
+
+<ul>
+  <li>
+    <a href="masonry.pkgd.min.js">masonry.pkgd.min.js</a> minified, or
+  </li>
+  <li>
+    <a href="masonry.pkgd.js">masonry.pkgd.js</a> un-minified
+  </li>
+</ul>
+
+
+<h3 id="cdn">CDN</h3>
+
+<p>Link directly to Masonry files on <a href="https://unpkg.com">unpkg</a>.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+<span class="comment">&lt;!-- or --&gt;</span>
+<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+
+
+<h3 id="package-managers">Package managers</h3>
+
+<p>Install with <a href="http://bower.io">Bower</a>: &#xA0;<code>bower install masonry --save</code></p>
+
+<p><a href="https://www.npmjs.com/package/masonry-layout">Install with npm</a>: &#xA0;<code>npm install masonry-layout</code></p>
+
+
+<h2 id="getting-started">Getting started</h2>
+
+
+<h3 id="html">HTML</h3>
+
+<p>Include the Masonry <code>.js</code> file in your site.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/path/to/masonry.pkgd.min.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>
+</code></pre>
+
+<p>Masonry works on a container grid element with a group of child items.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--width2&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+
+<h3 id="css">CSS</h3>
+
+<p>All sizing of items is handled by your CSS.</p>
+
+<pre><code class="css"><span class="selector-class">.grid-item</span> { <span class="attribute">width</span>: <span class="number">200px</span>; }
+<span class="selector-class">.grid-item--width2</span> { <span class="attribute">width</span>: <span class="number">400px</span>; }
+</code></pre>
+
+
+<h3 id="initialize-with-jquery">Initialize with jQuery</h3>
+
+<p>You can use Masonry as a jQuery plugin:
+  <code>$(<span class="string">&apos;selector&apos;</span>).masonry()</code>.</p>
+
+<pre><code class="js">$(<span class="string">&apos;.grid&apos;</span>).masonry({
+  <span class="comment">// options</span>
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  columnWidth: <span class="number">200</span>
+});
+</code></pre>
+
+
+<h3 id="initialize-with-vanilla-javascript">Initialize with Vanilla JavaScript</h3>
+
+<p>You can use Masonry with vanilla JS:
+  <code><span class="keyword">new</span> <span class="masonry_keyword">Masonry</span>( elem, options )</code>.
+  The <code><span class="masonry_keyword">Masonry</span>()</code> constructor accepts two arguments: the container element and an options object.</p>
+
+<pre><code class="js"><span class="keyword">var</span> elem = <span class="built_in">document</span>.querySelector(<span class="string">&apos;.grid&apos;</span>);
+<span class="keyword">var</span> <span class="masonry_var">msnry</span> = <span class="keyword">new</span> <span class="masonry_keyword">Masonry</span>( elem, {
+  <span class="comment">// options</span>
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+  columnWidth: <span class="number">200</span>
+});
+
+<span class="comment">// element argument can be a selector string</span>
+<span class="comment">//   for an individual element</span>
+<span class="keyword">var</span> <span class="masonry_var">msnry</span> = <span class="keyword">new</span> <span class="masonry_keyword">Masonry</span>( <span class="string">&apos;.grid&apos;</span>, {
+  <span class="comment">// options</span>
+});
+</code></pre>
+
+
+<h3 id="initialize-in-html">Initialize in HTML</h3>
+
+<p>You can initialize Masonry in HTML, without writing any JavaScript. Add <code>data-masonry</code> attribute to the container element. <a href="options.html">Options</a> can be set in its value.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span> <span class="attr">data-masonry</span>=<span class="string">&apos;{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: 200 }&apos;</span>&gt;</span>
+</code></pre>
+
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/vLeBLV">Edit this demo on CodePen</a>
+</p>
+
+<div class="call-out">
+  <p>Options set in HTML must be valid JSON. Keys need to be quoted, for example <code><span class="string">&quot;itemSelector&quot;</span>:</code>. Note the value of <code>data-masonry</code> is set with single quotes <code>&apos;</code>, but JSON entities use double-quotes <code>&quot;</code>.</p>
+</div>
+
+<p>HTML initialization was previously done with a class of <code>js-masonry</code> and setting options in <code>data-masonry-options</code> in Masonry v3. Masonry v4 is backwards compatible with this code.</p>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid js-masonry&quot;</span>
+  <span class="attr">data-masonry-options</span>=<span class="string">&apos;{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: 200 }&apos;</span>&gt;</span>
+</code></pre>
+
+<h2 id="next">Next</h2>
+
+<p>Learn more about how to use Masonry:</p>
+
+<ul>
+  <li><a href="layout.html">Layout</a></li>
+  <li><a href="options.html">Options</a></li>
+  <li><a href="methods.html">Methods</a></li>
+</ul>
+
+
+<h2 id="mit-license">MIT License</h2>
+
+<p>Masonry is released under the <a href="http://desandro.mit-license.org/">MIT License</a>. Have at it.</p>
+
+
+
+<h2 id="twitter-updates">Twitter updates</h2>
+
+<p><a class="twitter-timeline" href="https://twitter.com/search?q=masonry+from%3Ametafizzyco%2C+OR+from%3Adesandro" data-widget-id="502211983844704256">Masonry Tweets</a></p>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<div id="notification"></div>
+
+  </div>
+
+  <div class="site-nav">
+    <div class="container">
+      <ol class="site-nav__list">
+        <li class="site-nav__item site-nav__item--homepage">
+          <a href=".">Masonry</a></li>
+        <li class="site-nav__item site-nav__item--layout">
+          <a href="layout.html">Layout</a></li>
+        <li class="site-nav__item site-nav__item--options">
+          <a href="options.html">Options</a></li>
+        <li class="site-nav__item site-nav__item--methods">
+          <a href="methods.html">Methods</a></li>
+        <li class="site-nav__item site-nav__item--events">
+          <a href="events.html">Events</a></li>
+        <li class="site-nav__item site-nav__item--extras">
+          <a href="extras.html">Extras</a></li>
+        <li class="site-nav__item site-nav__item--faq">
+          <a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="site-footer">
+  
+    <div class="container">
+        <p class="site-footer__copy">
+          Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
+          Make something rad with it.
+        </p>
+  
+  
+    </div>
+  
+  </div>
+
+  <script src="js/masonry-docs.min.js"></script>
+
+
+</body>
+</html>

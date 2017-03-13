@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		//移动translate(x,y):移动canvas画布和它的（原点！！）到对应x,y的位置
+		ctx.save();//保存一下最初的状态
+		
+		ctx.fillStyle = "bisque";
+		ctx.fillRect(0,0,100,100);
+		
+		//改变画布原点位置（原点位置：之前的100，100，变成了0，0）
+		ctx.translate(100,100);
+		//ctx.translate(-100,-100);//移回原来的位置
+		
+		ctx.fillStyle = "red";
+		ctx.fillRect(0,0,100,100);
+		
+		ctx.translate(100,100);
+		ctx.fillStyle = "black";
+		ctx.fillRect(0,0,100,100);
+		
+		//改完以上布局后恢复最初的圆点位置
+		ctx.restore();
+		
+		ctx.fillStyle = "gold";
+		ctx.fillRect(10,10,50,50);
+		
+		//旋转rotate():以原点为中心，旋转canvas画布，方向：顺时针旋转，单位是弧度值，如果要改变旋转的中心点，需要结合translate更改原点位置
+		
+		//原则：使用之前save，使用之后restore
+		ctx.save();
+		ctx.fillStyle = "green";
+		ctx.fillRect(0,0,60,60);
+		ctx.rotate(Math.PI/4);//影响下面restore之前所有的布局
+		//旋转的是画布
+		
+		ctx.fillStyle = "blue"
+		ctx.fillRect(0,0,60,60);
+		ctx.fillRect(10,10,60,60);
+		ctx.restore();
+		
+		ctx.fillStyle = "greenyellow"
+		ctx.fillRect(0,0,60,60);		
+		
+		//缩放
+		ctx.save();
+		ctx.scale(2,2);
+		//scale：可以增大或者减小画布的像素值，值给2：对应轴上像素被放大了2倍
+		ctx.fillStyle = "darkmagenta";
+		ctx.fillRect(0,0,50,50);
+		
+		ctx.restore();
+	</script>
+</html>

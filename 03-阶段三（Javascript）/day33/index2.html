@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串常用函数</title>
+	</head>
+
+	<body>
+
+		<script>
+			//字符串的常用属性
+			//1.length
+			var str = '中北大学';
+			console.log(str.length);
+			//str.aaa = 'zb';
+			//console.log(str.aaa);//undefined
+			console.log(str['length']); //4
+			//console.log(str[length]);//中
+
+			//字符串可以通过下标获取指定字符（下标从0开始）
+			console.log(str[1]);
+			for(var i = 0; i < str.length; i++) {
+				console.log(str[i]);
+			}
+
+			/*
+			 字符串提取
+			 charAt()
+			 作用：获取字符串从指定位置的字符
+			 参数：1个，下标位置
+			 注：参数可以省略，默认获取第0个
+			 * */
+			console.log(str.charAt()); //中
+
+			/*
+			 2.获取指定位置字符的ASCII码
+			 charCodeAt()
+			 参数：1个，下标位置
+			 注：参数可以省略，默认获取第0个
+			 A-Z: 65-90
+			 a-z: 97-122
+			 
+			 * */
+
+			console.log(str.charCodeAt(0)); //20013
+			console.log("A".charCodeAt()); //65
+
+			//对应的ASCII码值转换为字符
+			console.log(String.fromCharCode(65)); //A
+
+			/*
+			 字符串的提取
+			 substring()
+			 参数2个
+			 1：开始位置
+			 2：结束位置
+			 包含前面不包含后面
+			 
+			 如果只给第一个参数，默认从该位置截至到结尾
+			 自己会比较参数的大小，小的是开始位置
+			 负数或者非法字符都被解析为0
+			 * */
+
+			var subS = str.substring(0, 2);
+			console.log(subS); //中北
+			console.log(str.substring(1, 3)); //北大
+			console.log(str.substring(1)); //北大学
+			console.log(str.substring(3, 1)); //北大
+			console.log(str.substring(-1, 2)); //中北
+
+			/*
+			 substr()
+			 从指定位置，提取固定长度的字串
+			 参数2个
+			 1:开始位置
+			 2：提取的长度
+			 
+			 负数代表倒数： -1 == 最后一个
+			 * */
+			//中北大学
+			console.log(str.substr(0, 2)); //中北
+			console.log(str.substr(-3, 2)); //北大
+
+			/*
+			 sclice()
+			 参数2个
+			 1: 开始位置
+			 2：结束位置
+			 
+			 参数可以为负数
+			 一个参数默认从该位置提取到结尾
+			 不会比较两个参数的大小
+			 * */
+
+			console.log(str.slice(0, 2)); //中北
+			console.log(str.slice(-4, 2)); //中北
+			console.log(str.slice(1)); //北大学
+			console.log(str.slice(-4, -2)); //中北
+			console.log(str.slice(2, 0)); //空串
+
+			//字符串的比较
+			//是依次比较字符串对应位置的ASCII码值，得出结论后结束
+			var zhongStr = 'bbcde';
+			var zhongStr2 = 'abcdf';
+			if(zhongStr < zhongStr2) {
+				console.log("max2" + zhongStr2);
+			} else {
+				console.log("max" + zhongStr);
+			}
+
+			//字符串转化
+			var str2 = 'hello zhong bei';
+			//toUpperCase小写变大写
+			console.log(str2.toUpperCase()); //HELLO ZHONG BEI
+			//toLowerCase大写变小写
+			str2 = 'HELLO ZHONG BEI'
+			console.log(str2.toLowerCase()); //hello zhong bei
+
+			//字符串分割
+			/*
+			 split: 把字符串分割为数组
+			 参数2个
+			 1.指定分隔符
+			 2.可选，限制数组个数
+			 
+			 注意：
+			 1.分割符字符串中没有，会把整个字符串作为数组中的元素
+			 2.以空字符串分割，会把字符串中的每一个字符都存入数组
+			 * */
+			var splStr = 'a|b|c|d';
+			var reArr = splStr.split('|');
+			console.log(reArr); //["a", "b", "c", "d"]
+			//限制数组个数
+			var reArr2 = splStr.split('|', 2);
+			console.log(reArr2); //["a", "b"]
+
+			var reArr3 = splStr.split('f');
+			console.log(reArr3); //["a|b|c|d"]
+
+			var reArr4 = splStr.split('');
+			console.log(reArr4); //["a", "|", "b", "|", "c", "|", "d"]
+
+			//字符串合并
+			//concat()
+			//参数一个或者多个
+
+			var conStr1 = '张三';
+			var conStr2 = '是个';
+			var conStr3 = '东西';
+
+			var result = conStr1.concat(conStr2, conStr3);
+			console.log(result); //张三是个东西
+
+			/*
+			 字符串检索
+			 indexOf()
+			 参数2个：返回值：该字符对应的位置
+			 1.（必须传）要检索的字符
+			 2.指定开始查找的位置
+			 * */
+
+			var str = 'hello world hello';
+			console.log(str.indexOf('l')); //2:最近的一个
+			console.log(str.indexOf('L')); //-1:没有找到
+
+			console.log(str.indexOf('world')); //6
+
+			console.log(str.indexOf('l', 3)); //3
+
+			console.log(str.indexOf('l', 4)); //9
+
+			//找到所有的h,保存到数组
+			var arr = []; //保存找到值
+			var index = 0; //默认从0开始查找
+			while(str.indexOf('h', index) != -1) {
+				var resultIndex = str.indexOf('h', index);
+				//保存到数组
+				arr.push(resultIndex);
+
+				//index变化，从下一个位置查找
+				index = resultIndex + 1;
+			}
+			//console.log(arr);//[0, 12]
+
+			//查找字符串 'world'
+			var arr = []; //保存找到值
+			var index = 0; //默认从0开始查找
+			var searchStr = 'world';
+			while(str.indexOf(searchStr, index) != -1) {
+				var resultIndex = str.indexOf(searchStr, index);
+				//保存到数组
+				arr.push(resultIndex);
+
+				//index变化，从下一个位置查找
+				index = resultIndex + searchStr.length;
+			}
+			console.log(arr); //[6]
+
+			//封装函数
+			function indexsOf(sourceStr, searchStr) {
+				var arr = []; //保存找到值
+				var index = 0; //默认从0开始查找
+				while(sourceStr.indexOf(searchStr, index) != -1) {
+					var resultIndex = sourceStr.indexOf(searchStr, index);
+					//保存到数组
+					arr.push(resultIndex);
+
+					//index变化，从下一个位置查找
+					index = resultIndex + searchStr.length;
+				}
+				return arr;
+			}
+			console.log(indexsOf(str,'world'));
+			
+			
+			//lastIndexOf(): 从后面查找
+			var str = 'abbcbbba';
+			console.log(str.lastIndexOf('a'));//7
+			console.log(str.lastIndexOf('a',5));//0
+		</script>
+
+	</body>
+
+</html>

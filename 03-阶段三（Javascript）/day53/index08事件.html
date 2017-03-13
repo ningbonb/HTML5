@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		#div1{
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		#div2{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		//1.支持冒泡
+		var div1 =$("#div1");
+		var div2 =$("#div2");
+		
+		div1.click(clickFn);
+		function clickFn(event){
+			console.log(event);
+			console.log(event.clientX,event.clientY);
+			console.log(event.offsetX,event.offsetY);
+			console.log(event.pageX,event.pageY);
+		}
+		
+		//同类型函数不会被覆盖
+		div1.click(function(){
+			console.log("11111111");
+		});
+		
+		//参数1：事件类型 参数2：回调函数
+		div1.on('click',function(){
+			console.log('点击效果');
+		});
+		
+//		div1.on("mouseover mouseout",function(){
+//			console.log("移入或者移出");
+//			$("#div2").toggle("slow");
+//		});
+		
+		//hover(参数1，参数2)：参数1：鼠标移入调用 参数2：鼠标移出调用
+		div1.hover(function(){
+			$("#div2").hide('slow');
+		},function(){
+			$("#div2").show('slow');
+		});
+		
+		//off():参数1：要删除的事件 ，参数2：方法名（地址），可以省略，省略的话会删除所有点击
+		div1.off('click',clickFn);
+		//删除div1上所有点击事件
+		div1.off('click');
+		
+		
+		//绑定的函数只会执行一次
+		div1.one('click',function(){
+			alert(1111);
+		});
+		
+		
+		//mousedown
+		//mousemove
+		//mouseup
+		
+		div2.mousedown(function(ev){
+//			var offsetX = ev.offsetX;
+			var offsetX = ev.clientX - div2.offset().left;
+			var offsetY = ev.offsetY;
+			
+			//move
+			$(document).mousemove(function(ev){
+				var x = ev.clientX - offsetX;
+				var y = ev.clientY - offsetY;
+				//赋值
+//				div2.css({
+//					left:x,
+//					top:y
+//				});
+				
+				var domObj = div2.get(0);
+				domObj.style.left = x + "px";
+				domObj.style.top = y + "px";
+			});
+			//up
+			$(document).mouseup(function(){
+				$(document).off("mouseup mousemove");
+			});
+		});
+		
+		//键盘事件
+		$(document).keydown(function(ev){
+			//which == keyCode
+			console.log(ev.keyCode);
+			console.log(ev.which);
+		});
+	</script>
+</html>

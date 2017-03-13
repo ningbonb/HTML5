@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义滚动条</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#wrap{
+				width: 300px;
+				height: 400px;
+				border: 2px solid silver;
+				position: absolute;
+				left: 100px;
+				right: 100px;
+				font-size: 30px;
+				overflow: hidden;
+			}
+			
+			#middle{
+				position: absolute;
+				width: 280px;
+			}
+			#sliderWrap{
+				position: absolute;
+				top: 0;
+				right: 0;
+				height: 100%;
+				width: 20px;
+				background-color: #CCCCCC;
+			}
+			#slider{
+				position: absolute;
+				height: 50px;
+				width: 20px;
+				background: red;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="middle">
+				开始 自定义滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚滚动条 结束
+			</div>
+			<div id="sliderWrap">
+				<div id="slider"></div>
+			</div>
+		</div>
+	</body>
+	<script src="js/mouseWheel.js"></script>
+	<script>
+		//获取元素
+		var wrap = document.getElementById("wrap");
+		var middle = document.getElementById("middle");
+		var sliderWrap = document.getElementById("sliderWrap");
+		var slider = document.getElementById("slider");
+		
+		//1.滑块大小自适应
+		//wrap高度 / 内容高度 == 滑块高度 / 滑块容器sliderWrap高度
+		
+		//wrap容器高度 占据内容的比例
+		var scale = wrap.clientHeight / middle.offsetHeight;
+		//滑块的高度
+		var h = scale * sliderWrap.offsetHeight;
+		
+		//最大值
+		//h = h > sliderWrap.offsetHeight ? sliderWrap.offsetHeight : h;
+		if(h >= sliderWrap.offsetHeight) sliderWrap.style.display = "none";
+		h = h < 50 ? 50 : h;
+		
+		slider.style.height = h + 'px';
+		
+		//滑块运动最大值
+		var sliderMaxOffsetH = sliderWrap.clientHeight - slider.offsetHeight;
+		//内容最大偏移
+		var contentMaxOffsetH = middle.offsetHeight - wrap.clientHeight;
+		
+		//2.拖动小滑块
+		slider.onmousedown = function(ev){
+			var ev = ev || window.event;
+			//var offsetX = ev.clientX - this.offsetLeft;
+			var offsetY = ev.clientY - this.offsetTop;
+			
+			document.onmousemove = function(ev){
+				var ev = ev || window.event;
+				var topY = ev.clientY - offsetY;
+				//var topX = ev.clientX - offsetX;
+				
+				move(topY);
+			};
+			
+			document.onmouseup = function(){
+				document.onmouseup = document.onmousemove = null;
+			};
+			return false;
+		};
+		
+		//封装页面滚动函数
+		function move(topY){
+				
+				//最小
+				topY = topY <= 0 ? 0 : topY;
+				//最大
+				topY = topY >= sliderMaxOffsetH ? sliderMaxOffsetH : topY;
+				
+				//slider.style.left = topX + 'px';
+				slider.style.top = topY + 'px';
+				
+				//内容滚动
+				//当前滑块滚动的距离topY / 最大滚动距离sliderMaxOffsetH == 内容的偏移Y / 内容最大偏移
+				var scale = topY / sliderMaxOffsetH;
+				
+				//contentMaxOffsetH * scale
+				//布局需要改 ，可以给内容单独一个容器，修改scrollTop
+				//wrap.scrollTop = contentMaxOffsetH*scale;
+				middle.style.top = -contentMaxOffsetH*scale + "px";
+				
+				//鼠标滚轮事件
+				mouseWheel(wrap,function(ev,down){
+					if(down){
+						//
+						var moveRange = slider.offsetTop + 2;
+						move(moveRange);
+					}else{
+						var moveRange = slider.offsetTop - 2;
+						move(moveRange);
+					}
+				});
+		}
+	</script>
+</html>

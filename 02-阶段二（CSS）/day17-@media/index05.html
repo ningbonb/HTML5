@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" 
+				content="width=device-width, 
+				initial-scale=1.0, 
+				maximum-scale=1.0, 
+				user-scalable=0">
+		<style>
+			body{
+				background: red;
+			}
+			div{}
+			a{}
+			/*大于500*/
+			@media only screen and (min-width: 500px) {
+				body{
+					/*background: blue;*/
+				}
+			}
+			
+			/*500px~700px*/
+			@media only screen and (min-width: 500px) and (max-width: 700px) {
+				body{
+					background: blue;
+				}
+			}
+			
+			/*条件
+			 * orientation: 屏幕方向
+			 * landscape: 风景模式，横屏
+			 * */
+			@media only screen and ( orientation:landscape ) {
+				body{
+					background: yellow;
+				}
+			}
+			/*竖屏portrait*/
+			@media only screen and ( orientation:portrait ) {
+				body{
+					background: black;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		
+	</body>
+</html>

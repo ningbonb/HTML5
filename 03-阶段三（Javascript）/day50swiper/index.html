@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<p></p>
+	</body>
+	<script>
+		var p = document.querySelectorAll("p")[0];
+		
+		var start = {x:0,y:0,z:0};
+		var end = {x:0,y:0,z:0};
+		
+		//晃动距离
+		var max = 20;
+		
+		
+		//设备硬件需要支持
+		window.ondevicemotion = function(ev){
+			//重力加速度
+			var acceleration = ev.accelerationIncludingGravity;
+			
+			p.innerHTML = acceleration.x + '<br>' + acceleration.y + '<br>' + acceleration.z + '<br>';
+			
+			start.x = acceleration.x;
+			start.y = acceleration.y;
+			start.z = acceleration.z;
+			
+			//晃动结果
+			//Math.abs()：取绝对值
+			var absX = Math.abs(end.x - start.x)
+			var absY = Math.abs(end.y - start.y)
+			var absZ = Math.abs(end.z - start.z)
+			
+			var result = absX >= max || absY >= max || absZ >= max;
+			if(result){
+				//alert('手机晃动了');
+				var r = Math.floor(Math.random() * 256);
+				var g = Math.floor(Math.random() * 256);
+				var b = Math.floor(Math.random() * 256);
+				document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b+ ")";
+			}
+			
+			//保存晃动结束的值
+			end.x = start.x;
+			end.y = start.y;
+			end.z = start.z;
+		};
+	</script>
+</html>

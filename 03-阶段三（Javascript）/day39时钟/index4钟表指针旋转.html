@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>指针旋转</title>
+		<style>
+			#dot{
+				width: 100px;
+				height: 100px;
+				background-color: silver;
+				border-radius: 50%;
+				margin: 40px auto;
+				position: relative;
+				z-index: 0;
+				/*transform: rotate(40deg);*/
+			}
+			#line{
+				height: 10px;
+				width: 50%;
+				background-color: #FFF;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				/*改旋转的中心点： 左右 上下*/
+				transform-origin: right center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="dot">
+			<div id="line"></div>
+		</div>
+		
+		<script>
+			var line = document.getElementById("line");
+			var dot = document.getElementById("dot");
+			
+			var deg = 0;
+//			setInterval(function(){
+//				deg++;
+//				dot.style.transform = "rotate(" +deg+ "deg)";
+//				if(deg == 360){
+//					deg = 0;
+//				}
+//			},16);
+			setInterval(function(){
+				deg++;
+				line.style.transform = "rotate(" +deg+ "deg)";
+				if(deg == 360){
+					deg = 0;
+				}
+			},16);
+		</script>
+	</body>
+</html>

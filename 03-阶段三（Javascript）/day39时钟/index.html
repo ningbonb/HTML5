@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>时间对象</title>
+	</head>
+
+	<body>
+		<span id="time"></span>
+		<script>
+			//JS Date 类型是Obj
+			//专门处理时间和日期
+
+			//1.获取当前时间：(当前电脑系统时间)
+			//构造函数，加new，函数返回一个时间对象
+			//Date():可以传参数，但是参数不传，返回的是当前时间
+			var date1 = new Date();
+			console.log(date1);
+			console.log(typeof date1); //object
+
+			//date常用函数中返回的类型都是number
+			/*
+			 1. getDate()
+			 获取当前月份中第几天
+			 * */
+			console.log(date1.getDate()); //24
+			console.log(typeof date1.getDate()); //number
+
+			//2.getYear():获取的从1900年到现在的年份差
+			//2016 - 1900
+			console.log(date1.getYear()); //116
+
+			//3.getFullYear():获取事件对象中的年份
+			console.log(date1.getFullYear());
+
+			//4.getMonth():获取当前时间对象中月份
+			//从0开始计算 0-11
+			console.log(date1.getMonth());
+
+			//5.getDay():当前月份中是周几
+			//日 一 二 三 四 五 六 0-6
+			console.log(date1.getDay());
+
+			//6.getHours():获取时间对象中的小时 （0，23）
+			console.log(date1.getHours());
+
+			//7getMinutes():分钟（0，59）
+			console.log(date1.getMinutes());
+
+			//8.getSeconds()：秒（0，59）
+			console.log(date1.getSeconds());
+
+			//9getMilliseconds(): 获取毫秒
+			console.log(date1.getMilliseconds());
+
+			//10.date1.getTime():距离1970年1月1日8点0分0秒到现在的毫秒数
+			console.log(date1.getTime());
+
+			//			//显示当前几年几月几日周几几点几分几秒
+			//			var date2 = new Date();
+			//			var y = date2.getFullYear();
+			//			//月:从0开始
+			//			var mon = date2.getMonth() + 1;
+			//			//日
+			//			var d = date2.getDate();
+			//			//周
+			//			var weeks = ["星期天","星期一","星期二","星期三","星期四","星期四","星期五","星期六"];
+			//			var w = weeks[date2.getDay()];
+			//			
+			//			//时分秒
+			//			var h = date2.getHours();
+			//			var m = date2.getMinutes();
+			//			var s = date2.getSeconds();
+
+			//document.write("当前时间：" + y + "年" + mon + "月" + d + "日 " + w + " " + h + "时" + m + "分" + s + "秒");
+
+			var time = document.getElementById("time");
+
+			function showTime() {
+				//显示当前几年几月几日周几几点几分几秒
+				var date2 = new Date();
+				var y = date2.getFullYear();
+				//月:从0开始
+				var mon = date2.getMonth() + 1;
+				//日
+				var d = date2.getDate();
+				//周
+				var weeks = ["星期天", "星期一", "星期二", "星期三", "星期四", "星期四", "星期五", "星期六"];
+				var w = weeks[date2.getDay()];
+
+				//时分秒
+				var h = date2.getHours();
+				var m = date2.getMinutes();
+				var s = date2.getSeconds();
+				var ms = date2.getMilliseconds();
+
+				time.innerHTML = "当前时间：" + y + "年" + mon + "月" + d + "日 " + w + " " + h + "时" + m + "分" + s + "秒" + ms + "毫秒";
+			}
+			
+			showTime();
+			setInterval(showTime,1);
+		</script>
+	</body>
+
+</html>

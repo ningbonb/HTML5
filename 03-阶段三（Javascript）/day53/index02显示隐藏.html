@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>显示隐藏</title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="hidden">隐藏</button>
+		<button id="show">显示</button>
+		<button id="toggle">显示或者隐藏</button>
+		<div id="div1"></div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		//隐藏
+		/*
+		 hide(参数1，参数2，参数3)
+		 参数1：动画持续时间 时间1000单位毫秒 也可以'slow' 'normal' 'fast'
+		 参数2：动画效果 linear:匀速， 默认：swing:慢->快->慢  ，可以省略
+		 参数3：动画执行完成后的回调函数：动画完成后才回调
+		 * */
+		var div1 = $("#div1");
+		$(function(){
+			$("#hidden").click(function(){
+				//div1.hide();//没有动画，没有参数
+				//修改宽高和透明度，为0时隐藏（display:none）
+				div1.hide(1000,'linear',function(){
+					console.log('隐藏动画完成');
+				});
+			});
+			$("#show").click(function(){
+				div1.show('slow',function(){
+					console.log("显示动画完成，可以做其他处理了");
+				});
+			});
+			
+			$("#toggle").click(function(){
+				div1.toggle('slow',function(){
+					console.log('显示或者隐藏，动画完成');
+					var ifHide = div1.css('display') == "block" ? false : true;
+					//ifHide ? 成立，执行：前，否则执行：后面
+					ifHide ? $("#toggle").text("显示") : $("#toggle").text("隐藏");
+				});
+			});
+		});
+	</script>
+</html>

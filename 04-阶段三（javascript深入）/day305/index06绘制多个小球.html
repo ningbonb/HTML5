@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas {
+				box-shadow: 0 0 5px saddlebrown;
+			}
+		</style>
+	</head>
+
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+
+		function Ball() {
+			this.cx = 50;
+			this.cy = 50;
+			this.sx = 5;
+			this.sy = 2;
+			this.radius = 30;
+			this.backgroundColor = "red";
+			//动作
+
+		}
+		Ball.prototype.draw = function() {
+			ctx.fillStyle = this.backgroundColor;
+			ctx.beginPath();
+			ctx.arc(this.cx, this.cy, this.radius, 0, Math.PI * 2, false);
+			ctx.fill();
+		};
+		Ball.prototype.move = function() {
+			this.draw();
+			this.cx += this.sx;
+			this.cy += this.sy;
+
+			//碰壁检查
+			if(this.cx >= canvas.width - this.radius || this.cx <= this.radius) {
+				this.sx = -this.sx;
+			}
+			if(this.cy >= canvas.height - this.radius || this.cy <= this.radius) {
+				this.sy = -this.sy;
+			}
+		};
+
+		var ball = new Ball();
+		ball.sx = 10;
+		ball.radius = 50;
+		ball.sy = 22;
+		ball.draw();
+		canvas.onmouseover = function() {
+			(function move() {
+				//ctx.clearRect(0,0,500,500);
+				//填充透明:拖动尾部
+				ctx.fillStyle = "rgba(255,255,255,0.8)"
+				ctx.fillRect(0, 0, 500, 500);
+				ball.move();
+				ball.framesId = requestAnimationFrame(move);
+			})();
+		};
+		//鼠标移出,停止移动
+		canvas.onmouseout = function() {
+			cancelAnimationFrame(ball.framesId);
+		}
+	</script>
+
+</html>

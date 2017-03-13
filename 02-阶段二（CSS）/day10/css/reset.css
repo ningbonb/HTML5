@@ -1,0 +1,9 @@
+/*---------------样式重叠------------------*/
+body,p,h1,h2,h3,h4,h5,h6,ol,ul,dl,hr,pre,dt,dd,li{ padding: 0; margin: 0; }
+/*去除下划线*/
+a{ text-decoration: none; }
+ol,ul{ list-style: none; }
+/*ie6下图片被a标签嵌套外面有蓝色边框*/
+img{ border: none; }
+/*只使用语义化，搜索引擎*/
+h1,h2,h3,strong{ font-weight: normal; }

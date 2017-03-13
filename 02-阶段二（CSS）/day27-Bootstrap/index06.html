@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>响应式列重置</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style>
+			.container {
+				background: rgba(86, 61, 124, .2);
+				color: white;
+				font-size: 2rem;
+			}
+			
+			.container-fluid {
+				background: rgba(86, 61, 124, .2);
+				color: white;
+				font-size: 2rem;
+			}
+			
+			div[class^='col'] {
+				border: 1px solid rgba(86, 61, 124, .2)
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3 
+Resize your viewport or check it out on your phone for an example.</div>
+				<div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+
+				<!-- Add the extra clearfix for only the required viewport -->
+				<div class="clearfix visible-xs-block"></div>
+
+				<div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+				<div class="col-xs-6 col-sm-3">.col-xs-6 .col-sm-3</div>
+			</div>
+		</div>
+	</body>
+
+</html>

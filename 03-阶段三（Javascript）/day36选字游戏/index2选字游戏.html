@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				height: 500px;
+				width: 400px;
+				border: 2px solid silver;
+				margin: 40px auto;
+				padding: 10px;
+			}
+			.navgation{
+				font-size: 30px;
+				overflow: hidden;
+			}
+			#time{
+				float: left;
+			}
+			#score{
+				float: right;
+			}
+			#question{
+				font-size: 200px;
+				text-align: center;
+				height: 200px;
+				line-height: 200px;
+				margin-top: 80px;
+			}
+			.colorList ul{
+				list-style: none;
+				font-size: 50px;
+				/*弹性布局*/
+				display: flex;
+				/*间隔自适应*/
+				justify-content: space-around;
+				margin-top: 80px;
+			}
+			.colorList li{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="box">
+			<div class="navgation">
+				<div id="time">剩余时间：500s</div>
+				<div id="score">得分：0</div>
+			</div>
+			
+			<!--问题-->
+			<div id="question">黄</div>
+			
+			<!--颜色列表-->
+			<div class="colorList">
+				<ul>
+					<li>黄</li>
+					<li>绿</li>
+					<li>蓝</li>
+					<li>紫</li>
+					<li>红</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		//获取元素
+		var time = document.getElementById("time"); 
+		//确定总时间
+		var timeStap = 500;
+		//设置定时器
+		var timer = setInterval(function(){
+			timeStap--;
+			time.innerText = "剩余时间：" + timeStap + "s";
+			if(timeStap == 0){
+				clearInterval(timer);
+				alert("游戏结束");
+			}
+		},1000);
+		
+		//2.题目：题目的文字和题目的颜色是随机产生的
+		var question = document.getElementById("question");
+		var textArr = ["黄","绿","蓝","紫","红"];
+		var colorArr = ["yellow","green","blue","purple","red"];
+		//改变问题
+		function changeQuestion(){
+			//随机文本颜色
+			var textRand = randNum(0,4);
+			question.innerText = textArr[textRand];
+			//随机显示颜色
+			var colorRand = randNum(0,4);
+			question.style.color = colorArr[colorRand];
+			
+			//保存正确答案
+			question.answer = textArr[colorRand];
+			//alert(question.answer);
+			document.title = question.answer;
+		}
+		//随机数
+		function randNum(min,max){
+			return parseInt(Math.random() * (max - min + 1) + min);
+		}
+		changeQuestion();
+		
+		//3、选择答案
+		var colorList = document.getElementsByClassName("colorList")[0];
+		var colors = colorList.querySelectorAll("li");
+		//alert(colors);
+		//绑定事件
+		for(var i = 0; i < colors.length; i++){
+			colors[i].onclick = function(){
+				//alert(this.innerText);
+				//判断颜色
+				var result = judgeColor(this.innerText);
+				//加分
+				//alert(result);
+				recordScore(result);
+				changeQuestion();
+				
+				//重新布局选项
+				layout();
+			};
+		}
+		
+		//判断颜色
+		function judgeColor(chooseColor){
+			return chooseColor == question.answer ? true : false;
+		};
+		
+		//记录分数函数
+		var scoreFlag = 0;
+		var score = document.getElementById("score");
+		function recordScore(result){
+			scoreFlag = result ? ++scoreFlag : --scoreFlag;			
+			score.innerText = "得分：" + scoreFlag;
+		}
+		
+		//4.布局选项
+		var textArrLayout = ["黄","绿","蓝","紫","红"];
+		var colorArrLayout = ["yellow","green","blue","purple","red"];
+		function layout(){
+			//打乱上面俩个数组的顺序，赋值给颜色选项
+			randomArr(textArrLayout);
+			randomArr(colorArrLayout);
+			//alert(textArrLayout);
+			for(var i = 0; i < colors.length; i++){
+				colors[i].innerText = textArrLayout[i];
+				colors[i].style.color = colorArrLayout[i];
+			}
+		}
+		
+		
+		//打乱数组的顺序:给我一个数组，我给你打乱
+		//函数不需要返回值，因为数组是对象类型，修改的是同一个数组内存
+		function randomArr(sourceArr){
+			for(var i = 0; i < sourceArr.length; i++){
+				//产生一个随机数
+				var randN = randNum(0,sourceArr.length - 1);
+				//位置交换
+				var temp = sourceArr[i];
+				sourceArr[i] = sourceArr[randN];
+				sourceArr[randN] = temp;
+			}
+			//alert(sourceArr);
+		}
+		//首次布局
+		layout();
+	</script>
+</html>

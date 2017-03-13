@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>构造函数</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//构造函数命名：首字母大写
+		function Person(name,age,job){
+			//console.log(this);
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			this.getName = function(){
+				return "我叫"+this.name;
+			};
+		}
+		//不加new关键字，函数内部this是window
+		//Person();
+		//加上new关键字，构造函数内部this是该对象
+		var person = new Person("小鹏",30,"学生");
+		//加上new关键字，构造函数默认返回该类型的对象
+		console.log(person);
+		console.log(person.name);
+		console.log(person.getName());
+		
+		var person2 = new Person("石头",30,"学生");
+		//console.log(person);
+		console.log(person2.name);
+		console.log(person2.getName());
+		
+		//this对象默认创建并且赋值，不需要返回，默认return构造函数对象
+		
+		console.log("~~~~~~~~~~~~~~~~~");
+		console.log(person.getName === person2.getName);//false
+		
+		//
+		console.log(person instanceof Person);//true
+		console.log(person2 instanceof Person);//true
+		
+		//
+		var arrObj = new Array(1,2,3);
+		console.log(arrObj instanceof Person);//false
+		
+		function Student(name,age){
+			this.name = name;
+			this.age = age;
+						
+		}
+		
+		var stu1 = new Student('毛毛',18);
+		console.log(stu1 instanceof Student);//true
+		console.log(stu1 instanceof Array);//false
+		console.log(stu1 instanceof Person);//false
+		
+		console.log(stu1 instanceof Object);//true
+		console.log(person instanceof Object);//true
+		console.log(arrObj instanceof Object);//true
+		
+		//js默认所有对象都继承自Object，所以所有对象instanceof Object都是正确
+		console.log(stu1.toString());
+		console.log(arrObj.toString());
+		
+		//缺点：属性值如果是函数对象，会重复创建函数实例
+		function Person1(name,age,job){
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			this.getName = getName;
+		}
+		function getName(){
+			return this.name;
+		}
+		
+		var person3 = new Person1("毛毛",18,"学生");
+		console.log(person3.name);
+		console.log(person3.getName());
+		
+		var person4 = new Person1("石头",18,"学生");
+		console.log(person4.name);
+		console.log(person4.getName());
+		
+		console.log(person3.getName === person4.getName);//true
+		
+		//优点： 不管创建多少对象，所有对象共享一个内部函数对象，也就是说getName方法只被创建了一次，多个对象引用
+		//缺点：代码关系性不强，构造函数功能被分开了，getName(),可以直接被调用，跨过对象使用
+	</script>
+</html>

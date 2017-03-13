@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格样式</title>
+	<style>
+		table{
+			/*合并单元格框*/
+			border-collapse:collapse;
+			/*td（边框）距离*/
+			/*border-spacing: 10px;*/
+			/*标题位置*/
+			caption-side: bottom;
+			width: 400px;
+			height: 200px;
+			/*隐藏空cell*/
+			/*empty-cells: hide;*/
+
+			/*平分单元格
+				table-layout: 
+				fixed:内容过长是不拉伸，平分单元格;
+				auto：内容过长拉伸表格；
+			*/
+			table-layout: fixed;
+		}
+		table th,table td{
+			/*border: 1px solid black;*/
+		}
+		tr{
+			border: 1px dotted red;
+			text-align: center;
+		}
+		#shiTou{
+			/*border: 2px solid blue;*/
+			border-top: 2px solid blue;
+			border-bottom: 2px solid blue;
+			height: 40px;
+		}
+		caption{
+			border:1px solid red;
+			height: 80px;
+			text-align: left;
+		}
+		#col2{
+			/*border: 1px dashed gray;*/
+			border-left: 1px dashed gray;
+			border-right: 2px dashed gray;
+			width: 30px;
+		}
+	</style>
+</head>
+<body>
+	<table -border="">
+		<caption>表格信息</caption>
+		<colgroup>
+			<col span="1">
+			<col id="col2">
+			<col>
+		</colgroup>
+		<tr>
+			<th>姓名</th>
+			<th>性别</th>
+			<th>成绩</th>
+		</tr>
+		<tr>
+			<td>小敏</td>
+			<td>男</td>
+			<td></td>
+		</tr>
+		<tr id="shiTou">
+			<td>石头</td>
+			<td>男</td>
+			<td>据介绍德雷克斯勒看到你说的道理开始sah hfisafk hfhfdssshf dhkhk hkh</td>
+		</tr>
+		<tr>
+			<td>小李</td>
+			<td>女</td>
+			<td>50</td>
+		</tr>
+	</table>
+</body>
+</html>

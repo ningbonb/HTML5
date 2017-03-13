@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position: absolute;
+			}	
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+		var div1 = document.getElementById("div1");
+		
+		div1.addEventListener("touchstart",function(ev){
+			
+			var touchObj = ev.touches[0];
+			var offsetX = touchObj.clientX - this.offsetLeft;
+			var offsetY = touchObj.clientY - this.offsetTop;
+			
+			document.addEventListener("touchmove",move);
+			function move(ev){
+				//获取touches对象下的第一个手指对象
+				var touchObj = ev.touches[0];
+				div1.style.left = touchObj.clientX - offsetX + "px";	
+				div1.style.top = touchObj.clientY - offsetY + "px";	
+			}
+			document.addEventListener("touchend",function(){
+				document.removeEventListener("touchmove",move);
+			});
+			ev.preventDefault();
+		});
+	</script>
+</html>

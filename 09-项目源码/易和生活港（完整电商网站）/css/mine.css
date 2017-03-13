@@ -1,0 +1,489 @@
+/*个人中心*/
+.mine_wrap{
+	max-width: 1180px;
+	margin: 2% auto;
+	overflow: hidden;
+	font-size: 1.5rem;
+	color: #666666;
+}
+/*左侧*/
+.mine_menu{
+	background-color: #fff;
+	box-sizing: border-box;
+	padding: 0% 2% 2%;
+	width: 15%;
+	float: left;
+	border: 1px solid silver;
+	line-height: 3rem;
+}
+.mine_menu a{
+	display: block;
+	color: #666666;
+}
+.mine_menu a:hover{
+	color: #ED7122;
+	text-decoration: underline;
+}
+/*个人中心*/
+.mine_menu_title{
+	border-bottom: 1px dashed silver;
+	font-size: 2rem;
+	line-height: 5rem;
+	margin-bottom: 5%;
+}
+.mine_menu_title img{
+	display: inline-block;
+	vertical-align: baseline;
+}
+.mine_menu_head{
+	margin: 1% 0;
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+.mine_menu_head span{
+	float: right
+}
+/*右侧*/
+.mine_about{
+	float: right;
+	border: 1px solid silver;
+	box-sizing: border-box;
+	width: 83%;
+	position: relative;
+}
+.mine_box{
+	width: 100%;
+}
+.mine_menu_title1{
+	box-sizing: border-box;
+	padding-left: 2%;
+	margin-bottom: 0%;
+}
+.mine_box_hid{
+	display: none;
+}
+/*账户*/
+.zhanghu_info{
+	box-sizing: border-box;
+	padding:1%;
+	background-color: #FFF4EC;
+}
+.zhanghu_info table{
+	width: 100%;
+	text-align: center;
+}
+.zhanghu_info span{
+	color: #EE7B31;
+}
+.zhanghu_left{
+	text-align: left;
+}
+.zhanghu_info table td a{
+	width: 7rem;
+	height: 7rem;
+}
+.zhanghu_info table td a img{
+	width: 100%;
+	height: 100%;
+}
+.zhanghu_lv{
+	box-sizing: border-box;
+	padding: 2% 1%;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+.zhanghu_lv i{
+	color: #EC6A17;
+	font-size: 2.2rem;
+	font-weight: bold;
+}
+
+.zhanghu_ad{
+	margin: 2% 0;
+}
+.zhanghu_ad,.zhanghu_ad img{
+	width: 100%;
+}
+.zhuanhu_pres{
+	margin: 2% 0 0.5%;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 0 5.5%;
+}
+.zhuanghu_v{
+	float: left;
+	height: 2rem;
+	width: 2.83%;
+	background-color: #D3D3D3;
+	color: #fff;
+	text-align: center;
+	border-radius: 50%;
+	line-height: 2rem;
+	font-size: 1.2rem;
+	transition: all 0.1s;
+}
+.zhuanghu_p{
+	margin: 0.75rem 0.44%;
+	height: 0.5rem;
+	width: 12.4%;
+	background-color: #D3D3D3;
+	float: left;
+	position: relative;
+	transition: all 0.5s;
+}
+.zhuanghu_p_pre{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 0%;
+	background-color: #EC6A17;
+	transition: all 1s;
+}
+.zhanghu_prize{
+	width: 100%;
+	overflow: hidden;
+}
+.zhanghu_prize span{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 14.28%;
+	text-align: center;
+	float: left;
+	font-size: 1rem;
+	line-height: 2rem;
+}
+
+/*我的积分*/
+.jifen_wrap{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1%;	
+}
+.jifen_wrap p{
+	display: inline-block;
+	margin-right: 3rem;
+	line-height: 3rem;
+}
+.jifen_wrap p span{
+	color: #EC6A17;
+	font-size: 1.6rem;
+}
+.jifen_wrap a{
+	float: right;
+	color: #209BE5;
+}
+.jifen_wrap table{
+	width: 100%;
+	line-height: 3rem;
+	text-align: center;
+}
+.jifen_wrap table th{
+	width: 33%;
+	background-color: #F2F2F2;
+}
+.jifen_wrap table td{
+	width: 33%;
+	font-size: 1.2rem;
+}
+
+
+/*个人资料*/
+.mine_infi{
+	width: 100%;
+	box-sizing: border-box;
+	padding: 1%;
+}
+.mine_infi table{
+	width: 100%;
+	line-height: 4rem;
+}
+.mine_infi table tr td:first-child{
+	box-sizing: border-box;
+	width: 8rem;
+	text-align: right;
+	font-size: 1.4rem;
+	color: black;
+	padding-right: 0.5rem;
+}
+.mine_infi table tr td:last-child input[type="text"],.mine_infi table tr td:last-child input[type="number"]{
+	height: 2rem;
+	width: 10rem;
+}
+.mine_infi table tr td:last-child a{
+	color: #008DE1;
+	font-size: 1.2rem;
+	margin-left: 1%;
+}
+.mine_infi table tr td:last-child img{
+	height: 4rem;
+	width: 4rem;
+}
+#mine_button a{
+	margin-left: 0;
+	line-height: 3rem;
+	background-color: #EC6A17;
+	color: #fff;
+	border-radius: 0.3rem;
+	padding: 0rem 3rem;
+}
+/*我的收藏*/
+.mine_star_wrap{
+	width: 100%;
+	overflow: hidden;
+}
+/*最近浏览*/
+.mine_res_see{
+	width: 100%;
+	overflow: hidden;
+}
+.commodity_box_one{
+	box-sizing: border-box;
+	border: 1px solid transparent;
+	width: 25%;
+	float: left;
+	padding: 2% 0.5%;
+	text-align: left;
+}
+.commodity_box_one a{
+	width: 100%;
+}
+.commodity_box_one a img{
+	width: 100%;
+}
+.commodity_box_one p{
+	font-size: 1.4rem;
+	padding: 5% 1%;
+}
+.commodity_box_one p a{
+	color: #B2B2B2;
+}
+.commodity_price{
+	padding: 0% 1%;
+	color: red;
+	font-size: 1.7rem;
+}
+.commodity_price del{
+	color: black;
+	font-size: 1.3rem;
+}
+.commodity_box_one:hover{
+	border: 1px solid #F9AF79;
+}
+.commodity_price a{
+	text-align: center;
+	padding: 0.2rem 0;
+	width: 6rem;
+	box-sizing: border-box;
+	display: inline-block;
+	float: right;
+	border: 1px solid #EC6A17;
+	border-radius: 1rem;
+	color: #EC6A17;
+	font-size: 1rem;
+}
+@media only screen and (max-width: 980px) {
+	.commodity_box_one p{
+		font-size: 1.2rem;
+	}
+	.commodity_price{
+		font-size: 1.5rem;
+	}
+	.commodity_price del{
+		font-size: 1.1rem;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.commodity_box_one{
+		width: 25%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.commodity_box_one p{
+		font-size: 1.0rem;
+	}
+	.commodity_price{
+		font-size: 1.3rem;
+	}
+	.commodity_price del{
+		font-size: 1.0rem;
+	}
+	.commodity_box_one{
+		width: 33.333%;
+	}
+}
+
+/*修改密码*/
+.register_box{
+	width: 40%;
+	/*border: 1px solid silver;*/
+	margin: 3% 0 3% 2%;
+	box-sizing: border-box;
+	padding: 1%;
+	background-color: #fff;
+	overflow: hidden;
+}
+.register_box_input{
+	width: 100%;
+	border: 1px solid #E6E6E6;
+	height: 2.8rem;
+	background-color: #F9F9F9;
+	position: relative;
+}
+.register_box_input input{
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border: none;
+	padding-left: 1rem;
+}
+.register_box_input img{
+	height: 1rem;
+	width: 1rem;
+	position: absolute;
+	right: 4%;
+	top: 30%;
+	visibility: hidden;
+}
+.register_box_font{
+	visibility: hidden;
+	color: red;
+	line-height: 2rem;
+}
+.register_box_font img{
+	height: 1rem;
+	width: 1rem;
+	display: inline-block;
+	vertical-align: text-top;
+	margin-top: 0.2rem;
+}
+.register_box_input2{
+	border: 0;
+	overflow: hidden;
+}
+.register_box_input2 input{
+	border: 1px solid #E6E6E6;
+	width: 35%;
+	float: left;
+}
+.register_box_yzm{
+	box-sizing: border-box;
+	float: right;
+	width: 64%;
+	height: 100%;
+	overflow: hidden;
+}
+.yzm{
+	box-sizing: border-box;
+	width: 50%;
+	height: 100%;
+	border: 1px solid #E6E6E6;
+	float: left;
+}
+.register_box_yzm a{
+	float: right;
+	color: #F19459;
+	line-height: 2.8rem;
+}
+.register_box_input{
+	position: relative;
+}
+.register_box_input3 a{
+	position: absolute;
+	display: inline-block;	
+	top: 8%;
+	right: 1%;
+	color: #fff;	
+	background-color: #008DE1;
+	padding: 0.5rem 1rem;
+	border-radius: 0.3rem;
+}
+.register_box_button{
+	text-align: left;
+	float: left;
+	width: 70%;
+	margin-top: 6%;
+}
+.register_box_button a{
+	color: #fff;	
+	background-color: #008DE1;
+	padding: 0.65rem 1.8rem;
+	border-radius: 0.3rem;
+}
+.register_box_button1 a{
+	background-color: #EC6A17;
+}
+@media only screen and (max-width: 1110px) {
+	.register_box{
+		width: 45%;
+		margin: 3% 0 3% 2%;
+		padding: 1%;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.register_box{
+		width: 60%;
+		margin: 3% 0 3% 2%;
+		padding: 1%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.register_box{
+		width: 88%;
+		margin: 30% 11% 10% 2%;
+		padding: 1%;
+	}
+}
+
+/*我的消息*/
+.mine_msg{
+	width: 100%;
+}
+.mine_msg table{
+	width: 100%;
+	text-align: center;
+}
+.mine_msg table th{
+	line-height: 3rem;
+	background-color: #EAEAEA;
+}
+.mine_msg table td{
+	line-height: 2.5rem;
+	border-bottom: 1px dashed silver;
+}
+.mine_msg table td a{
+	color: #3FA9E8;
+	padding: 0 0.5rem;
+}
+
+/*我的地址*/
+.mine_menu_add a{
+	margin-top: 1rem;
+	margin-right: 1rem;
+	line-height: 3rem;
+	padding: 0 1rem;
+	float: right;
+	color: #fff;
+	font-size: 1.2rem;
+	background-color: #EC6A17;
+	border-radius: .4rem;
+}
+.mine_add_wrap{
+	width: 100%;
+}
+.mine_add_wrap table{
+	width: 100%;
+	text-align: center;
+}
+.mine_add_wrap table th{
+	line-height: 3rem;
+	background-color: #EAEAEA;
+}
+.mine_add_wrap table td{
+	line-height: 2.5rem;
+	border-bottom: 1px dashed silver;
+}
+.mine_add_wrap table td a{
+	color: #3FA9E8;
+	padding: 0 0.2rem;
+}

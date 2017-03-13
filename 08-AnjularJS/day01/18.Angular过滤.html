@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>过滤</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <input type="text" ng-model="num1">
+    <!--currency:货币过滤-->
+    {{num1 | currency:"￥"}}
+    <p>{{'HELLo' | lowercase}}</p>
+    <p>{{'HELLo' | uppercase}}</p>
+
+    <!--筛选-->
+    <input type="text" ng-model="value">
+    <ul>
+        <!--filter:筛选前面的data数组，筛选条件：指定，会返回一个筛选后的新数组,data | filter:value会返回一个新数组-->
+        <li ng-repeat="item in data | filter:value">{{item}}</li>
+    </ul>
+
+    <!--排序-->
+    <input type="text" ng-model="name">
+    <ul>
+        <!--filter:筛选前面的data数组，筛选条件：指定，会返回一个筛选后的新数组,data | filter:value会返回一个新数组-->
+        <li ng-repeat="user in users | filter:name | orderBy:'age'">{{user}}</li>
+    </ul>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("mainC",function($scope,$http){
+        $scope.data = ['zhangsan','lisi','moamao'];
+        $scope.users = [{name:'lisi',age:990},{name:'zhansgan',age:210},{name:'maomaom',age:10},{name:'maomaoddm',age:20}];
+    });
+</script>

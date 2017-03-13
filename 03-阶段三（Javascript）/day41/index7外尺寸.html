@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,html{
+				margin: 0;
+				padding: 0;
+				/*border: 10px solid blueviolet;*/
+			}
+			#div1{
+				height: 100px;
+				width: 100px;
+				background-color: pink;
+				padding: 10px;
+				border: 10px solid silver;
+				position: relative;
+			}
+			#div2{
+				width: 50px;
+				height: 50px;
+				background-color: cornflowerblue;
+				border: 10px solid brown;
+				margin-top: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="div2"></div>
+		</div>
+	</body>
+	
+	<script>
+		var div1 = document.getElementById("div1");
+		var div2 = document.getElementById("div2");
+		/*
+		 外尺寸：
+		 offsetHeight offsetWidth offsetParent offsetTop offsetLeft
+		 
+		 offsetHeight: 内容高度height + paddingTop + paddingBottom + border-top + border-bottom
+		 offsetWidth: 内容高度width + paddingLeft + paddingRight + border-left + border-right
+		 
+		 offsetParent:获取到距离当前元素最近的并且带有定位属性（除了默认static）的父元素
+		 当所有父元素都没有定位关系，在标准浏览器下和ie高版本下，offsetParent获取到body，ie低版本中获取html
+		 
+		 offsetTop: 当前元素上边框到offsetParent上边框内部之间的距离
+		 offsetTop: 当前元素左边框到offsetParent左边框内部之间的距离
+		 
+		 
+		 注意：如果所有的父元素都没有定位关系,offsetTop和offsetLeft在不同浏览器下结果不同，为了保持一致，最好将html和body样式重置
+		 * */
+		
+		console.log(div1.offsetHeight);
+		console.log(div1.offsetWidth);
+		
+		console.log(div1.offsetParent);
+		
+		console.log(div2.offsetParent);
+		console.log(div2.offsetTop);
+		console.log(div2.offsetLeft);
+		
+		console.log(div1.offsetTop);
+	</script>
+</html>

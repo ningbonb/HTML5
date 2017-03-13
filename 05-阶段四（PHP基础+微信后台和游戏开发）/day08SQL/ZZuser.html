@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>用户表</title>
+		<style>
+			#box {
+				padding: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="show">显示所有用户</button>
+		<table border="1" cellspacing="0" width="500" id="user_list">
+			<tr>
+				<th>id</th>
+				<th>账号</th>
+				<th>密码</th>
+			</tr>
+		</table>
+
+		<div id="box">
+			账号：<input type="text" id="user" /> 密码：
+			<input type="password" id="pass" />
+			<input type="button" value="注册" id="submit" />
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/AjaxGP.js"></script>
+	<script>
+		$("#show").click(function() {
+			//发起请求
+			ajax({
+				//查询所有用户接口
+				urls: "ZZuser.php",
+				type: "GET",
+				success: function(jsonStr) {
+					//alert(jsonStr);
+					//开始解析
+					var obj = JSON.parse(jsonStr);
+					console.log(obj);
+					if(obj.code == "200") {
+						var users = JSON.parse(obj.data);
+						console.log(users);
+						//开始遍历用户数组，在表格上展示数据
+						for(var i = 0; i < users.length; i++) {
+							//创建行
+							var tr = $("<tr>");
+							//添加到table
+							tr.appendTo("#user_list");
+
+							//内层循环，创建单元格
+							var user = users[i]; //单个对象
+							for(var k in user) {
+								//每个属性对应一个单元格
+								var td = $("<td>");
+								//插入到tr
+								tr.append(td);
+								//单个内容
+								td.html(user[k]);
+							}
+
+						}
+					}
+				},
+				fail: function(status) {
+					alert(status);
+				}
+			});
+		});
+
+		//点击注册添加
+		$("#submit").click(function() {
+			//获取到输入信息
+			var user = $("#user").val();
+			var pass = $("#pass").val();
+			//发送请求
+			ajax({
+				urls: "Zreg.php",
+				data: {
+					user: user,
+					pass: pass
+				},
+				success: function(jsonStr) {
+					//alert(jsonStr);
+					var obj = JSON.parse(jsonStr);
+					console.log(obj);
+					if(obj.code == "200") {
+						var info = obj.info;
+						//创建一个tr
+						var tr = $("<tr>");
+						//放到table
+						$("#user_list").append(tr);
+						//循环属性创建单元格
+						for(var k in info) {
+							//创建td
+							var td = $("<td>");
+							//赋值
+							td.html(info[k]);
+							//放到tr
+							tr.append(td);
+						}
+						//添加删除
+						deleteTr(info["id"],tr);
+					}
+				},
+				fail: function(status) {
+					alert(status);
+				}
+			});
+
+		});
+
+		//添加删除事件函数
+		function deleteTr(id, tr) {
+			//删除
+			var dTd = $("<td>");
+			dTd.html("删除");
+			tr.append(dTd);
+			dTd.css({
+				color: "red",
+				cursor: "pointer"
+			});
+			//保存对应的id
+			dTd[0].id = id;
+			//绑定事件
+			dTd.click(function() {
+				//console.log(this);
+				//保存点击的dtd-this
+				window.deleteObj = this;
+				ajax({
+					urls: "Zdel.php",
+					data: {
+						id: this.id
+					},
+					success: function(jsonStr) {
+						alert(jsonStr);
+						$obj = JSON.parse(jsonStr);
+						if($obj.code == "200") {
+							console.log(this) //是当前的参数对象
+							$(window.deleteObj).parent().remove();
+						}
+					}
+				});
+
+			});
+		}
+	</script>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>邮箱选择</title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			ul{
+				list-style: none;
+			}
+			#wrap{
+				height: 400px;
+				width: 400px;
+				border: 1px solid silver;
+				margin: 0 auto;
+			}
+			#left{
+				float: left;
+				width: 100px;
+				position: relative;
+			}
+			#left li{
+				width: 100px;
+				height: 100px;
+				border: 1px solid silver;
+				box-sizing: border-box;
+				text-align: center;
+				line-height: 100px;
+				font-size: 14px;
+				cursor: pointer;
+			}
+			
+			/*选中状态下的样式*/
+			.active{
+				background-color: silver;
+				color: brown;
+			}
+			#slider{
+				border: 15px solid transparent;
+				width: 0;
+				border-right-color: brown;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transition: top .5s;
+			}
+			#right{
+				float: right;
+			}
+			#right div{
+				width: 300px;
+				height: 400px;
+				font-size: 50px;
+				word-break: break-all;
+				text-align: center;
+				line-height: 400px;
+				/*默认隐藏状态*/
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="left">
+				<ul>
+					<li class="active">163邮箱</li>
+					<li>126邮箱</li>
+					<li>yeah.net</li>
+					<li>网易手机邮箱</li>
+				</ul>
+				
+				<!--小滑块-->
+				<div id="slider"></div>
+				
+			</div>
+			<div id="right">
+				<div style="display: block;">163邮箱</div>
+				<div>126邮箱</div>
+				<div>yeah.net</div>
+				<div>网易手机邮箱</div>
+			</div>				
+		</div>
+		
+		<script>
+			var left = document.getElementById("left");
+			var navs = left.querySelectorAll("li");
+			
+			var right = document.getElementById("right");
+			var mailBoxs = right.querySelectorAll("div");
+			
+			var slider = document.getElementById("slider");
+			
+			//把滑块放到li的中间位置
+			//li的高度一般 减去 滑块高度的一半
+			
+			//alert(navs[0].style.color);//元素.style.属性:只能获取到行间样式
+			//alert(navs[0].offsetHeight);//100:外边框的高度，包含：元素的border
+			//alert(navs[0].clientHeight);//98:内高度：不包含边框
+			
+			//第一个位置，滑块距离顶部的位置
+			var topOff = (navs[0].offsetHeight - slider.offsetHeight) / 2;
+			slider.style.top = topOff + 'px';
+			
+			//循环绑定
+			var preActiveIndex = 0;
+			for(var i = 0; i < navs.length; i++){
+				navs[i].index = i;
+				
+				navs[i].onclick = function(){
+					//取消之前选中的高亮状态	
+					navs[preActiveIndex].className = "";
+					mailBoxs[preActiveIndex].style.display = "none";
+					
+					//选中当前
+					this.className = "active";
+					mailBoxs[this.index].style.display = "block";
+					
+					//保存当前的下标
+					preActiveIndex = this.index;
+			
+					//滑块位置
+					slider.style.top = this.index * this.offsetHeight + topOff + "px";
+				};
+			}
+		</script>
+	</body>
+</html>

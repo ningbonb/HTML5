@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>事件</title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+			#div3{
+				height: 100px;
+				width: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<!--<div id="div1" onclick = "alert(1111)"></div>-->
+		<!--<div id="div1" onclick="a = 10;alert(a);"></div>-->
+		<!--函数必须调用-->
+		<!--<div id="div1" onclick="div1Action('你好')"></div>-->
+		
+		<!--匿名函数需调用-->
+		<div id="div1" onclick="(function(){alert(1111)})()"></div>
+		
+		<div id="div2"></div>
+		
+		<div id="div3"></div>
+	</body>
+	
+	<script type="text/javascript">
+		/*
+		 事件：
+		 onclick,onmouseover,onmouseout, imgObj.onload window.onscroll
+		 
+		 //1.鼠标事件
+		   2.键盘事件
+		   3.输入型事件
+		   4.其他事件
+		   
+		 绑定事件处理函数
+		 1.js中onclick = 函数
+		 2.直接在行间绑定事件
+		 
+		 {
+		 	js中绑定事件
+		 	1.onclick = 函数
+		 	2.监听方法绑定事件 addEventListener()
+		 }
+		   
+		 * */
+		
+		function div1Action(p){
+			alert(p);
+		}
+		
+		
+		/*
+		 on的方式绑定，只能绑定一个事件，新的事件会覆盖老的事件
+		 * */
+		var　div2 = document.getElementById("div2");
+		div2.onclick = function(){
+			console.log('第一次绑定');
+		};
+		div2.onclick = function(){
+			console.log('第二个有效');
+		};
+		
+		//on绑定的事件，取消,对函数的提前释放
+		div2.onclick = null;
+		
+		/*
+		 addEventListener()
+		 参数1：时间名称（格式:去掉on  click）
+		 参数2：绑定的处理函数
+		 
+		 参数3：可以省略，一个boolean值，默认false
+		 	true:捕获阶段触发函数
+		 	flase:冒泡阶段出发函数
+		 	
+		 	
+		 	！！！可以多次绑定,事件不会被覆盖
+		 	！！！绑定的事件和通过on方式没有任何关系
+		 * */
+		function fnListener(){
+			console.log('监听方式第一次绑定');
+		}
+		div2.addEventListener("click",fnListener,false);
+		//第二次绑定
+		div2.addEventListener("click",function(){
+			console.log("监听方式第二次绑定");
+		});
+		
+		//addEventListener()取消绑定
+		div2.onclick = function(){
+			console.log("通过on绑定");
+		};
+		div2.onclick = null;
+		
+		//removeEventListener(1,2,3);
+		/*
+		 参数1：要移出的事件类型
+		 参数2：要移出的函数名，函数指针
+		 参数3：可以省略，一个boolean值，默认false(必须和添加的方式参数3类型一致才可以移除)
+		 
+		 注意：通过匿名函数绑定的事件无法移除
+		 * */
+		div2.removeEventListener("click",fnListener,false);
+		//无法移除匿名函数
+		div2.removeEventListener("click",function(){
+			return;
+		});
+		
+		
+		/*
+		 addEventListener removeEventListener
+		 这两个方式在ie678下不能识别
+		 //添加
+		 attachEvent(1，2)
+		 //删除
+		 detachEvent(1，2)
+		 
+		 区别：参数1：函数类型：（onclick）on不可以省略
+		 * */
+		
+//		function ieFn(){
+//			alert(1111);
+//		}
+//		var div3 = document.getElementById("div3");
+//		div3.attachEvent("onclick",ieFn);
+//		div3.detachEvent("onclick",ieFn);
+
+
+		/*兼容写法*/
+		//alert(div1.addEventListener);
+		
+		function addEvent(obj,eventName,fnName){
+			if(obj == null)return;
+			
+			//标准下
+			if(obj.addEventListener){
+				obj.addEventListener(eventName,fnName);
+			}else{
+				obj.attachEvent('on'+eventName,fnName);
+			}
+		}
+		
+		var div3 = document.getElementById("div3");
+		addEvent(div3,'click',function(){
+			alert(1111);
+		});
+	</script>
+	
+</html>

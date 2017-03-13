@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>小球的移动tween</title>
+		<style>
+			#box {
+				width: 800px;
+				height: 50px;
+				border: 2px solid red;
+				position: relative;
+			}
+			
+			#in {
+				width: 50px;
+				height: 50px;
+				background: red;
+				border-radius: 50%;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="in"></div>
+		</div>
+	</body>
+	<!--//先引入-->
+	<script src="js/tween.js"></script>
+	<script>
+		var ball = document.getElementById("in");
+		var timer;
+		var x = 0;
+		//tween需要四个参数t,b,c,d
+		//t,当前时间
+		//b,初始值
+		//c,变化量
+		//d,持续时间(总的步数)
+
+		//四个参数之间关系：
+		//t和d：从t变化到d代表动画周期结束
+		//b和c：b代表元素初始位置 和 c代表位置和初始位置的差值
+
+		var t = 0;
+		var b = 0;
+		var c = 750;
+		//自定
+		var d = 100;
+		ball.onclick = function() {
+			t+=10;
+			//每一个时间段走的距离
+			this.style.left = Tween.Linear(t, b, c, d) + 'px';
+			console.log(va);
+			//结合定时器
+		};
+	</script>
+
+</html>

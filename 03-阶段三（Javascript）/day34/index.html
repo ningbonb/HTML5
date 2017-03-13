@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>冒泡排序</title>
+	</head>
+	<body>
+		
+		<script>
+			var arr = [5,4,3,2,1];
+			//从小到大
+			
+			//第一趟，比较4次
+			for(var i = 0; i < 4; i++){
+				if(arr[i] > arr[i + 1]){
+					//交换位置
+					var temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			//找到了最大值放在最后
+			console.log(arr);//[4, 3, 2, 1, 5]
+			
+			//第二趟，比较了3次
+			for(var i = 0; i < 3; i++){
+				if(arr[i] > arr[i + 1]){
+					//交换位置
+					var temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			console.log(arr);//[3, 2, 1, 4, 5]
+			
+			//第三趟，比较了2次
+			for(var i = 0; i < 2; i++){
+				if(arr[i] > arr[i + 1]){
+					//交换位置
+					var temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			console.log(arr);//[2, 1, 3, 4, 5]
+			
+			//第四趟，比较了1次
+			for(var i = 0; i < 1; i++){
+				if(arr[i] > arr[i + 1]){
+					//交换位置
+					var temp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = temp;
+				}
+			}
+			console.log(arr);//[1, 2, 3, 4, 5]
+			
+			//完整的冒泡
+			//外层循环控制的是趟数，内层循环控制的是每趟执行的次数
+			
+			function sortArr(sortA){
+				//控制趟数
+				for(var i = 0; i < sortA.length - 1; i++){
+					//每趟执行的次数
+					for(var j = 0; j < sortA.length - 1 - i; j++){
+						if(arr[j] > arr[j + 1]){
+						//交换位置
+						var temp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = temp;
+						}
+					}
+				}
+			}
+			var arr = [1,20,4,22,100,99];
+			sortArr(arr);
+			console.log(arr);//[1, 4, 20, 22, 99, 100]
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background:red;
+			}
+			#inner{
+				width:100px;
+				height: 100px;
+				background:yellow;
+			}
+			p{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<div id="inner"></div>
+			<!--<p></p>-->
+		</div>
+		<button id="btn">点击</button>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//参数2：必须是div1的子元素，相当于给div1下的inner绑定事件
+			$("#div1").on("click","#inner",function(){
+				alert(11);
+			});
+			
+			
+			//提前绑定事件
+			$("#div1").on("click","p",function(){
+				alert("点击p事件");
+			});
+			
+			//创建p标签
+			$("button").click(function(){
+				$("<p></p>").appendTo($("#div1"));
+			});
+			
+		});
+	</script>
+	
+</html>

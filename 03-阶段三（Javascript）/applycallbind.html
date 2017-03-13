@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>apply和call的区别</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// apply和call：都是为了改变某个函数运行时的上下文而存在的，也就是为了改变函数内部this的指向
+	
+	// 上下文，执行上下文（execution contect）类似一个容器，用来存储当前上下文中以定义或可获取的变量和函数等
+	// 作用域链（scope chain）使function“继承”上层上下文的变量，而并列的function之间互补干扰
+	// execution contect -> variable object >> 
+	// scope chain(arguments和该函数定义的变量) >>
+	// this(当function是定义在global对中时，this指向global；当function作为Object的方法时，this指向该Object)
+
+	//创建一个构造函数
+	function fruits(){}
+	//给构造函数添加属性
+	fruits.prototype = {
+		color: "red",
+		say: function(){
+			console.log("My color is " + this.color);
+		}
+	}
+	// 创建一个实例对象
+	var apple = new fruits;
+	apple.say();
+
+	banana = {
+		color: "yellow"
+	}
+	apple.say.apply(banana);
+	apple.say.call(banana);
+
+	//apply和call区别:call需要把参数按顺序传递进去，而apply则是把参数都放在数组里
+	var func = function(arg1,arg2){
+		console.log("arg1:" + arg1 + ";arg2:" + arg2);
+		//console.log(arguments[0]);
+	};
+	var func1;
+	func.call(func1,1,2);
+	func.apply(this,[3,4]);
+
+	//1.数组之间的追加
+	var array1 = [11,"shitou",{name:"xiaoshitou"},-111];
+	var array2 = ["maomao",55,100];
+	console.log(Array.prototype);
+	Array.prototype.push.apply(array1,array2);
+	// Array.prototype.push.call(array1,"maomao",55,100);
+	console.log(array1);
+
+	//2.获取数组中的最大值和最小值
+	var numbers = [5,458,120,-215];
+	var maxInNumbers = Math.max.apply(this,numbers);
+	console.log(maxInNumbers);
+</script>
+</html>

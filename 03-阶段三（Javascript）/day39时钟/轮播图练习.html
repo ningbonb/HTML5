@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 600px;
+				height: 550px;
+				margin: 50px auto;
+				border: 1px solid silver;
+				position: relative;
+			}
+			#wrap img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 1;
+				opacity: 0;
+				transition: opacity 2s;
+			}
+			#left,#right{
+				width: 33px;
+				height: 60px;
+				background-color: rgb(0,0,0);
+				position: absolute;
+				z-index: 10;
+				opacity: 0;
+				color: #fff;
+				font-size: 50px;
+				text-align: center;
+				line-height: 60px;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				cursor: pointer;
+				transition: opacity 0.8s;
+			}
+			#wrap:hover #left,#wrap:hover #right{
+				opacity: .3;
+			}
+			#left{
+				left: 5px;
+			}
+			#right{
+				right: 5px;
+			}
+			#wrapFont{
+				list-style: none;
+				height: 40px;
+				width: 100%;
+				position: absolute;
+				z-index: 10;
+				background-color: rgba(0,0,0,.5);
+				bottom: 0;
+				left: 0;
+				line-height: 40px;
+				padding-left: .5rem;
+				opacity: 0;
+				transition: opacity 0.8s;
+				box-sizing: border-box;
+			}
+			#wrapFont li{
+				opacity: 0;
+				position: absolute;
+				transition: opacity 2s;
+			}
+			#wrapFont li a{
+				text-decoration: none;
+				color: #fff;
+			}
+			#wrap:hover #wrapFont{
+				opacity: .9;
+			}
+			#wrap ul{
+				list-style: none;
+			}
+			#solid{
+				z-index: 100;
+				overflow: hidden;
+				list-style: none;
+				position: absolute;
+				right: 20px;
+				bottom: 10px;
+			}
+			#solid li{
+				float:left;
+				width: 10px;
+				height: 10px;
+				margin: 5px 5px;
+				border-radius: 50%;
+				background-color: silver;
+				box-shadow: 0 0 2px 1px white;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="img/1.jpg" style="opacity: 1;" alt="" />
+			<img src="img/2.jpg" alt="" />
+			<img src="img/3.jpg" alt="" />
+			<img src="img/4.jpg" alt="" />
+			<img src="img/5.jpg" alt="" />
+			<img src="img/6.jpg" alt="" />
+			<img src="img/7.jpg" alt="" />
+			<img src="img/8.jpg" alt="" />
+			<div id="left"><</div>
+			<div id="right">></div>
+			<ul id="wrapFont">
+				<li style="opacity: 1;"><a href="#">你把生活当成诗1</li>
+				<li><a href="#">你把生活当成诗2</a></li>
+				<li><a href="#">你把生活当成诗3</a></li>
+				<li><a href="#">你把生活当成诗4</a></li>
+				<li><a href="#">你把生活当成诗5</a></li>
+				<li><a href="#">你把生活当成诗6</a></li>
+				<li><a href="#">你把生活当成诗7</a></li>
+				<li><a href="#">你把生活当成诗8</a></li>
+			</ul>
+			<ul id="solid">
+				<li style="background-color: orange;"></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		var left = document.getElementById("left");
+		var right = document.getElementById("right");
+		var solid = document.getElementById("solid");
+		var imgs = document.querySelectorAll("#wrap img");
+		var fonts = document.querySelectorAll("#wrapFont li");
+		var solids = document.querySelectorAll("#solid li");
+		var index = 0;
+		var length = imgs.length;
+		left.onclick = function(){
+			change(-1);
+		};
+		right.onclick = function(){
+			change(1);
+		};
+		
+		function change(value){
+			for(var i = 0; i < length; i++){
+				imgs[i].style.opacity = 0;
+				fonts[i].style.opacity = 0;
+				solids[i].style.backgroundColor = "";
+			}
+				index += value;
+				index = index < 0 ? length - 1 : index;
+				index = index > length - 1 ? 0 : index; 
+				imgs[index].style.opacity = "1";
+				fonts[index].style.opacity = "1";
+				solids[index].style.backgroundColor = "orange";
+		}
+		
+		//圆点点击事件
+		for(var i = 0; i < length; i++){
+			solids[i]._index = i;
+			solids[i].onclick = function(){
+				value = this._index - index;
+				change(value);
+			};
+		}
+	</script>
+</html>

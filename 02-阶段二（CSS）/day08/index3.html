@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin上下重合</title>
+	<style>
+		/*同级div 上下margin会有重合现象
+		div1margin的下和div2的上margin重合
+		重合后的值是设置的最大值
+		*/
+		div{ width:100px; height:100px; background: red; }
+		.div1{ margin-bottom: 10px; }
+		.div2{ margin-top: 20px; }
+	</style>
+</head>
+<body>
+	<div class="div1">11</div>
+	<div class="div2">22</div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>js复习</title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<script>
+			//alert(111);
+			console.log('hello world');
+			//变量：
+			//常量：10，20
+			var str = "hello world";
+			console.log(str);
+			
+			var a = 10,b = 20;
+			console.log(a,b);
+			//交换a和b的值
+			var temp = a;
+			a = b;
+			b = temp;
+			console.log('a='+a,'b='+b);
+			
+			//变量类型
+			/*
+			 * 1.number
+			 * 2.string
+			 * 3.boolean
+			 * 4.undefined
+			 * 5.null:空类型（特殊对象类型）
+			 * 6.object:对象类型（属性和方法）
+			 */
+			
+			var num = 20;
+			//typeof:查看类型
+			console.log(typeof num);
+			
+			//string
+			var str = "123";
+			console.log(typeof str);
+			/*
+			 * \n: 代表换行
+			 * \t: tab缩进
+			 * \": "
+			 */
+			var str2 = "I\nLOVE\tYOU\"";
+			console.log(str2);
+			
+			console.log(false,true);
+			console.log(typeof true);//boolean
+			
+			//undefined: 当我们定义一个变量，但是没有给这个变量赋值
+			//typeof undefined == undefined
+			var unValue;
+			console.log(unValue,typeof inValue);
+			
+			//null
+			var nullValue = null;
+			console.log(typeof nullValue);//object
+			
+			//对象类型：（属性+方法）
+			var obj1 = {
+				name:"名字",
+				age:20
+			};
+			//声明后添加属性
+			obj1.gender = "2";
+			console.log(typeof obj1);
+			console.log(obj1.name);//访问对象属性用 对象+点+属性
+			console.log(obj1.name2);//undefined
+			console.log(obj1.gender);
+			//第二种，构造函数的方法
+			var obj2 = new Object();
+			console.log(typeof obj2);
+			
+			//获取元素
+			console.log(document);
+			console.log(typeof document);
+			
+			//调用对象的方法：用.点+方法名
+			//函数格式：调用函数： name()  括号里是参数
+			//getElementById:返回值
+			var oDiv = document.getElementById("div1");
+			console.log(oDiv,typeof oDiv);	//object
+			
+			oDiv.name = "名字";//自定义属性
+			console.log(oDiv.name);
+			//
+			oDiv.style.width = '100px';
+			oDiv.style.height = '100px';
+			oDiv.style.backgroundColor = 'red';
+			
+			//类型转换
+			var lanStr = '111';
+			var lanNum = 100;
+			var result = +lanStr + lanNum;
+			console.log(result,typeof result);//211 "number"
+			
+			var transStr = '100';
+			var transNum = Number(transStr);
+			console.log(transNum,typeof transNum);//100 "number"
+			
+			//NAN
+			//number -> string
+			var num = 100;
+			var str = String(num);
+			console.log(str,typeof str);//100 string
+			
+			//++ --
+			var i = 3;
+			var b = i++ + ++i + i++;//3 + 5 + 5
+			console.log(i,"b="+b);
+			
+			var k = 3;
+			var j = k-- + --k + k--;//3 + 1 + 1
+			console.log(k,'j='+j);
+			
+			//比较运算符== ===
+			
+			var rel = 2 == '2';
+			console.log(rel);//true
+			rel = 2 === '2';//类型+值都相同
+			console.log(rel);//false
+			
+			//逻辑运算符 && || !
+			var value = 3 > 5 && 8 < 9;
+			console.log(value);//false
+			var value = 3 > 5 || 8 < 9;
+			console.log(value);//true
+			
+			//
+			var num = 10;
+			var value = 1 || num++;
+			console.log(num,value);//10 1
+			
+			var num = 10;
+			var value = 1 && ++num;
+			console.log(num,value,typeof value);//11 10
+			
+			//三目运算符
+			// a > b ? true:false
+			
+			var sanValue = 3 > 4 ? true : false;
+			console.log(sanValue);
+			
+			//最大值
+			var a = 10, b = 20;
+			
+			var max = a > b ? a : b;
+			console.log(max);
+		</script>
+	</body>
+</html>

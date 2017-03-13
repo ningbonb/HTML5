@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>圆角</title>
+		<style>
+			div{
+				margin-top: 20px;;
+				height: 200px;
+				width: 200px;
+				background: red;
+			}
+			.div1{
+				/*border-radius: 100px;*/
+				/*border-top-left-radius: 50px;*/
+				/*border-top-right-radius: 30px;*/
+				/*border-bottom-left-radius: 80px;*/
+				/*border-bottom-right-radius: 10px;*/
+				/*左上角开始，顺时针*/
+				/*border-radius: 20px 40px 60px 80px;*/
+				/*左上，右下   右上，左下*/
+				/*border-radius: 20px 50px;*/
+				/*三个值，左上  右上，左下  右下*/
+				/*border-radius: 20px 50px 80px;*/
+				
+				/*第一个值：x轴水平角度
+				 第二个值，y轴垂直角度
+				 * */
+				/*border-top-left-radius: 20px 40px;*/
+				
+				/*border-top-right-radius: 20px 80px;*/
+				
+				/*border-bottom-left-radius: 20px 40px;*/
+				
+				/*border-bottom-right-radius: 20px 80px;*/
+				/*
+				 前四个值：水平x轴: 上左 上右 下右 下左
+				 后四个值：垂直y轴: 上左 上右 下右 下左
+				 * */
+				border-radius: 20px 40px 60px 80px/10px 20px 30px 40px;
+				/*前四个值相同，后四个值相同*/
+				border-radius: 50px/80px;
+				
+				
+			}
+			
+			.div2{
+				border-top-left-radius: 200px;
+			}
+			.div3{
+				border-radius: 100px 0;
+			}
+			.div3{
+				border-radius: 100px 0 100px 100px;
+			}
+			.div4{
+				border-bottom-left-radius: 100px; 
+			}
+			
+			.div5{
+				height: 100px;
+				border-radius: 200px 200px 0 0;
+			}
+			
+			.div6{
+				height: 100px;
+				border-radius: 100px/50px;	
+			}
+				
+			.div8{
+				border-radius: 100px 100px 100px 100px/100px 100px 100px 100px;
+				position: relative;
+				z-index: 10px;
+			}
+			.div9{
+				position: absolute;
+				background: white;
+				margin: 0;
+				left: 140px;
+				transform:rotate(45deg);
+				-ms-transform:rotate(45deg);
+				-moz-transform:rotate(45deg);
+				-webkit-transform:rotate(45deg);
+				-o-transform:rotate(45deg);
+			}
+			.div10{
+				height: 0;
+				width: 0;
+				border-width: 100px;
+				border-style: solid;
+				border-color: red;
+				
+				border-top-color: green;
+				border-bottom-color: yellow;
+				background: transparent;
+				border-right-color: transparent;
+				
+				border-radius: 100px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4"></div>
+		<div class="div5"></div>
+		<div class="div6"></div>
+		<div class="div7"></div>
+		<div class="div8">
+			<div class="div9"></div>
+		</div>
+		<div class="div10"></div>
+	</body>
+</html>

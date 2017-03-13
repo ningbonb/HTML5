@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <div ng-controller="c1">
+        <button ng-click="add()">添加购物车</button>
+    </div>
+    <div ng-controller="c2">
+        <p>{{totalPrice}}</p>
+        <ul>
+            <li ng-repeat="product in data">
+                {{product.name}}价格{{product.price}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+<script>
+    var app=angular.module("myApp",[]);
+    //自定义服务3：工厂模式：单例模式
+    app.factory("shoppingCar",function () {
+        return {
+            info:'购物信息',
+            data:[{name:'鞋子',price:100},{name:'篮球',price:130},{name:'袜子',price:10}],
+            getToltalPrice:function () {
+                var totalPrice=0;
+                for(var i=0;i<this.data.length;i++){
+                    totalPrice+=this.data[i].price;
+                }
+                return totalPrice;
+            }
+        };
+    });
+
+    app.controller("mainC",function ($scope) {
+
+    });
+    //添加购物车
+    app.controller("c1",function ($scope,shoppingCar,$rootScope) {
+        $scope.add=function () {
+            console.log(shoppingCar);
+            shoppingCar.data.push({name:"Duncan"+Math.random(),price:8});
+            $rootScope.totalPrice=shoppingCar.getToltalPrice();
+        };
+    });
+    //购物列表
+    app.controller("c2",function ($scope,shoppingCar,$rootScope) {
+        $scope.data=shoppingCar.data;
+        console.log(shoppingCar);
+        $rootScope.totalPrice=shoppingCar.getToltalPrice();
+    });
+</script>

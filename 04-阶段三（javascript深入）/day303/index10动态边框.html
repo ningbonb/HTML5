@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px black;
+				margin-top: 50px;
+				margin-left: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		var offset = 0;
+		function draw(){
+			//清除画布
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			//设置虚线框
+			//[虚线点大小，间隔大小]
+			ctx.setLineDash([10,5]);
+			//设置起始位置偏移
+			ctx.lineDashOffset = offset;
+			ctx.strokeRect(10,10,100,100);
+		}
+		function match(){
+			offset++;
+			if(offset >= 100) offset = 0;
+			
+			draw();
+			setTimeout(match,50);
+		}
+		match();
+	</script>
+</html>

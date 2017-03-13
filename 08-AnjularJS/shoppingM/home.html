@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+</head>
+<body class="container-fluid" ng-controller="mainC">
+<!--<div ng-include="template/navBar.html"></div>-->
+<nav-bar></nav-bar>
+<!--路由指令-->
+<ng-view></ng-view>
+</body>
+</html>
+<script src="template/filterUnique.js"></script>
+<script src="js/home.js"></script>
+<script src="js/product.js"></script>
+<script src="js/shoppingcart.js"></script>

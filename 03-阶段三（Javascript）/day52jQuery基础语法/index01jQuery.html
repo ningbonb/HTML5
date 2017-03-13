@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		
+		<script src="js/jquery-3.1.0.min.js"></script>
+		<script>
+			console.log(document.body);
+			$(function(){
+				console.log(document.body);
+			});
+			window.onload = function(){
+				console.log('页面onload完成')
+			};
+			
+			//ready -> window.onload:区别：ready是在html,css加载之后，图片加载之前调用
+		</script>
+	</head>
+	<body>
+	<!--
+		1.jQuery
+		:是一个对原生JS的封装类库（处理好了所有兼容性问题）
+		
+		使用：本地路径
+			：百度或者谷歌的cdn
+		
+	-->	
+	</body>
+	<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script>
+		//window.onload 
+		
+		jQuery(document).ready(function(){
+			alert(111);
+		});
+		jQuery(document).ready(function(){
+			alert(22222);
+		});
+		
+		// jQuery == $
+		$(document).ready(function(){
+			alert(3333);
+		});
+		
+		//简写:对以上形式简写
+		$(function(){
+			alert(4444);
+		});
+	</script>-->
+</html>

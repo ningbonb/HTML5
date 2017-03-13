@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<img src="img/1.gif" id="light" alt="" />
+		
+		<p id="show"></p>
+		<button id="action">下注</button>
+		
+		<script>
+		 	//3.写函数, 判断一个数是不是素数(质数), 是, 返回true, 不是, 返回false（除了1和它本身以外不再被其他的除数整除。)           
+		 	//5.制作双色球机选效果(见效果图)            
+		 	//7.实现关灯开灯效果(见效果图)
+			 
+			 function isPrime(num){
+			 	for(var i = 2; i < num; i++){
+			 		if(num % i == 0){
+			 			return false;//不是,(结束函数)
+			 		}
+			 	}
+			 	
+			 	return true;
+			 }
+			 //alert("isPrime:" + isPrime(14));
+			 
+			 //关灯
+			 //获取图片
+			var light = document.getElementById("light");
+			//绑定事件
+			//var open = false;
+			light.open = false;//自定义属性
+			light.onclick = function(){
+			 	//标签对象属性可以通过点访问和赋值
+			 	//alert(light.src);
+			 	//light.src = "img/2.gif";
+			 	light.open = !light.open;
+			 	light.src = light.open ? "img/2.gif" : "img/1.gif";
+			};
+			 
+			//制作双色球机选效果(见效果图)  
+			//获取元素
+			var showP = document.getElementById("show");
+			var actionBtn = document.getElementById("action");
+			 
+			function randomNumber(min,max){
+				return parseInt(Math.random() * (max - min + 1) + min);
+			}
+			//下注事件
+			 
+			actionBtn.onclick = function(){
+				//数组保存结果
+				var arr = [];
+				//随机数(6个数字不能重复)
+				//不确定次数的循环 while
+				while(arr.length != 6){
+					//产生随机数
+					var rand = randomNumber(1,33);
+					//如果数组里面没有才能存
+					if(ifContain(rand,arr)){
+						continue;//终止本次循环
+					}
+					arr.push(rand);
+				}
+				showP.innerText = arr;
+			};
+			
+			//给我一个数组，给我一个数，判断这个数是不是在这个数组中
+			function ifContain(num,arr){
+				//遍历数组，判断这个num在不在数组中
+				for(var i = 0; i < arr.length; i++){
+					if(num == arr[i])return true;
+				}
+				return false;
+			}
+		</script>
+		
+	</body>
+</html>

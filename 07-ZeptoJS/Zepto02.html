@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Zepto</title>
+	<style>
+		.width{
+			width: 100px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>list item 1</li>
+		<li>list item 2</li>
+		<li>list item 3</li>
+	</ul>
+	<p>a paragraph</p>
+	<h2>a h2</h2>
+	<form action="###">
+		
+	</form>
+</body>
+<script src="js/zepto.min.js"></script>
+<script>
+
+	//$.fn:给所有Zepto对象添加方法
+	$.fn.empty = function(){
+		return this.each(function(){
+			this.innerHTML = '';
+		});
+	};
+
+	//$.grep:获取一个数组，新数组只包含回调函数中返回true的数组项
+	var grepArr = $.grep([1,2,3],function(item){
+		return item > 1;
+	});
+	console.log(grepArr);
+
+	//$.inArray:返回数组中指定元素的索引值，没有找到返回-1，第三个参数表示从该索引值开始向查找
+	var inArr1 = $.inArray("abc",['bcd','abc','edf','aaa']);
+	var inArr2 = $.inArray("abc",['bcd','abc','edf','aaa'],1);
+	var inArr3 = $.inArray("abc",['bcd','abc','edf','aaa'],2);
+	console.log(inArr1,inArr2,inArr3);
+
+	//$.isArray:判断是否为数组
+	var isArr = ['a','c'];
+	console.log($.isArray(isArr));
+
+	//$.isFunction:判断是否是function
+	console.log($.isFunction(grepArr));
+
+	//$.isNumeric:判断是否为有限数值或一个字符串表示的数字
+	console.log($.isNumeric('111'));
+
+	//$.isPlainObject:测试对象是否是通过{}或者new Object创建的
+	var isPla1 = $.isPlainObject({});
+	var isPla2 = $.isPlainObject(new Object);
+	var isPla3 = $.isPlainObject(new Date);
+	var isPla4 = $.isPlainObject(window);
+	console.log(isPla1,isPla2,isPla3,isPla4);//true true false false
+
+	//$.isWindow:判断是否为一个window对象
+	//这在处理iframe时非常有用，每个iframe都有它们自己的window对象，使用常规方法obj === window校验这些objects的时候会失败
+	console.log($.isWindow(window));
+
+	//$.map:遍历集合中的元素，返回通过迭代函数的全部结果（一个新数组）,null和undefined将被过滤掉。
+	var mapArr = $.map([1,2,3,4,5],function(item,index){
+		if(item > 1){
+			return item*item;
+		}
+	})
+	console.log(mapArr);
+	var mapArr2 = $.map({"yao":1,"tai":2,"yang":3},function(item,index){
+		if(item>1){
+			return item*item;
+		}
+	});
+	console.log(mapArr2);
+
+	// $.map和$.grep的异同
+	// 都是对数组进行操作
+	// map对数组进行遍历，返回满足条件的新数组
+	// grep起到筛选的作用，返回满足条件的值
+	
+	//$.noop:引用一个空函数，什么都不处理
+	var callback = $.noop;
+
+	//$.parseJSON:原生JSON.parse方法的别名，接收一个标准的JSON字符串，并返回解析后的javaScript对象
+	console.log($.parseJSON('{"name":"John"}'));
+
+	//$.trim:删除字符串首尾的空白符
+	console.log(" hello world ");
+	console.log($.trim(" hello world "));
+
+	//$.type:获取javascript对象的类型，可能的类型有null,undefined,boolean,number,string,function,array,date,regexp,object,error.
+	console.log($.type(new Date));
+	console.log($.type("hello world"));
+	console.log($.type(1111));
+
+	//add:添加元素到当前匹配的元素集合中来。如果没有给定content参数，则在整个document中查找
+	$('li').add('p,h2').css('background-color','red');
+
+	//addClass:添加class类名
+	$('li').addClass('width');
+
+	//after:在匹配元素后插入内容（外部插入）。内容可以为html字符串，dom节点，或者节点组成的数组
+	$('li:first-child').after('<p>A note below the label</p>')
+
+	//before:在匹配元素前面插入内容（外部插入）。内容同after。
+	$('ul').before('<p>before</p>');
+
+	//append:在每个匹配的元素末尾插入内容（内部插入）。内容同after。
+	$('ul').append('<li>new list item end</li>');
+
+	//appendTo:功能与append类似，格式相反。内容同after。
+	$('<li>new list item head</li>').appendTo('ul');
+
+	//attr:读取或设置dom的属性
+	//如果没有给定参数，则读取对象集合中第一个元素的属性值。
+	//如果参数为null，那么这个属性将被移出（类似removeAttr）
+	//多个属性值可以通过对象键值对的方式进行设置
+	//要读取DOM属性如checked和selected，使用prop
+	$('form').attr('action','##');
+	$('form').attr('action',null);
+	console.log($('form').attr('action'));
+	//多个属性
+	$('form').attr({
+		action: '#',
+		method: 'post'
+	});
+	console.log($('form').attr('method'));
+
+	//children:获得匹配元素的直接子元素
+	var child1 = $('ul').children();
+	console.log(child1);
+	var child2 = $('ul').children(':first-child');
+	console.log(child2);
+
+	//clone:通过深度克隆来复制集合中的所有元素，此方法不会将数据和事件处理程序复制到新的元素
+	var newDiv = $('ul').clone();
+	console.log(newDiv);
+</script>
+</html>

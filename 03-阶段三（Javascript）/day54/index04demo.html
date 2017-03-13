@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin:0;
+				padding: 0;
+			}
+			#wrap{
+				position: relative;
+			}
+			ul{
+				list-style: none;
+				overflow: hidden;
+			}
+			ul li{
+				float: left;
+				width: 
+			}
+			ul li a{
+				text-decoration: none;
+				font-size: 16px;
+				color: black;
+				display: block;
+				width: 80px;
+				text-align: center;
+				background: silver;
+			}
+			#slider{
+				position: absolute;
+				top: 20px;
+				left: 0px;
+				height: 3px;
+				width: 80px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<ul>
+				<li><a href="#">按钮1</a></li>
+				<li><a href="#">按钮2</a></li>
+				<li><a href="#">按钮3</a></li>
+				<li><a href="#">按钮4</a></li>
+				<li><a href="#">按钮5</a></li>
+			</ul>
+			<div id="slider"></div>
+		</div>
+		<div id="wrap" style="top: 50px;">
+			<ul>
+				<li><a href="#">按钮1</a></li>
+				<li><a href="#">按钮2</a></li>
+				<li><a href="#">按钮3</a></li>
+				<li><a href="#">按钮4</a></li>
+				<li><a href="#">按钮5</a></li>
+			</ul>
+			<div id="slider"></div>
+		</div>
+		<div id="wrap" style="top: 100px;">
+			<ul>
+				<li><a href="#">按钮1</a></li>
+				<li><a href="#">按钮2</a></li>
+				<li><a href="#">按钮3</a></li>
+				<li><a href="#">按钮4</a></li>
+				<li><a href="#">按钮5</a></li>
+			</ul>
+			<div id="slider"></div>
+		</div><div id="wrap" style="top: 150px;">
+			<ul>
+				<li><a href="#">按钮1</a></li>
+				<li><a href="#">按钮2</a></li>
+				<li><a href="#">按钮3</a></li>
+				<li><a href="#">按钮4</a></li>
+				<li><a href="#">按钮5</a></li>
+			</ul>
+			<div id="slider"></div>
+		</div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="js/jquery.easing.min.js"></script>
+	<script>
+		$(function(){
+			//mouseenter 和 mouseover 区别： mouseenter不会冒泡
+			$("#wrap li").on("mouseenter",function(){
+				var index = $(this).index();
+				//console.log(index);
+				//设置滑块滑动
+				//找到对应的滑块
+				$(this).parents("#wrap").find("#slider").stop().animate({
+					left: index*$(this).width(),
+				},{
+					easing: 'easeInBounce', 
+    				duration: 500, 
+				});
+			});
+			
+//			$("#wrap a").on("mouseenter",function(){
+//				var index = $(this).index();
+//				var index = $("a").index(this);
+//				alert(index);
+//			});
+		});
+	</script>
+</html>

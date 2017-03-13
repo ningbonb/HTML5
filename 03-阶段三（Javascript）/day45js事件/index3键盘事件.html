@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<input type="text" id="text1"/>
+	</body>
+	<script>
+		var text1 = document.getElementById('text1');
+		
+		//键盘按下事件，键盘按下不释放，函数一直被触发
+//		text1.onkeydown = function(){
+//			console.log('键盘被按下了');
+//		};
+//		
+//		//当按下的键抬起触发
+//		text1.onkeyup = function(){
+//			console.log('键盘抬起');
+//		};
+		
+		
+		//输入型按键触发 像上下左右，alt,ctrl,shift等不会被触发
+		text1.onkeypress = function(){
+			console.log('输入型键盘按下');
+		};
+		
+		
+		//无效
+		var div1 = document.getElementById('div1');
+		div1.onkeydown = function(){
+			console.log('div1键盘按下');
+		};
+		
+		
+		//可以触发
+		document.onkeydown = function(){
+			console.log('文档上键盘被按下了');
+		};
+		
+		//键盘事件添加给input输入框 textarea，document,，没有焦点的元素无法触发键盘事件
+	</script>
+</html>

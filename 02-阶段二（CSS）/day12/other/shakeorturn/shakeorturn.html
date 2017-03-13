@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,p,div{
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.main{
+			width: 100%;
+			height: 651px;
+			background: url(img/rp.jpg) no-repeat 50% 0;
+		}
+
+		.container{
+			background: url(img/hd.jpg) no-repeat 50% 0;
+			width: 1000px;
+			height: 651px;
+			margin: 0px auto;
+			position: relative;
+		}
+
+		.pa{
+			position: absolute;
+		}
+
+		.ship{
+			background: url(img/ship.png);
+			width: 404px;
+			height: 573px;
+			top: 49px;
+			left: 52px;
+			transform-origin: 50% 100%;
+			animation: ship 3s linear 0.5s infinite;
+		}
+
+		.peo{
+			background: url(img/peo.png);
+			width: 132px;
+			height: 223px;
+			top: 120px;
+			right: 200px;
+			transform-origin: 50% 0px;
+			animation: peo 3s linear 0.5s infinite;
+		}
+
+		.sun{
+			background: url(img/sun.png);
+			width: 172px;
+			height: 172px;
+			top: 25px;
+			right: -174px;
+			transform-origin: 50% 50%;
+			animation: sun 10s linear infinite;
+		}
+
+		.sunface{
+			background: url(img/sunface.png);
+			width: 132px;
+			height: 132px;
+			top: 43px;
+			right: -154px;
+			animation: sunface 3s linear infinite;
+		}
+
+		.cloud{
+			background: url(img/cloud.png);
+			width: 239px;
+			height: 69px;
+			top: 141px;
+			right: -160px;
+		}
+
+		.wavebt{
+			background: url(img/wavebt.png);
+			width: 422px;
+			height: 108px;
+			bottom: 0px;
+			left: 0px;
+			animation: wavebt 3s linear 0.5s infinite;
+		}
+
+		.wave{
+			background: url(img/wave.png);
+			width: 51px;
+			height: 73px;
+			bottom: 62px;
+			left: 412px;
+			animation: wave 3s linear 0.5s infinite;
+		}
+
+		@keyframes ship{
+			0% {
+				transform: rotate(0deg);
+			}
+			25% {
+				transform: rotate(5deg);
+			}
+			50% {
+				transform: rotate(0deg);
+			}
+			75% {
+				transform: rotate(-5deg);
+			}
+			100% {
+				transform: rotate(0deg);
+			}
+		}
+
+		@keyframes peo{
+			0% {
+				transform: translateX(0px);
+			}
+			25% {
+				transform: translateX(-75px);
+			}
+			50% {
+				transform: translateX(-150px);
+			}
+			75% {
+				transform: translateX(-100px);
+			}
+			100% {
+				transform: translateX(0px);
+			}
+		}
+
+		@keyframes wavebt{
+			0% {
+				transform: translateX(0px);
+			}
+			25% {
+				transform: translateX(-30px);
+			}
+			50% {
+				transform: translateX(0px);
+			}
+			75% {
+				transform: translateX(30px);
+			}
+			100% {
+				transform: translateX(0px);
+			}
+		}
+
+		@keyframes wave{
+			0% {
+				transform: translate(0px,0px);
+				opacity: 1;
+			}
+			25% {
+				transform: translate(10px,-20px);
+				opacity: 0.8;
+			}
+			50% {
+				transform: translate(20px,-30px);
+				opacity: 0.5;
+			}
+			75% {
+				transform: translate(30px,-40px);
+				opacity: 0.3;
+			}
+			100% {
+				transform: translate(40px,-50px);
+				opacity: 0;
+			}
+		}
+
+		@keyframes sun{
+			0% {
+				transform: rotateZ(0deg);
+			}
+			25% {
+				transform: rotateZ(45deg);
+			}
+			50% {
+				transform: rotateZ(90deg);
+			}
+			75% {
+				transform: rotateZ(135deg);
+			}
+			100% {
+				transform: rotateZ(180deg);
+			}
+		}
+
+		@keyframes sunface{
+			0% {
+				transform: scale(1,1);
+			}
+			25% {
+				transform: scale(1.05,1.05);
+			}
+			50% {
+				transform: scale(1.1,1.1);
+			}
+			75% {
+				transform: scale(1.05.,1.05);
+			}
+			100% {
+				transform: scale(1,1);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="container">
+			<p class="ship pa"></p>
+			<p class="peo pa"></p>
+			<p class="sun pa"></p>
+			<p class="sunface pa"></p>
+			<p class="cloud pa"></p>
+			<p class="wave pa"></p>
+			<p class="wavebt pa"></p>
+		</div>	
+	</div>
+</body>
+</html>

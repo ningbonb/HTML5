@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关键帧百分比</title>
+		<style>
+			.div1{
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				animation: ani 2s linear 0s 2 alternate;
+			}
+			@keyframes ani{
+				/*from == 0%
+				 * to == 100%
+				 *
+				 */
+				0%{
+					width: 100px;
+					height: 100px;
+				}
+				50%{
+					background: yellow;
+					width: 150px;
+				}
+				80%{
+					background: darkblue;
+				}
+				100%{
+					/*width: 200px;*/
+					/*height: 200px;*/
+					/*background: blue;*/
+					transform: translateX(200px);
+				}
+			}
+			.div2{
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				animation: ani2 2s linear;
+			}
+			/*动画执行一次回到初始位置*/
+			@keyframes ani2{
+				from{
+					transform: translateX(0);
+				}
+				50%{
+					transform: translateX(200px);
+				}
+				to{
+					transform: translateX(0px);
+				}
+			}
+			.div3{
+				width: 100px;
+				height: 100px;
+				background: red;
+				animation: ani3 4s linear infinite;
+				margin-bottom: 250px;
+			}
+			@keyframes ani3{
+				from{
+					transform: translateX(0) translateY(0);
+				}
+				25%{
+					transform: translateX(200px) translateY(0) rotate(30deg);
+					background: yellow;
+					border-radius: 50px;
+				}
+				50%{
+					transform: translateX(200px) translateY(200px);
+					background: blue;
+					border-radius: 100px;
+				}
+				75%{
+					transform: translateX(0) translateY(200px) rotate(150deg);
+					background: yellow;
+					border-radius: 50px;
+				}
+				to{
+					transform: translateX(0);
+				}
+			}
+			.div4{
+				width: 200px;
+				height: 200px;
+				background: red;
+				position:absolute;
+				
+				/*animation: jup 1s linear infinite;*/
+			}
+			@keyframes jup{
+				from{
+					width: 200px;
+					height: 200px;
+					top: 200px;
+					left: 200px;
+				}
+				to{
+					width: 400px;
+					height: 400px;
+					top: 100px;
+					left: 100px;
+				}
+			}
+			.div5{
+				width: 200px;
+				height: 200px;
+				background: blue;
+				margin: 250px auto;
+				animation: scaleJup 2s linear infinite;
+				
+			}
+			@keyframes scaleJup{
+				from{
+					transform: scale(0.5,0.5);
+				}
+				to{
+					transform: scale(1,1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<hr />
+		<div class="div2"></div>
+		<hr />
+		<div class="div3"></div>
+		<hr />
+		<div class="div4"></div>
+		<hr />
+		<div class="div5"></div>
+	</body>
+</html>

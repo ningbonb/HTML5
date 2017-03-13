@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<!--ng-init：声明变量：var name="你好"-->
+<!--定义或者使用变量的时候：变量名不能加引号，但是变量的值如果是字符串必须加引号，如果不加引号默认被解析为变量-->
+<body ng-init="person={name:'张三',age:20};arr=[1,2,3];">
+    <div>
+        {{person.name + '今年' + person.age}}
+    </div>
+    <input type="text" ng-model="person.name">
+    <input type="text" ng-model="person.age">
+    <hr>
+    <input type="text" ng-model="arr[0]">
+    <input type="text" ng-model="arr[2]">
+    <div>{{arr[0]*arr[2]}}</div>
+
+    <!--ng-bind:数据绑定，效果和{{}}一样，可以防止Angularjs没有被加载完成，界面显示{{}}-->
+    <div ng-bind="arr[0]*arr[2]"></div>
+</body>
+</html>
+<!--原理：
+    1.Angular加载完成后，首先找到ng-app指令，获取程序所有者
+    2.找到后，ng-app里面所有标签都可以解析Angular指令，使用变量
+    3.找到对应ng-modle，把变量生成数据模型，默认放到根作用域，所有地方都可以使用，（读取或者修改变量的值，数据是双向绑定的，实时更新）
+-->

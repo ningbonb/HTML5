@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>z-index</title>
+	<style>
+		body{ position: relative; }
+		div{ width: 100px; height: 100px; }
+		.div1{ background-color: red; }
+		.div2{ background-color: yellow; }
+		.div3{ background-color: blue; }
+
+		.div1{
+			position: absolute;
+			left: 0;
+			top: 0;
+			/*定位元素显示优先级，越大，优先级越高*/
+			z-index: 1;
+		}
+		.div2{
+			position: relative;
+			left: 20px;
+			top: 20px;
+			z-index: 2;
+		}
+		.div3{
+			position: absolute;
+			left: 40px;
+			top: 40px;
+			z-index: 100;
+		}
+	</style>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div class="div2">div2</div>
+	<div class="div3">div3</div>
+</body>
+</html>

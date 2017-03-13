@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>动画补充</title>
+		<style>
+			.div1{
+				width: 150px;
+				height: 100px;
+				background: red;
+			}
+			.div1:hover{
+				animation:verticalShake 0.8s linear 0s 1;
+			}
+			@keyframes verticalShake{
+				from{
+					transform: translate(0,0);
+				}
+				35%{
+					transform: translate(0,-30px);
+				}
+				50%{
+					transform: translate(0,0);
+				}
+				75%{
+					transform: translate(0,-15px);
+				}
+				90%{
+					transform: translate(0,0);
+				}
+				to{
+					transform: translate(0,-5px);		
+				}
+			}
+			@keyframes verticalShake{
+				from,50%,90%{
+					transform: translate(0,0);
+				}
+				35%{
+					transform: translate(0,-30px);
+				}
+				75%{
+					transform: translate(0,-15px);
+				}
+				to{
+					transform: translate(0,-5px);		
+				}
+			}
+			
+			/*水平晃动*/
+			.div2{
+				width: 150px;
+				height: 100px;
+				background: red;
+			}
+			.div2:hover{
+				animation:horizontalShake 0.8s linear 0s 1;
+			}
+			@keyframes horizontalShake{
+				from,50%,90%{
+					transform: translate(0,0);
+				}
+				35%{
+					transform: translate(-30px,0px);
+				}
+				75%{
+					transform: translate(-15px,0px);
+				}
+				to{
+					transform: translate(-5px,0);		
+				}
+			}
+			
+			
+			.div3{
+				width: 150px;
+				height: 100px;
+				background: red;
+				animation:verticalShake 0.8s linear 0s 1;
+			}
+			.div3:hover{
+				animation:horizontalShake 0.8s linear 0s 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<hr />
+		<div class="div2"></div>
+		<hr />
+		<div class="div3"></div>
+	</body>
+</html>

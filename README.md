@@ -18,7 +18,7 @@ PHP基础学习和微信后台开发、微信游戏开发
 ## ZeptoJS学习
 ZeptoJS入门（[点此查看][zepto]）
 
-## Anjular学习
+## AnjularJS学习
 Anjular入门（[点此查看][angular]）
 
 ## createJS学习
@@ -31,7 +31,7 @@ PostCSS入门，PostCSS-Comn使用与配置（[点此查看][postcss]）
 
 Web建站常用网站：[点击此处][website]
 
-[website]:./website/README.md
+[website]:./10-website/README.md
 [postcss]:https://github.com/NalvyBoo/PostCSS-Comn
 [create]:https://github.com/NalvyBoo/createJS
 [zepto]:https://github.com/NalvyBoo/HTML5/tree/master/ZeptoJS

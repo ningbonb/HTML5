@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		<form action="http://www.baidu.com" method="get" id="form1">
+			<input type="text" name="user" id="user" placeholder="输入用户名"/>
+			<input type="text" name="pass" id="pass" placeholder="输入密码" />
+			<div>
+				<input type="submit" value="提交"/>
+			</div>
+		</form>
+	</body>
+	<script type="text/javascript">
+		var form1 = document.getElementById('form1');
+		var user = document.getElementById('user');
+		var pass = document.getElementById('pass');
+		form1.onsubmit = function(){
+			if(user.value == '' || pass.value == ''){
+				alert('用户名或者密码不能为空');
+				
+				//组织事件提交
+				return false;
+			}
+		};
+		
+	</script>
+</html>

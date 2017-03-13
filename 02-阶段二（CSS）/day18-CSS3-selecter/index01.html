@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>css3属性选择器</title>
+		<style>
+			p[attr]{
+				color: red;
+			}
+			p[attr="val1"]{
+				color: blue;
+			}
+			/*多个属性*/
+			p[attr~="val2"]{
+				color: green;
+			}
+			/*css3新增*/
+			/*^=:选择器以a开头属性*/
+			p[property^="ab"]{
+				color: red;
+			}
+			/*$=:选择以c结尾*/
+			p[property$="c"]{
+				color: blue;
+			}
+			/* *=：选择属性名包含b字符*/
+			p[property*="b"]{
+				color: darkgreen;
+			}
+		</style>
+	</head>
+	<body>
+		<p attr="val1 val2">今天是个下雨天</p>
+		<p property="abc">雨下一整天</p>
+	</body>
+</html>

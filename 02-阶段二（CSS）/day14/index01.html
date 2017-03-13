@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片隐藏</title>
+	<style>
+		p{
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		section{
+			width: 250px;
+			/*居中设置，必须有宽度*/
+			position: relative;
+			left: 0;
+			right: 0;
+			margin: 20px auto;
+			/*阴影*/
+			box-shadow: 2px 2px 10px black;
+			/*圆角*/
+			border-radius: 5px;
+			/*越出隐藏*/
+			overflow: hidden;
+			/*鼠标图像样式*/
+			cursor: pointer;
+		}
+		a{
+			width: 100%;
+			display: inline-block;
+			text-decoration: none;
+			color: white;
+	
+			/*让隐藏的div相对最近的定位属性的元素定位*/
+			position: relative;
+		}
+		img{
+			width: 100%;
+			vertical-align: top;
+		}
+		.bottom-title{
+			padding: 7px 0;
+			color: gray;
+		}
+		.hidden{
+			/*background-color: black;
+			opacity: .5;*/
+			background: rgba(0,0,0,.5);
+			/*绝对定位*/
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			opacity: 0;
+			/*display: none;*/
+			/*opacity: 1;*/
+			transition: opacity 1s;
+			border-radius: 6px;
+		}
+		.middle{
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			/*给宽高*/
+			height: 52px;
+			margin: auto;
+		}
+		/*找到middle下的第一个p元素*/
+		.middle p:first-child{
+			font-size: 30px;
+		}
+		section:hover .bottom-title{
+			color: black;
+		}
+		section:hover .hidden{
+			opacity: 1;
+			/*display: block;*/
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<a href="#">
+			<img src="img/img.jpg" alt="">
+			<div class="hidden">
+				<div class="middle">
+					<!-- ctrl+shift+方向键，上下移动 -->
+					<p>腾讯</p>
+					<p>今天就看今日头条</p>
+				</div>
+			</div>
+		</a>
+		<p class="bottom-title">腾讯网络媒体峰会</p>
+	</section>
+</body>
+</html>

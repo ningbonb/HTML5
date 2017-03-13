@@ -1,0 +1,58 @@
+.aboutmainbg{
+	background-color: #E3E3E3;
+	width: 100%;
+}
+.aboutmain{
+	width: 100%;
+	background: url(../img/aboutbg.jpg) no-repeat;
+	background-size: 100%;
+	overflow: hidden;
+}
+.aboutContent{
+	max-width: 960px;
+	margin: 0 auto;
+	color: #595757;
+}
+.aboutCap{
+	box-sizing: border-box;
+	padding:0 1rem;
+	font-size: 1.4rem;
+	margin-top: 8.5%;
+	max-width: 425px;
+}
+.aboutCap p{
+	margin: 1.8rem 0;
+	line-height: 1.7rem;
+} 
+.aboutContent ul{
+	box-sizing: border-box;
+	margin: 5.25% 0 4% 0;
+	width: 100%;
+	overflow: hidden;
+}
+.aboutContent ul li{
+	margin-top: 2%;
+	box-sizing: border-box;
+	width: 10%;
+	height: 5.5556%;
+	float: left;
+	text-align: center;
+}
+.aboutContent ul li a{
+	width: 80%;
+}
+.aboutContent ul li a img{
+	width: 100%;
+}
+
+@media only screen and (max-width: 640px) {
+	html{
+		font-size: 7px;
+	}
+	.aboutCap{
+		width: 100%;
+		margin-top: 10.5%;
+	}
+	
+}
+

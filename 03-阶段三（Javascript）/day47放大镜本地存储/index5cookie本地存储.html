@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>cookie本地存储</title>
+		
+	</head>
+	<body>
+		
+	</body>
+	<script type="text/javascript">
+		/*
+		cookie:
+		存储一段文本，一般目的：提交给服务端
+		
+		1.保存用户登录状态
+		2.跟踪用户交互
+		
+		弊端：容量小 4kb
+		不同浏览器管理不同的cookie，每个浏览器只能访问自己保存的值
+		cookie属于document对象属性
+		
+		保存方式：document.cookie = '属性名=属性值'; key = value
+		 * */
+		console.log(document.cookie);
+		
+		//可以一直存储，之前内容不会被覆盖
+		document.cookie = 'name=shitou';
+		document.cookie = 'age=18';
+		document.cookie = 'gender=man';
+		
+		//cookie类型
+		console.log(typeof document.cookie);//string
+		
+		
+		//若使用汉字，特殊符号空格等，需要转码
+		document.cookie = 'hobby=' + escape('学习');
+		//console.log(document.cookie);
+		//转码escape:转码为16进制转义序列
+		var esStr = escape('学习');
+		console.log(esStr);//%u5B66%u4E560
+		//转码
+		var str = unescape(esStr)
+		console.log(str);
+		//不能一次设置多个cookie值
+		document.cookie = 'name=xiaoshitou;age=20';
+		
+		document.cookie = 'hobby=book';
+		
+		
+		//指定一个过期日期
+		var date1 = new Date("8 3 2017 12:00:00");
+		console.log(date1.toString());
+		//GMT:格林尼治时间
+		console.log(date1.toGMTString());
+		
+		document.cookie = 'weight=160; expires=' +date1.toGMTString();
+		
+		//方式2：
+		//max-age:单位秒，距离执行当前代码的时间，过了这个时间被释放
+		document.cookie = 'grade=80; max-age=10';
+		
+		//删除:属性值为空，过期时间为-1
+		document.cookie = 'weight=160; max-age=-1';
+		
+		//通过key 获取对应的值
+		function getCookie(keyName){
+			var resArr = document.cookie.split(';');
+			//[" name=xiaoshitou"4: " grade=80"]
+			//console.log(resArr);
+			//
+			for(var i = 0; i < resArr.length; i++){
+				//console.log(resArr[i]);
+				var keyValues = resArr[i].split('=');
+				console.log(keyValues);
+				if(keyValues[0].trim() == keyName){
+					return keyValues[1];
+				}
+			}
+		}
+		var value = getCookie('name');
+		console.log(value);
+		
+		//trim(): 去除收尾空格
+		console.log('    111   ');
+		console.log('    111   '.trim());
+		
+		//设置cookie
+		function setCookie(keyName,value,maxAge){
+			document.cookie = keyName + '=' + value + '; max-age=' + maxAge;
+		}
+		
+		setCookie('dashittt','233',24*3600);
+		//删除cookie
+		function removeCookie(keyName){
+			setCookie(keyName,'',-1);
+		}
+		
+		removeCookie("dashittt");
+	</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>对象的基本认识</title>
+	</head>
+	<body>
+		
+		<script>
+			var dog = {
+				name: '小狗',
+				run:function(){
+					alert('奔跑吧');
+					alert(this.name);
+				},
+				//属性值是对象类型
+				bounce:{
+					speed:10,
+					easeInOut:function(){
+						alert("先慢后快的跳动");
+					},
+				},
+			};
+			console.log(dog.name);
+			//console.log(dog.run());
+			console.log(dog.bounce);
+			console.log(dog.bounce.speed);
+			console.log(dog.bounce.easeInOut());
+		</script>
+	</body>
+</html>

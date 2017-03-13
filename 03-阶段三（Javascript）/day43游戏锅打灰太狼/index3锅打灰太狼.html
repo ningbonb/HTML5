@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>锅打灰太狼</title>
+
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#game {
+				width: 320px;
+				height: 480px;
+				background: url(img/game_bg.jpg) no-repeat;
+				margin: 50px auto;
+				position: relative;
+			}
+			
+			#score {
+				height: 46px;
+				/*background-color: red;*/
+				line-height: 46px;
+				font-size: 25px;
+				color: white;
+				text-indent: 60px;
+			}
+			
+			#progress {
+				width: 180px;
+				height: 16px;
+				background: url(img/progress.png) no-repeat;
+				position: absolute;
+				left: 63px;
+				top: 66px;
+			}
+			
+			#wolves {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				/*background-color: red;*/
+				left: 0;
+				top: 0;
+			}
+			
+			#wolves img {
+				position: absolute;
+				left: 205px;
+				top: 296px;
+			}
+			
+			#menu {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background-color: rgba(0, 0, 0, .5);
+			}
+			
+			#menu p {
+				width: 200px;
+				height: 50px;
+				font-size: 30px;
+				line-height: 50px;
+				text-align: center;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				color: white;
+				margin: auto;
+				text-shadow: 0 0 20px red;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="game">
+			<div id="score">0</div>
+			<div id="progress"></div>
+
+			<!--狼-->
+			<div id="wolves">
+				<!--<img src="img/h5.png" alt="" />-->
+			</div>
+
+			<div id="menu">
+				<p id="start">开始游戏</p>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript">
+		//保存每一个洞的坐标
+		var posi1 = {
+			l: '97',
+			t: '115'
+		};
+		var posi2 = {
+			l: '16',
+			t: '160'
+		};
+		var posi3 = {
+			l: '185',
+			t: '142'
+		};
+		var posi4 = {
+			l: '101',
+			t: '192'
+		};
+		var posi5 = {
+			l: '14',
+			t: '221'
+		};
+		var posi6 = {
+			l: '197',
+			t: '212'
+		};
+		var posi7 = {
+			l: '117',
+			t: '274'
+		};
+		var posi8 = {
+			l: '27',
+			t: '294'
+		};
+		var posi9 = {
+			l: '205',
+			t: '296'
+		};
+
+		var positions = [posi1, posi2, posi3, posi4, posi5, posi6, posi7, posi8, posi9];
+
+		//获取元素
+		var startBtn = document.getElementById("start");
+		var menu = document.getElementById("menu");
+		var score = document.getElementById("score");
+		var Progress = document.getElementById("progress");
+		//放置创建的灰太狼或者小灰灰
+		var wolves = document.getElementById("wolves");
+
+		//时间定时器
+		var timeTimer;
+		//狼定时器
+		var wolfTimer;
+		//点击开始按钮
+		startBtn.onclick = function() {
+			menu.style.display = "none";
+
+			//1.时间开始计时
+			timeTimer = setInterval(changeTime, 300);
+			//2.定时器开始创建狼
+			wolfTimer = setInterval(createWolf, 2000);
+		};
+
+		//总时间
+		var progressValue = 180;
+		//倒计时
+		function changeTime() {
+			progressValue--;
+			progress.style.width = progressValue + "px";
+
+			//游戏结束
+			if(progressValue == 0) {
+				menu.style.display = "block";
+				startBtn.innerHTML = "再来一次吧！";
+				clearInterval(timeTimer);
+				clearInterval(wolfTimer);
+				//总时间恢复
+				progressValue = 180;
+				//界面上时间恢复
+				progress.style.width = "180px";
+				//分数清零
+				score.innerHTML = 0;
+			}
+		}
+		//创建狼函数
+		function createWolf() {
+			//狼对象
+			var wolfImg = document.createElement("img");
+			//确定灰太狼或者小灰灰
+			var num = randomNumber(1, 100);
+			//标明类型
+			wolfImg.type = num > 80 ? "x" : "h";
+			//随机位置
+			var posi = randomNumber(0, positions.length - 1);
+			//console.log(posi);
+			//取得位置对象
+			var positionObj = positions[posi];
+			//给图片设置坐标
+			wolfImg.style.left = positionObj.l + "px";
+			wolfImg.style.top = positionObj.t + "px";
+
+			//wolfImg.src = "img/" + wolfImg.type + "5.png"
+			wolves.appendChild(wolfImg);
+
+			//开始动画
+			upDownAnimation(wolfImg);
+			
+			//点击事件
+			addTarget(wolfImg);
+		}
+
+		//图片动画
+		function upDownAnimation(wolfImg) {
+			//图片应该显示的位置
+			wolfImg.positionIndex = 0;
+
+			//定时器更换图片,让定时器被对象拥有
+			wolfImg.upTimer = setInterval(function() {
+				wolfImg.src = "img/" + wolfImg.type + wolfImg.positionIndex + ".png";
+				wolfImg.positionIndex++;
+				if(wolfImg.positionIndex > 5) {
+					//清除定时器
+					clearInterval(wolfImg.upTimer);
+					//开始一个新的定时器，让图片回去
+					wolfImg.domnTimer = setInterval(function() {
+						wolfImg.positionIndex--;
+						wolfImg.src = "img/" + wolfImg.type + wolfImg.positionIndex + ".png";
+						if(wolfImg.positionIndex == 0) {
+							//清除下定时器
+							clearInterval(wolfImg.domnTimer);
+							//删除元素
+							wolves.removeChild(wolfImg);
+						}
+					}, 100);
+				}
+			}, 100);
+		}
+
+		//点击事件
+		function addTarget(obj){
+			obj.onclick = function(){
+				//解决反复点击加分
+				if(obj.hit == true){
+					//结束函数往下执行
+					return;
+				}
+				obj.hit = true;
+				//清除定时器
+				clearInterval(obj.upTimer);
+				clearInterval(obj.domnTimer);
+				//alert(obj.upTimer);
+				//加分或者减分
+				addScore(obj);	
+				
+				//点击动画
+				var hitIndex = 5;
+				
+				var timer = setInterval(function(){
+					hitIndex++;
+					obj.src = "img/" + obj.type + hitIndex + ".png";
+					if(hitIndex == 9){
+						clearInterval(timer);
+						setTimeout(function(){
+							wolves.removeChild(obj);
+						},300);
+					}
+					
+				},100);
+			};
+		}
+		
+		//加分或者减分
+		function addScore(obj){
+			//获取到当前分数，转换为number类型
+			var currentScore = score.innerText - 0;
+			if(obj.type == 'h'){
+				score.innerText = currentScore + 10;
+			}else{
+				score.innerText = currentScore - 10;
+			}
+		}
+		
+		//随机数
+		function randomNumber(min, max) {
+			return parseInt(Math.random() * (max - min + 1) + min);
+		}
+	</script>
+
+</html>

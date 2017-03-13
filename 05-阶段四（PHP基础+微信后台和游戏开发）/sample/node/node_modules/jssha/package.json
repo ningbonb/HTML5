@@ -1,0 +1,64 @@
+{
+  "name": "jssha",
+  "version": "1.5.0",
+  "description": "jsSHA is a JavaScript implementation of the entire family of SHA hashes as defined in FIPS 180-2 (SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC",
+  "main": "src/sha.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Caligatio/jsSHA.git"
+  },
+  "keywords": [
+    "SHA-1",
+    "SHA-256",
+    "SHA-224",
+    "SHA-384",
+    "SHA-512",
+    "SHA1",
+    "SHA256",
+    "SHA224",
+    "SHA384",
+    "SHA512",
+    "SHA2",
+    "HMAC",
+    "hash"
+  ],
+  "license": "BSD",
+  "author": {
+    "name": "Brian Turek",
+    "email": "brian.turek@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/Caligatio/jsSHA/issues"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "homepage": "https://github.com/Caligatio/jsSHA",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "readme": "# jsSHA\nA JavaScript implementation of the complete Secure Hash Standard family\n\t\t(SHA-1, SHA-224, SHA-256, SHA-384, and SHA-512) as well as HMAC by\n\t\tBrian Turek\n\n## About\njsSHA is a javaScript implementation of the complete Secure Hash Algorithm\nfamily as defined by FIPS PUB 180-2\n(http://csrc.nist.gov/publications/fips/fips180-2/fips180-2withchangenotice.pdf).\n\nIt also includes the HMAC algorithm with SHA support as defined by FIPS PUB 198-1\n(http://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)\n\nWith the slow phasing out of MD5 as the standard hash to use in web\napplications, a client-side implementation of the complete Secure Hash Standard\nfamily was needed.  Due to SHA-384 and SHA-512's use of 64-bit values throughout\nthe algorithm, JavaScript can not easily natively support the calculation of\nthese hashes.  As a result, a bit of hacking had to be done to make sure the\nvalues behaved themselves. SHA-224 was added to the Secure Hash Standard family\non 25 February 2004 so it was also included in this package.\n\n## Files\n**src/sha_dev.js**\n\nA commented implementation of the entire SHA family of hashes. Not to be used\nin production.\n\n**src/sha.js**\n\nA Google Closure Compiler optimized version of the entire library\n\n**src/sha1.js**\n\nA Google Closure Compiler optimized version the library with non SHA-1\nfunctionality removed\n\n**src/sha256.js**\n\nA Google Closure Compiler optimized version the library with non SHA-224/SHA-256\nfunctionality removed\n\n**src/sha512.js**\n\nA Google Closure Compiler optimized version the library with non SHA-384/SHA-512\nfunctionality removed\n\n**test/test.html**\n\nA test page that calculates various hashes and has their correct values\n\n**test/genHashRounds.py**\n\nA Python2 script that generates multi-round hash values\n\n**build/make-release**\n\nA Bash script that runs the various Google Closure Compiler commands to build\na release\n\n**build/externs.js**\n\nFile needed solely to make the Google Closure Compilter work\n\n## Usage\n\n### Browser\nInclude the desired JavaScript file (sha.js, sha1.js, sha256.js, or sha512.js)\nin your header (sha.js used below):\n\n\t<script type=\"text/javascript\" src=\"/path/to/sha.js\"></script>\n\nInstantiate a new jsSHA object with your string to be hashed and its format\n(HEX or TEXT) as the parameters.  Then, call getHash with the desired hash\nvariant (SHA-1, SHA-224, SHA-256, SHA-384, or SHA-512) and output type\n(HEX or B64).\n\nIn the example below, \"This is a Test\" and \"SHA-512\" were used\nas the string to be hashed and variant respectively.  Also, the HMAC using TEXT\nkey \"SecretKey\" and hashing algorithm SHA-512 was calculated.\n\n\tvar shaObj = new jsSHA(\"This is a Test\", \"TEXT\");\n\tvar hash = shaObj.getHash(\"SHA-512\", \"HEX\");\n\tvar hmac = shaObj.getHMAC(\"SecretKey\", \"TEXT\", \"SHA-512\", \"HEX\");\n\nThe constructor takes an optional parameter, encoding, that specifies the\nencoding used to encode TEXT-type inputs. Valid options are \"UTF8\" and \"UTF16\"\nand it defaults to \"UTF8\"\n\ngetHash takes two optional parameters, a numRounds integer and an outputFormatOpts\nhashlist.  numRounds controls the number of hashing iterations/rounds performed\nand defaults to a value of \"1\" if not specified. outputFormatOpts dictates\nsome formatting options for the output.  By default,\n`outputFormatOpts = {\"outputUpper\" : false, \"b64Pad\" : \"=\"}`.  These\noptions are intelligently interpreted based upon the chosen output format.\n\ngetHMAC also takes an optional outputFormatOpts hashlist which operates the exact\nsame way as above.\n\n### Node.js\njsSHA is available through NPM and be installed by simply doing\n\n\tnpm install jssha\nTo use the module, first require it using:\n\n\tjsSHA = require(\"jssha\");\n\nThe rest of the instructions are identical to the [Browser](#browser) section above.\n\n## Compiling\nThis library makes use of the Google Closure Compiler\n(https://developers.google.com/closure/compiler) to both boost performance\nand reduce filesizes.  To compile sha_dev.js into a customized output file, use\na command like the following:\n\n\tjava -jar compiler.jar --define=\"SUPPORTED_ALGS=<FLAG>\" \\\n\t\t--externs /path/to/build/externs.js --warning_level VERBOSE \\\n\t\t--compilation_level ADVANCED_OPTIMIZATIONS \\\n\t\t--js /path/to/sha_dev.js --js_output_file /path/to/sha.js\n\t\t\nwhere <FLAG> is a bitwise OR of the following values:\n* 4 for SHA-384/SHA-512\n* 2 for SHA-224/256\n* 1 for SHA-1\n\n##Contact Info\nThe project's website is located at [http://caligatio.github.com/jsSHA/](http://caligatio.github.com/jsSHA/)\n",
+  "readmeFilename": "README.md",
+  "_id": "jssha@1.5.0",
+  "dist": {
+    "shasum": "136123ea77a9d46e007f623ab5ee58a16a2636a1",
+    "tarball": "http://registry.npmjs.org/jssha/-/jssha-1.5.0.tgz"
+  },
+  "_from": "jssha@^1.5.0",
+  "_npmVersion": "1.3.17",
+  "_npmUser": {
+    "name": "caligatio",
+    "email": "brian.turek@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "caligatio",
+      "email": "brian.turek@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "136123ea77a9d46e007f623ab5ee58a16a2636a1",
+  "_resolved": "https://registry.npmjs.org/jssha/-/jssha-1.5.0.tgz"
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>总结</title>
+	</head>
+	<body>
+	</body>
+	<script>
+	
+		/*
+		function Person(){
+			
+		}
+		Person.prototype.name = "毛毛";
+		Person.prototype.hobby = ["抽烟","喝酒","烫头"];
+		
+		var person = new Person();
+		person.hobby.push("开车");
+		var person2 = new Person();
+		console.log(person2.hobby);
+		//修改person对象属性，person2也会受到影响		
+		
+		*/
+		
+		//推荐写法
+		function Person(name,age,job){
+			//属性一般放到构造函数内部，变化的对象也放到内部，共有的属性或者方法放到原型
+			this.name = name;
+			this.age = age;
+			this.job = job;
+			this.hobby = ["抽烟","喝酒"];
+		}
+		
+		Person.prototype.getName = function(){
+			return this.name;
+		};
+		
+		var person1 = new Person("石头",28,"学生");
+		person1.hobby.push("烫头");
+		var person2 = new Person("小鹏",28,"学生");
+		console.log(person2.hobby);
+		console.log(Person.prototype);
+		
+		
+		//方式2
+		Person.prototype = {
+			//强制指回对应的构造函数
+			constructor:Person,
+			getAge:function(){
+				return this.age;
+			},
+		};
+		
+		var person3 = new Person("毛毛",18,"学生");
+		console.log(person3.getAge());
+		console.log(Person.prototype);
+	</script>
+</html>

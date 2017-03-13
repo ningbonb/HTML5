@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>111</p>
+		<p>222</p>
+		<p>333</p>
+		
+		<input type="text" />
+		<input type="button" name="btn" value="点击" id="btn"/>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			//如果$('p').html()：默认返回jq数组第一个元素内容
+			var pHtml = $('p').html();
+			console.log(pHtml);
+			pHtml = $('p').eq(1).html();
+			console.log(pHtml);
+			
+			//获取：不需要参数，加上参数：赋值
+			//默认赋值所有
+			$('p').html('哈哈');
+			$('p').eq(1).html('222');
+			
+			//结构标签赋值
+			$('p').eq(0).html("<a href='###'>链接</a>");
+			pHtml = $('p').eq(0).html();
+			console.log(pHtml);
+			
+			//通过函数参数
+			$('p').html(function(index,value){
+				console.log(index,value);
+				if(index == 0){
+					return value+'新内容'+index;
+				}
+				return value+'新内容';
+			});
+			
+			//text():innerText (纯文本)
+			console.log($('p').eq(0).text());
+			$('p').eq(1).text("<a href='###'>链接</a>");
+			
+			//val
+			$('#btn').click(function(){
+				//alert(111);
+				//赋值
+				$("input:text").val('111111');
+				//函数赋值
+				$("input:text").val(function(index,value){
+					return value + '新值' + index;
+				});
+				console.log($('input:text').val());
+			});
+		});
+	</script>
+</html>

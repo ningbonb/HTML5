@@ -1,0 +1,181 @@
+.contactmain{
+	background-color: #F5F5F5;
+}
+.contactContent{
+	background: url(../img/contactbg2.png) fixed no-repeat bottom,url(../img/contactbg.png) no-repeat center 10rem;
+	box-shadow:0 10px 60px 1px #F5F5F5;
+	overflow: hidden;
+}
+.contactCap{
+	max-width: 710px;
+	margin: 10rem auto 20rem;
+	text-align: center;
+	color: #747474;
+}
+.contactFont1{
+	font-size: 1.7rem;
+	line-height: 5rem;
+}
+.contactFont2{
+	font-size: 1.5rem;
+	line-height: 3rem;
+}
+.contactFontBlack1{
+	color: #000;
+	font-size: 1.8rem;
+}
+.contactFontBlack{
+	text-align: right;
+	display: inline-block;
+	width: 9rem;
+	color: #000;
+	font-size: 1.8rem;
+	background: url(../img/contactmail.png) no-repeat 1px;
+}
+.contactInf{
+	margin: 0 auto;
+	overflow: hidden;
+	margin-top: 8%;
+}
+.contactInfWrp1{
+	width: 16rem;
+	margin: 0 auto;
+}
+.contactInfWrp2{
+	width: 14rem;
+	margin: 0 auto;
+}
+.contactInfWrp3{
+	width: 28rem;
+	margin: 0 auto;
+}
+.contactTel{
+	padding-top: .8rem;
+	box-sizing: border-box;
+	height: 3.5rem;
+	width: 12rem;
+	text-align: left;
+	position: relative;
+	margin-left: 4rem;
+	/*margin-top: 8%;*/
+}
+.contactTel:before{
+	position: absolute;
+	display: inline-block;
+	width: 3.5rem;
+	height: 3.5rem;
+	content: "";
+	left: -4rem;
+	bottom: 0;
+	background: url(../img/contacttel.png) no-repeat center/100%;
+}
+.contactMob{
+	/*margin-top: 8%;*/
+	padding-top: 2rem;
+	box-sizing: border-box;
+	height: 3.5rem;
+	width: 10rem;
+	text-align: left;
+	position: relative;
+	margin-left: 4rem;
+}
+.contactMob:before{
+	position: absolute;
+	display: inline-block;
+	width: 3.5rem;
+	height: 3.5rem;
+	content: "";
+	left: -4rem;
+	bottom: 0;
+	background: url(../img/contactmob.png) no-repeat center/50%;
+}
+.contactAdd{
+	/*margin-top: 8%;*/
+	padding-top: .8rem;
+	box-sizing: border-box;
+	height: 3.5rem;
+	width: 24rem;
+	text-align: left;
+	position: relative;
+	margin-left: 4rem;
+}
+.contactAdd:before{
+	position: absolute;
+	display: inline-block;
+	width: 3.5rem;
+	height: 3.5rem;
+	content: "";
+	left: -4rem;
+	bottom: 0;
+	background: url(../img/contanctadd.png) no-repeat center/60%;
+}
+footer{
+	box-shadow:0 -40px 60px 1px #fff;
+}
+
+@media only screen and (max-width: 680px) {
+	.contactFontBlack{
+		width: 10rem;
+	}
+}
+@media only screen and (max-width: 680px) {
+	.contactFontBlack{
+		width: 7rem;
+	}
+}
+@media only screen and (max-width: 730px) {
+	.contactInfWrp1{
+		clear: all;
+		width: 16rem;
+		margin: 0 auto;
+		margin-top: 5%;
+	}
+	.contactInfWrp2{
+		clear: all;
+		width: 16rem;
+		margin: 0 auto;
+		margin-top: 5%;
+	}
+	.contactInfWrp3{
+		clear: all;
+		width: 28rem;
+		margin: 0 auto;
+		margin-top: 5%;
+	}
+	.contactTel{
+		padding-top: 1rem;
+		font-size: 1.2rem;
+	}
+	.contactTel:before{
+		width: 2.5rem;
+		height: 2.5rem;
+		left: -3rem;
+	}
+	.contactMob{
+		padding-top: 2rem;
+	}
+	.contactMob:before{
+		width: 2.5rem;
+		height: 2.5rem;
+		left: -3rem;
+	}
+	.contactAdd{
+		padding-top: 1.2rem;
+	}
+	.contactAdd:before{
+		width: 2.5rem;
+		height: 2.5rem;
+		left: -3rem;
+	}
+}
+@media only screen and (min-width: 750px) {
+	.contactInfWrp1{
+		float: left;
+	}
+	.contactInfWrp2{
+		float: left;
+	}
+	.contactInfWrp3{
+		float: left;
+	}
+}

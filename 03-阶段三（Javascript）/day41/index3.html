@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>点击累加</title>
+	</head>
+	<body>
+		<button id="btn">添加</button>
+		<ul id="ul1"></ul>
+		<script>
+			var btn = document.getElementById("btn");
+			var ul1 = document.getElementById("ul1");
+			
+			var index = 0;
+			btn.onclick = function(){
+				index++;
+				var li = document.createElement("li");
+				li.innerHTML = "我是li" + index;
+				//ul1.appendChild(li);
+				//ul1.insertBefore(li,ul1.firstElementChild);
+				//alert(ul1.children[0]);
+				//首次添加children[0]没有元素，返回underfined,ie下会报错
+				//ul1.insertBefore(li,ul1.children[0]);
+				
+				//判断是不是第一次添加
+				if(ul1.children.length > 0){
+					ul1.insertBefore(li,ul1.children[0]);
+				}else{
+					ul1.appendChild(li);
+				}
+			};
+		</script>
+	</body>
+</html>

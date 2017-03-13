@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>touch</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script type="text/javascript" src="js/touch.js"></script>
+	
+	<script type="text/javascript">
+		/*
+		 专门为了移动端手势识别，是百度云团队维护
+		 //github
+		 
+		 //三个参数
+		 1.选择器，或者对象地址
+		 2.事件名称 ：（tap,hold，rorate,swipe drap）
+		 * */
+		
+		var div1 = document.getElementById("div1");
+		
+		touch.on("#div1",'hold tap',function(ev){
+			console.log(ev.position);
+			console.log(ev.position.x);
+			console.log(ev.type);
+		});
+	</script>
+</html>

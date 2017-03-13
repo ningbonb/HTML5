@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				list-style-type: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="全选" id="allChoose" />
+		<input type="button" value="反选" id="reverseChoose" /> 是否都被选中:
+		<input type="checkbox" id="isAllC" />
+		<!--ul[id="ul1"]>li*10>input[type="checkbox"]{视频}-->
+		<ul id="listsBox">
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />图片</li>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />娱乐</li>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />视频</li>
+		</ul>
+
+		<script type="text/javascript">
+			//获取元素
+			var allChoose = document.getElementById("allChoose");
+			var reverseChoose = document.getElementById("reverseChoose");
+			var isAllC = document.getElementById("isAllC");
+			//获取列表父级ul
+			var listsBox = document.getElementById("listsBox");
+			//获取列表
+			var lists = listsBox.getElementsByTagName('input');
+
+			//全选绑定事件
+			allChoose.onclick = function() {
+				//遍历lists赋值
+				for(var i = 0; i < lists.length; i++) {
+					lists[i].checked = true;
+				}
+				//全选标记记录
+				isAllC.checked = true;
+			};
+
+			//反选按钮
+			reverseChoose.onclick = function() {
+				//遍历所有，赋值相反
+				var chooseNum = 0; //保存全选的个数
+				for(var i = 0; i < lists.length; i++) {
+					lists[i].checked = !lists[i].checked;
+					//保存全选的个数
+					chooseNum = lists[i].checked ? chooseNum + 1 : chooseNum;
+					//给标记赋值
+					isAllC.checked = chooseNum == lists.length ? true : false;
+				}
+			};
+
+			//单个按钮事件（点到最后一个标记点亮）
+			for(var i = 0; i < lists.length; i++) {
+				lists[i].onclick = function() {
+					var chooseNum = 0; //保存全选的个数
+					for(var i = 0; i < lists.length; i++) {
+						//保存全选的个数
+						chooseNum = lists[i].checked ? chooseNum + 1 : chooseNum;
+						//给标记赋值(判断是否最后一个)
+						isAllC.checked = chooseNum == lists.length ? true : false;
+					}
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

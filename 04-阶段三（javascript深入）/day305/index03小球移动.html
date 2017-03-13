@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px saddlebrown;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		var x = 0;
+		var y = 0;
+		function draw(){
+			ctx.fillStyle = "red";
+			ctx.beginPath();
+			ctx.arc(50+x,50+y,50,0,Math.PI*2,false);
+			ctx.fill();
+		}
+		draw();
+		
+		var frames;
+		function move(){
+			//清画板
+			ctx.clearRect(0,0,canvas.width,canvas.height);
+			//更改坐标，重新绘制
+			x++;
+			y+=2;
+			draw();
+			//返回一个标价id
+			frames = requestAnimationFrame(move);
+			console.log(frames);
+		}
+		
+		canvas.onmouseover = function(){
+			move();
+		};
+		//鼠标移出,停止移动
+		canvas.onmouseout = function(){
+			cancelAnimationFrame(frames);
+		}
+	</script>
+</html>

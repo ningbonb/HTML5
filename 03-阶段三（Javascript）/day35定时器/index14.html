@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 300px;
+				height: 200px;
+				border: 2px solid dodgerblue;
+				position: relative;
+				overflow: hidden;
+				margin: 50px auto;
+			}
+			#content{
+				width: 600%;
+				overflow: hidden;
+				position: absolute;
+				left: 0px;
+				/*transition: all 1s ease-in-out;*/
+			}
+			#content img{
+				float: left;
+				width: 300px;
+				height: 200px;
+			}
+		</style>
+		<!--<button>1</button>
+		<button>2</button>
+		<button>3</button>
+		<button>4</button>
+		<button>5</button>-->
+		
+		<div class="box">
+			<div id="content">
+				<img src="img/11.jpg" alt="" />
+				<img src="img/12.jpg" alt="" />
+				<img src="img/13.jpg" alt="" />
+				<img src="img/14.jpg" alt="" />
+				<img src="img/15.jpg" alt="" />
+				<!--第一张-->
+				<img src="img/11.jpg" alt="" />
+				
+			</div>			
+		</div>
+	</head>
+	<body>
+		
+		<script>
+			var content = document.getElementById("content");
+			
+			var timer;
+			var outTimer;//延时定时器
+			var x = 0;
+			function move(){
+				x -= 2;
+				if(x % 300 == 0){
+					//清定时器
+					clearInterval(timer);
+					//等个1s重新打开
+					clearTimeout(outTimer);
+					outTimer = setTimeout(function(){
+						timer = setInterval(move,16);
+					},500);
+				}
+				x = x <= -1500 ? 0 : x;
+				content.style.left = x + 'px';
+			}
+			timer = setInterval(move,16);
+		</script>
+	</body>
+</html>

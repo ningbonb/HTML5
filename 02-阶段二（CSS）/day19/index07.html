@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>蒙版mask</title>
+		<style>
+		/*浏览器内核：
+		 *-webkit-  谷歌浏览器内核（safari苹果浏览器 360极速模式 猎豹。）
+		 * -ms- ie浏览器内核
+		 * -o- 欧朋浏览器（转入谷歌阵地）
+		 * -moz- 火狐浏览器（网景Netscape） 
+		 */
+			div{
+				border: 2px solid red;
+				display: inline-block;
+			}
+			img{
+				vertical-align: top;
+				/*w3c*/
+				-webkit-mask-image: url(img/mask2.png);
+				-webkit-mask-repeat: no-repeat;
+				
+				-webkit-mask-position: right bottom;
+				-webkit-mask-position: center;
+				-webkit-mask-position: 30%;
+				
+				
+			}
+			/*
+			 * 蒙版： 透明部分会遮挡背景，不透明部分会显示背景
+			 * 半透明图片做出蒙版效果
+			 */
+		</style>
+	</head>
+	<body>
+		<div><img src="img/1.jpg" alt="" /></div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>定时器</title>
+	</head>
+	<body>
+		
+		//定时器
+		/*
+		 分两种
+		 1.间隔定时器（每隔指定时间调用一次）
+		 2.延时定时器（推迟指定时间调用）
+		 setInterval()
+		 参数两个
+		 第一个：函数指针
+		 第二个：间隔的时间（单位是ms毫秒）
+		 1s == 1000ms
+		 
+		 返回值：计时器的id
+		 
+		 */
+		
+		<script>
+			var index = 0;
+			
+			//匿名函数
+			window.setInterval(function(){
+				//console.log(++index);
+			},1000);
+			
+			setInterval(function(){
+				//console.log(++index);
+			},1000);
+			
+			//2.函数名指针
+			function fn(){
+				//console.log(++index);
+			}
+			
+			setInterval(fn,1000);
+			
+			
+			//定时器函数返回值
+			//除了火狐,定时器返回值id是一个从1开始每创建一个加1
+			//火狐：从2开始，每创建一个加1
+			var timer = setInterval(fn,1000);
+			console.log(timer);
+			
+			var timer2 = setInterval(fn,1000);
+			console.log(timer2);
+			
+			//清除定时器
+			var timer3 = setInterval(function(){
+				console.log(++index);
+			},1000);
+			//alert(timer3);//6
+			
+			//点击文档清除定时器
+			document.onclick = function(){
+				//alert(1);
+				//参数是一个，是要清除的定时器id
+				clearInterval(timer3);
+				//推荐上面清除
+				//clearInterval(6);
+			};
+			
+			
+		</script>
+	</body>
+</html>

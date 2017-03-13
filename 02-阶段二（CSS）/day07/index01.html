@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>垂直居中</title>
+	<style>
+		/*vertical-align:
+			middle:垂直居中;
+			sub:垂直文本的下标;
+			supper:垂直文本的上标;
+			text-top:把元素的顶部和父元素字体的顶部对齐;
+			text-bottom:把元素的底部和父元素的文本的底部对齐;
+
+			top:把元素的顶部和行中最高元素的顶部对齐;
+			bottom:把元素的底部和行中最底元素的底部对齐;
+		 */
+		div{ width:300px; height: 100px; background-color: red; }
+		#div1{ 
+			text-align: center;
+			/*行高==元素高度：单行文本或元素垂直居中*/
+			line-height: 100px;
+		}
+/*		#p1{
+			width: 300px;
+			height: 100px;
+			background-color: green;
+			/*多行文本无法垂直居中*/
+			/*line-height: 100px;
+		}
+*/
+		#p1{
+			width: 300px;
+			height: 100px;
+			background-color: green;
+			/*vertical-align:middle 只适用于table标签*/
+			vertical-align: middle;
+		}
+
+		/*兼容性最好！！！*/
+		table{
+			width: 300px;
+			height: 150px;
+			background-color: green;
+			/*vertical-align:middle;只适用于table标签，垂直方向居中*/
+			vertical-align: middle;
+		}
+		
+		#div2{
+			/*dispaly: none; 使div不显示*/
+			/*display: none;*/
+			display: table;
+		}
+
+		#div2 p{
+			/*p转化为cell（单元格td）*/
+			display: table-cell;
+			vertical-align:  middle;
+		}
+
+		#p2 span{
+			/*vertical-align: sub;*/
+		}
+		#p2 img{
+			/*vertical-align: text-top;*/
+		}
+		#p2 i{
+			vertical-align: top;
+		}
+		/*
+		子元素垂直居中
+		1.1 line-height==元素高
+		vertical-align:middle;
+		 */
+		#div3{
+			line-height: 100px;
+		}
+		#div3 img{
+			vertical-align: middle;
+		}
+		#div3 em{
+			font-size: 30px;
+			vertical-align: middle;
+		}
+
+		/*
+		子元素垂直居中
+		1.2
+		 */
+		#div4 span,#div4 img,#div4 em{
+			vertical-align: middle;
+		}
+		#div4 span{
+			font-size: 20px;
+		}
+		#div4 em{
+			font-size: 25px;
+		}
+		/*
+		高度 == 父元素高度
+		img: 既可以同行显示，也可以设置宽高;
+		作用： 作为一个参考线
+
+		 */
+		#base_line{
+			height: 100px;
+		}
+
+		/*子元素垂直居中  1.5*/
+		#div5 span,#div5 img,#div5 em{
+			vertical-align: middle;
+		}
+		#div5 span{
+			font-size: 20px;
+		}
+		#div5 em{
+			font-size: 25px;
+		}
+		/*
+			高度== 父元素高度；
+			img:既可以同行显示，也可以设置宽高;
+			作用：作为一个参考线
+
+			解决火狐下用img的bug
+		*/
+		#base_line_div{
+			/*
+				inline-block:把一个块元素或者行元素修改为一个既是行也是块;
+			*/
+			height: 100%;
+			width: 0px;
+			background: blue;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">你好啊</div>
+	<p id="p1">
+		你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊
+	</p>
+
+	<hr>
+
+	<table>
+		<tr>
+			<td>你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊</td>
+		</tr>
+	</table>
+
+	<hr>
+
+	<div id="div2">
+		<p>
+			你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊~~~你好啊
+		</p>
+	</div>
+	<p id="p2">
+		明天考<img src="img/2.jpg" alt="方块">计算机<span>网络~！！！！！！！！！！！！！！</span>
+		<i>考试~~~~~~</i>
+	</p>
+
+	<div id="div3">你好啊~~~<span>你好啊！！！</span><img src="img/2.jpg" alt="方块"><em>恩，不错0,0</em></div>
+	<br>
+	<div id="div4"><img id="base_line">
+		你好啊~~~<span>你好啊！！！</span><img src="img/2.jpg" alt="方块"><em>恩，不错0,0</em>
+	</div>
+	<div id="div5">
+		<div id="base_line_div"></div> 
+		你好啊~~~<span>你好啊！！！</span><img src="img/2.jpg" alt="方块"><em>恩，不错0,0</em>
+	</div>
+</body>
+</html>

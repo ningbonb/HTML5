@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		用户账号：<input type="text" id="user" /><br> 密码：
+		<input type="password" id="pass" /><br>
+		<input type="button" value="登录" id="login" />
+		<input type="button" value="注册" id="register" />
+	</body>
+	<script src="js/AjaxGP.js"></script>
+	<script>
+		//获取
+		var user = document.getElementById("user");
+		var pass = document.getElementById("pass");
+		var login = document.getElementById("login");
+		var register = document.getElementById("register");
+
+		login.onclick = function() {
+			//开始请求
+			ajax({
+				urls: "Zlog.php",
+				type: "GET",
+				data: {
+					//user?pass:服务器需要使用
+					user: user.value,
+					pass: pass.value
+				},
+				success: function(responseTest) {
+					var jsonObj = JSON.parse(responseTest);
+					console.log(jsonObj);
+					if(jsonObj.code == "200"){
+						//成功
+						alert(jsonObj.msg);
+					}else{
+						//有問題
+						alert(jsonObj.msg);
+					}
+				},
+				fail: function(status) {
+					alert(status);
+				}
+			});
+		};
+		
+		//綁定注冊事件
+		register.onclick = function(){
+			ajax({
+				urls: "Zreg.php",
+				type: "GET",
+				data: {
+					user: user.value,
+					pass: pass.value
+				},
+				success: function(responseTest) {
+					alert(responseTest);
+					var jsonObj = JSON.parse(responseTest);
+					console.log(jsonObj);
+					if(jsonObj.code == "200"){
+						//成功
+						alert(jsonObj.msg);
+					}else{
+						//有問題
+						alert(jsonObj.msg);
+					}
+				},
+				fail: function(status) {
+					alert(status);
+				}
+			});
+		};
+	</script>
+
+</html>

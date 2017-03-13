@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>本地存储</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<input type="text" id="key1" placeholder="key"/>
+		<hr />
+		<input type="text" id="value1" placeholder="value"/>
+		<button id="btn">保存</button>
+	</body>
+	<script type="text/javascript">
+	/*
+	本地永久存储：浏览器关闭或者刷新，数据不会被清除，永久保存到了硬盘
+	最大容量：5M
+	兼容性：ie678不支持
+	 * */
+		console.log(window.localStorage);
+		//localStorage.name = "名字";
+		//console.log(localStorage);
+		if(window.localStorage){
+			//支持
+			//alert('支持');
+		}else{
+			//不支持
+			//alert('不支持');
+		}
+//		if(window.aaa){
+//			alert('支持');
+//		}else{
+//			alert('不支持');
+//		}
+
+		console.log(localStorage.name);
+		
+		localStorage.age = 20;
+		localStorage['gender'] = '男';
+		
+		console.log(localStorage.length);
+		//标准规定可以存任意类型，但是，目前数据被存入后全是以字符串类型保存
+		console.log(typeof localStorage.age);
+		console.log('~~~~~~~~~~~~');
+		//遍历对象方法 for in循环
+		//in以前获取到对象属性名 后面是需要遍历的对象
+		for(var property in localStorage){
+			console.log(property,localStorage[property]);
+		}
+		
+		//
+		localStorage.eat = function(){
+			alert('去食堂吃饭');
+		};
+		console.log(localStorage.eat);//string
+		
+		var rel = eval('2+9*10');
+		console.log(rel);
+		
+		//eval('(' + localStorage.eat + ')()');
+		
+		//存数组
+		var names = ['名字1','名字2','名字3'];
+		localStorage.names = names;
+		
+		console.log(localStorage.names);//string
+		
+		var namesGet = localStorage.names.split(',');
+		console.log(namesGet);
+		
+		//设置
+		localStorage.setItem('张三','是文化人');
+		localStorage.setItem('李四','喜欢安静');
+		
+		console.log(localStorage.getItem('李四'));
+		
+		//删除指定key的值
+		localStorage.removeItem('张三');
+		localStorage.removeItem('李四');
+		//对象属性的删除
+		delete localStorage.age;
+		
+		//默认的只读属性不能被删除 length
+		localStorage.removeItem('length');
+		
+		//全部删除
+		localStorage.clear();
+		//delete localStorage.length;
+		
+		//onstorage 事件
+		/*
+		 本地key存储的值发生改变，或者新增加了存储属性，或者删除属性都会触发onstorage
+		 chrome火狐必须两个相同页面，一个页面改动，另一个页面触发onsrroage
+		 * */ 
+		window.onstorage = function(ev){
+			var ev = ev || window.event;
+			console.log(ev);
+		};
+		
+		var btn = document.getElementById("btn");
+		var key1 = document.getElementById("key1");
+		var value1 = document.getElementById("value1");
+		
+		btn.onclick = function(){
+			localStorage.setItem(key1.value,value1.value);
+			alert(localStorage.key1);
+		};
+	</script>
+</html>

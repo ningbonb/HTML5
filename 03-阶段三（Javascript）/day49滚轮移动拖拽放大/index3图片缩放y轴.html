@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片缩放</title>
+		<style>
+			#imgObj{
+				position: absolute;
+				left: 200px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="img/game_bg.jpg" alt="" id="imgObj"/>
+	</body>
+	<script src="js/mouseWheel.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		var imgObj = document.getElementById("imgObj");
+		mouseWheel(imgObj,function(ev,down){
+
+			//旧值,改变之前的宽度
+			var oldWith = imgObj.offsetWidth;
+			//改变之前距离左边距离
+			var oldLeft = imgObj.offsetLeft;
+			
+			//y轴方向
+			var oldHeight = imgObj.offsetHeight;
+			var oldTop = imgObj.offsetTop;
+			
+			//获取到鼠标的位置在图片上的比例
+			var scaleX = (ev.clientX - oldLeft) / oldWith;
+			
+			//y轴比例
+			var scaleY = (ev.clientY - oldTop) / oldHeight;
+		
+			if(down){
+				//imgObj.style.width = imgObj.offsetWidth + 10 + "px";
+				imgObj.width = imgObj.offsetWidth + 10;
+				//最大值
+				if(imgObj.width >= 500) imgObj.width = 500;
+				
+			}else{
+				//imgObj.style.width = imgObj.offsetWidth - 10 + "px";			
+				imgObj.width = imgObj.offsetWidth - 10;			
+				if(imgObj.width <= 100) imgObj.width = 100;
+			}
+			
+			/*
+			 
+			 * */
+			//新值 - 旧值
+			var changeValue = imgObj.offsetWidth - oldWith;
+			//y轴变化量
+			var changeValueY = imgObj.offsetHeight - oldHeight;
+			//修改距离左边的变化
+			//鼠标在图片中的比例*图片的变化量 = left的变化量
+			//新的left值 = 旧的left值 - left的变化量
+			imgObj.style.left = oldLeft - changeValue * scaleX + "px";
+			//y轴距离变化
+			imgObj.style.top = oldTop - changeValueY * scaleY + "px";
+		});
+	</script>
+</html>

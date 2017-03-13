@@ -1,0 +1,15 @@
+{
+  "name": "wechat_jsapi_sign",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sign.js",
+  "dependencies": {
+    "jssha": "^1.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

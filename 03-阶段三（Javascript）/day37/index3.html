@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>小球的移动延时定时器</title>
+		<style>
+			#box{
+				width: 800px;
+				height: 50px;
+				border: 2px solid red;
+				position: relative;
+			}
+			#in{
+				width: 50px;
+				height: 50px;
+				background: red;
+				border-radius: 50%;
+				position: absolute;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="in"></div>
+		</div>
+	</body>
+	<script>
+		var ball = document.getElementById("in");
+		var timer;
+		var x = 0;
+		ball.onclick = function(){
+			x += 10;
+			//第一次点击的时候，this是当前点击对象
+			//之后通过延时定时器调用ball.onclick此方法，不再是对象的点击事件，属于通过函数指针直接调用，所以this变成全局的window
+			//alert(111);
+			ball.style.left = x + "px";
+			timer = setTimeout(ball.onclick,16);
+			if(x >= 750){
+				clearInterval(timer);
+			}
+		};
+	</script>
+</html>

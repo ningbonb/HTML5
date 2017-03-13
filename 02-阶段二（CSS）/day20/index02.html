@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>渐变</title>
+		<style>
+			/*
+			 * 渐变：
+			 * 1.至少两种颜色
+			 * 2.css3以背景图赋值
+			 * 3.默认从上到下
+			 */
+			
+			.div1 {
+				height: 100px;
+				/*默认从上往下*/
+				/*background-image: linear-gradient(red,green);*/
+				/*to right: 从左到右*/
+				background-image: linear-gradient(to left, red, green);
+				/*to right bottom: 从左上->右下*/
+				background-image: linear-gradient(to right bottom, red, green);
+				/*多个颜色*/
+				background-image: linear-gradient(to right bottom, red, green, yellow, blue);
+				/**/
+				background-image: linear-gradient(to right, rgba(5255, 0, 0, 0), rgba(0, 255, 0, 0.5), rgba(255, 0, 0, 1));
+			}
+			
+			.div2 {
+				height: 100px;
+				/*
+				 * 角度单位：deg
+				 * 0deg==to top
+				 * 正值：顺时针变换 90deg == to right
+				 * 负数：逆时针变换 -90deg == to left
+				 */
+				background-image: linear-gradient(0deg, red, blue);
+				/*正度数*/
+				background-image: linear-gradient(180deg, red, blue);
+				/*负度数*/
+				background-image: linear-gradient(-90deg, red, blue);
+			}
+			
+			.div3 {
+				height: 100px;
+				/* 渐变位置
+				 * 百分数：20%：从百分之20的位置开始渐变（20%之前都是纯色）
+				 * 
+				 */
+				background-image: linear-gradient(90deg, red 20%, blue 30%, yellow 50%);
+			}
+			
+			.div4 {
+				height: 300px;
+				width: 300px;
+				margin: 20px auto;
+				text-align: center;
+				line-height: 300px;
+				font-size: 40px;
+				cursor: pointer;
+				background-image: linear-gradient(to bottom right, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+			}
+			
+			.div4:hover {
+				background-image: linear-gradient(to top left, rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+			}
+			
+			/* 径向渐变
+			 * 
+			 */
+			.div5{
+				height: 300px;
+				width: 400px;
+				margin: 30px auto;
+				background-image: radial-gradient(red,blue,yellow);
+				background-image: radial-gradient(red 10%,blue 30%,yellow 50%);	
+				/*
+				 * 默认椭圆： ellipse
+				 * circle
+				 */
+				background-image: radial-gradient(circle,red 10%,blue 30%,yellow 50%);	
+				/* 半径大小
+				 * 数值：
+				 */
+				background-image: radial-gradient(100px circle,red 10%,blue 30%,yellow 50%);	
+				
+				/* 圆心位置
+				 * at center :默认
+				 * 还可以用数值或百分比表示
+				 */
+				background-image: radial-gradient(100px circle at top left,red 10%,blue 30%,yellow 50%);	
+				
+				/*
+				 * 参数1： 半径
+				 * 参数2： 形状
+				 * 参数3： 圆心位置
+				 */
+				background-image: radial-gradient(100px circle at 100px 20%,red 10%,blue 30%,yellow 50%);
+				-webkit-transition: all 2s;
+				
+				/*
+				 * farthest-side:半径到最远边
+				 * closest-side: 半径到最近一边
+				 * 
+				 * farthest-corner:半径到最近一个角
+				 * closest-corner: 半径到最远一个角
+				 */
+				background-image: radial-gradient(farthest-side circle,red 10%,blue 30%,yellow);
+				background-image: radial-gradient(closest-side circle,red 10%,blue 30%,yellow);
+				background-image: radial-gradient(closest-corner circle,red 10%,blue 30%,yellow);
+				background-image: radial-gradient(forthest-corner circle,red 10%,blue 30%,yellow);
+				
+				
+				
+			}
+			.div5:hover{
+				width: 300px;
+				background-image: radial-gradient(100px circle at 200px 30%,red 10%,blue 30%,yellow 50%);	
+			}
+			
+			/*重复渐变*/
+			.div6{
+				width: 800px;
+				height: 200px;
+				margin: 10px auto;
+				background-image: repeating-linear-gradient(to left,red,yellow 5%);
+			}
+			.div7{
+				width: 100%;
+				height: 500px;
+				border-radius: 50%;
+				margin: 10px auto;
+				background-image: repeating-radial-gradient(circle,red,blue 10%);
+				transition: all 4s;
+			}
+			.div7:hover{
+				height: 400px;
+				width: 400px;
+				background-image: repeating-radial-gradient(circle,blue,red 10%);
+			}
+			.div8{
+				width: 300px;
+				height: 300px;
+				margin: 10px auto;
+				background-image: repeating-linear-gradient(to right,rgba(255,0,0,0.5),transparent 20%),
+				repeating-linear-gradient(to top,rgba(255,0,0,0.5),transparent 20%);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<div class="div3"></div>
+		<div class="div4">渐变</div>
+		<hr />
+		<div class="div5"></div>
+		<div class="div6"></div>
+		<div class="div7"></div>
+		<hr />
+		<div class="div8"></div>
+	</body>
+
+</html>

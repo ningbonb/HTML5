@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		
+	</body>
+	<script>
+		/*
+		 正则表达式：
+		 
+		 * */
+		
+		var str = 'abcdefghigklmnopqrstuvwxyz';
+		for(var i = 0; i <= str.length; i++){
+			if(str[i] >= '0' && str[i] <= '9'){
+				console.log('有数字');
+			}
+		}
+		
+		//使用正则：
+		var reg = /\d/;
+		var result = reg.test(str);
+		if(result){
+			console.log('确实有数字');
+		}else{
+			console.log('没有数字');
+		}
+		
+		/*
+		 声明：两种方式：
+		 方式1：var reg = new RegExp(参数1，参数2);
+		 参数1：正则公式（匹配原则）也可以是要匹配的字符串
+		 参数2：修饰符，可以省略
+		 {
+		 	i:忽略大小写
+		 	g:全局匹配（默认匹配时一次）
+		 	m:执行多行匹配（结合^ $ 开头和结尾使用）
+		 }
+		 
+		 * */
+		
+		var str2 = '111 today Is a great day';
+		var reg2 = new RegExp('11');
+		console.log(reg2,typeof reg2);//object
+		//判断str2是否包含111
+		
+		var rel = reg2.test(str2);
+		if(rel){
+			console.log('有');
+		}else{
+			console.log('没有');
+		}
+		
+		/*
+		 test()
+		 属于正则对象的方法
+		 作用：验证字符串中有没有我们设置匹配规则的字符串，如果有，返回itrue,没有返回false
+		 参数：我们需要验证的字符串
+		 * */
+		//两个参数字符串类型，i作用忽略大小写，匹配字符串中是否包含is（无论大小写）
+		var reg2 = new RegExp('is','i');
+		if(reg2.test(str2)){
+			console.log('有is');
+		}else{
+			console.log('没有is');
+		}
+		
+		/*
+		 声明方式2
+		 var reg3 = /参数1/修饰符;
+		 参数不能写成字符串
+		 参数1：匹配原则
+		 参数2：修饰符（i g m）
+		 
+		 * */
+		var reg3 = /today/;
+		console.log(reg3,typeof reg3);// /is/ "object"
+		if(reg3.test(str2)){
+			console.log('有today');
+		}else{
+			console.log('没有today');
+		}
+		
+		var reg4 = /is/i;
+		if(reg4.test(str2)){
+			console.log('有有is');
+		}else{
+			console.log('没有没有is');
+		}
+	</script>
+</html>

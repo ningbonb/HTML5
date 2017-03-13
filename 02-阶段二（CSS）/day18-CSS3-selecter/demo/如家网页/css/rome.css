@@ -1,0 +1,48 @@
+/*30/960=3.125% 52/960=5.41667%*/
+.main p{ text-indent: 2rem; padding: 5.41667% 10% 3.125%; font-size: 1.75rem; line-height: 2.3rem; text-align: justify; }
+.main p .font_red{ color: red; font-size: 1.75rem; }
+.link1{ display: inline-block; vertical-align: middle; width: 6.3rem; padding-left: -1rem; overflow: hidden; margin-left: -1.2rem; }
+.link1 img{ width:100%; margin-left: -2rem; }
+.download{ width: 100%; text-align: center; margin: 7% 0 8.5%; }
+.download a{ display: inline-block; width: 29%; }
+.download a img{ width: 100%; }
+.ad1{ width: 46.875%; margin: 0 auto; background: url(../img/ad1.png) no-repeat; background-size: 100%; border: 1px solid balck;}
+.ad1 img{width: 100%; visibility: hidden; }
+form{ width: 40%; margin: 0 auto; position: relative; overflow: hidden; }
+form input{ border-color: #C9CFE9; width: 97%; padding-left: .3rem; height: 2.5rem; margin-top: 1rem; background-color: #F9FAFE; z-index: 10; }
+form input:nth-of-type(3){ width: 62%; }
+.input1{ position: absolute; top: 1rem; right: 0; z-index: 100; height: 2.5em; text-align: center; width: 2.7rem; border-left: 1px solid #C9CFE9; }
+.input2{ position: absolute; top: 5rem; right: 0; z-index: 100; height: 2.5em; text-align: center; width: 2.7rem; border-left: 1px solid #C9CFE9; }
+.input3{ position: absolute; top: 8.7rem; left: 50%; z-index: 100; height: 2.5em; text-align: center; width: 2.7rem; border-left: 1px solid #C9CFE9; float: left; }
+.input1 a,.input2 a,.input2 a{ display: inline-block; width: 100%; height: 2.5em; }
+.input1 a img,.input2 a img,.input3 a img{ width: 65%; margin-top: .45rem; }
+.input4{ width: 30%; float: right; margin-right: .6rem; }
+.input4 input{ width: 100%; text-align: center; color: #FFB130; font-size: 1.2rem; font-weight: bold; }
+.input5{  width: 100%; float: right; margin: 1rem 0; }
+.input5 a{ display: inline-block; float: right; width: 30%;  }
+.input5 a img{ width: 100%;}
+.input5 p{ float: right; height: 15%; width: 40%; font-size: 1.1rem; padding: 0; line-height: 1.7rem; text-align: justify; text-indent: 0; margin-right: .3em; }
+.font_red2{ color: red; }
+.input6{ width: 100%; margin:1.0rem 0 1.5rem; }
+.input6 a{ display: block; width: 100%; }
+.input6 a img{ width: 100%; }
+
+@media only screen and (max-width: 640px) {
+	.main p{ font-size: 1.85rem; }
+	.download a{ width: 40%; }
+	.ad1{ width: 82%; }
+	form{ width: 55%;}
+	.input5 a{ width: 35%; }
+	.input5 p{ font-size: 1.1rem; line-height: 1.3rem; }
+}
+@media only screen and (max-width: 450px){
+	form{ width: 65%;}
+	.input5 a{ width: 30%; }
+	.input5 p{ width: 65%;}
+}
+@media only screen and (max-width: 375px){
+	form{ width: 71%;}
+}
+
+
+

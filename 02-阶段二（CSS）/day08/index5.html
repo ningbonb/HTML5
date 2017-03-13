@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 400px;
+			height: 100px;
+			background-color: red;
+		}
+		.box div{
+			height: 50px;
+			margin-left: 50px;
+			margin-right: 50px;
+			background-color: blue;
+			width: auto;
+			/*width默认大小为：元素宽度-margin-left - margin-right*/
+		}
+		.box2{
+			width: 400px;
+			height: 100px;
+			background-color: red;
+		}
+		.box2 div{
+			width: 100px;
+			height: 100px;
+			-margin-left: 30px;
+			background-color: blue;
+			/*margin-right: auto;
+			margin-right: 元素宽度-margin-left-元素宽度
+			 */
+			
+			/*靠右边显示*/
+			margin-right: 0;
+			margin-left: auto;
+		}
+		/* 左margin == 右margin == —（父元素宽度-自身宽度）/2*/
+		.center{
+			width: 300px;
+			height: 50px;
+			background: blue;
+			margin: 10px auto 0;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div></div>
+	</div>
+	<div class="box2">
+		<div></div>
+	</div>
+
+	<div class="center">
+	</div>
+</body>
+</html>

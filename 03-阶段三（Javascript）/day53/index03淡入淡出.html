@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>显示隐藏</title>
+		<style>
+			#div1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="fadeIn">淡入</button>
+		<button id="fadeOut">淡出</button>
+		<button id="fadeToggle">淡入或者淡出</button>
+		<button id="fadeTo">淡入到指定程度</button>
+		<div id="div1"></div>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		
+		var div1 = $("#div1");
+		
+		//淡入淡出
+		$("#fadeOut").click(function(){
+			//透明度opacity为零时隐藏
+			div1.fadeOut(3000,function(){
+				console.log("淡出隐藏完成");
+			});
+		});
+		
+		//淡入：显示
+		$("#fadeIn").click(function(){
+			div1.fadeIn(1000,function(){
+				console.log("淡入完成");
+			});
+		});
+		
+		$("#fadeToggle").click(function(){
+			div1.fadeToggle(1000,function(){
+				console.log("淡入或淡出完成");
+				var ifHide = div1.css('display') == "block" ? false : true;
+					//ifHide ? 成立，执行：前，否则执行：后面
+					ifHide ? $("#fadeToggle").text("淡入") : $("#fadeToggle").text("淡出");
+			});
+		});
+		
+		//fadeTo
+		/*
+		 参数2变化：指定透明度
+		 * */
+		$("#fadeTo").click(function(){
+			div1.fadeTo("slow",0.5,function(){
+				console.log("动画完成");
+			});
+		});
+	</script>
+</html>

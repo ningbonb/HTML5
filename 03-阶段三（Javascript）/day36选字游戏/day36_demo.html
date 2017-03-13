@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				width: 300px;
+				height: 200px;
+				margin: 50px auto;
+				font-size: 14px;
+				position: relative;
+			}
+			#index{
+				color: silver;
+				text-decoration: none;
+			}
+			#select{
+				text-align: center;
+				line-height: 25px;
+				border: 1px solid silver;
+				border-radius: 5px;
+				width: 150px;
+				height: 74px;
+				position: absolute;
+				left: 50px;
+				top: 0;
+				display: none;
+			}
+			#select ul{
+				list-style: none;
+			}
+			#select ul li span{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			版本：
+			<a href="#" id="index">默认版本</a>
+			<div id="select">
+				<ul>
+					<li><span>√ </span>默认版本</li>
+					<li><span>√ </span>网易6.0</li>
+					<li><span>√ </span>网易6.0简约版</li>
+				</ul>
+			</div>
+		</div>
+		
+		<script>
+			var index = document.getElementById("index");
+			var oSelect = document.getElementById("select");
+			var list = document.querySelectorAll("#select ul li");
+			var hidden = document.querySelectorAll("span");
+			index.onclick = function(){
+				index.style.display = "none";
+				oSelect.style.display = "block";
+			};
+			oSelect.onmouseleave = function(){
+				index.style.display = "inline-block";
+				oSelect.style.display = "none";
+			};
+			for(var i = 0; i < list.length; i++){
+				
+				list[i].onmouseover = function(){
+					this.style.backgroundColor = "silver";
+				};
+				list[i].onmouseleave = function(){
+					this.style.backgroundColor = "transparent";
+				};
+				list[i].index1 = i;
+					//alert(list.index1);
+				list[i].onclick = function(){
+					for(var i = 0; i < list.length; i++){
+						hidden[i].style.display = "none";
+						list[i].style.color = "black";
+					}
+					index.innerText = this.innerText;
+					this.style.color = "red";
+					hidden[this.index1].style.display = "inline-block";
+					//alert(this.innerText);
+					index.style.display = "inline-block";
+					oSelect.style.display = "none";
+				};
+			}
+		</script>
+	</body>
+</html>

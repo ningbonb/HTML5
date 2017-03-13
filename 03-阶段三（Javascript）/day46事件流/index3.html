@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				position: absolute;
+				width: 150px;
+				height: 100px;
+				background: red;
+				left: -120px;
+				top: 100px;
+			}
+			
+			#box span{
+				position: absolute;
+				right: 0;
+				height: 100%;
+				background: blanchedalmond;
+				width: 30px;
+				text-align: center;
+				color: blue;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<span>联系我们</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var box = document.getElementById("box");
+		var spanObj = box.querySelector('span');
+		
+//		spanObj.onmouseover = function(){
+//			box.style.left = 0;
+//		};
+//		
+//		spanObj.onmouseout = function(){
+//			box.style.left = '-120px';
+//		};
+
+		box.onmouseover = function(){
+			this.style.left = 0;
+		};
+		box.onmouseout = function(){
+			this.style.left = '-120px';
+		};
+	</script>
+</html>

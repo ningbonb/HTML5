@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--
+			节点：页面中所有内容的一个分类
+			1.元素节点 <div> <span>....
+			2.文本节点 'hello world'
+			3.属性节点 id class name src....
+			4.注释节点 
+			5.根节点 document 
+			6.声明节点
+		-->
+		<div id="div1">
+			11111111
+			<!--注释-->
+			<ul>
+				<li>1</li>
+				<li>2</li>
+			</ul>
+		</div>
+		
+		<ul id="ul1">
+			aaaaa
+			<!--注释2-->
+			<li>111</li>
+			<li>
+				<ul>
+					<li></li>
+				</ul>
+			</li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<!--测试属性节点-->
+		<div id="div2" class="div2Class" shiTou="石头" xiaoShiTou="小石头">
+			
+		</div>
+	</body>
+	
+	<script>
+		var oDiv1 = document.getElementById("div1");
+		var oDiv11 = document.getElementById("ul1");
+		//每一个节点都有节点类型（nodeType）,节点名字（nodeName）,节点值（nodeValue）
+		//1.元素节点
+		console.log(oDiv1.nodeType,oDiv1.nodeName,oDiv1.nodeValue);//1 "DIV" null
+		console.log(oDiv11.nodeType,oDiv11.nodeName,oDiv11.nodeValue);//1 "DIV" null
+		
+		//2.文本节点（一段文本）
+		
+		/*
+		 childrenNodes
+		 1.获取元素下所有子节点
+		 
+		 * */
+		console.log(oDiv1.childNodes,oDiv1.childNodes.length);//[text, comment, text, ul, text] 5
+		
+		//获取文本节点
+		var textNodes = oDiv1.childNodes[0];
+		console.log(textNodes.nodeType,textNodes.nodeName,textNodes.nodeValue);
+		
+		//注释节点
+		var commentNodes = oDiv1.childNodes[1];
+		console.log(commentNodes.nodeType,commentNodes.nodeName,commentNodes.nodeValue);
+		
+		//根节点document
+		console.log(document.nodeType,document.nodeName,document.nodeValue);
+		
+		//5.声明节点
+		//获取声明节点
+		console.log(document.doctype);
+		console.log(document.doctype.nodeType,document.doctype.nodeName,document.doctype.nodeValue);
+		
+		//head
+		console.log(document.head);
+		//body
+		console.log(document.body);
+		//html
+		console.log(document.documentElement);
+		
+		/*
+		 childNodes:获取元素下所有的子节点
+		 标准属性
+		 特性：
+		 兼容性：标准浏览器和ie8以上，会把换行作为文本节点处理，但是ie678不会把换行作为文本
+		 * */
+		
+		//ul1：下子节点个数
+		var ul1 = document.getElementById("ul1");
+		console.log(ul1.childNodes,ul1.childNodes.length);
+		
+		
+		//6.属性节点
+		
+		/*
+		 attributes:标准下，只能获取元素的行间属性
+		 但是ie678：可以获取元素本身所有的属性
+		 */
+		var div2 = document.getElementById("div2");
+		div2.daShiTou = "大石头";
+		//返回div2的属性
+		var div2Attrs = div2.attributes;
+		console.log(div2Attrs);//NamedNodeMap {0: id, 1: class, 2: shitou, 3: xiaoshitou, length: 4}
+		
+		
+		var attrNodes = div2Attrs[0];
+		
+		console.log(attrNodes.nodeType,attrNodes.nodeName,attrNodes.nodeValue);//2 "id" "div2"
+	</script>
+</html>

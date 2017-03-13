@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.p1{
+				width: 100px;
+				border: 1px solid red;
+				/* word-break
+				 * 处理除了中文，韩文日文..
+				 */
+				word-break: break-all;
+			}
+			.p2{
+				width: 100px;
+				border:1px solid red;
+				/*word-break: break-all;*/
+				
+				/*处理长的单词或者网址*/
+				word-wrap: break-word;
+			}
+			.p3{
+				width: 100px;
+				border: 1px solid red;
+				
+				/*超出用省略号*/
+				text-overflow: ellipsis;
+				/*不允许换行*/
+				white-space: nowrap;
+				/*超出隐藏*/
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="p1">today is a happy day,it not rained</p>
+		<p class="p2">I am a long word aaaaaaaaaaaaaaaaaaa</p>
+		<p class="p3">I am a long word aaaaaaaaaaaaaaaaaaa</p>
+		
+	</body>
+</html>

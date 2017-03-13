@@ -1,0 +1,49 @@
+/*共用css*/
+/*重置属性*/
+*{ font-size: 16px; margin: 0; padding: 0; }
+body{ margin: 0; padding: 0; width: 100%; max-width: 960px; min-width: 280px; margin: 0 auto; font-family: "黑体"; }
+img{ vertical-align: top; }
+li{ list-style: none; }
+a{ text-decoration: none; color: black; }
+
+/*header*/
+/*495/960=51.5625%*/
+header{ width: 100%;}
+header a{ display: block; }
+header img{ width: 100%;  }
+/*main*/
+.main{ background: url(../img/bg1.png) repeat-x top left; }
+/*footer*/
+footer{ background-color: #E89316; color: #fff; text-align: center; padding: 1rem 0; line-height: 2rem; }
+footer p{ font-size: 1.5rem; }
+
+@media only screen and (max-width: 880px) {
+	*{
+		font-size: 14px;
+	}
+}
+@media only screen and (max-width: 780px) {
+	*{
+		font-size: 12px;
+	}
+}
+@media only screen and (max-width: 640px) {
+	*{
+		font-size: 14px;
+	}
+}
+@media only screen and (max-width: 560px) {
+	*{
+		font-size: 12px;
+	}
+}
+@media only screen and (max-width: 490px) {
+	*{
+		font-size: 11px;
+	}
+}
+@media only screen and (max-width: 450px) {
+	*{
+		font-size: 10px;
+	}
+}

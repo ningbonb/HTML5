@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>范围</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		 [abcde]:匹配中括号之间的内容
+		 [123]
+		 //简写
+		 [1-6]：匹配中括号范围之间的内容
+		 * */
+		
+		var str = 'abcdef1234dgqwert';
+		var reg = /[a]/g;
+		document.body.innerHTML = "<br>" + str.match(reg);
+		
+		var newS = str.replace(reg,"哈");
+		document.body.innerHTML += "<br>" + newS;
+		
+		var str2 = "123456789321";
+		var reg2 = /[123]/g;
+		document.body.innerHTML += "<br>" + str2.match(reg2);
+		
+		var reg3 = /[1-4]/g;
+		document.body.innerHTML += "<br>" + str2.match(reg3);
+		
+		
+		/*
+		 [0-9]:所有数字
+		 [a-z]:所有小写字母
+		 [A-Z]:所有大写字母
+		 
+		 [A-z]:所有字母，不区分大小写
+		 * */
+		
+		var str4 = 'dhshdsihfsdios9933AJJJ--=ijj23';
+		var reg4 = /[A-z]/g;// \w:多了一个下划线
+		document.body.innerHTML += "<br>" + str4.match(reg4);
+		
+		/*
+		 \u unicode编码
+		 4F00-9FA5
+		 [\u4F00-\u9FA5]
+		 * */
+		var str5 = '石头 shitou 小鹏 xiaopeng 张三 zhangsan 李四 lisi';
+		//找到中文名
+		//var reg5 = /[\u4F00-\u9FA5]+/g;
+		//找到英文名
+		var reg5 = /[A-z]+/g;
+		document.body.innerHTML += "<br>" + str5.match(reg5);
+		
+		/*
+		 选择符和分组符
+		 |:选择符号
+		 ()：分组符
+		 * */
+		
+		var str6 = '123abc';
+		//匹配字符串中数字为1或者2或者3的所有数字
+		var reg6 = /1|2|3/g;// [1,2,3]
+		document.body.innerHTML += "<br>" + str6.match(reg6);
+		
+		//分组符
+		//分组符(ab)+：代表括号内ab组合一个或多个，去掉括号代表a后面b一个或多个
+		var str7 = '123ababc123abc';
+		var reg7 = /(ab)+/g;
+		document.body.innerHTML += "<br>" +str7.match(reg7);
+		document.body.innerHTML += "<br>" +"✨🐢🚀✨";
+		 console.log("✨🐢🚀✨"); 
+		 console.log(typeof "✨🐢🚀✨"); 
+		 
+		 
+		/*
+		 子项：
+		 分组中，每一个分组作为一个子项
+		 子项顺序：（）
+		 子项引用  \n 代表第n个子项
+		 * */
+		var str8 = '123ddhfieh333344443i';
+		var reg8 = /(\d)\1/g; 
+		//  /(\d)\1/:意思： \d找到一个数字，\1代表第一个子项找到的内容
+		//var reg8 = /(\d)\d/g; // /\d\d/g
+		document.body.innerHTML += "<br>" +str8.match(reg8);
+		//["3dd":查询到的结果, "3"：第一个子项内容, "d"：第二个子项内容] 
+		var reg9 = /(\d)([a-z])\2/;//["3dd", "3", "d"] 
+		var reg9 = /(\d)([a-z])\2/g;//["3dd"] 
+		document.body.innerHTML += "<br>" +str8.match(reg9);
+		console.log(str8.match(reg9));
+		
+		/*
+		 如果全局匹配：数组内容是查找到的结果集合
+		 如果不是全局匹配：找到字符串中第一次满足的结果，是数组中第一个值，从第二个值开始，每一个值代表了对应子项的内容
+		 * */
+		
+	</script>
+</html>

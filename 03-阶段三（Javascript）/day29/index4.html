@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="number" name="vl1" id="vl1" placeholder="请输入第一个数字" />
+		<br />
+		<input type="number" name="vl2" id="vl2" placeholder="请输入第二个数字" />
+		<br />
+		<input type="text" name="vl3" id="vl3" placeholder="最大值是" />
+		<input type="button" onclick="maxNumber();" value="确定" />
+
+		<hr />
+		<input type="number" id="year" name="year" placeholder="请输入年份" />
+		<br />
+		<input type="text" id="result" name="result" placeholder="是否是闰年" />
+		<input type="button" value="确定" onclick="judeg();" />
+		<hr />
+		<input type="number" id="grade" name="grade" placeholder="请输入成绩" />
+		<br />
+		<input type="text" id="gradeResult" name="result" placeholder="成绩等级" />
+		<input type="button" value="确定" onclick="query();" />
+		<script>
+			/* 程序三大结构
+			 * 1.顺序结构
+			 * 代码从上往下执行
+			 * 
+			 * 2.分支结构
+			 * 根据条件执行相应代码
+			 * 
+			 * 3.循环结构
+			 * 在满足特定条件下，反复执行同一段代码
+			 * 
+			 * 
+			 * 
+			 * 分支结构
+			 * if语句
+			 * 
+			 * 第一种：条件表达式为真，执行大括号代码
+			 * if(条件表达式){
+			 * 	语句；
+			 * }
+			 * 
+			 * 表达式：有常量，变量，运算符组成，表达式必须有一个值：a, a + 10,10, a = 10, a > 10.... 
+			 * 
+			 */
+
+			var a = 50,
+				b = 50;
+			if (a > b) {
+				console.log('最大值是：' + a);
+			}
+			if (a < b) {
+				console.log('最大值是：' + b);
+			}
+			if (a == b) {
+				console.log('a == b');
+			}
+
+			/* 
+			 * 第二种：
+			 * if(条件表达式){
+			 * 	语句1；
+			 * }else{
+			 * 	语句2；
+			 * }
+			 * 
+			 * 如果条件表达式位置，执行语句1，否则执行语句2
+			 * 
+			 */
+
+			var str = '下雨了';
+			if (str == '下雨') {
+				console.log('上课');
+			} else {
+				console.log('还得上课');
+			}
+
+			/* 
+			 * 了解函数：
+			 * 函数定义：
+			 * function name(){
+			 * 	函数体；
+			 * }
+			 * 
+			 * //调用
+			 * name();
+			 */
+
+			//比较两个数的最大值
+			function test() {
+				var a = 10,
+					b = 20;
+				if (a > b) {
+					console.log('最大值是：' + a);
+				} else {
+					console.log('最大值是：' + b);
+				}
+			}
+			//调用
+			test();
+
+			//两个输入框，取到两个数，比较出最大值，放到第三个输入框
+			function maxNumber() {
+				alert('比较最大值');
+				var num1Value = document.getElementById('vl1');
+				var num2Value = document.getElementById('vl2');
+				var result = document.getElementById('vl3');
+
+				//				if(+num1Value.value > +num2Value.value){
+				//					result.value = num1Value.value;
+				//				}else{
+				//					result.value = num2Value.value;
+				//				}
+
+				//三目运算符
+				result.value = +num1Value.value > +num2Value.value ? num1Value.value : num2Value.value;
+			}
+
+			//判断年份是闰年还是平年，闰年条件（能被400整除，或者被4整除但不能被100整除）
+
+			function judeg() {
+				//				alert('111');
+				var year = document.getElementById('year');
+				var result = document.getElementById('result');
+
+				//判断
+				//				console.log(typeof +year.value);
+				if (+year.value % 400 == 0 || (+year.value % 4 == 0 && +year.value % 100 != 0)) {
+					result.value = '闰年';
+				} else {
+					result.value = '平年';
+				}
+			}
+
+			//求三个数字的最大值
+			var a = 15,
+				b = 10,
+				c = 20;
+
+			function maxNumber() {
+//				默认第一个最大值
+				var maxV = a;
+				if (maxV < b) {
+					maxV = b;
+				}
+				if (maxV < c) {
+					maxV = c;
+				}
+				console.log('最大值是：' + maxV);
+			}
+			//错误写法
+			//				var maxV = a;
+			//				if (maxV < b) {
+			//					maxV = b;
+			//				}else{
+			//					maxV = c;
+			//				}
+			//				console.log('最大值是：' + maxV);
+			//调用函数
+			maxNumber();
+
+			//三个数最大值，三目运算符
+			function MaxValue() {
+				//前两个数最大值
+				var tempMax = a > b ? a : b;
+				var max = tempMax > c ? tempMax : c;
+				console.log('函数2最大值是：' + max);
+			}
+			//调用函数
+			MaxValue();
+			
+			//3.三个数最大值，三目运算符
+			function maxValue3(){
+				var max = (a > b ? a : b) > c ?  (a > b ? a : b) : c;
+				console.log('函数3最大值是：'+ max);
+			}
+			//调用函数
+			maxValue3();
+			
+			/*
+			 * if语句第三种条件形式，级联时
+			 * 
+			 * if(条件1){
+			 * 	代码1；
+			 * }else if(条件2){
+			 * 	代码2；
+			 * }else if(条件3){
+			 * 	代码3
+			 * }else if(条件n){
+			 * 	代码n；
+			 * }else{
+			 * 	代码n+1;
+			 * }
+			 * 
+			 */
+			
+			var numberOfFriends = 5;
+			if(numberOfFriends == 1){
+				console.log('一个人在家');
+			}else if(numberOfFriends == 2){
+				console.log('2个人打台球');
+			}else if(numberOfFriends == 3){
+				console.log('三个人斗地主');
+			}else if(numberOfFriends == 4){
+				console.log('四个人打麻将');
+			}else if(numberOfFriends == 5){
+				console.log('五个人开黑');
+			}else{
+				console.log('KTV');
+			}
+			//输入框 输入一个分数，大于等于90，输出优秀 >=80  <90 良好 >=70 <80中等  >=60 <70:及格 <60：不及格
+			//分数高过100或者小于0输出error
+			
+			function query(){
+				var grade = +document.getElementById('grade').value;
+				var gradeResult = document.getElementById('gradeResult');
+				
+				//判断
+				if(grade <= 0 || grade > 100){
+					gradeResult.value = 'error';
+				}else{
+					if(grade >=90){
+					gradeResult.value = '优秀';
+					}else if(grade >= 80){
+					gradeResult.value = '良好';
+					}else if(grade >= 70){
+					gradeResult.value = '中等';
+					}else if(grade >= 60){
+					gradeResult.value = '及格';
+					}else{
+					gradeResult.value = '不及格';
+					}
+				}
+			}
+			/*
+			 * 开关语句 switch ...case..
+			 * 语句
+			 * switch(表达式){
+			 * 	case 值1：{
+			 * 		语句1；
+			 *  }
+			 *  break;
+			 *  case 值2：{
+			 * 		语句2；
+			 *  }
+			 *  break;
+			 *  case 值3：{
+			 * 		语句3；
+			 *  }
+			 *  break;
+			 *  case 值n：{
+			 * 		语句n；
+			 *  }
+			 *  break;
+			 * 
+			 *  default:{
+			 * 		语句n+1;
+			 *  }
+			 *  break;
+			 * }
+			 *
+			 * 
+			 * //break: 结束switch语句，如果两个case之间没有break关键字,那么执行完一个case以后会调到下一个case语句
+			 * case下大括号{}可以省略
+			 * 
+			 */
+			
+			var a = 5;
+			switch (a){
+				case 1:{
+					console.log('1楼');
+				}
+					break;
+				case 2:{
+					console.log('2楼');
+				}
+					break;
+				case 3:{
+					console.log('3楼');
+				}
+					break;
+				case 4:{
+					console.log('4楼');
+				}
+					break;
+				case 5:
+//				break;
+				case 6:
+				case 7:
+				console.log('高层楼');
+				break;
+				default:
+					console.log('没有该楼层');
+					break;
+			}
+			/*
+			 * for循环
+			 * for(1;2;3){
+			 * 	代码；
+			 * }
+			 * 
+			 */
+			for(var i = 0; i <= 10; i++){
+				console.log('这是第'+i);
+			}
+			
+			//
+			var i = 0;
+			for(;i < 10; i++){
+				console.log('这是第'+i+'♥');
+			}
+//			for (var i = 0; i < Things.length; i++) {
+//				Things[i]
+//			}
+
+			//打印1-100之和 奇数和 偶数和
+			
+			function sum(){
+				var sum = 0;
+				var evenSum = 0;
+				var oddSum = 0;
+				
+				for(var i = 1; i <= 100; i++){
+//					console.log(i);
+					//sum = sum + i;
+					sum += i;
+					
+					//偶数
+					if(i % 2 == 0){
+						evenSum += i;
+					}else{//奇数
+						oddSum += i;
+					}
+				}
+				console.log('总和：'+ sum);//5050
+				console.log('偶数和：'+ evenSum);//2550
+				console.log('奇数和：'+ oddSum);//2500
+			}
+			//函数调用
+			sum();
+			
+			//输出图形
+			/*
+			 * 1 2 3 4 5
+			 * 1 2 3 4 5
+			 * 1 2 3 4 5
+			 * 1 2 3 4 5
+			 * 1 2 3 4 5
+			 * 
+			 * */
+			document.write('<hr>');
+			
+			for(var i = 1; i <= 5; i++){
+//				document.write(i+'\t');
+				
+				//内层循环控制列数
+				for(var j = 1; j <= 5; j++){
+					document.write(j + '\t');
+				}
+				document.write('<br>');
+			}
+		</script>
+	</body>
+
+</html>

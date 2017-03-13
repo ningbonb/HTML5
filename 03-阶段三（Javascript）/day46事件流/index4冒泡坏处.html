@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>冒泡坏处</title>
+		<style>
+			#list{
+				padding: 0;
+				list-style: none;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">显示</button>
+		<ul id="list">
+			<li>选项1</li>
+			<li>选项2</li>
+			<li>选项3</li>
+			<li>选项4</li>
+			<li>选项5</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		var list = document.getElementById("list");
+		
+		btn.onclick = function(){
+			list.style.display = 'block';
+			alert(111);
+		};
+		
+		document.onclick = function(){
+			alert(222);
+			list.style.display = "none";
+		};
+	</script>
+</html>

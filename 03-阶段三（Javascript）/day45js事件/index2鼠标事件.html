@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#div1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				background: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">22</div>
+		<div id="div2"></div>
+	</body>
+	<script>
+		//鼠标事件
+		
+		var div1 = document.getElementById("div1");
+		div1.onclick = function(){
+			console.log('鼠标点击事件');
+			
+			return false;
+		};
+		
+		//鼠标按下事件(鼠标右键也可以调用)
+		div1.onmousedown = function(){
+			console.log('鼠标按下');
+		};
+		//鼠标抬起时间（鼠标右键也可以调用）
+		div1.onmouseup = function(){
+			console.log('鼠标抬起');
+		};
+		//调用顺序：
+		//onmousedown -> onmouseup -> onclick
+		
+		
+		//鼠标移动
+		var i = 0;
+		div1.onmousemove = function(){
+			i ++;
+			this.innerText = i;
+		};
+		
+		//鼠标移入
+		div1.onmouseenter = function(){
+			console.log('鼠标移入onmouseenter');
+		};
+		//鼠标离开
+		div1.onmouseleave = function(){
+			console.log('鼠标离开onmouseleave');
+		}
+		
+		//鼠标移入2
+		div1.onmouseover = function(){
+			console.log('鼠标移入onmouseover');
+		};
+		div1.onmouseout = function(){
+			console.log('鼠标离开onmouseout');
+		};
+		
+		//执行顺序:onmouseover、onmouseout会先触发
+		//区别：onnmouseenter、onmouseleave事件不会冒泡，事件不会被传递
+		//区别：onmouseover、onmouseout事件会冒泡传递
+		
+		var div2 = document.getElementById("div2");
+		//鼠标右键
+		div2.oncontextmenu = function(){
+			console.log('鼠标右键触发');
+			
+			//取消系统默认事件
+			return false;
+		};
+		
+		var timer;
+		//双击事件
+		div2.ondblclick = function(){
+			console.log('鼠标双击');
+//			return false;
+			clearTimeout(timer);
+			this.style.backgroundColor = 'black';
+		};
+		div2.onclick = function(){
+			clearTimeout(timer);
+			console.log('单机事件');
+			timer = setTimeout(function(){
+				div2.style.backgroundColor = 'silver';
+			},400);
+		};
+	</script>
+</html>

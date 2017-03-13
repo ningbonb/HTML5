@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册邮箱账号</title>
+	<style>
+		body{ margin: 0; font-size: 100%; background-color: #DCE1E7; }
+		.main{ width: 800px; background-color: #fff; margin: 20px auto; }
+		.top{ width: 100%; background: url(img/email-bg.jpg); background-repeat: no-repeat; height: 52px; padding-left: 1em; vertical-align: middle; display: table-cell; }
+		.form{ padding-left: 3em; line-height: 3em; }
+		.font{ text-align: right; width: 150px; display: inline-block; vertical-align: middle; }
+		#email,#username,#password,#repassword{ height: 30px; width: 300px; }
+		.inputoth{ display: inline-table; vertical-align: top; font-size:.5em; width: 150px; line-height: 1.1em; padding-top: 1.2em;}
+		#reg,#yz{ width: 300px; }
+		#yz,#down{ display: inline-block; vertical-align: middle; }
+		#sex{ width: 50px; }
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div class="top">注册邮箱账号</div>
+		<hr>
+		<div class="form">
+			<form action="#" method="post" >
+				<label for="email">
+					<span class="font">邮箱账号</span>
+					<input type="email" name="email" id="email">
+				</label>
+				<div class="inputoth">
+					请输入您常用的电子邮箱<br>
+					<a href="#">创建邮箱</a>
+					或
+					<a href="#">注册普通QQ号</a>
+				</div>
+				<br>
+				<label for="username">
+					<span class="font">昵称</span>
+					<input type="text" name="username" id="username" >
+				</label>
+				<br>
+				<label for="password">
+					<span class="font">密码</span>
+					<input type="password" name="password" id="password">
+				</label>
+				<br>
+				<label for="repassword">
+					<span class="font">确认密码</span>
+					<input type="password" name="password"  id="repassword">
+				</label>
+				<br>
+				<span class="font">性别</span>				
+				<input type="radio" name="sex" value="0" id="sex">男
+				<input type="radio" name="sex" value="1" id="sex">女
+				<br>
+				<span class="font">生日</span>
+				<select name="type" id="type">
+					<option value="0">公历</option>
+					<option value="1">农历</option>
+				</select>
+				<input type="date" name="date">
+				<br>
+				<span class="font">所在地</span>
+				<select name="con" id="con">
+					<option value="1">中国</option>
+					<option value="2">毛里求斯共和国</option>
+				</select>
+				<select name="qu" id="qu">
+					<option value="1">上海</option>
+					<option value="2">呼和浩特</option>
+				</select>
+				<select name="add" id="add">
+					<option value="1">黄埔</option>
+					<option value="2">十三里堡</option>
+				</select>
+				<br>
+				<span class="font">验证码</span>
+				<a href="#"><img src="img/yz.png" alt="yz" id="yz"></a>
+				请先进行安全验证
+				<br>
+				<span class="font"></span>
+				<label for="yes">
+					<input type="checkbox" name="yes" id="yes">
+					我已阅读并同意相关服务条款和隐私政策
+					<a href="#"><img src="img/down.jpg" alt="down" title="查看详情" id="down"></a>
+				</label>
+				<br>
+				<span class="font"></span>
+				<input type="image" src="img/register.jpg" value="register" id="reg">
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul {
+				list-style: none;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<button id="chooseAll">全选</button>
+		<button id="chooseNo">反选</button> 是否都被选中：
+		<input type="checkbox" id="isAll" />
+		<ul>
+			<li><input type="checkbox" />视频</li>
+			<li><input type="checkbox" />图片</li>
+			<li><input type="checkbox" />文字</li>
+			<li><input type="checkbox" />娱乐</li>
+			<li><input type="checkbox" />电影</li>
+			<li><input type="checkbox" />哈哈</li>
+		</ul>
+		<script>
+			var chooseAllBtn = document.querySelector("#chooseAll");
+			var chooseNoBtn = document.querySelector("#chooseNo");
+			var lists = document.querySelectorAll("ul>li>input");
+			var isAllCh = document.getElementById("isAll");
+			chooseAllBtn.onclick = function() {
+				for(var i = 0; i < lists.length; i++) {
+					lists[i].checked = "true";
+				}
+				isAllCh.checked = true;
+			};
+			chooseNoBtn.onclick = function() {
+				var chooseNum = 0;
+				for(var i = 0; i < lists.length; i++) {
+					lists[i].checked = !lists[i].checked;
+					if(lists[i].checked) {
+						chooseNum = chooseNum + 1;
+					}
+				}
+				console.log(chooseNum);
+				isAllCh.checked = chooseNum == lists.length ? true : false;
+			}
+
+			for(var i = 0; i < lists.length; i++) {
+				lists[i].onclick = function() {
+					var chooseNum = 0;
+					for(var i = 0; i < lists.length; i++) {
+						chooseNum = lists[i].checked ? chooseNum + 1 : chooseNum;
+						isAllCh.checked = chooseNum == lists.length ? true : false;
+					}
+				};
+			}
+			//			var re = false;
+			//			for(var i = 0; i < lists.length; i++){
+			//					console.log(lists[i].checked);
+			//					if(lists[i].checked == false){
+			//						re = false;
+			//					}else{
+			//						re = true;
+			//					}
+			//				}
+			//			isAllCh.checked = re;
+		</script>
+	</body>
+
+</html>

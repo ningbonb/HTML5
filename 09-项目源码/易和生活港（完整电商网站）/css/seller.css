@@ -1,0 +1,273 @@
+/*轮播图*/
+.home_scroll{
+	width: 100%;
+}
+.swiper-slide a{
+	width: 100%;
+}
+.swiper-slide a img{
+	width: 100%;
+}
+/*行业商家主体*/
+.seller_ps{
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+.seller_ps_img a{
+	width: 100%;
+}
+.seller_ps_img a img{
+	width: 100%;
+}
+.seller_wrap{
+	border-top: 3px solid #008DE1;
+	max-width: 1180px;
+	margin: 0 auto 1%;
+	overflow: hidden;
+}
+.seller_button2{
+	display: inline-block;
+	float: right;
+}
+.seller_button2 a{
+	display: inline-block;
+	font-size: 1.2rem;
+	background-color: silver;
+	padding: 0.3rem 1.5rem;
+	border-radius: .3rem;
+	color: #fff;
+	margin-left: 2rem;
+}
+.seller_slider{
+	border: 1px solid #E9E9E9;
+	box-sizing: border-box;
+	width: 16%;
+	float: left;
+	position: relative;
+	font-size: 1.4rem;
+	border-top: none;
+}
+.seller_silder_menu{
+	box-sizing: border-box;
+	padding: 0 1rem;
+	border-top: 1px solid #E9E9E9;
+	line-height: 3rem;
+	overflow: hidden;
+}
+.seller_silder_menu:first-child{
+	border-top: none;
+}
+.seller_hidden_a{
+	display: none;
+}
+.seller_silder_menu span:last-child{
+	display: inline-block;
+	float: right;
+	color: #B3B3B3;
+	font-size: 1.5rem;
+}
+.seller_silder_menu:hover{
+	background-color: #008DE1;
+	color: #fff;
+}
+.seller_silder_menu:hover .seller_hidden_a{
+	display: inline-block;
+}
+.seller_silder_menu:hover a{
+	font-size: 1.3rem;
+	color: #fff;
+}
+.seller_silder_menu:hover span:last-child{
+	color: #fff;
+}
+.seller_silder_menu_about{
+	width: 200%;
+	border: 1px solid #E9E9E9;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	background-color: #fff;
+	z-index: 20;
+	display: none;
+}
+.seller_silder_box{
+	box-sizing: border-box;
+	padding: 1rem 2rem;
+	border-bottom: 1px dashed #E9E9E9;
+	/*text-align: justify;*/
+}
+.seller_silder_box:last-child{
+	border-bottom: none;
+	margin-bottom: 10%;
+	/*text-align: justify;*/
+}
+.seller_silder_menu_about a{
+	margin: 0.5rem 0;
+	height: 1.5rem;
+	color: black;
+	padding: 0 1.5rem;
+	border-right: 1px solid #E9E9E9;
+}
+.seller_silder_menu_about a:last-child{
+	border-right: none;
+}
+.seller_silder_menu_about a:hover{
+	color: #F29C64;
+}
+/*精选品牌主体*/
+.merchants_wrap{
+	width: 80%;
+	float: right;
+	overflow: hidden;
+	text-align: center;
+}
+.merchant_box{
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	padding:  2% 1%;
+	text-align: left;
+}
+.merchant_box:hover{
+	background-color: #F2F2F2;
+}
+.small_box_wrap{
+	width: 100%;
+	position: relative;
+}
+.small_box_wrap img{
+	width: 100%;
+}
+.small_box_wrap span{
+	display: block;
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.5);
+	font-size: 1.4rem;
+	line-height: 2rem;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.samll_msg{
+	line-height: 2.5rem;
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	font-size: 1.4rem;
+}
+.samll_msg img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 5%;
+	margin-right: 2%;
+}
+@media only screen and (max-width: 1080px) {
+	.home_small_box{
+		margin-bottom: 2%;
+	}
+}
+@media only screen and (max-width: 980px) {
+	.samll_msg img{
+		width: 7%;
+	}
+	.samll_msg{
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+	.small_box_wrap span{
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
+	.home_small_box{
+		width: 32.66%;
+		margin-bottom: 0%;
+	}
+	.seller_slider{
+		width: 20%;
+		font-size: 1.4rem;
+	}
+	.merchants_wrap{
+		width: 75%;
+	}
+	.seller_silder_menu_about{
+		width: 220%;
+	}
+}
+@media only screen and (max-width: 780px) {
+	.merchant_box{
+		width: 33.3333%;
+		padding:  2% 1%;
+	}
+	.seller_slider{
+		width: 30%;
+		font-size: 1.4rem;
+	}
+	.merchants_wrap{
+		width: 68%;
+	}
+	.seller_silder_menu_about{
+		width: 200%;
+	}
+	.seller_button2 a{
+		font-size: 1.1rem;
+		padding: 0.2rem 1rem;
+		margin-left: 1rem;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.samll_msg img{
+		width: 6%;
+	}
+	.samll_msg{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.small_box_wrap span{
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+	.merchant_box{
+		width: 50%;
+	}
+	.swiper-button-prev{
+		display: none;
+	}
+	.swiper-button-next{
+		display: none;
+	}
+	.seller_slider{
+		width: 32%;
+		font-size: 1.2rem;
+	}
+	.merchants_wrap{
+		width: 66%;
+	}
+	.seller_silder_menu_about{
+		width: 200%;
+	}
+	.seller_silder_menu:hover .seller_hidden_a{
+		display: none;
+	}
+	.seller_silder_box{
+		padding: 0.3rem 0.3rem;
+	}
+	.seller_silder_box:last-child{
+		margin-bottom: 5%;
+	}
+	.seller_silder_menu_about a{
+		margin: 0.3rem 0;
+		height: 1.2rem;
+		padding: 0 1.2rem;
+	}
+	.seller_button2 a{
+		font-size: 1rem;
+		padding: 0.2rem 0.5rem;
+		margin-left: 0rem;
+	}
+}

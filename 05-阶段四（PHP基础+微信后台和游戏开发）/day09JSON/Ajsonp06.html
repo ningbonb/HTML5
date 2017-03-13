@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>实例</title>
+		<style>
+			#box {
+				width: 400px;
+				margin: 50px auto 0;
+			}
+			
+			#list {
+				list-style: none;
+				padding: 0px;
+				margin: 0;
+			}
+			
+			input {
+				width: 400px;
+				height: 35px;
+				font-size: 18px;
+				box-sizing: border-box;
+				padding-left: 5px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<input type="text" name="text" id="text" placeholder="👁.👁百度一下😏" />
+			<ul id="list">
+			</ul>
+		</div>
+	</body>
+
+	<script>
+		//		window.jquery390752371239050 = 	function(jsonO){
+		//			alert(json);
+		//		};
+		function toUrl(urls, data) {
+			//给对象添加时间戳属性
+			data._ = new Date().getTime();
+
+			var arr = [];
+			//遍历参数对象
+			for(var k in data) {
+				var str = k + "=" + data[k];
+				//保存每一个key=value
+				arr.push(str);
+			}
+			//数组转字符串
+			var paraStr = arr.join("&");
+			//完整url
+			urls = urls + "?" + paraStr;
+
+			return urls;
+		}
+
+		function jsonp(baseUrl, data, success, callBack) {
+			//Ajsonp05.php?wd=html&abc=函数名
+			//自定义函数名，不能重复，每次都不同
+			var fnName = "jQuery" + new Date().getTime();
+			//alert(fnName);
+			//全局保存传过来的函数地址
+			window[fnName] = success;
+			//路径拼接：Ajsonp05.php?wd=html&abc=jQuery347409743902
+			data[callBack] = fnName;
+
+			var api = toUrl(baseUrl, data);
+			//alert(urls);
+
+			//開始請求
+			//1.创建一个script
+			var sct = document.createElement("script");
+			//设置src属性
+			sct.src = api;
+			//必须添加到页面内，才开始网络请求：send()；
+			var head = document.querySelector("head");
+			head.appendChild(sct);
+			//用完移出
+			head.removeChild(sct);
+		}
+
+		//函数调用
+		//		jsonp("Ajsonp05.php", {
+		//			wd: "html"
+		//		}, function(jsonO) {
+		//			alert(jsonO);
+		//		}, "abc");
+
+		var textIn = document.getElementById("text");
+		//修改src
+		textIn.onkeyup = function() {
+			//函數調用：後臺接口文檔表明，參數1：服務器路徑 參數2：本次請求的額參數，參數4：通過該參數獲取前端的函數名（地址）
+			jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su", {
+				wd: textIn.value
+			}, function(jsonO) {
+				console.log(jsonO);
+				var arr = jsonO.s;
+				var list = document.getElementById("list");
+				//清空列表
+				list.innerHTML = "";
+				for(var i = 0; i < arr.length; i++) {
+					var li = document.createElement("li");
+					li.innerHTML = arr[i];
+					list.appendChild(li);
+				}
+			}, "cb");
+		};
+	</script>
+
+</html>

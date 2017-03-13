@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px black;
+				margin-top: 50px;
+				margin-left: 50px;
+			}
+			#myCanvas2{
+				box-shadow: 0 0 5px salmon;
+			}
+		</style>
+	</head>
+	<body>
+		<!--宽高只能在属性值设置，样式设置像素值有差别-->
+		<canvas id="myCanvas" width="500" height="500">
+		</canvas>
+		<!--<canvas id="myCanvas2" width="50" height="50">
+		</canvas>-->
+	</body>
+	<script>
+		//获取canvas对象b
+		var canvas = document.getElementById("myCanvas");
+		//上下文:理解：canvas标签内置画笔
+		var ctx = canvas.getContext("2d");//目前仅支持2d画板
+		
+		//线段方法
+		
+		//1.新建一条路径
+		ctx.beginPath();
+		//2.设置起点,理解：移动画笔的位置
+		ctx.moveTo(50,50);
+		//3.设置另一个点坐标
+		ctx.lineTo(100,100);
+		//设置第三个点
+		ctx.lineTo(200,100);
+		
+		//ctx.lineTo(50,50);
+		//4.0闭合路径（不是必须的方法）:终点和起点关闭。
+		ctx.closePath();
+		//4.绘制
+		ctx.stroke();
+	</script>
+</html>

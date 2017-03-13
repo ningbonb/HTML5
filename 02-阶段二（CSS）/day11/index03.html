@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动3-验证脱离文档流</title>
+	<style>
+		.box1{
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+		}
+		.top1{
+			width: 100px;
+			height: 100px;
+			background-color: gray;
+			float: left;
+		}
+		.bottom1{
+			width: 120px;
+			height: 120px;
+			background-color: blue;
+			/*float: left;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<div class="top1"></div>
+		<div class="bottom1"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实例</title>
+		<style>
+			#box{
+				width: 400px;
+				margin: 50px auto 0;
+			}
+			#list{
+				list-style: none;
+				padding: 0px;
+				margin: 0;
+			}
+			input{
+				width: 400px;
+				height: 35px;
+				font-size: 18px;
+				box-sizing: border-box;
+				padding-left: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<input type="text" name="text" id="text" placeholder="👁.👁百度一下😏"/>
+			<ul id="list">
+				<!--<li>111</li>
+				<li>2222</li>
+				<li>3333</li>-->
+			</ul>
+		</div>
+	</body>
+	<script>
+		//回调函数
+		function callBack(jsonO){
+			console.log(jsonO);
+			var arr = jsonO.s;
+			var list = document.getElementById("list");
+			//清空列表
+			list.innerHTML = "";
+			for(var i = 0; i < arr.length; i++){
+				var li = document.createElement("li");
+				li.innerHTML = arr[i];
+				list.appendChild(li);
+			}
+		}
+	</script>
+	<script>
+		var textIn = document.getElementById("text");
+		
+		//修改src
+		textIn.onkeyup = function(){
+			var api = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd="+textIn.value+"&cb=callBack";
+			//1.创建一个script
+			var sct = document.createElement("script");
+			//设置src属性
+			sct.src = api;
+			//必须添加到页面内，才开始网络请求：send()；
+			var head = document.querySelector("head");
+			head.appendChild(sct);
+			//用完移出
+			head.removeChild(sct);
+		};
+	</script>
+</html>

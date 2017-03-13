@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p name="shitou">我是石头</p>
+		<div name="shitou">我是div石头</div>
+		<p name="xiaopeng">我是小鹏</p>
+		<p name="anjing">我是安静</p>
+		<p name="anfen" id="p4">我是安分</p>
+	</body>
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script>
+		$(function(){
+			/*
+			 属性选择器
+			 * */
+			//[属性名]：获取该属性的所有元素
+			console.log($("[name]"));
+			//[属性名=属性值]
+			console.log($("[name='shitou']").text());//text()获取文本内容
+			console.log($("[name='shitou']"));//text()获取文本内容
+			
+			console.log($("p[name='shitou']").text());
+			//如果获取不到，默认返回document对象
+			console.log($("p[name='shitou1']"));
+			
+			// [name *= value]:模糊查询 只要属性值包含u都被获取
+			console.log($("p[name*='u']").text());
+			
+			//[name ^= value]:属性值以value开头
+			console.log($("p[name ^= 'an']").text());
+			
+			//[name $= value]：属性值以value结尾
+			console.log($("p[name $= 'tou']").text());
+			
+			//[name != value]:属性不等于value的所有元素
+			console.log($("p[name != 'shitou']").text());
+			
+			//[name=属性选择器][name=属性选择器].....
+			//满足以上所有条件的被查找到
+			console.log($("p[name = 'anfen'][id='p4']").text());
+		});
+	</script>
+</html>

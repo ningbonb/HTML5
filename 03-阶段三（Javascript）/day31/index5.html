@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			/*
+					 1.求1 x 2 x 3 x 4 x ... x 19 x 20的结果?  
+					 */
+			var result = 1;
+			for(var i = 1; i <= 20; i++) {
+				result *= i;
+			}
+			console.log(result);
+
+			/* 
+			 2.已知abc+cba = 1333，其中a、b、c均为一位数，编程求出满足条件的a、b、c所有组合。
+			 */
+			for(var a = 0; a <= 9; a++) {
+				for(var b = 0; b <= 9; b++) {
+					for(var c = 0; c <= 9; c++) {
+						if(a * 100 + b * 10 + c + c * 100 + b * 10 + a == 1333) {
+							console.log(a, b, c);
+						}
+					}
+				}
+			}
+
+			/*
+			 3.给定某年某月某日,输出其为这一年的第几天(提示: 使用数组)
+			 */
+			var year = 2016;
+			var month = 5;
+			var day = 5;
+
+			var daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+			if(year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+				daysOfMonth[1] = 29;
+			}
+
+			var days = 0;
+			for(var i = 0; i < month - 1; i++) {
+				days += daysOfMonth[i];
+			}
+
+			console.log(days + day);
+
+			/*
+			 4.创建一个数组, 10个元素, 随机为元素赋值, 取值范围[66, 99], 求最大值和最小值, 及其所在的下标
+			 */
+			var arr = [];
+			var max = 10,
+				min = 15;
+			for(var i = 0; i < 10; i++) {
+				arr[i] = Math.floor(Math.random() * 6 + 10);
+				max = max > arr[i] ? max : arr[i];
+				min = min < arr[i] ? min : arr[i];
+			}
+			console.log(arr);
+			console.log(max);
+			console.log(min);
+
+			for(var i = 0; i < 10; i++) {
+				if(arr[i] == max) {
+					console.log("最大值下标:" + i);
+				}
+				if(arr[i] == min) {
+					console.log("最小值下标:" + i);
+				}
+			}
+
+			/*
+			4.编程将所有“水仙花数”打印出来，并打印其总个数。 “水仙花数”是一个各个位立方之和等于该整数的三位数(个位数立方 + 十位数立方 + 百位数立方 = 这个整数)。
+			*/
+
+			//方法1
+			/*
+			for (var i = 1; i <= 9; i++) {//百位
+				for (var j = 0; j <= 9; j++) {//十位
+					for (var k = 0; k <= 9; k++) {//个位
+						if (i * i * i + j * j * j + k * k * k == i * 100 + j * 10 + k) {
+							console.log(i * 100 + j * 10 + k);
+						}
+					}
+				}
+			}
+			*/
+
+
+			//水仙花方法2
+			var count = 0;
+			for(var i = 100; i <= 999; i++) {
+				//百位
+				var num1 = Math.floor(i / 100);
+				//十位
+				//var num2 = Math.floor((i - num1 * 100) / 10);
+				var num2 = Math.floor(i % 100 / 10);
+				
+				//个位
+				var num3 = i % 10;
+
+				if(num1 * num1 * num1 + num2 * num2 * num2 + num3 * num3 * num3 == i) {
+					console.log(i);
+					count++;
+				}
+			}
+
+			console.log("count = " + count);
+		</script>
+	</body>
+
+</html>

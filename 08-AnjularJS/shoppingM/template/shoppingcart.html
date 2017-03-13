@@ -1,0 +1,28 @@
+<div ng-controller="checkoutController">
+    <h2>你的购物车</h2>
+    <div class="alert alert-warning" ng-show="shoppingCarts.length==0 || !shoppingCarts">
+        这里没有商品 <a href="#/productList" class="pull-right">点击这里返回购物</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>商品名称</th>
+            <th class="text-right">单价</th>
+            <th class="text-center">数量</th>
+            <th class="text-center">小计</th>
+            <th class="text-center">删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in shoppingCarts">
+            <td>{{product.name}}</td>
+            <td class="text-right">{{product.priec|currency:"￥"}}</td>
+            <td class="text-center">{{product.count}}</td>
+
+            <td class="text-center">{{product.count * product.priec | currency : "￥"}}</td>
+            <td class="text-center"><button class="btn btn-danger" ng-click="delete(product)">删除</button></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

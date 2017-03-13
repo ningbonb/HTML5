@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则方法</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+		 正则方法
+		 text()
+		 exec():用于检索字符串中的正则表达式，返回匹配结果
+		 
+		 如果匹配到：返回匹配结果（数组：包括：该字符串，位置，原字符串）
+		 index03正则方法.html:21 ["Love", index: 2, input: "I Love NUC"]
+		 如果匹配不到返回null
+		 * */
+		
+		var str = 'I Love NUC'
+		var reg = /Love/;
+		console.log(reg.exec(str));
+		
+		//特点：全局匹配下，每次找一个，多次查找，从上次位置继续往下查找
+		var str2 = 'add231bee734aee124';
+		//g:全局匹配
+		var reg2 = /\d/g;
+		document.body.innerHTML = reg2.exec(str2);
+		document.body.innerHTML += "<br>" + reg2.exec(str2);
+		document.body.innerHTML += "<br>" + reg2.exec(str2);
+		
+		/*
+		 match():
+		 字符串对象方法：
+		 参数：规则
+		 返回值：把匹配的内容存入数组，把数组返回给我们，如果匹配不到，返回null
+		 
+		 注意：一搬要借助 修饰符g（全局匹配）
+		 * */
+		var str3 = 'shitou is a good boy and shitou like playgame Shitou';		
+		var reg3 = /shitou/gi;//全局匹配shitou并且不区分大小写
+		var relArr = str3.match(reg3);
+		console.log(relArr);
+		document.body.innerHTML += '<br/>' + relArr;
+		
+		//找到所有数字
+		var str4 = 'affa1221cxccx2323cxc989czz22233';
+		var reg4 = /\d/g;
+		
+		// +:一个或者多个 *：0个或者多个
+		reg4 = /\d+/g;
+		document.body.innerHTML += '<br/>' + str4.match(reg4);
+		console.log(str4.match(reg4));
+		
+		/*
+		 字符串替换
+		 replace(参数1，参数2)
+		 参数1：正则表达式（或者需要被替换的字符串）
+		 参数2：新字符串 
+		 
+		 
+		 返回值：替换后的新字符串，原字符串不会被修改
+		 * */
+		
+		var str5 = '石头是一个有文化的好青年石头';
+		
+		var newS = str5.replace('石头','小鹏');
+		console.log(newS,str5);
+		
+		var reg5 = /石头/g;
+		var newStr = str5.replace(reg5,'小鹏');
+		console.log(newStr);
+		
+		var str6 = '石头是一个    en';
+		console.log(str6);
+		//删除空格
+		var reg6 = /\s/g;
+		var newStrS = str6.replace(reg6,'*');
+		console.log(newStrS);
+		
+		/*
+		 字符串查找
+		 search(参数)
+		 参数：正则表达式或者普通字符串
+		 
+		 结果和indexOf一样，匹配到返回该数字字符串下标，否则-1
+		 
+		 类似
+		 indexOf()：精确查找
+		 serch(): 模糊查找
+		 
+		 * */
+		var str7 = '石头和小鹏下课一起打游戏';
+		var index = str7.search('小鹏');
+		console.log(index);
+		
+		//模糊
+		var reg7 = /和..下课/;
+		console.log(str7.search(reg7));
+	</script>
+	
+</html>

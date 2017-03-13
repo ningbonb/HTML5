@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>viewport</title>
+		<!--
+		设置宽度一定，控件（标签）保持宽度不变，
+		不会随设备分辨率改变而改变
+		-->
+		<!--<meta name="viewport" 
+				content="width=device-width, 
+				initial-scale=1.0, 
+				maximum-scale=1.0, 
+				user-scalable=0">-->
+		<!--
+			viewport:手机浏览器页面窗口，他是一个虚拟窗口
+			width:device-width,设置viewport宽度，
+			不同分辨率的手机宽度不同，
+			保证在任何机型上看到的尺寸都是我们设置的尺寸
+			initial-scale:初始缩放比例
+			maximum-scale：允许缩放的最大比例
+			user-scalable：是否允许用户缩放1（yes）0(no)
+			设置0（no）：maximum-scale无效
+		-->
+		<!--<meta name="viewport" 
+				content="width=320, 
+				initial-scale=1.0, 
+				maximum-scale=2.0, 
+				user-scalable=1">-->
+		<!--<meta name="viewport" 
+				content="width=320, 
+				initial-scale=0.5">-->
+				
+		<!--标准写法：-->
+		<meta name="viewport" 
+				content="width=device-width, 
+				initial-scale=1.0, 
+				maximum-scale=1.0, 
+				user-scalable=0">
+				
+		<style>
+			div{
+				width: 150px;
+				height: 150px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="">
+			<input type="text" name="li" placeholder="输入内容" />
+		</form>
+		<div></div>
+	</body>
+</html>

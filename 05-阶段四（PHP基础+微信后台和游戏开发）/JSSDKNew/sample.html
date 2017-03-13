@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+
+	</head>
+
+	<body>
+		<h1>caicai</h1>
+
+		<button id="choosIMG">选择图片</button>
+		<img src="" id="show" />
+		<button id="previewImage">预览图片</button>
+		<hr />
+		<button id="startRecord">开始录音</button>
+		<button id="stopRecord">结束录音</button>
+		<button id="playVoice">播放音乐</button>
+		
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+	<script>
+		//http://ningbonuc.applinzi.com/JSSDKNew/sample.html
+		//网络请求
+		var urls = "getJS_SDK_ config.php"
+		$.ajax({
+			url: urls,
+			data: {
+				url: window.location.href
+			},
+			success: function(data) {
+				alert(data);
+				var obj = JSON.parse(data);
+				//alert(obj);
+				cofig(obj);
+			}
+
+		});
+
+		function cofig(obj) {
+			wx.config({
+				debug: true,
+				appId: obj.appId,
+				timestamp: obj.timestamp,
+				nonceStr: obj.nonceStr,
+				signature: obj.signature,
+				jsApiList: [
+					// 所有要调用的 API 都要加到这个列表中
+					"onMenuShareTimeline",
+					"onMenuShareAppMessage",
+					"chooseImage",//相册
+					"previewImage",//预览图片接口
+					"uploadImage",//上传图片
+					"downloadImage",//下载
+					"startRecord",//开始录音
+					"stopRecord",//停止录音
+					"playVoice",//播放录音
+					"getNetworkType",//获取网络状态，主动调用
+				]
+			});
+			//// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+			wx.ready(function() {
+				// 在这里调用 API
+				wx.onMenuShareTimeline({
+					title: '数钱有戏', // 分享标题
+					link: 'http://www.baidu.com', // 分享链接
+					imgUrl: 'http://zhongbeidx.applinzi.com/JSSDK/IMG_1285.JPG', // 分享图标
+					success: function() {
+						// 用户确认分享后执行的回调函数
+						alert("成功");
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+						alert("取消");
+
+					}
+				});
+
+				wx.onMenuShareAppMessage({
+					title: '游戏', // 分享标题
+					desc: '一个很好玩的有戏', // 分享描述
+					link: 'http://www.baidu.com', // 分享链接
+					imgUrl: 'http://zhongbeidx.applinzi.com/JSSDK/IMG_1285.JPG', // 分享图标
+					type: '', // 分享类型,music、video或link，不填默认为link
+					dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+					success: function() {
+						// 用户确认分享后执行的回调函数
+					},
+					cancel: function() {
+						// 用户取消分享后执行的回调函数
+					}
+				});
+				//网络状态
+				wx.getNetworkType({
+					success: function (res) {
+						var networkType = res.networkType; // 返回网络类型2g，3g，4g，wifi
+					}
+				});
+
+			});
+	
+			//通过事件触发
+			var choosIMG = document.getElementById("choosIMG");
+			choosIMG.addEventListener("touchstart", function() {
+				wx.chooseImage({
+					count: 4, // 默认9
+					sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+					sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+					success: function(res) {
+						var localIds = res.localIds; // 返回选定照片的本地ID列表，localId可以作为img标签的src属性显示图片
+						var show = document.getElementById("show");
+						show.src = localIds[0];
+						upload(localIds[0]);
+					}
+				});
+			});
+		var previewImage = document.getElementById("previewImage");
+		previewImage.addEventListener("touchstart",function(){
+			wx.previewImage({
+			   current: 'http://zhongbeidx.applinzi.com/JSSDKNew/img/IMG_1282.JPG', // 当前显示图片的http链接
+			   urls: ["http://zhongbeidx.applinzi.com/JSSDKNew/img/IMG_1282.JPG","http://zhongbeidx.applinzi.com/JSSDKNew/img/IMG_1284.JPG"] // 需要预览的图片http链接列表
+			});
+		});
+		//上传
+		function upload(localId){
+			wx.uploadImage({
+		    localId: localId, // 需要上传的图片的本地ID，由chooseImage接口获得
+		    isShowProgressTips: 1, // 默认为1，显示进度提示
+		    success: function (res) {
+		        var serverId = res.serverId; // 返回图片的服务器端ID
+		        //alert(serverId);
+		        download(serverId);
+		    }
+			});
+		}
+		//下载
+		function download(serverId){
+			wx.downloadImage({
+				serverId: serverId, // 需要下载的图片的服务器端ID，由uploadImage接口获得
+			  isShowProgressTips: 1, // 默认为1，显示进度提示
+			  success: function (res) {
+			   	var localId = res.localId; // 返回图片下载后的本地ID
+			   	//alert()
+			   }
+			});
+			
+		}
+		
+		//开始录音
+		var startRecord = document.getElementById("startRecord");
+		startRecord.addEventListener("touchstart",function(){
+			wx.startRecord();
+		});
+		
+		//结束
+		var stopRecord = document.getElementById("stopRecord");
+		var localId;//保存录音结束id
+		stopRecord.addEventListener("touchstart",function(){
+			wx.stopRecord({
+				success: function (res) {
+			  		localId = res.localId;
+			   }
+			});
+		});
+		
+		//播放
+		var playVoice = document.getElementById("playVoice");
+		playVoice.addEventListener("touchstart",function(){
+			wx.playVoice({
+    			localId: localId // 需要播放的音频的本地ID，由stopRecord接口获得
+			});
+		});
+			
+			
+		}//配置函数结束
+	</script>
+
+</html>

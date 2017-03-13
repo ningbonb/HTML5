@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css精灵图</title>
+	<style>
+		ul{
+			padding: 0;
+			margin: 0;
+			background: red;
+			width: 200px;
+			margin: 50px auto;
+		}
+		li{
+			list-style: none;
+			/*height: 50px;*/
+			border-bottom: 1px solid black;
+			line-height: 50px;
+		}
+		span{
+			width: 17px;
+			height: 18px;
+			display: inline-block;
+			background: url(img/1.jpg) no-repeat 0 0;
+			vertical-align: middle;
+		}
+		/*垂直居中*/
+		.vertical::before{
+			content: "";
+			display: inline-block;
+			height: 100%;
+			/*width: 5px;*/
+			/*background: blue;*/
+			vertical-align: middle;
+			/*隐藏,contant有内容 */
+			visibility: hidden;
+			width: 0;
+		}
+		i{
+			vertical-align: middle;
+			font-style: normal;
+		}
+		.s1{
+			background-position: -20px -22px;
+		}
+		.s2{
+			background-position: -20px -53px;
+		}
+		.s3{
+			background-position: -20px -84px;
+		}
+		.s4{
+			background-position: -20px -115px;
+		}
+	</style>
+</head>
+<body>
+	<!-- ul>li{li$}*4 -->
+	<ul>
+		<li class="vertical"><span class="s1"></span><i>首页</i></li>
+		<li class="vertical"><span class="s2"></span><i>咨询</i></li>
+		<li class="vertical"><span class="s3"></span><i>财经</i></li>
+		<li class="vertical"><span class="s4"></span><i>娱乐</i></li>
+	</ul>
+	<!-- 
+	CSS精灵:（雪碧图）
+	：1.减小http请求次数，提高网页性能
+	2.减小图片大小
+	 -->
+</body>
+</html>

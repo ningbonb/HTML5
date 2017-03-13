@@ -1,0 +1,1352 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+}
+
+img {
+	width: 100%;
+	vertical-align: top;
+}
+
+.main {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.swiper-container {
+	box-sizing: border-box;
+}
+
+.swiper-wrapper {
+	box-sizing: border-box;
+	width: 100%;
+}
+
+.swiper-slide {
+	box-sizing: border-box;
+	position: relative;
+	overflow: hidden;
+}
+
+.slide1 {
+	background: url(../img/bg1.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.slide2 {
+	background: url(../img/earth/abc4.gif) no-repeat;
+	background-size: 100% 100%;
+}
+
+.slide3 {
+	background: url(../img/bg1.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+
+.slide4 {
+	background: url(../img/bg1.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+
+/*导航按钮*/
+
+.nav {
+	position: absolute;
+	right: 5%;
+	top: 5%;
+	width: 8%;
+}
+
+
+/*流星红色*/
+
+.star1 {
+	position: absolute;
+	z-index: 1;
+	width: 50%;
+	left: -50%;
+	animation: star1 3s   ease-out infinite;
+	/*animation-play-state:paused;*/
+}
+
+@keyframes star1 {
+	from {
+		left: -50%;
+		bottom: 40%;
+	}
+	20% {
+		left: -50%;
+		bottom: 40%;
+	}
+	60% {
+		left: 130%;
+		bottom: 7%;
+	}
+	100% {
+		left: 130%;
+		bottom: 7%;
+	}
+}
+
+
+/*流星黄色*/
+
+.star2 {
+	position: absolute;
+	z-index: 1;
+	width: 50%;
+	top: 30%;
+	right: -50%;
+	animation: star2 3s   ease-out infinite;
+}
+
+@keyframes star2 {
+	from {
+		top: 30%;
+		right: -50%;
+	}
+	30% {
+		top: 30%;
+		right: -50%;
+	}
+	70% {
+		top: 0%;
+		right: 100%;
+	}
+	100% {
+		top: 0%;
+		right: 150%;
+	}
+}
+
+
+/*流星蓝色*/
+
+.star3 {
+	position: absolute;
+	z-index: 1;
+	bottom: 10%;
+	right: -50%;
+	width: 50%;
+	animation: star3 3s   ease-out infinite;
+}
+
+@keyframes star3 {
+	from {
+		bottom: 40%;
+		right: -50%;
+	}
+	40% {
+		bottom: 0%;
+		right: 100%;
+	}
+	100% {
+		bottom: 0%;
+		right: 150%;
+	}
+}
+
+
+/*上滑按钮*/
+
+.next {
+	position: absolute;
+	bottom: 2%;
+	width: 10%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	animation: bounce 2s   ease-out infinite;
+}
+
+
+/*音乐按钮*/
+
+.musicon {
+	position: absolute;
+	width: 8%;
+	bottom: 3%;
+	right: 5.5%;
+	animation: music 1.7s linear infinite;
+}
+@keyframes music{
+	from{
+		transform: rotate(0);
+	}
+	to{
+		transform: rotate(360deg);
+	}
+}
+/*音乐关*/
+.musicoff {
+	position: absolute;
+	width: 8%;
+	bottom: 3%;
+	right: 5.5%;
+	animation: music 1.7s linear infinite;
+	display: none;
+}
+/*2015创想家盛典*/
+
+.font1 {
+	position: absolute;
+	bottom: 25%;
+	width: 55%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 5;
+	animation: font2 5s ease-in-out;
+}
+
+
+/*Dare to Dream*/
+
+.font3 {
+	position: absolute;
+	bottom: 24%;
+	width: 85%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 5;
+	animation: bounceInLeft 1s linear;
+	animation-play-state:paused;
+}
+
+
+/*男人有梦就去造*/
+
+.font2 {
+	position: absolute;
+	bottom: 15%;
+	width: 80%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 5;
+	animation: font2 5s ease-in-out;
+}
+
+@keyframes font2 {
+	0%{
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	85% {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+/*创想改变世界*/
+.font4 {
+	position: absolute;
+	bottom: 15%;
+	width: 80%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 5;
+	animation: font4 2s ease-in-out;
+	animation-play-state:paused;
+}
+@keyframes font4 {
+	0%{
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	30% {
+		opacity: 0;
+		-webkit-transform: scale3d(.3, .3, .3);
+		transform: scale3d(.3, .3, .3);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+/*第一层框架*/
+
+.bottomwrap {
+	position: absolute;
+	top: 18%;
+	height: 45%;
+	width: 80%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 5;
+}
+
+
+/*一层红色*/
+
+.bottomred {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	/*left: -100%;*/
+	animation: bottomred 1.5s   ease-out;
+}
+@keyframes bottomred {
+	from{
+		left: -100%;
+	}
+	50%{
+		left: -100%;
+	}
+	100%{
+		left: 0;
+	}
+}
+
+/*一层蓝色*/
+
+.bottomblue {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation: bottomblue 1.5s   ease-out;
+}
+@keyframes bottomblue {
+	from{
+		top: -200%;
+	}
+	50%{
+		top: -200%;
+	}
+	100%{
+		top: 0;
+	}
+}
+.bottomred img,
+.bottomblue img {
+	height: 100%;
+}
+
+
+/*一层黄色*/
+
+.bottomyellow {
+	position: absolute;
+	width: 100%;
+	height: 60%;
+	bottom: 0;
+	z-index: 11;
+	animation: bottomyellow 1.5s   ease-out;
+}
+@keyframes bottomyellow {
+	from{
+		bottom: -200%;
+	}
+	50%{
+		bottom: -200%;
+	}
+	100%{
+		bottom: 0;
+	}
+}
+.bottomyellow img {
+	height: 100%;
+}
+
+
+/*二层灰色左*/
+
+.middlegrayleft {
+	position: absolute;
+	right: 0;
+	width: 50%;
+	height: 50%;
+	z-index: 10;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	animation: middlegrayleft 1.5s   ease-out;
+}
+@keyframes middlegrayleft {
+	from{
+		bottom: -200%;
+	}
+	60%{
+		bottom: -200%;
+	}
+	100%{
+		bottom: 0;
+	}
+}
+
+/*二层灰绿色*/
+
+.middleceladon {
+	position: absolute;
+	top: 0;
+	width: 30%;
+	height: 90%;
+	left: 39%;
+	z-index: 12;
+	animation: middleceladon 1.5s   ease-out;
+}
+@keyframes middleceladon {
+	from{
+		top: -200%;
+	}
+	65%{
+		top: -200%;
+	}
+	100%{
+		top: 0;
+	}
+}
+.middleceladon img {
+	height: 100%;
+}
+
+
+/*二层灰色右*/
+
+.middlegrayright {
+	position: absolute;
+	width: 13%;
+	height: 52%;
+	top: 0;
+	left: 54%;
+	/*z-index: 12;*/
+	animation: middlegrayright 1.5s   ease-out;
+}
+@keyframes middlegrayright {
+	from{
+		top: -200%;
+	}
+	30%{
+		top: -200%;
+	}
+	100%{
+		top: 0;
+	}
+}
+.middlegrayright img {
+	height: 100%;
+}
+
+
+/*二层蓝色D*/
+
+.middleblue {
+	position: absolute;
+	width: 50%;
+	left: 0;
+	height: 33%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	animation: middleblue 3s   ease-out;
+}
+@keyframes middleblue{
+	from{
+		opacity: 0;
+	}
+	25%{
+		opacity: .7;
+	}
+	50%{
+		opacity: 0;
+	}
+	75%{
+		opacity: 0.6;
+	}
+	83%{
+		opacity: .3;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+.middleblue img {
+	height: 100%;
+}
+
+
+/*二层红色D*/
+
+.middleredD {
+	position: absolute;
+	width: 30%;
+	height: 20%;
+	left: 15%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	animation: middleblue 3s   ease-out;
+}
+
+/*二层底部蓝色*/
+
+.middlebottomblue {
+	position: absolute;
+	width: 71%;
+	bottom: 0;
+	z-index: 20;
+	right: 0;
+	animation: middlebottomblue 1.5s   ease-out;
+}
+@keyframes middlebottomblue {
+	from{
+		bottom: -200%;
+	}
+	10%{
+		bottom: -200%;
+	}
+	100%{
+		bottom: 0;
+	}
+}
+
+/*顶层左边白色D*/
+
+.topD {
+	position: absolute;
+	width: 70%;
+	height: 70%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	animation: topD 2s   ease-out;
+}
+@keyframes topD{
+	from{
+		opacity: 0;
+		transform: scale(3);
+	}
+	10%{
+		opacity: 0;
+		transform: scale(3);
+	}
+	60%{
+		opacity: 0.8;
+		transform: scale(3);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/*顶层中间白色E*/
+
+.topcenterE {
+	position: absolute;
+	z-index: 16;
+	width: 15%;
+	height: 20%;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	left: 39%;
+	animation: topcenterE 2s   ease-out;
+}
+@keyframes topcenterE{
+	from{
+		opacity: 0;
+		transform: scale(2);
+	}
+	60%{
+		opacity: 0;
+		transform: scale(2);
+	}
+	80%{
+		opacity: 0.8;
+		transform: scale(2);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/*顶层白色RM*/
+
+.topRM {
+	position: absolute;
+	height: 61%;
+	width: 75%;
+	right: 0;
+	bottom: 0;
+	z-index: 17;
+	animation: topRM 2.5s   ease-out;
+}
+@keyframes topRM{
+	from{
+		opacity: 0;
+		transform: scale(3);
+	}
+	70%{
+		opacity: 0;
+		transform: scale(3);
+	}
+	80%{
+		opacity: 0.8;
+		transform: scale(3);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.topRM img {
+	height: 100%;
+}
+
+
+/*顶层白色MAKER*/
+
+.topbottomM {
+	position: absolute;
+	width: 18%;
+	z-index: 21;
+	bottom: 0;
+	left: 0;
+	height: 33%;
+	animation: topbottomM 4s   ease-out;
+}
+@keyframes topbottomM{
+	from{
+		opacity: 0;
+		transform: scale(4);
+	}
+	70%{
+		opacity: 0;
+		transform: scale(4);
+	}
+	80%{
+		opacity: 0.8;
+		transform: scale(4);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.topbottomA {
+	position: absolute;
+	width: 18%;
+	z-index: 21;
+	bottom: 0;
+	left: 20%;
+	height: 33%;
+	animation: topbottomA 4s   ease-out;
+}
+@keyframes topbottomA{
+	from{
+		opacity: 0;
+		transform: scale(4);
+	}
+	74%{
+		opacity: 0;
+		transform: scale(4);
+	}
+	84%{
+		opacity: 0.8;
+		transform: scale(4);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.topbottomK {
+	position: absolute;
+	width: 18%;
+	z-index: 21;
+	bottom: 0;
+	left: 40%;
+	height: 33%;
+	animation: topbottomK 4s   ease-out;
+}
+@keyframes topbottomK{
+	from{
+		opacity: 0;
+		transform: scale(4);
+	}
+	78%{
+		opacity: 0;
+		transform: scale(4);
+	}
+	88%{
+		opacity: 0.8;
+		transform: scale(4);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.topbottomE {
+	position: absolute;
+	width: 18%;
+	z-index: 21;
+	bottom: 0;
+	left: 60%;
+	height: 33%;
+	animation: topbottomE 4s   ease-out;
+}
+@keyframes topbottomE{
+	from{
+		opacity: 0;
+		transform: scale(4);
+	}
+	82%{
+		opacity: 0;
+		transform: scale(4);
+	}
+	92%{
+		opacity: 0.8;
+		transform: scale(4);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.topbottomR {
+	position: absolute;
+	width: 18%;
+	z-index: 21;
+	bottom: 0;
+	left: 80%;
+	height: 33%;
+	animation: topbottomR 4s   ease-out;
+}
+@keyframes topbottomR{
+	from{
+		opacity: 0;
+		transform: scale(4);
+	}
+	86%{
+		opacity: 0;
+		transform: scale(4);
+	}
+	96%{
+		opacity: 0.8;
+		transform: scale(4);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+.topbottomM img,
+.topbottomA img,
+.topbottomK img,
+.topbottomE img,
+.topbottomR img {
+	height: 100%;
+}
+
+/*无字蓝色*/
+.groupblue {
+	position: absolute;
+	width: 15%;
+	left: 23%;
+	top: 7%;
+	animation: 3s groupblue linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes groupblue{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(-15%,-20%) rotate(-5deg);
+	}
+}
+
+/*3场论坛*/
+
+.groupyellow {
+	position: absolute;
+	right: 7%;
+	top: 10%;
+	width: 44%;
+	animation: 3s groupyellow linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes groupyellow{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(1%,-15%) rotate(8deg);
+	}
+}
+
+/*1个颁奖典礼*/
+
+.grouppink {
+	position: absolute;
+	width: 38%;
+	left: 5%;
+	top: 30%;
+	animation: 3s grouppink linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes grouppink{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(1%,-20%) rotate(-5deg);
+	}
+}
+
+/*10个中国顶级投资人*/
+
+.grouppurper {
+	position: absolute;
+	width: 60%;
+	right: 0;
+	top: 40%;
+	animation: 3s grouppurper linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes grouppurper{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(-2%,-10%) rotate(0deg);
+	}
+}
+
+/*无字绿色*/
+
+.groupgreen {
+	position: absolute;
+	width: 10%;
+	right: 10%;
+	top: 30%;
+	animation: 3s groupgreen linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes groupgreen{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(2%) rotate(1deg);
+	}
+}
+
+/*10个Dream*/
+
+.groupfontgreen {
+	position: absolute;
+	width: 40%;
+	left: 7%;
+	top: 57%;
+	animation: 2s groupfontgreen linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes groupfontgreen{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(1%,-5%) rotate(4deg);
+	}
+}
+
+/*1个创想家课堂*/
+
+.groupred {
+	position: absolute;
+	width: 47%;
+	right: 2%;
+	top: 68%;
+	animation: 3s groupred linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes groupred{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(-10%,-10%) rotate(-1deg);
+	}
+}
+
+/*无字左下角*/
+
+.groupbottom {
+	position: absolute;
+	top: 80%;
+	left: 20%;
+	width: 10%;
+	animation: 2s groupbottom linear infinite alternate;
+	animation-play-state: paused;
+}
+@keyframes groupbottom{
+	from{
+		transform: translate(0,0) rotate(0);
+	}
+	to{
+		transform: translate(5%,-9%) rotate(3deg);
+	}
+}
+
+/*第四页泡泡背景*/
+.colorbg{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation: 2.5s colorbg linear;
+	animation-play-state:paused;
+}
+@keyframes colorbg{
+	from{
+		transform: scale(0);
+	}
+	50%{
+		transform: scale(0);
+	}
+	to{
+		transform: scale(1);
+	}
+}
+.colorbg img{
+	height: 100%;
+}
+/*person1*/
+.person1{
+	position: absolute;
+	width: 20%;
+	left: 40%;
+	top: 10%;
+	animation: person1 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person1{
+	from{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}
+	50%{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}	
+	to{
+		width: 20%;
+		left: 40%;
+		top: 10%;
+	}
+}
+/*person2*/
+.person2{
+	position: absolute;
+	width: 25%;
+	left: 8%;
+	top: 25%;
+	animation: person2 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person2{
+	from{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}
+	55%{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}	
+	to{
+		width: 25%;
+		left: 8%;
+		top: 25%;
+	}
+}
+/*person3*/
+.person3{
+	position: absolute;
+	right: 10%;
+	top: 25%;
+	width: 23%;
+	animation: person3 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person3{
+	from{
+		width: 0%;
+		right: 50%;
+		top: 50%;
+	}
+	45%{
+		width: 0%;
+		right: 50%;
+		top: 50%;
+	}	
+	to{
+		right: 10%;
+		top: 25%;
+		width: 23%;
+	}
+}
+/*person4*/
+.person4{
+	position: absolute;
+	width: 20%;
+	left: 15%;
+	top: 45.8%;
+	animation: person4 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person4{
+	from{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}
+	30%{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}	
+	to{
+		width: 20%;
+		left: 15%;
+		top: 45.8%;
+	}
+}
+/*person5*/
+.person5{
+	position: absolute;
+	width: 20%;
+	right: 15%;
+	top: 45.8%;
+	animation: person5 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person5{
+	from{
+		width: 0%;
+		right: 50%;
+		top: 50%;
+	}
+	60%{
+		width: 0%;
+		right: 50%;
+		top: 50%;
+	}	
+	to{
+		width: 20%;
+		right: 15%;
+		top: 45.8%;
+	}
+}
+/*person6*/
+.person6{
+	position: absolute;
+	width: 22%;
+	left: 15%;
+	top: 60%;
+	animation: person6 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person6{
+	from{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}
+	50%{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}	
+	to{
+		width: 22%;
+		left: 15%;
+		top: 60%;
+	}
+}
+/*person7*/
+.person7{
+	position: absolute;
+	right: 14%;
+	width: 20%;
+	top: 62%;
+	animation: person7 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person7{
+	from{
+		width: 0%;
+		right: 50%;
+		top: 50%;
+	}
+	55%{
+		width: 0%;
+		right: 50%;
+		top: 50%;
+	}	
+	to{
+		right: 14%;
+		width: 20%;
+		top: 62%;
+	}
+}
+/*person8*/
+.person8{
+	position: absolute;
+	width: 20%;
+	top: 70%;
+	left: 45%;
+	animation: person8 3s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes person8{
+	from{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}
+	50%{
+		width: 0%;
+		left: 50%;
+		top: 50%;
+	}	
+	to{
+		width: 20%;
+		top: 70%;
+		left: 45%;
+	}
+}
+/*他们已改变世界*/
+.font5{
+	position: absolute;
+	width: 30%;
+	left: 0;
+	right: 0;
+	margin: 65% auto 0;
+	animation: 1s bounceInLeft linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+/*点击了解他们*/
+.font6{
+	position: absolute;
+	width: 40%;
+	left: 0;
+	right: 0;
+	margin:150% auto 0;
+	animation: font6 1.5s linear infinite;
+	animation-play-state: paused;
+}
+@keyframes font6{
+	from{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
+}
+/*中心黑色圆点*/
+.balckcenter{
+	position: absolute;
+	width: 5%;
+	height: 3%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	animation: balckcenter 3.5s linear;
+	z-index: 10;
+	animation-play-state: paused;
+}
+@keyframes balckcenter{
+	from{
+		opacity: 0;
+		transform: scale(0);
+	}
+	70%{
+		opacity: 0;
+		transform: scale(0);
+	}
+	to{
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+/*白线*/
+.line{
+	width: 50%;
+	position: absolute;
+	height: 1px;
+	top:0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+}
+.line li{
+	width: 100%;
+	right: 0;
+	position: absolute;
+	background-color: #fff;
+	border-bottom: 1px solid silver;
+	transform-origin: right;
+	animation: 4s line linear;
+	animation-play-state: paused;
+}
+@keyframes line{
+	from{
+		opacity: 0;
+	}
+	75%{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+.line li:nth-child(1){
+	transform: rotate(90deg);
+}
+
+.line li:nth-child(2){
+	transform: rotate(45deg);
+}
+.line li:nth-child(3){
+	transform: rotate(135deg);
+}
+
+.line li:nth-child(4){
+	width: 30%;
+	transform: rotate(-10deg);
+}
+.line li:nth-child(5){
+	width: 40%;
+	transform: rotate(190deg);
+}
+
+.line li:nth-child(6){
+	width: 70%;
+	transform: rotate(-55deg);
+}
+.line li:nth-child(7){
+	width: 80%;
+	transform: rotate(-125deg);
+}
+
+.line li:nth-child(8){
+	transform: rotate(260deg);
+}
+/*第四页轮播图*/
+.personWrap{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 1px solid red;
+	box-sizing: border-box;
+	z-index: 20;
+	display: none;
+}
+.personCentent{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+.personA{
+	position: absolute;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border: 1px solid green;
+	display: none;
+}
+.personA:nth-child(1){
+	display: block;
+}
+.personA img{
+	width: 50%;
+	position: absolute;
+	left: 25%;
+	top: 30%;
+}
+/*人物名字*/
+.personname{
+	font-weight: bold;
+	font-size: 30px;
+	width: 100%;
+	top: 62%;
+	position: absolute;
+	text-align: center;
+	color: silver;
+}
+/*人物简介*/
+.personabout{
+	width: 100%;
+	top: 68%;
+	position: absolute;
+	text-align: center;
+	color: silver;
+	line-height: 1.5rem;
+}
+/*关闭按钮*/
+.personclose{
+	position: absolute;
+	width: 17%;
+	top: 10%;
+	left: 8%;
+}
+/*上一个*/
+.presonpre{
+	position: absolute;
+	width: 10%;
+	height: 20%;
+	top: 37%;
+	color: silver;
+	left: 2%;
+	font-size: 80px;
+}
+/*下一个*/
+.presonnext{
+	position: absolute;
+	width: 10%;
+	height: 20%;
+	top: 37%;
+	right: 2%;
+	color: silver;
+	font-size: 80px;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number" name="vl1" id="vl1" placeholder="请输入第一个数字" />
+		<br />
+		+
+		<br />
+		<input type="number" name="vl2" id="vl2" placeholder="请输入第二个数字" />
+		<br />
+		=
+		<br />
+		<input type="text" name="vl3" id="vl3" placeholder="结果" />
+		<!--<input type="button" value="确定相加" onclick="alert(111)" />-->
+		<!--<input type="button" value="确定相加" onclick="alert(typeof +vl1.value)" />-->
+		<!--<input type="button" value="确定相加" onclick="alert(typeof Number(vl1.value))" />-->
+		<!--<input type="button" value="确定相加" onclick="alert(typeof (vl1.value - 0))" />-->
+		
+		
+		<input type="button" value="确定相加" onclick="vl3.value = +vl1.value + (+vl2.value); vl3.style.backgroundColor = 'red';" />
+		
+		
+	</body>
+</html>

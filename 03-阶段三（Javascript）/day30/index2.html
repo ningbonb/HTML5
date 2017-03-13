@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			/*
+			 * while(循环条件){
+			 * 	循环体；
+			 * }
+			 * 
+			 * 如果循环满足条件，就会执行循环体，如果不满足，结束循环
+			 */
+			
+			var i = 0;
+			while( i < 10 ){
+				console.log(i);
+				i++;
+			}
+			console.log('~~~~~~~~~~');
+			
+			//break
+			var i = 0;
+			while( i < 10 ){
+				if(i == 5)break;//省去括号（如果if内只有一句代码）
+				console.log(i);
+				i++;
+			}
+			
+			//打印1-99之间 是7的整数倍的数字
+			var i = 1;
+			while(i < 100){
+				if(i % 7 == 0){
+					console.log('100以内7的倍数数字：' + i);
+				}
+				i++;
+			}
+			
+			//打印1-99之间 十位数字是7的数字
+			var i = 1;
+			while(i< 100){
+				if(Math.floor(i / 10) == 7){
+					console.log('100以内十位是7的数字有：' + i);
+				}
+				i++;
+			}
+	
+			/*
+			 do....while
+			 do{
+			 	循环体：
+			 }while(条件)；
+			 
+			 * */
+			
+			var i = 0;
+			do{
+				console.log(i);
+				i++;
+			}while(i < 5);
+			
+			var i = 0;
+			while(i < 5){
+				console.log(i);
+				i++;
+			}
+			console.log('~~~~~~~~~~~~~~~~~~~');
+			//do..while和while的不同：
+			var i = 0;
+			do{
+				console.log(i);
+			}while(i > 10);
+			
+			console.log('~~~~~~~~~~~~~~~~~~~');
+			
+			var i = 0;
+			while(i > 10){
+				console.log(i);
+			}
+			
+			//do..while和while的区别：do...while无论条件真或者假，先执行一次循环
+			
+			//for:知道循环的具体次数时使用
+			//do..while和while循环：通常是在判断条件情况下使用（可以不知道循环次数）
+			
+			
+			//找最大公约数，辗转相除法
+			var a = 10,b = 60;
+			//余数不等于0
+			while(a != 0){
+				var c = b % a;//获取余数，当余数是0的时候，得到最大公约数
+				//小的给被除数
+				b = a;
+				//余数给除数
+				a = c;
+				
+//				a == 0;
+			}
+			
+			console.log('最大公约数：' + b);
+		</script>
+	</body>
+</html>

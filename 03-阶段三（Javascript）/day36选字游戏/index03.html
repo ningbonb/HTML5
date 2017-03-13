@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>网易版本</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#wrap{
+				width: 200px;
+				margin: 50px auto;
+				position: relative;
+				font-size: 14px;
+			}
+			/*按钮*/
+			#btn {
+				text-decoration: none;
+				color: gray;
+			}
+			
+			/*浮动窗口*/
+			#floatBox {
+				list-style: none;
+				border: 1px solid gray;
+				width: 150px;
+				border-radius: 5px;
+				position: absolute;
+				left: 35px;
+				top: 0px;
+				background-color: white;
+				display: none;
+			}
+			
+			#floatBox li {
+				padding: 5px 0;
+				padding-left: 15px;
+			}
+			/*显示√符号*/
+			#floatBox span {
+				display: none;
+			}
+			
+			#floatBox li:hover {
+				background-color: gainsboro;
+			}
+			
+			/*li列表的选中状态*/
+			.active {
+				color: deepskyblue;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+		<div id="wrap">
+			版本:<a href="###" id="btn">默认版本</a>
+			<ul id="floatBox">
+				<li class="active"><span style="display: inline-block;">√</span> 默认版本</li>
+				<li><span>√</span>网易6.0</li>
+				<li><span>√</span>网易6.0简约版</li>
+			</ul>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var btn = document.getElementById("btn");
+		var floatBox = document.getElementById("floatBox");
+		var lis = floatBox.getElementsByTagName('li');
+		var spans = floatBox.getElementsByTagName('span');
+
+		//绑定事件
+		btn.onclick = function() {
+			//显示
+			floatBox.style.display = "block";
+		}
+		floatBox.onmouseleave = function() {
+			floatBox.style.display = "none";
+		}
+		var texts = ['默认版本', '网易6.0', '网易6.0简约版'];
+		for(var i = 0; i < lis.length; i++) {
+			//保存下标
+			lis[i].index = i;
+			//为所有的li对象添加点击事件
+			lis[i].onclick = function() {
+				//隐藏ul1
+				floatBox.style.display = "none";
+				//恢复上次的选择
+				for(var i = 0; i < lis.length; i++) {
+					lis[i].className = '';
+					spans[i].style.display = 'none';
+				}
+
+				//设置当前的选择
+				spans[this.index].style.display = 'inline-block';
+				this.className = 'active';
+				//修改按钮显示的内容
+				btn.innerText = texts[this.index];
+
+			}
+		}
+	</script>
+
+</html>

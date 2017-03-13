@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D翻页效果</title>
+	<style>
+		#my3dspace{
+			perspective: 800px;
+			perspective-origin: 50% 50%;
+
+
+			overflow: hidden;
+		}
+		#pagegroup{
+			width: 400px;
+			height: 400px;
+			margin: 0 auto;
+
+			transform-style: preserve-3d;
+
+			position: relative;
+		}
+		.page{
+			width: 360px;
+			height: 360px;
+			padding: 20px;
+			background-color: black;
+
+			color: white;
+			
+			font-weight: bold;
+			font-size: 360px;
+			line-height: 360px;
+			text-align: center;
+
+
+			position: absolute;
+		}
+		#page1{
+			transform-origin: bottom;
+			transition:transform 1s linear;
+		}
+		#page2,#page3,#page4,#page5,#page6{
+			transform-origin: bottom;
+			transition:transform 1s linear;
+			transform: rotateX(90deg);
+		}
+		#op{
+			text-align: center;
+			margin: 40px auto;
+		}
+	</style>
+
+	<script type="text/javascript">
+		var curIndex = 1;
+		function next(){
+			if( curIndex == 6 )
+				return;
+			var curPage = document.getElementById("page"+curIndex);
+			curPage.style.transform = "rotateX(-90deg)";
+
+			curIndex ++;
+			var nextPage = document.getElementById("page"+curIndex);
+			nextPage.style.transform = "rotateX(0deg)";
+		}
+
+		function prev(){
+			if(curIndex == 1)
+				return;
+
+			var curPage = document.getElementById("page"+curIndex);
+			curPage.style.transform = "rotateX(90deg)";
+
+			curIndex --;
+			var prevPage = document.getElementById("page"+curIndex);
+			prevPage.style.transform = "rotateX(0deg)";
+		}
+	</script>
+</head>
+<body>
+	<div id="my3dspace">
+		<div id="pagegroup">
+			<div class="page" id="page1">1</div>
+			<div class="page" id="page2">2</div>
+			<div class="page" id="page3">3</div>
+			<div class="page" id="page4">4</div>
+			<div class="page" id="page5">5</div>
+			<div class="page" id="page6">6</div>
+		</div>
+	</div>
+
+	<div id="op">
+		<a href="javascript:next()">next</a>&nbsp;<a href="javascript:prev()">previout</a>
+	</div>
+</body>
+</html>

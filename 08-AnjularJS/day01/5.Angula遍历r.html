@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<!--ng-init：声明变量：var name="你好"-->
+<!--定义或者使用变量的时候：变量名不能加引号，但是变量的值如果是字符串必须加引号，如果不加引号默认被解析为变量-->
+<body ng-init="arr=[1,2,3,4,5,6,7,8,9,'张三'];arr2=[{user:'张三',age:20},{user:'李四',age:30},{user:'毛毛',age:18}]">
+    <!--数组的遍历-->
+    <ul>
+        <li ng-repeat="value in arr">{{value}}</li>
+    </ul>
+    <div ng-repeat="person in arr2">{{person.user+'今年'+person.age}}</div>
+
+    <!--对象的遍历-->
+    <ul>
+        <li ng-repeat="(key,value) in arr2[0]">{{key+'->'+value}}</li>
+    </ul>
+
+    <!--嵌套循环，变量作用域从上往下，ul获取的变量person变量可以在arr2中使用-->
+    <ul ng-repeat="person in arr2">
+        <li ng-repeat="(key,value) in person">{{key+'->'+value}}</li>
+    </ul>
+</body>
+</html>
+<!--原理：
+    1.Angular加载完成后，首先找到ng-app指令，获取程序所有者
+    2.找到后，ng-app里面所有标签都可以解析Angular指令，使用变量
+    3.找到对应ng-modle，把变量生成数据模型，默认放到根作用域，所有地方都可以使用，（读取或者修改变量的值，数据是双向绑定的，实时更新）
+-->

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>关键帧动画</title>
+		<style>
+			.div1{
+				width: 200px;
+				height: 200px;
+				background: #ccc;
+				/*动画名字*/
+				animation-name: nameA;
+				/*持续时间*/
+				animation-duration: 2s;
+				/*动画函数*/
+				animation-timing-function: linear;
+				/*延迟时间*/
+				/*animation-delay: 2s;*/
+				/*动画执行次数
+				 * infinite: 无限执行
+				 */
+				/*animation-iteration-count: infinite;*/
+				/*animation-iteration-count: 3;*/
+				/*动画方向
+				 * normal:正常
+				 * reverse: 反方向
+				 * alternate: 交替，轮流（两个方向动画，单方向动画算一次，动画执行次数大于1）
+				 * alternate-reverse: 交替的反转
+				 */
+				/*animation-direction: normal;*/
+				/*animation-direction: reverse;*/
+				/*animation-direction: alternate;*/
+				/*animation-direction: alternate-reverse;*/
+				
+				/*动画完成时的状态
+				 * backwards: 动画完成后回到出初始状态
+				 * forwards: 动画完成后保留最后一帧状态
+				 * both： 动画完成后保留最后一帧状态
+				 */
+				animation-fill-mode: backwards;
+				animation-fill-mode: forwards;
+				animation-fill-mode: both;
+				
+				/*
+				 * paused:暂停
+				 */
+				animation-play-state: running;
+				
+				/*简写
+				 * 名字 持续时间 函数 延迟执行 重复次数 direction
+				 */
+				animation: nameA 2s;
+				animation: nameA 2s linear 0s infinite alternate; 
+				
+				/*
+				 * 名字 持续时间 次数 方向
+				 */
+				animation: nameA 2s 2 alternate; 
+				
+			}
+			
+			/*关键帧*/
+			@keyframes nameA{
+				from{
+					width: 300px;
+					height: 300px;
+				}
+				to{
+					width: 400px;
+					height: 400px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+	</body>
+</html>

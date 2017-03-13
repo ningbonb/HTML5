@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子图-从外到内+自适应</title>
+	<style>
+		body{ 
+			background-color: #EEF4FB; 
+			width: 100%;
+			height: 100%;
+		}
+		.box{ 
+			width: 50%;
+			height: 100%;
+			background-color: #fff; 
+			margin: auto;
+			overflow: hidden;
+		}
+		.box_1{ 
+			width: 90%; /*405/450*/ 
+			margin: 4.444%; /*20/450 */
+			border: 1px dashed black; /*1/450*/			
+		}
+		.box_2{
+			width: 83.95%;  /*340/405*/
+			margin: 4.41%; /*30/405*/
+			border: 5px solid #D8EFFF;
+		}
+		.box_3{
+			width: 88.23%; /*300/340*/
+			margin: 5.88%; /*20/340*/
+			background-color: #FFA1DF;
+			overflow: hidden;
+		}
+		.box_4{
+			width: 72.33%; /*217/300*/
+			margin: 13.33%; /*40/300 */
+			border: 1px dotted white;
+		}
+		.box_5{
+			width: 94.47%; /*205/217*/
+			margin: 2.21%; /*5/217*/
+			border: 1px dashed white;
+		}
+		.box_6{
+			width: 48.78%; /*100/205*/
+			
+			margin: 24.39%; /*50/205*/
+			border:5px solid yellow;
+			background-color: #97FF38;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="box_1">
+			<div class="box_2">
+				<div class="box_3">
+					<div class="box_4">
+						<div class="box_5">
+							<div class="box_6">
+								&nbsp;
+							</div>				
+						</div>								
+					</div>
+				</div>			
+			</div>
+		</div>
+	</div>
+</body>
+</html>

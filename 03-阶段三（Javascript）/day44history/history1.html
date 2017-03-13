@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>11111111111111</title>
+	</head>
+	<body>
+		页面1
+		<a href="history2.html">下一页</a>
+		
+		<button id="next">下一页</button>
+		<button id="last">最后一页</button>
+	</body>
+	
+	<script type="text/javascript">
+		var next = document.getElementById("next");
+		next.onclick = function(){
+			//向前一页
+			history.forward();
+		};
+		var last = document.getElementById("last");
+		last.onclick = function(){
+			//前进2页
+			history.go(2);
+		};
+	</script>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#myCanvas{
+				box-shadow: 0 0 5px hotpink;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="500" height="500"></canvas>
+	</body>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		
+		ctx.fillStyle = "red";
+		ctx.fillRect(0,0,100,100);
+		
+		canvas.onclick = function(ev){
+			var ev = ev || window.event;
+			var x = ev.offsetX;
+			var y = ev.offsetY;
+			//alert(111);
+			//ctx.isPointInPath():返回一个布尔值，用来判断当前上下文有没有包含（x和y）两个点，
+			if(ctx.isPointInPath(x,y)){
+				alert("点击了方块");
+			}
+		}
+		
+		//isPointInPath:该方法只针对路径绘制的图形有效，比如arc绘制的圆形，但是fill不能用，他不是通过路径绘制的
+		//注意2：判断成立条件，只对当前的ctx(路径)有效
+		
+		//通过路径绘制方块
+		ctx.beginPath();//通过路径绘制，开始一个新的路径
+		ctx.fillStyle = "blue";
+		//绘制矩形方块方式2
+		ctx.rect(100,100,100,100);
+		ctx.fill();
+		//绘制一个圆：上面路径会失效;只有是当前路径并且是同一个路径下绘制的图形才能同时相应点击
+		ctx.beginPath();
+		ctx.fillStyle = "#000";
+		ctx.arc(300,100,30,0,Math.PI*2,false);
+		
+		ctx.rect(300,200,50,50);
+		
+		ctx.fillStyle = "#00FFFF";//当前路径下所有图形的颜色都会被修改
+		ctx.arc(400,100,30,0,Math.PI*2,false);
+		
+		ctx.fillStyle = "#398439";
+		//ctx.arc(400,200,30,0,Math.PI*2,false);
+		
+		ctx.fill();
+		
+	</script>
+</html>

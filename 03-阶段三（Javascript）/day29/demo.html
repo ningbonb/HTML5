@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="number" id="kg" name="kg" placeholder="输入行李重量(KG)" />
+		<br />
+		<input type="text" id="kgResult" name="kgresult" placeholder="托用费用" />
+		<input type="button" value="计算价格" onclick="kg()" />
+		<hr />
+		<input type="number" id="xValue" name="xvalue" placeholder="输入x的值" />
+		<br />
+		<input type="text" id="xResult" name="xresult" placeholder="计算结果为" />
+		<input type="button" value="计算结果" onclick="xValue()" />
+		<hr />
+		<input type="number" id="year" name="dates" placeholder="输入一个日期(年)" />
+		<input type="number" id="month" name="dates" placeholder="输入一个日期(月)" />
+		<input type="number" id="day" name="dates" placeholder="输入一个日期(日)" />
+		<br />
+		<input type="text" id="dayResult" name="dayresult" placeholder="是这一年的第几天" />
+		<input type="button" value="查看结果" onclick="datas()" />
+		<hr />
+		<script>
+			//输入行李重量, 计算价格. 铁路托运行李规定：行李重不超过50公斤的，托运费按0.15元每公斤计算，如果超过50公斤，超出部分每公斤加收0.1元
+			function kg(){
+				var kg = +document.getElementById('kg').value;
+				var kgResult = document.getElementById('kgResult');
+				if(kg <= 50){
+					kgResult.value = kg*0.15 + '元';
+				}else{
+					kgResult.value = kg*0.15 + (kg - 50) * 0.1 + '元';
+				}
+			}
+			
+			//函数：x<1的时候，y = x；1<=x<10的时候，y=2x-1；x>=10的时候，y=3x-11。写一段程序，输入x，输出y值。
+			function xValue(){
+				var xValue = +document.getElementById('xValue').value;
+				var xResult = document.getElementById('xResult');
+				if(xValue < 1){
+					xResult.value = xValue;
+				}else if(xValue < 10){
+					xResult.value = 2 * xValue -1;
+				}else{
+					xResult.value = 3*xValue - 11;
+				}
+			}
+			
+			//编程将所有“水仙花数”打印出来，并打印其总个数。 “水仙花数”是一个各个位立方之和等于该整数的三位数(个位数立方 + 十位数立方 + 百位数立方 = 这个整数)。
+			var num1 = 0,num2 = 0,num3 = 1;
+//			console.log('1' + typeof num1,typeof num2,typeof  num3);
+//			console.log('2' + (String(num3) + String(num2) + String(num1)));
+//			console.log('3' + typeof +(String(num3) + String(num2) + String(num1)));
+//			console.log('4' + typeof Number(num3 + num2 + num1));
+//			console.log('5' + Number(num3*num3*num3 + num2*num2*num2 + num1*num1*num1));
+			document.write('水仙花数有：<br/>');
+			var i = 0;
+			for(var num1 = 0;num1 < 10;num1++){
+				for(var num2 = 0;num2 < 10; num2++){
+					for(var num3 =0;num3 < 10; num3++){
+//						console.log(String(num3) + String(num2) + String(num1));
+						
+						if(+(String(num3) + String(num2) + String(num1)) == Number(num3*num3*num3 + num2*num2*num2 + num1*num1*num1)){
+							document.write(String(num3) + String(num2) + String(num1) + '<br/>');
+							i++;
+						}
+					}
+				}
+			}
+			document.write('<br/>' + '水仙花数为：' + i);
+			
+			
+			
+			
+			//输入一个日期(年, 月, 日), 计算这一天是这一年的第几天
+			function datas(){
+				var year = +document.getElementById('year').value;
+				var month = +document.getElementById('month').value;
+				var day = +document.getElementById('day').value;
+				var dayResult = document.getElementById('dayResult');
+				switch(month){
+					case 1:{
+						dayResult.value = day;
+					}
+					break;
+					case 2:{
+						dayResult.value = 31 + day;
+					}
+					break;
+					case 3:{
+						dayResult.value = 31 + 28 + day;
+					}
+					break;
+					case 4:{
+						dayResult.value = 31 + 28 + 31 + day;
+					}
+					break;
+					case 5:{
+						dayResult.value = 31 + 28 + 31 + 30 + day;
+					}
+					break;
+					case 6:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + day;
+					}
+					break;
+					case 7:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + 30 + day;
+					}
+					break;
+					case 8:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + 30 + 31 + day;
+					}
+					break;
+					case 9:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + day;
+					}
+					break;
+					case 10:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30  + 30 + day;
+					}
+					break;
+					case 11:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30  + 30 + 31 + day;
+					}
+					break;
+					default:{
+						dayResult.value = 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30  + 30 + 31 + 30 + day;
+					}
+					break;
+				}
+				
+				if(month > 2){
+					if(year % 400 ==0 ||(year % 4 == 0 && year % 100 != 0)){
+						dayResult.value = ++dayResult.value;
+					}else{
+						dayResult.value = dayResult.value;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

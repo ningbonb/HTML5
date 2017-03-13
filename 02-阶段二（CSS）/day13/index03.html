@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位问题</title>
+	<style>
+		div{ 
+			width: 100px; 
+			height: 100px;
+			background-color: red;
+			position: relative;
+			/*left和right同时出现，right失效*/
+			/*left: 50px;*/
+			/*right: 50px;*/
+
+			/*top和bottom同时出现，bottom失效*/
+			top: 50px;
+			bottom: 100px;
+
+			/*
+			优先级：
+			left>right
+			top>bottom
+			 */
+		}
+	</style>
+</head>
+<body>
+	<div>div1</div>
+</body>
+</html>

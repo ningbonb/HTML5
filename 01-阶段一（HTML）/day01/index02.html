@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Document</title>
+	<!-- base:基础标签 
+		href：给页面所有的相对路径规定默认的基准URL
+		target:a链接默认窗口模式，下面a链接会覆盖当前的设置
+	-->
+	<base href="">
+</head>
+<body>
+	<!-- h1-h6标题标签，文字的大小依次减小，在文档中的重要性也依次变小
+	标题一般只用一次
+	宽度独占一整行
+	 -->
+	<h1 style="background-color:red;">this is heading1</h1>
+	<h2 style="background-color:red;">this is heading2</h2>
+	<h3 style="background-color:red;">this is heading3</h3>
+	<h4 style="background-color:red;">this is heading4</h4>
+	<h5 style="background-color:red;">this is heading5</h5>
+	<h6 style="background-color:red;">this is heading6</h6>
+	<!--无h7标签 <h7>this is heading7</h7> -->
+
+	<!-- p标签，段落标签，宽度占据一整行
+	高度适应文本高度
+	 -->
+	<p style="background-color:green;">这是我的第一个段落文章，有点丑，因为没有样式</p>
+	<p style="background-color:green;" id="htmltext">超文本标记语言，标准通用标记语言下的一个应用。 “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。<br> 超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容。</p>
+
+	<!-- hr：水平分割线单标签，没有结束标签 -->
+	<hr>
+	
+	<!--br 换行标签，一般结合段落使用  -->
+	小明：--------------
+	<br>
+	小红：--------------
+	<br>
+	
+	<!--  qoute q 标签，引用标签，标签大小适应内容大小-->
+	<q style="background:red;">传道授业解惑也</q>
+	<q style="background:red;">传道授业解惑也</q>
+	<q style="background:red;">传道授业解惑也</q>
+
+	
+	<p>111</p>
+	<p>222</p>
+
+	<!-- 引用一大段话，自动缩进 -->
+	<blockquote style="background:green;">超文本标记语言，标准通用标记语言下的一个应用。 “超文本”就是指页面内可以包含图片、链接，甚至音乐、程序等非文字元素。超文本标记语言的结构包括“头”部分（英语：Head）、和“主体”部分（英语：Body），其中“头”部提供关于网页的信息，“主体”部分提供网页的具体内容</blockquote>
+
+
+	<!-- 告诉浏览器内部是代码,大小适应内容 -->
+	int a = 10; for(int i= 0;i&lt;10;i++)<br>
+	<code>
+		int a = 10; for(int i= 0;i&lt;10;i++)
+	</code>
+	<br>
+
+	for(int a =10; i &lt; 100; i++){
+		print("%d",i);
+	}
+	<br>
+
+	<!-- pre:预处理标签，告诉浏览器内容愿样式显示，保留空格换行等-->
+	<pre>
+		for(int a =10; i &lt; 100; i++){
+			print("%d",i);
+		}
+	</pre>
+
+	<!-- strong标签 强调加粗 
+		em标签：强调斜体
+	-->
+	<strong style="background-color:red;">强调加粗</strong>
+	<p>房贷还款双方都<strong>强调加粗</strong>会发生大火焚烧发电是否合适的</p>
+	<p>房贷还款双方都<em>强调唯一性</em>会发生大火焚烧发电是否合适的</p>
+
+	<!-- b：加粗 
+
+	-->
+	<p>房贷还款双方都<b>强调加粗</b>会发生大火焚烧发电是否合适的</p>
+	<!-- i: 倾斜 
+
+	-->
+	<p>房贷还款双方都<i>强调唯一性</i>会发生大火焚烧发电是否合适的</p>
+
+	<!-- 上标：sup 
+		下标：sub
+	-->
+	x<sup>2</sup> + y<sup>2</sup> - 1
+	<br>
+	x<sub>1</sub> + y<sub>1</sub> = 10
+	<br>
+
+	<!-- 
+	img:图片标签
+		src：图片路径 网络路径和本地路径
+		alt: 图片描述 图片加载失败显示
+	-->
+	<img src="http://img73.nipic.com/file/20160414/9252150_120745103583_1.jpg" alt="">
+	<br>
+
+	<!-- 
+	相对路径：./:从根目录到当前文件下，可以省略,同第一种写法
+	../返回上一级
+	 -->
+	<img src="img/img.jpg" alt="rose">
+	<img src="./img/img.jpg" alt="rose">
+	<br>
+	<img src="../img/img.jpg" alt="rose">
+	<br>
+	
+	<!-- a标签：超链接
+	href:跳转位置（网络链接，本地地址）
+	target:1._self:默认：当前窗口打开
+			2._blank：新的页面
+	 -->
+	<a href="http://www.baidu.com" 	target="_blank">百度</a>
+	<a href="index1.html" target="_blank">index1</a>
+
+	<!-- 返回顶部 -->
+	<a href="#">返回顶部</a>
+
+	<!-- 回到某个标签位置 -->
+	<a href="#htmltext">超文本标记语言</a>
+
+	<!-- 
+	列表：无序列表，有序列表，自定义列表
+	 -->
+	<!-- 无序 -->
+	<ul>
+		<li style="background-color:red;">H5</li>
+		<li>IOS</li>
+		<li>Android</li>
+	</ul>
+	<!-- 有序 -->
+	<ol style="background-color:red;">
+		<li>吃饭</li>
+		<li>睡觉</li>
+		<li>打豆豆</li>
+	</ol>
+	<!-- 自定义列表 -->
+	<dl>
+		<!-- 标题 -->
+		<dt style="background-color:red;">内容标题</dt>
+		<!-- 内容 -->
+		<dd style="background-color:green;">标题内容1</dd>
+		<dd>标题内容2</dd>
+		<dd>标题内容3</dd>
+		<!-- 标题 -->
+		<dt>内容标题</dt>
+		<!-- 内容 -->
+		<dd>标题内容1</dd>
+		<dd>标题内容2</dd>
+		<dd>标题内容3</dd>
+	</dl>
+
+
+	<!-- 总结
+		1.块元素：p pre ul ol li dl h1-h6等
+		{
+			特点：默认都占一行
+			支持设置宽高
+			高度自适应（自适应内容）
+			支持所有css样式
+
+		}
+		2.内嵌元素（行元素）：
+		{
+			特点：可以同行显示
+			内容撑开宽高
+			不支持宽高设置
+			有些css样式不支持（margin）
+		}
+	 -->
+</body>
+</html>

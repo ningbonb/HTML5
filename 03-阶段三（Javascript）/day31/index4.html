@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			//数组
+			var arr = [1,2,22,33,100];
+			console.log(arr,typeof arr);
+			
+			//下标0开始
+			console.log(arr[4]);
+			
+			//赋值
+			arr[1] = 20;
+			console.log(arr);
+			
+			//数组长度
+			console.log(arr.length);
+			
+			arr.name1 = '名字';
+			console.log(arr.name1);
+			
+			//只有对象类型才能添加属性或者方法，基本类型不可以，除非系统默认属性或者方法
+			var num = 100;
+			num.name1 = '名字1';
+			console.log(num.name1);//undefined
+			
+			var arr1 = [1,'名字2',10,30,true];
+			//遍历数组
+			for(var i = 0; i < arr1.length; i++){
+				console.log(arr1[i]);
+			}
+			
+			//随机20个数字[10,50]整数，存到数组
+			var arr = [];
+			for(var i = 0; i < 20; i++){
+				arr[i] = parseInt(Math.random() * 41 + 10);
+				console.log(i + "的值为" + arr[i])
+			}
+			
+			
+			//最小值
+			var min = arr[0];
+			var sum = 0, j = 0, k = 0;
+			var evens = [], odd = [];
+			for( var i = 0; i < arr.length; i++){
+				if(min > arr[i]){
+					min = arr[i];
+				}
+				sum += arr[i];
+				
+				if(arr[i] % 2 == 0){
+//					evens[evens.length] = arr[i];
+//					evens[j] = arr[i];
+//					j++;
+
+					evens.push(arr[i]);
+				}else{
+//					odd[k] = arr[i];
+//					k++;
+					
+					odd.push(arr[i]);
+				}
+			}
+			console.log("最小值为：" + min);
+			console.log("和为：" + sum);
+			console.log("偶数有：" + evens);
+			console.log("奇数有：" + odd);
+		</script>
+	</body>
+</html>

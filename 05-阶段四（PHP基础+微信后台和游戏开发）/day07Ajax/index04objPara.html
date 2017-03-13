@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：<input type="text" id="user"/><br>
+		密码：<input type="password" id="pass"/><br>
+		<input type="button" value="发送" id="login"/>
+	</body>
+</html>
+
+<script src="js/jquery-3.1.0.min.js"></script>
+<script src="js/Ajax4post.js"></script>
+<script>
+	$("#login").click(function(){
+		//login.php?time=  &userName=石头&password=123
+		var user = $("#user");
+		var pass = $("#pass");
+		
+		var urls = "loginGet.php";
+		var data = {
+			userName:user.val(),
+			passworld:pass.val()
+		}
+		//alert(urls);
+		/*
+		//发送请求
+		ajax(urls,data,function(responseTest){
+			alert(responseTest);
+		},function(status){
+			alert(status);
+		});
+		*/
+		
+		ajax({
+			//外层属性名Ajax内部需要使用
+			urls:"loginPOST.php",
+			type:"POST",
+			data:{
+				//userName?password:服务器需要使用
+				userName:user.val(),
+				passWord:pass.val()
+			},
+			success:function(responseTest){
+				alert(responseTest);
+			},
+			fail:function(status){
+				alert(status);
+			}
+		});
+		
+	});
+	
+	
+	
+</script>

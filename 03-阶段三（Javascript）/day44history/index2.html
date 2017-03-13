@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 2000px;
+			}
+			#scrollTo,#scrollBy{
+				position: fixed;
+				bottom: 20px;
+			}
+			#scrollBy{
+				right: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="scrollTo">scrollTo</button>
+		<button id="scrollBy">scrollBy</button>
+		<hr />
+		调整窗口大小
+		<button id="open1">打开一个新的窗口</button>
+		<button id="resizeTo">resizeTo</button>
+		<button id="resizeBy">resizeBy</button>
+	</body>
+	
+	<script>
+		/*
+		 控制窗口滚动
+		 scrollTo(x,y):滚动到指定位置
+		 scrollBy(x,y)：基于当前位置进行滚动
+		 
+		 * */
+		var posi = 100;
+		var scrollTo1 = document.getElementById("scrollTo");
+		scrollTo1.onclick = function(){
+			posi += 50;
+			window.scrollTo(0,posi);
+		};
+		
+		var scrollBy1 = document.getElementById("scrollBy");
+		scrollBy1.onclick = function(){
+			window.scrollBy(0,100);
+		};
+		
+		/*
+		 调整窗口大小
+		 resizeTo(宽度，高度)
+		 resizeBy(x,y):之前基础上增加或者减小
+		 * */
+		
+		var open1 = document.getElementById("open1");
+		var resizeTo1 = document.getElementById("resizeTo");
+		var resizeBy1 = document.getElementById("resizeBy");
+		var newW = null;
+		open1.onclick = function(){
+			newW = window.open('text.html','','width=300,height=300');
+		};
+		
+		resizeTo1.onclick = function(){
+			newW.resizeTo(100,100);
+		};
+		
+		resizeBy1.onclick = function(){
+			newW.resizeBy(20,20);
+		};
+		
+//		alert(111);
+
+//		var result = window.confirm('你是不是睡着了？');
+//		//console.log(result);
+//		if(result){
+//			console.log('没有睡着，在想问题');
+//		}else{
+//			console.log('也没有睡着，在沉思');
+//		}
+		
+		
+//		var result = window.prompt('你今天吃饭了吗','肯定没吃');
+//		if(result == null){
+//			console.log('没有回答');
+//		}else{
+//			console.log(result);
+//		}
+	</script>
+</html>

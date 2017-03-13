@@ -1,0 +1,257 @@
+.bimWrap{
+	width: 100%;
+}
+.bim1{
+	width: 100%;
+	background: url(../img/BIM-bg1.png) no-repeat;
+	background-size: 100% 100%;
+	color: #616161;
+	position: relative;
+}
+.bim2{
+	background: url(../img/BIM-bg2.png) no-repeat;
+}
+.bim3{
+	background: url(../img/BIM-bg3.png) no-repeat;
+}
+.bim4{
+	background: url(../img/BIM-bg4.png) no-repeat;
+}
+.bim5{
+	background: url(../img/BIM-bg5.png) no-repeat;
+}
+.bimContent1{
+	max-width: 960px;
+	box-sizing: border-box;
+	padding:0 3%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.bimConLeft{
+	float: left;
+	width: 55%;
+}
+.bimConLeft3{
+	float: right;
+}
+.bimConLeft{
+	margin-top: 12%;
+}
+.bimConLeft4{
+	float: left;
+	width: 29%;
+	margin-top: 8%;
+}
+.bimFont1{
+	font-size: 2rem;
+	font-weight: bold;
+	line-height: 3rem;
+}
+.bimFont1-3{
+	margin-top: 5%;
+}
+.bimFont1-4{
+	font-size: 1.75rem;
+}
+.numberBorder{
+	border: 1px solid #616161;
+	padding: .4% 1.2%;
+	border-radius: 15%;
+	margin-right: .7rem;
+}
+.bimFont2{
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+	width: 60%;
+}
+.bimFont2-4{
+	width: 100%;
+}
+.bimImgs{
+	width: 100%;
+	margin-top: 4%;
+	overflow: hidden;
+}
+.bimImgs img{
+	width: 25%;
+	float: left;
+}
+.bimImgs2 img{
+	width: 48%;
+}
+.bimImgs2 img:first-child{
+	margin-right: 3%;
+}
+.bimImgs4 img{
+	width: 65%;
+}
+.bimImgs4 img:first-child{
+	margin-bottom: 3%;
+}
+.bimConRight{
+	float: right;
+	width: 40%;
+	margin-top: 17%;
+	margin-right: -5%;
+}
+#bimConRight1{
+	margin-right: -5.2%;
+}
+#bimConRight5{
+	margin-right: -5.75%;
+}
+.bimConRight img{
+	width: 100%;
+}
+.bimConRight2{
+	float: right;
+	width: 40%;
+}
+.bimConRight2 img{
+	width: 100%;
+}
+.bimConRight3{
+	float: left;
+	margin-top: 17%;
+	margin-left: -10%;
+}
+.bimConRight4{
+	float: left;
+	margin-left: -5%;
+}
+@media only screen and (max-width: 870px) {
+	.bimConRight{
+		margin-top: 45%;
+	}
+	.bimConRight3{
+		margin-top: 45%;
+	}
+	.bimFont2{
+		width: 100%;
+		margin: 5% 0;
+	}
+	.bimFont1-4{
+		width: 100%;
+	}
+	.bimFont2-4{
+		width: 100%;
+	}
+	.bimConLeft{
+		margin-top: 20%;
+	}
+	.bimConLeft4{
+		width: 60%;
+		left: 0;
+		right: 0;
+		margin: 20% auto;
+		position: absolute;
+	}
+	.bimConLeft5{
+		margin-top: 3%;
+	}
+	.bimImgs img{
+		width: 25%;
+	}
+	.bimImgs4 img{
+		width: 55%;
+	}
+	.bimImgs2 img{
+		width: 45%;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.bimConRight{
+		margin-top: 55%;
+	}
+	.bimConRight3{
+		margin-top: 55%;
+	}
+}
+@media only screen and (max-width: 650px) {
+	html{
+		font-size: 11px;
+	}
+	.bimConRight{
+		margin-top: 65%;
+	}
+	.bimConRight3{
+		margin-top: 65%;
+	}
+	.bimFont2{
+		margin: 10% 0;
+	}
+	.bimConLeft{
+		position: absolute;
+		width: 80%;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		margin-top: 30%;
+	}
+	.bimConLeft4{
+		position: absolute;
+	}
+	.bimConLeft5{
+		margin-top: 5%;
+	}
+	.bimImgs img{
+		width: 20%;
+	}
+	.bimImgs4 img{
+		width: 55%;
+	}
+	.bimImgs2 img{
+		width: 45%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.bimConRight{
+		margin-top: 85%;
+	}
+	.bimConRight3{
+		margin-top: 85%;
+	}
+}
+@media only screen and (max-width: 490px) {
+	.bimConRight{
+		margin-top: 95%;
+	}
+	.bimConRight3{
+		margin-top: 95%;
+	}
+}
+@media only screen and (max-width: 450px) {
+	.bimConRight{
+		margin-top: 105%;
+	}
+	.bimConRight3{
+		margin-top: 105%;
+	}
+}
+@media only screen and (max-width: 425px) {
+	.bimConRight{
+		margin-top: 125%;
+	}
+	.bimConRight3{
+		margin-top: 125%;
+	}
+}
+@media only screen and (max-width: 380px) {
+	.bimConRight{
+		margin-top: 165%;
+	}
+	.bimConRight3{
+		margin-top: 165%;
+	}
+	.bimImgs img{
+		width: 33%;
+	}
+	.bimImgs4 img{
+		margin: 5% 8%;
+		width: 80%;
+	}
+	.bimImgs2 img{
+		margin: 5% 8%;
+		width: 80%;
+	}
+}

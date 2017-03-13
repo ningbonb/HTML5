@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>em</title>
+		<!--em: 设置字体，替换px单位
+			em值不是固定的
+			em继承父元素字体大小，2em,元素字体大小的2倍
+		-->
+		<style>
+			*{
+				padding: 0px;
+				margin: 0px;
+			}
+			body{
+				font-size: 10px;
+			}
+			.em2{
+				font-size: 2em;
+			}
+			.em2 p{
+				font-size: 2em;
+			}
+			.font{
+				font-size: 10px;
+			}
+			.font p{
+				font-size: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		我是body下的正常字体
+		<div class="em2">我是div下字体</div>
+		
+		<div class="em2">
+			<p>我是p下的2em字体</p>
+		</div>
+		<div class="font">
+			div下文字
+			<p>我是font下的字体</p>
+		</div>
+	</body>
+</html>

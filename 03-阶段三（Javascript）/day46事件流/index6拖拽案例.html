@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 100px;
+				top: 200px;
+				border-radius: 50%;
+				box-shadow: 0 0 2px 3px red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script type="text/javascript">
+		var div1 = document.getElementById('div1');
+		
+		//鼠标按下
+		div1.onmousedown = function(ev){
+			console.log('鼠标按下了');
+			var ev = ev || event;
+			
+			//获取鼠标距离元素左边和上边的距离
+			//方式1:火狐旧版本不兼容
+			//var offsetX = ev.offsetX;
+			//var offsetY = ev.offsetY;
+			//方式2
+			var offsetX = ev.clientX - this.offsetLeft;
+			var offsetY = ev.clientY - this.offsetTop;
+			
+			document.onmousemove = function(ev){
+				
+				var ev = ev || event;
+				console.log(ev.clientX,ev.clientY);
+				
+				div1.style.left = ev.clientX - offsetX + 'px';
+				div1.style.top = ev.clientY - offsetY + 'px';
+			};
+			
+			//鼠标抬起，取消移动事件
+			document.onmouseup = function(){
+				document.onmouseup = document.onmousemove = null;
+			};
+			
+			return false;
+		};
+		
+		/*
+		 三步：
+		 1.元素onmousedown
+		 2.document.onmousemove
+		 3.documnet.onmouseup
+		 * */
+	</script>
+</html>

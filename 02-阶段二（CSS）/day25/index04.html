@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>阿里妈妈字体</title>
+		<style>
+		/*CDN网络路径*/
+			
+			@font-face {
+				font-family: 'webfont';
+				src: url('//at.alicdn.com/t/io2q0fhhc348to6r.eot');
+				/* IE9*/
+				src: url('//at.alicdn.com/t/io2q0fhhc348to6r.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+				url('//at.alicdn.com/t/io2q0fhhc348to6r.woff') format('woff'), /* chrome、firefox */
+				url('//at.alicdn.com/t/io2q0fhhc348to6r.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url('//at.alicdn.com/t/io2q0fhhc348to6r.svg#NotoSansHans-Black') format('svg');
+				/* iOS 4.1- */
+			}
+			/*本地路径*/
+			
+			/*
+			 * format:指定字体格式，帮助浏览器识别
+			 * 
+			 * 第一个src：兼容ie9下的兼容模式（可以省略他）
+			 * 下一个eot格式
+			 * 。eto?#iefix: #iefix注释作用，让ie浏览器明白?前面是减少服务器请求次数 IE6-8可以识别参数。。ie9兼容模式无法识别，所以第一个src单独写，兼容ie9兼容模式
+			 * 
+			 */
+			@font-face {
+				font-family: 'webfontNew';
+				/*兼容ie9*/
+				src: url(webfont1/webfont.eot);
+				/* IE9*/
+				src: url(webfont1/webfont.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+				url(webfont1/webfont.woff) format('woff'), /* chrome、firefox */
+				url(webfont1/webfont.ttf) format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+				url(webfont1/webfont.svg#webfont) format('svg');
+				/* iOS 4.1- */
+			}
+		p {
+			font-family: webfontNew;
+			font-size: 50px;
+		}
+		</style>
+	</head>
+
+	<body>
+		<p>哈哈哈哈这一分钟，你和我在一起，因为你，我会记得那一分钟。从现在开始，我们就是一分钟的朋友。这是事实，你改变不了，因为已经完成了。</p>
+
+	</body>
+
+</html>

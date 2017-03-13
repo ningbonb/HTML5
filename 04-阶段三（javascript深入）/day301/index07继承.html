@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>继承</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		function Person(name,age,job){
+			this.name = name;
+			this.age = age;
+			this.job = job;
+		}
+		Person.prototype.getName = function(){
+			return this.name;
+		};
+		
+		//学生继承Person
+		function Student(name,age,job,hobby){
+			this.hobby = hobby;
+			//其他三个属性继承Person
+			
+			//方式1：call() 
+			//call:完成继承，调用Person(),修改它的this为当前Student对象，让学生对象拥有name,age,job三个属性
+			//call():参数1：指定的this对象，后面参数和Person相同
+			//Person.call(this,name,age,job);
+			
+			//方式2：apply:功能同上。参数1：指定的this对象，参数2：数组值：Person函数的参数列表
+			//Person.apply(this,[name,age,job]);
+			//arguments:参数列表，类似数组
+			console.log(arguments);
+			Person.apply(this,arguments);
+		}
+		
+		//原型继承
+		Student.prototype = Person.prototype;
+		//上面原型赋值，Student.constructor变成了Person
+		Student.prototype.constructor = Student;
+		
+		var stu1 = new Student("毛毛",18,"学生","喝酒");
+		console.log(stu1.name,stu1.age);
+		
+		//使用父类原型方法
+		console.log(stu1.getName());
+		
+		console.log(Student.prototype);
+		
+		//问题：父子使用同一个原型对象，修改子元素的原型，会影响父元素的原型
+		//Student.prototype.getName = null;
+		Person.prototype.getName();
+		
+	</script>
+</html>

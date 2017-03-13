@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>碰壁检测</title>
+		
+		<style>
+			.box{
+				width: 800px;
+				height: 500px;
+				border: 2px solid green;
+				position: relative;
+			}
+			#ball{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: red;
+				/*transition: all 4s;*/
+				position: absolute;
+			}
+			.box div{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="ball"></div>
+			
+			<div id="ball2"></div>
+			<div id="ball3"></div>
+			<div id="ball4"></div>
+		</div>
+		
+		<script>
+			var ball = document.getElementById("ball");
+			var ball2 = document.getElementById("ball2");
+			var ball3 = document.getElementById("ball3");
+			var ball4 = document.getElementById("ball4");
+			
+			var box = document.querySelector(".box");
+
+//			var x = 0;
+//			var speedX = 1;
+//			
+//			var y = 0;
+//			var speedY = 2;
+			
+			moveTouch(ball,'left',0,2,750);
+			moveTouch(ball,'top',0,2,450);
+			
+			moveTouch(ball2,'left',0,3,750);
+			moveTouch(ball2,'top',0,2,450);
+			
+			moveTouch(ball3,'left',0,4,750);
+			moveTouch(ball3,'top',0,2,450);
+			
+			moveTouch(ball4,'left',0,5,750);
+			moveTouch(ball4,'top',0,2,450);
+			
+			var timer;
+			function moveTouch(obj,direction,positionBe,speed,maxSpace){
+				clearInterval(timer);
+				time = setInterval(function(){
+					positionBe += speed;
+					obj.style[direction] = positionBe + 'px';
+					
+					//碰到壁
+					if(positionBe >= maxSpace){
+						//回去
+						speed *= -1;
+					}else if(positionBe <= 0){
+						speed *= -1;
+					}
+				},16);
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工厂模式</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		function createPerson(name,age,job){
+			var person = new Object();
+			person.name = name;
+			person.age = age;
+			person.job = job;
+			person.getName = function(){
+				return "我叫" + this.name;
+			};
+			
+			return person;
+		}
+		var person = createPerson("石头","20","学生");
+		console.log(person.name);
+		console.log(person.getName());
+		
+		var person2 = createPerson("毛毛","20","学生");
+		console.log(person2.name);
+		console.log(person2.getName());
+		
+		//缺点：无法识别对象类型，全都是通过构造方法new Object
+		
+		//判断对象是不是属于某一个类型
+		console.log(person instanceof Object);//true
+		console.log(person2 instanceof Object);//true
+	</script>
+</html>

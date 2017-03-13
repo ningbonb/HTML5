@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>rem</title>
+		<style>
+			html{
+				font-size: 30px;
+			}
+			div{
+				font-size: 2rem;
+			}
+			p{
+				font-size: 1.3rem;
+			}
+			
+			/*rem: root em root(html)
+			 * 大小由html字体决定
+			 */
+			
+			.text{
+				background: red;
+				/*作为宽高单位 最小识别的字体大小：12px
+				 * 字体单位： 没有限制
+				 */
+				height: 3rem;
+			}
+			/*屏幕小于500px的时候的样式*/
+			@media screen and (max-width: 300px) {
+				html{
+					font-size: 12px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		正常文字
+		<div>我是div文字</div>
+		<div>
+			<p>我是div下的p</p>
+			<div>
+				<p>顶顶顶顶顶顶</p>
+			</div>
+		</div>
+		<div class="text"></div>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>居中问题</title>
+	<style>
+		.box{
+			height: 300px;
+			width: 300px;
+			background-color: red;
+			position: relative;
+			/*解决子元素margin-top作用父级*/
+			overflow: hidden;
+		}
+		.center{
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			/*常用：子元素绝对定位，父元素相对定位*/
+			position: absolute;
+			/*position: relative;*/
+			/*必须知道自身的宽高*/
+			left: 50%;
+			margin-left: -50px;
+			top: 50%;
+			margin-top: -50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="center"></div>
+	</div>
+</body>
+</html>

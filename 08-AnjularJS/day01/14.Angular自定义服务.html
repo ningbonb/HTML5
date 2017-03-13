@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-controller="mainC">
+    <div ng-controller="c1">
+        {{name}}
+        <p>{{localhost}}</p>
+    </div>
+    <div ng-controller="c2">
+        {{name}}
+        <p>{{localhost}}</p>
+    </div>
+</body>
+</html>
+<script>
+    var app = angular.module("myApp",[]);
+    //方式1：value() 定义小的指令
+    app.value("name","value自定义服务");
+    app.value("name","value自定义服务22");
+    //方式2:不能修改，一般定义常量
+    app.constant("localhost","http//:www.baidu.com");
+    app.constant("localhost","http//:www.baidu2.com");
+
+    app.controller("mainC",function($scope,name){
+
+    });
+    app.controller("c1",function($scope,name,localhost){
+        $scope.name = name;
+        $scope.localhost = localhost;
+    });
+    app.controller("c2",function($scope,name,localhost){
+        $scope.name = name;
+        $scope.localhost = localhost;
+    });
+</script>

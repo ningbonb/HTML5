@@ -1,0 +1,786 @@
+<!doctype html>
+<html class="export">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Cascading grid layout library">
+
+  <title>Masonry &#xB7; Options</title>
+
+    <link rel="stylesheet" href="css/masonry-docs.css" media="screen">
+
+</head>
+<body class="page--options" data-page="options">
+
+  <div class="site-nav">
+    <div class="container">
+      <ol class="site-nav__list">
+        <li class="site-nav__item site-nav__item--homepage">
+          <a href=".">Masonry</a></li>
+        <li class="site-nav__item site-nav__item--layout">
+          <a href="layout.html">Layout</a></li>
+        <li class="site-nav__item site-nav__item--options">
+          <a href="options.html">Options</a></li>
+        <li class="site-nav__item site-nav__item--methods">
+          <a href="methods.html">Methods</a></li>
+        <li class="site-nav__item site-nav__item--events">
+          <a href="events.html">Events</a></li>
+        <li class="site-nav__item site-nav__item--extras">
+          <a href="extras.html">Extras</a></li>
+        <li class="site-nav__item site-nav__item--faq">
+          <a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+
+  <div id="content" class="content container">
+
+      <h1>Options</h1>
+
+    <ul class="page-nav">
+<li class="page-nav__item page-nav__item--h2"><a href="#recommended">Recommended</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#itemselector">itemSelector</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#columnwidth">columnWidth</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#layout">Layout</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#element-sizing">Element sizing</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#gutter">gutter</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#percentposition">percentPosition</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#stamp">stamp</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#fitwidth">fitWidth</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#originleft">originLeft</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#origintop">originTop</a></li>
+<li class="page-nav__item page-nav__item--h2"><a href="#setup">Setup</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#containerstyle">containerStyle</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#transitionduration">transitionDuration</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#stagger">stagger</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#resize">resize</a></li>
+<li class="page-nav__item page-nav__item--h3"><a href="#initlayout">initLayout</a></li>
+</ul>
+
+
+<p>All options are optional, but <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#itemselector"><code>itemSelector</code></a> are recommended.</p>
+
+<pre><code class="js"><span class="comment">// jQuery</span>
+$(<span class="string">&apos;.grid&apos;</span>).masonry({
+  columnWidth: <span class="number">200</span>,
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>
+});
+</code></pre>
+
+<pre><code class="js"><span class="comment">// vanilla JS</span>
+<span class="keyword">var</span> <span class="masonry_var">msnry</span> = <span class="keyword">new</span> <span class="masonry_keyword">Masonry</span>( <span class="string">&apos;.grid&apos;</span>, {
+  columnWidth: <span class="number">200</span>,
+  itemSelector: <span class="string">&apos;.grid-item&apos;</span>
+});
+</code></pre>
+
+<pre><code class="html"><span class="comment">&lt;!-- in HTML --&gt;</span>
+<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span> <span class="attr">data-masonry</span>=<span class="string">&apos;{ &quot;columnWidth&quot;: 200, &quot;itemSelector&quot;: &quot;.grid-item&quot; }&apos;</span>&gt;</span>
+</code></pre>
+
+
+<h2 id="recommended">Recommended</h2>
+
+
+<h3 id="itemselector">itemSelector</h3>
+
+<p>Specifies which child elements will be used as item elements in the layout.</p>
+
+<p>We recommend always setting <code>itemSelector</code>. <code>itemSelector</code> is useful to exclude <a href="#element-sizing">sizing elements</a> or other elements that are not part of the layout.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">itemSelector: <span class="string">&apos;.grid-item&apos;</span>
+</code></pre>
+
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- do not use banner in Masonry layout --&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;static-banner&quot;</span>&gt;</span>Static banner<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-banner" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: 80 }">
+      <div class="static-banner">Static banner</div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/Jdbzvx">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="columnwidth">columnWidth</h3>
+
+<p>Aligns items to a horizontal grid.</p>
+
+<div class="call-out">
+  <p>We recommend setting <code>columnWidth</code>. If <code>columnWidth</code> is not set, Masonry will use the outer width of the first item.</p>
+</div>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">columnWidth: <span class="number">80</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid" data-masonry="{ &quot;columnWidth&quot;: 80 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/osFxj">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>Use <a href="../options.html#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>columnWidth</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element for the size of the column.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- .grid-sizer empty element, only used for element sizing --&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 5 columns */</span>
+<span class="selector-class">.grid-sizer</span>,
+<span class="selector-class">.grid-item</span> { <span class="attribute">width</span>: <span class="number">20%</span>; }
+<span class="comment">/* 2 columns wide */</span>
+<span class="selector-class">.grid-item--width2</span> { <span class="attribute">width</span>: <span class="number">40%</span>; }
+</code></pre>
+
+<pre><code class="js"><span class="comment">// use outer width of grid-sizer for columnWidth</span>
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;,  &quot;percentPosition&quot;: true }">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/JFpeg">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h2 id="layout">Layout</h2>
+
+
+<h3 id="element-sizing">Element sizing</h3>
+
+<p>Sizing options <a href="#columnwidth"><code>columnWidth</code></a> and <a href="#gutter"><code>gutter</code></a> can be set with an element. The size of the element is then used as the value of the option.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="comment">&lt;!-- .grid-sizer empty element, only used for element sizing --&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 5 columns */</span>
+<span class="selector-class">.grid-sizer</span>,
+<span class="selector-class">.grid-item</span> { <span class="attribute">width</span>: <span class="number">20%</span>; }
+<span class="comment">/* 2 columns wide */</span>
+<span class="selector-class">.grid-item--width2</span> { <span class="attribute">width</span>: <span class="number">40%</span>; }
+</code></pre>
+
+<pre><code class="js"><span class="comment">// use outer width of grid-sizer for columnWidth</span>
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+<span class="comment">// do not use .grid-sizer in layout</span>
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;,  &quot;percentPosition&quot;: true }">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/JFpeg">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>The option can be set to a Selector <i>String</i> or an <i>Element</i>.</p>
+
+<pre><code class="js"><span class="comment">// set to a selector string</span>
+<span class="comment">// first matching element within container element will be used</span>
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>
+
+<span class="comment">// set to an element</span>
+columnWidth: <span class="jquery_var">$grid</span>.find(<span class="string">&apos;.grid-sizer&apos;</span>)[<span class="number">0</span>]
+</code></pre>
+
+<p>Element sizing options allow you to control the sizing of the Masonry layout within your CSS. This is useful for responsive layouts and media queries.</p>
+
+<pre><code class="css"><span class="comment">/* 3 columns by default */</span>
+<span class="selector-class">.grid-sizer</span> { <span class="attribute">width</span>: <span class="number">33.333%</span>; }
+
+@<span class="keyword">media</span> screen and (min-width: <span class="number">768px</span>) {
+  <span class="comment">/* 5 columns for larger screens */</span>
+  <span class="selector-class">.grid-sizer</span> { <span class="attribute">width</span>: <span class="number">20%</span>; }
+}
+</code></pre>
+
+
+<h3 id="gutter">gutter</h3>
+
+<p>Adds horizontal space between item elements.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">gutter: <span class="number">10</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--gutter" data-masonry="{ &quot;gutter&quot;: 10 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/iIbgC">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>To set vertical space between elements, use <code>margin</code> CSS.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">gutter: <span class="number">10</span>
+</code></pre>
+
+<pre><code class="css"><span class="selector-class">.grid-item</span> {
+  <span class="attribute">margin-bottom</span>: <span class="number">10px</span>;
+}
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--gutter grid--gutter-bottom" data-masonry="{ &quot;gutter&quot;: 10 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/gbnko">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+<p>Use <a href="#element-sizing">element sizing</a> for responsive layouts with percentage widths. Set <code>gutter</code> to an <i>Element</i> or Selector <i>String</i> to use the outer width of the element.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;gutter-sizer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item grid-item--width2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="css"><span class="selector-class">.grid-sizer</span>,
+<span class="selector-class">.grid-item</span> { <span class="attribute">width</span>: <span class="number">22%</span>; }
+
+<span class="selector-class">.gutter-sizer</span> { <span class="attribute">width</span>: <span class="number">4%</span>; }
+
+<span class="selector-class">.grid-item--width2</span> { <span class="attribute">width</span>: <span class="number">48%</span>; }
+</code></pre>
+
+<pre><code class="js">columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+gutter: <span class="string">&apos;.gutter-sizer&apos;</span>,
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+percentPosition: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-gutter" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;, &quot;gutter&quot;: &quot;.gutter-sizer&quot;, &quot;percentPosition&quot;: true }">
+      <div class="gutter-sizer"></div>
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/BAJKn">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="percentposition">percentPosition</h3>
+
+<p>Sets item positions in percent values, rather than pixel values. <code>percentPosition: <span class="literal">true</span></code> works well with percent-width items, as items will not transition their position on resize.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="comment">// set positions with percent values</span>
+percentPosition: <span class="literal">true</span>,
+columnWidth: <span class="string">&apos;.grid-sizer&apos;</span>,
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* fluid 5 columns */</span>
+<span class="selector-class">.grid-sizer</span>,
+<span class="selector-class">.grid-item</span> { <span class="attribute">width</span>: <span class="number">20%</span>; }
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fluid-5-col" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;columnWidth&quot;: &quot;.grid-sizer&quot;,  &quot;percentPosition&quot;: true }">
+      <div class="grid-sizer"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/JFpeg">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="stamp">stamp</h3>
+
+<p>Specifies which elements are <em>stamped</em> within the layout. Masonry will layout items below stamped elements.</p>
+
+<p>The <code>stamp</code> option stamps elements only when the Masonry instance is first initialized. You can stamp additional elements afterwards with the <a href="methods.html#stamp"><code>stamp</code> method</a>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="html"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;stamp stamp1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;stamp stamp2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid-item&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+  ....
+<span class="tag">&lt;/<span class="name">div</span>&gt;</span>
+</code></pre>
+
+<pre><code class="js"><span class="comment">// specify itemSelector so stamps do get laid out</span>
+itemSelector: <span class="string">&apos;.grid-item&apos;</span>,
+<span class="comment">// stamp elements</span>
+stamp: <span class="string">&apos;.stamp&apos;</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* position stamp elements with CSS */</span>
+<span class="selector-class">.stamp</span> {
+  <span class="attribute">position</span>: absolute;
+  <span class="attribute">background</span>: orange;
+  <span class="attribute">border</span>: <span class="number">4px</span> dotted black;
+}
+<span class="selector-class">.stamp1</span> {
+  <span class="attribute">left</span>: <span class="number">30%</span>;
+  <span class="attribute">top</span>: <span class="number">10px</span>;
+  <span class="attribute">width</span>: <span class="number">20%</span>;
+  <span class="attribute">height</span>: <span class="number">100px</span>;
+}
+<span class="selector-class">.stamp2</span> {
+  <span class="attribute">right</span>: <span class="number">10%</span>;
+  <span class="attribute">top</span>: <span class="number">20px</span>;
+  <span class="attribute">width</span>: <span class="number">70%</span>;
+  <span class="attribute">height</span>: <span class="number">30px</span>;
+}
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--has-stamp" data-masonry="{ &quot;itemSelector&quot;: &quot;.grid-item&quot;, &quot;stamp&quot;: &quot;.stamp&quot; }">
+      <div class="stamp stamp--static-stamp1"></div>
+      <div class="stamp stamp--static-stamp2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/hsine">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="fitwidth">fitWidth</h3>
+
+<p>Sets the width of the container to fit the available number of columns, based the size of container&apos;s parent element. When enabled, you can center the container with CSS.</p>
+
+<p><code>fitWidth</code> was previously <code>isFitWidth</code> in Masonry v3. <code>isFitWidth</code> will still work in Masonry v4.</p>
+
+<div class="call-out">
+  <p><code>fitWidth: <span class="literal">true</span></code> does not work with <a href="#element-sizing">element sizing</a> with percentage width. Either <code>columnWidth</code> needs to be set to a fixed size, like <code>columnWidth: 120</code>, or items need to have a fixed size in pixels, like <code>width: 120px</code>. Otherwise, the container and item widths will collapse on one another.</p>
+</div>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">fitWidth: <span class="literal">true</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* center container with CSS */</span>
+<span class="selector-class">.grid</span> {
+  <span class="attribute">margin</span>: <span class="number">0</span> auto;
+}
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo example__demo--fit-width">
+    <div class="grid grid--centered" data-masonry="{ &quot;fitWidth&quot;: true }">
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height2"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/nGLvx">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="originleft">originLeft</h3>
+
+<p>Controls the horizontal flow of the layout. By default, item elements start positioning at the left, with <code><span class="comment">originLeft: true</span></code>. Set <code>originLeft: <span class="literal">false</span></code> for right-to-left layouts.</p>
+
+<p><code>originLeft</code> was previously <code>isOriginLeft</code> in Masonry v3. <code>isOriginLeft</code> will still work in Masonry v4.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">originLeft: <span class="literal">false</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting" data-masonry="{ &quot;originLeft&quot;: false, &quot;columnWidth&quot;: 80 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/adwgL">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="origintop">originTop</h3>
+
+<p>Controls the vertical flow of the layout. By default, item elements start positioning at the top, with <code><span class="comment">originTop: true</span></code>. Set <code>originTop: <span class="literal">false</span></code> for bottom-up layouts. It&#x2019;s like Tetris!</p>
+
+<p><code>originTop</code> was previously <code>isOriginTop</code> in Masonry v3. <code>isOriginTop</code> will still work in Masonry v4.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">originTop: <span class="literal">false</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--counting" data-masonry="{ &quot;originTop&quot;: false, &quot;columnWidth&quot;: 80 }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/uwtLs">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h2 id="setup">Setup</h2>
+
+
+<h3 id="containerstyle">containerStyle</h3>
+
+<p>CSS styles that are applied to the container element.</p>
+
+<pre><code class="js"><span class="comment">// default</span>
+<span class="comment">// containerStyle: { position: &apos;relative&apos; }</span>
+
+<span class="comment">// disable any styles being set on container</span>
+<span class="comment">// useful if using absolute position on container</span>
+containerStyle: <span class="literal">null</span>
+</code></pre>
+
+
+<h3 id="transitionduration">transitionDuration</h3>
+
+<p>Duration of the transition when items change position or appearance, set in a CSS time format. Default: <code><span class="comment">transitionDuration: &apos;0.4s&apos;</span></code></p>
+
+<pre><code class="js"><span class="comment">// fast transitions</span>
+transitionDuration: <span class="string">&apos;0.2s&apos;</span>
+
+<span class="comment">// slow transitions</span>
+transitionDuration: <span class="string">&apos;0.8s&apos;</span>
+
+<span class="comment">// no transitions</span>
+transitionDuration: <span class="number">0</span>
+</code></pre>
+
+
+<h3 id="stagger">stagger</h3>
+
+<p>Staggers item transitions, so items transition incrementally after one another. Set as a CSS time format, <code><span class="string">&apos;0.03s&apos;</span></code>, or as a number in milliseconds, <code><span class="number">30</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">stagger: <span class="number">30</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo" data-js-module="stagger">
+    <p class="instruction">Click item to toggle size</p>
+  
+    <div class="grid grid--clickable">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item"></div>
+    </div>
+  
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/rLdLdB">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/oLqLqW">vanilla JS demo</a> on CodePen
+    </p>
+  </div>
+</div>
+
+
+<h3 id="resize">resize</h3>
+
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">resize: true</span></code>.</p>
+
+<p><code>resize</code> was previously <code>isResizeBound</code> in Masonry v3. <code>isResizeBound</code> will still work in Masonry v4.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="comment">// disable window resize behavior</span>
+resize: <span class="literal">false</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* grid has fixed width */</span>
+<span class="selector-class">.grid</span> {
+  <span class="attribute">width</span>: <span class="number">320px</span>;
+}
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="grid grid--fixed-width" data-masonry="{ &quot;columnWidth&quot;: 80, &quot;resize&quot;: false }">
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+      <div class="grid-item grid-item--width2"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item grid-item--width2 grid-item--height3"></div>
+      <div class="grid-item grid-item--height2"></div>
+    </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/doOLoo">Edit this demo on CodePen</a>
+    </p>
+  </div>
+</div>
+
+
+<h3 id="initlayout">initLayout</h3>
+
+<p>Enables layout on initialization.
+  Enabled by default <code><span class="comment">initLayout: true</span></code>.</p>
+
+<p>Set <code>initLayout: <span class="literal">false</span></code> to disable layout on initialization, so you can use <a href="methods.html">methods</a> or add <a href="events.html">events</a> before the initial layout.</p>
+
+<p><code>initLayout</code> was previously <code>isInitLayout</code> in Masonry v3. <code>isInitLayout</code> will still work in Masonry v4.</p>
+
+<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$grid</span> = $(<span class="string">&apos;.grid&apos;</span>).masonry({
+  <span class="comment">// disable initial layout</span>
+  initLayout: <span class="literal">false</span>,
+  <span class="comment">//...</span>
+});
+<span class="comment">// bind event</span>
+<span class="jquery_var">$grid</span>.masonry( <span class="string">&apos;on&apos;</span>, <span class="string">&apos;layoutComplete&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
+  <span class="built_in">console</span>.log(<span class="string">&apos;layout is complete&apos;</span>);
+});
+<span class="comment">// trigger initial layout</span>
+<span class="jquery_var">$grid</span>.masonry();
+</code></pre>
+
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/zrdVbg">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/QyMXPB">vanilla JS demo</a> on CodePen
+</p>
+
+
+  </div>
+
+  <div class="site-nav">
+    <div class="container">
+      <ol class="site-nav__list">
+        <li class="site-nav__item site-nav__item--homepage">
+          <a href=".">Masonry</a></li>
+        <li class="site-nav__item site-nav__item--layout">
+          <a href="layout.html">Layout</a></li>
+        <li class="site-nav__item site-nav__item--options">
+          <a href="options.html">Options</a></li>
+        <li class="site-nav__item site-nav__item--methods">
+          <a href="methods.html">Methods</a></li>
+        <li class="site-nav__item site-nav__item--events">
+          <a href="events.html">Events</a></li>
+        <li class="site-nav__item site-nav__item--extras">
+          <a href="extras.html">Extras</a></li>
+        <li class="site-nav__item site-nav__item--faq">
+          <a href="faq.html">FAQ</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="site-footer">
+  
+    <div class="container">
+        <p class="site-footer__copy">
+          Masonry is made by <a href="http://desandro.com">David DeSandro</a>.
+          Make something rad with it.
+        </p>
+  
+  
+    </div>
+  
+  </div>
+
+  <script src="js/masonry-docs.min.js"></script>
+
+
+</body>
+</html>
