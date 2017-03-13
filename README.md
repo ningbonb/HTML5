@@ -32,7 +32,7 @@ ZeptoJS入门（[点此查看][zepto]）
 Anjular入门（[点此查看][angular]）
 
 ## createJS学习
-ZeptoJS入门及深入学习（[点此查看][create]）
+createJS入门及深入学习（[点此查看][create]）
 
 ## PostCSS学习
 PostCSS入门，PostCSS-Comn使用与配置（[点此查看][postcss]）
