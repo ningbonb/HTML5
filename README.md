@@ -8,10 +8,20 @@ HTML以及HTML5系统全面的学习
 CSS以及CSS3系统全面的学习
 
 ## 阶段三
-JavaScript和jQuery系统全面的学习
+JavaScript基础到深入学习
 
 ## 阶段四
-PHP基础学习和微信后台开发、微信游戏开发
+jQuery基础到深入学习
+
+## 阶段五
+Canvas系统全面学习，实现微信打飞机
+
+## 阶段六
+PHP基础学习、微信后台开发、微信游戏开发
+
+
+----------
+
 
 # 进阶
 
@@ -34,5 +44,5 @@ Web建站常用网站：[点击此处][website]
 [website]:./10-website/README.md
 [postcss]:https://github.com/NalvyBoo/PostCSS-Comn
 [create]:https://github.com/NalvyBoo/createJS
-[zepto]:https://github.com/NalvyBoo/HTML5/tree/master/ZeptoJS
-[angular]:https://github.com/NalvyBoo/HTML5/tree/master/AnjularJS
+[zepto]:https://github.com/NalvyBoo/HTML5/tree/master/07-ZeptoJS
+[angular]:https://github.com/NalvyBoo/HTML5/tree/master/08-AnjularJS

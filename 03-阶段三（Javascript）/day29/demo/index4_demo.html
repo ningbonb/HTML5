@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 
+			1.输入行李重量, 计算价格. 铁路托运行李规定：行李重不超过50公斤的，托运费按0.15元每公斤计算，如果超过50公斤，超出部分每公斤加收0.1元。
+			*/
+			function aaa () {
+				var weight = +document.getElementById("weight").value;
+				
+				var price = 0;
+				if (weight <= 50) {
+					price = weight * 0.15;
+				} else{
+					price = 50 * 0.15 + (weight - 50) * 0.25;
+				}
+				
+				console.log(price);
+			}
+			
+			/*
+			2.函数：x<1的时候，y = x；1<=x<10的时候，y=2x-1；x>=10的时候，y=3x-11。写一段程序，输入x，输出y值。
+			*/
+			function bbb () {
+				var x = +document.getElementById("x").value;
+				var y = 0;
+				if (x < 1) {
+					y = x;
+				} else if (x < 10) {
+					y = 2 * x - 1;
+				} else {
+					y = 3 * x - 11;
+				}
+				console.log(y);
+			}
+						
+			/*
+			3.打印1-100的数，并求1-100之和，奇数之和，偶数之和。
+			*/
+			function ccc () {
+				var sum = 0;//1-100的和
+				var oddSum = 0;//奇数和
+				var evenSum = 0;//偶数和
+				for (var i = 1; i <= 100; i++) {
+					sum += i;
+					
+					if (i % 2 == 0) {
+						evenSum += i;
+					} else{
+						oddSum += i;
+					}
+				}
+				console.log(sum, oddSum, evenSum);
+				
+			}
+			
+			/*
+			4.编程将所有“水仙花数”打印出来，并打印其总个数。 “水仙花数”是一个各个位立方之和等于该整数的三位数(个位数立方 + 十位数立方 + 百位数立方 = 这个整数)。
+			*/
+			
+			//方法1
+			/*
+			for (var i = 1; i <= 9; i++) {//百位
+				for (var j = 0; j <= 9; j++) {//十位
+					for (var k = 0; k <= 9; k++) {//个位
+						if (i * i * i + j * j * j + k * k * k == i * 100 + j * 10 + k) {
+							console.log(i * 100 + j * 10 + k);
+						}
+					}
+				}
+			}
+			*/
+			
+			
+			//水仙花方法2
+			var count = 0;
+			
+			for (var i = 100; i <= 999; i++) {
+				//百位
+				var num1 = Math.floor(i / 100);
+				//十位
+				var num2 = Math.floor((i - num1 * 100) / 10);
+				//个位
+				var num3 = i % 10;
+				
+				if (num1 * num1 * num1 + num2 * num2 * num2 + num3 * num3 * num3 == i) {
+					console.log(i);
+					count++;
+				}
+			}
+			
+			console.log("count = " + count);
+			
+			
+			
+			/*
+			5.输入一个日期(年, 月, 日), 计算这一天是这一年的第几天（闰年2月多一天）
+			 */
+			
+			var year = 2016;
+			var month = 5;
+			var day = 4;
+			
+			var one = 0;
+			if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+				console.log("闰年");
+				one = 1;
+			} else{
+				console.log("平年");
+				one = 0;
+			}
+			
+			var days = 0;
+			switch (month){
+				case 1:
+					days = day;
+					break;
+				case 2:
+					days = 31 + day;
+					break;
+				case 3:
+					days = 31 + 28 + day + one;
+					break;
+				case 4:
+					days = 31 + 28 + 31 + day + one;
+					break;
+				case 5:
+					days = 31 + 28 + 31 + 30 + day + one;
+					break;
+				default:
+					break;
+			}
+			
+			console.log(days);
+			
+			
+		</script>
+	</body>
+</html>

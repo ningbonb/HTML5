@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+
+		<script>
+			//比较运算符>.<,>=,<=,!=,==,===,!===
+			//比较运算符会返回一个布尔值结果
+			var result = 5 > 3;
+			console.log(result);//true
+			result = 5 < 3;
+			console.log(result);//false
+			result = 6 >= 6;
+			console.log(result);//true
+			result = 3 <= 2;
+			console.log(result);//false
+			
+			//不同类型比较
+			result = '字符' == '字符';
+			console.log(result);//true
+			result = '字符' == '字符2';
+			console.log(result);//false
+			
+			//不同类型的比较，会转换成相同类型再比较
+			result = 123 == '123';
+			console.log(result);//true
+			
+			result = 1234 == '123';
+			console.log(result);//false
+			
+			result = Boolean(1) == Boolean(2);
+			console.log(result);//true
+			result = true == 1;
+			console.log(result);//true
+			
+			result = true == '1';
+			console.log(result);//true
+			
+			result = true == '2';
+			console.log(result);//false
+			
+			// === 和 !== :比较两个值的类型，如果类型一致，再去比较内容
+			result = '123' === 123;//类型不同
+			console.log(result);//false
+			
+			result = '123' === '123';//同类型
+			console.log(result);//result
+			
+			result = 'hello' !== 'h1';
+			console.log(result);//true
+			
+			//逻辑运算符
+			//&&（逻辑与）, ||(逻辑或)， ! (逻辑非)
+			//返回结果是Boolean值
+			
+			//&&：运算符两边只要有一个为假，返回结果假（一假即假）
+			result = true && true;
+			console.log(result);//true
+			
+			result = true && false;
+			console.log(result);//false
+			
+			result = false && true;
+			console.log(result);//true
+			
+			result = false && false;
+			console.log(result);//false
+			
+			// ||运算符两边只要有一个为真，返回结果为真(一真即真)
+			result = 5 > 3 || 4 > 2;
+			console.log(result);//true
+			
+			result = 5 > 6 || 4 > 2;
+			console.log(result);//true
+			
+			result = 5 > 6 || 4 > 5;
+			console.log(result);//false
+			
+			//逻辑非：取反 （非真即是假，非假即是真）
+			
+			result = 5 > 3;
+			console.log('--------------------');//true
+			
+			console.log(result);//true
+			console.log(!result);//false
+			console.log(!!result);//true
+			
+			//!短路现象
+			var a = 5,b = 6;
+			result = ++a >= b && a-- < 3;
+			console.log(result);//false
+			console.log(a);//5
+			
+			//短路现象:&&：如果运算符前面的值为假，那么运算符后面的内容不会被执行
+			var a = 5,b = 6;
+			result = ++a < b && a-- < b;
+			console.log(result);//false
+			console.log(a);//6 :a--没有执行
+			
+			//短路现象： || ：前面为真，后面内容不执行
+			var a = 5,b = 3;
+			result = a > b || a++ < 1;
+			console.log(result);//true
+			console.log(a);//6 :a++没有执行
+			
+			//三木运算符:如果？左边值为真，那么返回':'左边值
+			//如果？左边值为假，那么返回':'右边值
+			result = 5 > 3 ? 8 : 9;
+			console.log(result);//8
+			
+			result = 5 > 6 ? 8 : 9;
+			console.log(result);//9
+			
+		
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
