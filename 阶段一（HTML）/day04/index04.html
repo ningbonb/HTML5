@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>样式应用场景</title>
+	<!-- 
+		外部样式：
+		符合w3c推荐：结构 样式 行为三者分离，在项目开发中使用较多，便于维护管理
+
+		内部样式：
+		测试的时候用：
+
+		行间样式：
+		不符合结构 样式 行为三者分离思想，不建议使用
+
+		优先级：行间样式最大！ 内部样式和外部样式优先级和位置有关，下面的覆盖上面的
+	 -->
+	 <style>
+		p{
+			color:blue;
+		}
+	 </style>
+	 <link rel="stylesheet" href="index03.css">
+</head>
+<body>
+	<p -style="color:red;">今天天气不错</p>
+</body>
+</html>
