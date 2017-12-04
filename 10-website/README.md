@@ -136,6 +136,12 @@ WebStorm2016.2.3：[http://www.wuleba.com/28503.html](http://www.wuleba.com/2850
 
 在线压缩图片网站：[https://tinypng.com/](https://tinypng.com/)
 
+雪碧图自动生词代码：[http://www.spritecow.com/](http://www.spritecow.com/)
+
+开源代码命名推荐网站：[http://unbug.github.io/codelf/](http://unbug.github.io/codelf/)
+
+图像转base64网站：[http://99webtools.com/data-uri-generator.php](http://99webtools.com/data-uri-generator.php)
+
 无版权高清大图：[http://www.ssyer.com/](http://www.ssyer.com/)
 
 有道在线翻译：[http://fanyi.youdao.com/](http://fanyi.youdao.com/)
