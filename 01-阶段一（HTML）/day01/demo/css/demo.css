@@ -94,30 +94,7 @@ li{
 }
 sub{
 	width: 100px;
-	h10p
 	height: 10%;
-	m5e
 	margin: 5em;
 	
 }
-@f
-@font-face {
-	font-family:;
-	src:url();
-}
-@f+
-@font-face {
-	font-family: 'FontName';
-	src: url('FileName.eot');
-	src: url('FileName.eot?#iefix') format('embedded-opentype'),
-		 url('FileName.
-		 	@f+woff') format('woff'),
-		 url('FileName.ttf') format('truetype'),
-		 url('FileName.svg#FontName') format('svg');
-	font-style: normal;
-	font-weight: normal;
-}
-trs
--webkit-transition: prop time;
--o-transition: prop time;
-transition: prop time;
