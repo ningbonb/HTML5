@@ -80,7 +80,7 @@ Tween算法：[http://www.cnblogs.com/bluedream2009/archive/2010/06/19/1760909.h
 移动端touch.js：[http://blog.csdn.net/libin_1/article/details/50534611](http://blog.csdn.net/libin_1/article/details/50534611)
 
 ## JavaScript深度学习 ##
-推荐javascript-in-one-pic
+推荐javascript-in-one-big-pic
 
 js深度体系学习（js-in-one-pic）：[https://github.com/coodict/javascript-in-one-pic/blob/master/README-zh.md](https://github.com/coodict/javascript-in-one-pic/blob/master/README-zh.md)
 
